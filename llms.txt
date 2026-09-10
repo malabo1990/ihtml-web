@@ -1,0 +1,36 @@
+# IHTML (Interactive HTML)
+
+> Editor visual de animaciones HTML/CSS. App de escritorio para Windows, macOS y Linux. Dos salidas: `.html` estándar para publicar en la web, y `.ihtml` (documento re-editable) que se abre con la app gratuita IHTML Mirror (escritorio y Android). Sin backend ni cuentas.
+
+## Qué es IHTML
+
+IHTML (Interactive HTML) es un editor de animaciones para la web: lienzo con artboards y páginas, timeline con keyframes, inspector visual de propiedades, acciones sin código (eventos como click, hover, scroll, view, time, start, typing), vectores editables con morphing, física (fricción, gravedad, resorte) y exportación a HTML único o HTML + CSS + JS separados.
+
+- El **Editor** crea; **IHTML Mirror** (app gratuita, escritorio y Android) abre y ejecuta un `.ihtml`. Un `.ihtml` lleva el proyecto completo incrustado (elementos, animaciones, acciones, fuentes, imágenes, video): es a la vez el resultado y la fuente re-editable. NO es un archivo que se abra directo en un navegador; para eso está Export HTML, que genera un `.html` estándar.
+- IHTML Mirror se posiciona como alternativa interactiva al PDF: documentos animados y con lógica que funcionan sin internet. Casos: empresas (propuestas, catálogos, publicidad interactiva offline en ferias/stands), salud (material para pacientes, consentimientos), educación (libros y apuntes interactivos, con texto real y roles ARIA para lectores de pantalla). Distribución pública / semiprivada / privada (cifrado AES-256) con caducidad opcional.
+- Se instala como app (Windows, macOS, Linux; Mirror también Android); también se corre desde el código con `npm run dev`.
+- Los proyectos viven en el equipo del usuario; el editor funciona sin conexión. Telemetría de diagnóstico opcional (errores y versión, nunca el contenido de los proyectos).
+- API pública de runtime vía `window.ihtmlDocument`.
+- Localizado a 8 idiomas (EN, ES, PT, FR, DE, IT, JA, ZH) y 6 temas (entre claros y oscuros).
+- Precios: plan Gratis US$0 (editor completo, exporta imagen PNG/WebP/JPEG, sin export HTML) y plan Completo US$4/mes o US$36/año (import y export de .html e .ihtml, GIF y video).
+- Creado por Casimiro Ondo Obiang (CEO y líder desarrollador).
+
+## Páginas
+
+- [Inicio](https://ihtml.app/): características, plataformas, precios y preguntas frecuentes.
+- [Guía de usuario](https://ihtml.app/guia-usuario.html): manual completo — primeros pasos, vectores, artboards, timeline, acciones, física, exportación/importación, atajos de teclado y API pública.
+
+## API pública (runtime)
+
+`window.ihtmlDocument` expone: `playTimeline(nombre)`, `pauseTimeline(nombre)`, `gotoTimeInTimeline(nombre, segundos)`, `isTimelinePlaying(nombre)`, `timelineNames`, `getElementById(id)`, `triggerAction(id)`, `getVariable(nombre)`, `setVariable(nombre, valor)`, `variableNames`.
+
+## Ejemplo mínimo
+
+```html
+<script>
+  // Reproduce la timeline llamada "Intro" al cargar
+  window.addEventListener("load", function () {
+    ihtmlDocument.playTimeline("Intro");
+  });
+</script>
+```
