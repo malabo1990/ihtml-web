@@ -233,28 +233,6 @@ a {
   text-align: center;
 }
 
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--ink-2);
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 980px;
-  padding: 6px 14px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-}
-
-.chip::before {
-  content: '';
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--grad);
-}
-
 .hero h1 {
   font-size: clamp(44px, 7vw, 82px);
   font-weight: 700;
@@ -1341,68 +1319,9 @@ footer .social svg {
 }
 
 /* ============================================================
-   Más vida: demo animada del hero, hover de tarjetas con más
-   carácter, aparición en cascada y precio destacado que respira.
+   Más vida: hover de tarjetas con más carácter, aparición en
+   cascada y precio destacado que respira.
    ============================================================ */
-
-/* --- Hero: mini demo animada arriba de la captura, en vivo --- */
-.hero-demo {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  margin: 0 auto 30px;
-}
-
-.hero-demo-shape {
-  flex: none;
-  width: 18px;
-  height: 18px;
-  border-radius: 7px;
-  background: var(--grad);
-  animation: heroDemoShape 2.6s ease-in-out infinite;
-}
-
-@keyframes heroDemoShape {
-  0%,
-  100% {
-    transform: scale(1) rotate(0deg);
-    border-radius: 7px;
-  }
-  50% {
-    transform: scale(1.25) rotate(90deg);
-    border-radius: 50%;
-  }
-}
-
-.hero-demo-track {
-  position: relative;
-  width: 84px;
-  height: 4px;
-  border-radius: 2px;
-  background: var(--line-strong);
-  overflow: hidden;
-}
-
-.hero-demo-playhead {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 18px;
-  height: 100%;
-  border-radius: 2px;
-  background: var(--grad);
-  animation: heroDemoPlayhead 2.6s ease-in-out infinite;
-}
-
-@keyframes heroDemoPlayhead {
-  0%,
-  100% {
-    left: 0;
-  }
-  50% {
-    left: calc(100% - 18px);
-  }
-}
 
 /* --- Tarjetas de características: hover con más carácter --- */
 .card:hover {
@@ -1493,12 +1412,7 @@ footer .social svg {
    recibir loops infinitos — se cortan a un estado fijo (la transición
    de hover/scroll sigue andando, es puntual, no un loop). */
 @media (prefers-reduced-motion: reduce) {
-  .hero-demo-shape,
-  .hero-demo-playhead,
   .precio-card.es-destacada {
     animation: none;
-  }
-  .hero-demo-playhead {
-    left: 0;
   }
 }
