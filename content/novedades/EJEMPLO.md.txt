@@ -1,0 +1,37 @@
+Formato de una entrada de Novedades — copiá esto a un archivo nuevo
+llamado "content/novedades/AAAA-MM-DD-titulo-corto.md" (con extensión
+.md de verdad) para que el build lo tome. Este archivo termina en
+.md.txt a propósito para que NUNCA se publique solo (es un ejemplo).
+
+--- copiar desde acá hacia abajo, sin esta línea de instrucciones ---
+
+---
+title: Título de la entrada
+date: 2026-09-14
+summary: Resumen de 1-2 líneas. Se usa como meta description y en el listado.
+youtube: dQw4w9WgXcQ
+tags: version, novedad
+---
+
+Cuerpo de la entrada en Markdown simple: párrafos, **negrita**, *cursiva*,
+[links](https://ihtml.app/), listas:
+
+- Primer punto
+- Segundo punto
+
+## Subtítulo
+
+Otro párrafo. Podés meter bloques de código:
+
+```
+npm install
+```
+
+Notas sobre los campos del encabezado:
+- `date`: formato AAAA-MM-DD, se usa para ordenar y para el sitemap/RSS.
+- `youtube`: opcional. Solo el ID del video (lo que va después de
+  "v=" en la URL de YouTube), no la URL completa.
+- `tags`: opcional, separados por coma.
+- El nombre del archivo (sin ".md") se convierte en la URL de la
+  entrada: content/novedades/2026-09-14-mi-post.md →
+  novedades/2026-09-14-mi-post.html
