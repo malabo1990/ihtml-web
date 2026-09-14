@@ -1,0 +1,1079 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ユーザーガイド — IHTML (Interactive HTML)</title>
+    <meta
+      name="description"
+      content="IHTML（Interactive HTML）の完全なユーザーガイド：はじめに、ベクター、アートボード、キーフレームタイムライン、ノーコードアクション、物理演算、エクスポート/インポート、キーボードショートカット、パブリックAPI、AIエージェント向けMCP。"
+    />
+    <meta
+      name="keywords"
+      content="ihtmlガイド, ウェブアニメーションチュートリアル, キーフレーム, タイムライン, ノーコードアクション, htmlエクスポート, ihtml api, ihtml mcp, .ihtml"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://ihtml.app/ja/guide.html" />
+    <link rel="alternate" hreflang="en" href="https://ihtml.app/guide.html" />
+    <link rel="alternate" hreflang="es" href="https://ihtml.app/es/guia-usuario.html" />
+    <link rel="alternate" hreflang="pt" href="https://ihtml.app/pt/guide.html" />
+    <link rel="alternate" hreflang="fr" href="https://ihtml.app/fr/guide.html" />
+    <link rel="alternate" hreflang="de" href="https://ihtml.app/de/guide.html" />
+    <link rel="alternate" hreflang="it" href="https://ihtml.app/it/guide.html" />
+    <link rel="alternate" hreflang="ja" href="https://ihtml.app/ja/guide.html" />
+    <link rel="alternate" hreflang="zh" href="https://ihtml.app/zh/guide.html" />
+    <link rel="alternate" hreflang="x-default" href="https://ihtml.app/guide.html" />
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="IHTML · Interactive HTML" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:title" content="ユーザーガイド — IHTML (Interactive HTML)" />
+    <meta
+      property="og:description"
+      content="IHTMLの完全なガイド：はじめに、ベクター、アートボード、タイムライン、ノーコードアクション、物理演算、エクスポート、キーボードショートカット、パブリックAPI、AIエージェント向けMCP。"
+    />
+    <meta property="og:url" content="https://ihtml.app/ja/guide.html" />
+    <meta property="og:image" content="https://ihtml.app/assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ユーザーガイド — IHTML (Interactive HTML)" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/estilos.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "@id": "https://ihtml.app/ja/guide.html#article",
+        "headline": "ユーザーガイド — IHTML (Interactive HTML)",
+        "description": "IHTMLの完全なユーザーガイド：はじめに、ベクター、アートボード、キーフレームタイムライン、ノーコードアクション、物理演算、エクスポート/インポート、キーボードショートカット、パブリックAPI、AIエージェント向けMCP。",
+        "inLanguage": "ja",
+        "datePublished": "2026-09-14",
+        "dateModified": "2026-09-14",
+        "url": "https://ihtml.app/ja/guide.html",
+        "image": "https://ihtml.app/assets/og-image.png",
+        "isPartOf": { "@id": "https://ihtml.app/#website" },
+        "about": { "@id": "https://ihtml.app/#software" },
+        "author": {
+          "@type": "Person",
+          "name": "Casimiro Ondo Obiang",
+          "jobTitle": "CEO兼リード開発者"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "IHTML",
+          "logo": { "@type": "ImageObject", "url": "https://ihtml.app/assets/favicon.svg" }
+        },
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [".intro", ".seccion h2"]
+        },
+        "mainEntityOfPage": "https://ihtml.app/ja/guide.html"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="island">
+      <button class="island-dot" aria-label="メニュー" aria-expanded="false"></button>
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 555 625" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="logoGrad" x1="277" y1="0" x2="277" y2="625" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f16529" />
+              <stop offset="1" stop-color="#a12100" />
+            </linearGradient>
+            <linearGradient id="logoGradH" x1="0" y1="312" x2="555" y2="312" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f16529" />
+              <stop offset="1" stop-color="#a12100" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#logoGrad)" d="M0 0H554.15V416.48L277.07 624.08 0 416.48Z" />
+          <path fill="url(#logoGradH)" d="M554.15 0 277.07 624.08 0 0Z" />
+        </svg>
+        <span class="logo-text"><b>IHTML</b>&nbsp;Interactive HTML</span>
+      </a>
+      <div class="island-menu-wrap">
+        <nav class="island-menu">
+          <a href="index.html">ホーム</a>
+          <a href="guide.html" class="is-activo">ガイド</a>
+          <a href="../novedades/index.html">お知らせ</a>
+          <a href="https://github.com/malabo1990/ihtml-releases/discussions" target="_blank" rel="noopener">フォーラム</a>
+          <a href="index.html#scarica">ダウンロード</a>
+          <a href="index.html#mirror">Mirror</a>
+          <a href="index.html#prezzi">料金</a>
+          <a class="is-cta" href="index.html#prezzi">購読する</a>
+        </nav>
+      </div>
+      <div class="lang-switch">
+        <button class="lang-switch-btn" type="button" aria-haspopup="true" aria-expanded="false">
+          JA<span class="lang-switch-caret">▾</span>
+        </button>
+        <div class="lang-switch-menu">
+          <a href="../guide.html">English</a>
+          <a href="../es/guia-usuario.html">Español</a>
+          <a href="../pt/guide.html">Português</a>
+          <a href="../fr/guide.html">Français</a>
+          <a href="../de/guide.html">Deutsch</a>
+          <a href="../it/guide.html">Italiano</a>
+          <a href="guide.html" class="is-activo">日本語</a>
+          <a href="../zh/guide.html">中文</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout-guia">
+      <aside class="toc">
+        <p class="titulo">ユーザーガイド</p>
+        <ul>
+          <li>
+            <a href="#1-primi-passi">1. はじめに</a>
+            <ul>
+              <li><a href="#lingua-e-tema">言語とテーマ</a></li>
+              <li><a href="#barra-strumenti">上部ツールバー</a></li>
+              <li><a href="#vettori">ベクター</a></li>
+              <li><a href="#pen">Penツール</a></li>
+              <li><a href="#nodi">ノードの編集</a></li>
+              <li><a href="#muovere">移動・リサイズ・回転</a></li>
+              <li><a href="#artboards">アートボード</a></li>
+              <li><a href="#contestuale">コンテキストメニュー</a></li>
+              <li><a href="#inspector">インスペクタ</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#2-livelli">2. レイヤー</a>
+            <ul>
+              <li><a href="#bloccare-guide">ロックとガイドレイヤー</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#3-animazione">3. アニメーション（タイムライン）</a>
+            <ul>
+              <li><a href="#animazioni-nominate">名前付きアニメーション</a></li>
+              <li><a href="#marcatori">アクションマーカー</a></li>
+              <li><a href="#keyframe">プロパティのキーフレーム作成</a></li>
+              <li><a href="#rec">オートキーフレーム（REC）</a></li>
+              <li><a href="#selezionare-keyframe">キーフレームの選択とコピー</a></li>
+              <li><a href="#menu-timeline">タイムラインのコンテキストメニュー</a></li>
+              <li><a href="#file">ファイル</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#4-azioni">4. インタラクティブアクション</a>
+            <ul>
+              <li><a href="#pagine">ページ（シーン）</a></li>
+              <li><a href="#variabili">プロジェクト変数</a></li>
+              <li><a href="#fisica">物理演算</a></li>
+            </ul>
+          </li>
+          <li><a href="#5-codice">5. カスタムコード</a></li>
+          <li><a href="#6-esportare">6. エクスポート</a></li>
+          <li><a href="#7-importare">7. インポート</a></li>
+          <li><a href="#8-formato">8. プロジェクト形式</a></li>
+          <li><a href="#9-scorciatoie">9. キーボードショートカット</a></li>
+          <li><a href="#10-api">10. リアルタイムパブリックAPI</a></li>
+          <li><a href="#11-mcp">11. MCP — AIエージェントによる制御</a></li>
+        </ul>
+      </aside>
+
+      <main class="guia">
+        <h1>ユーザーガイド — IHTML (Interactive HTML)</h1>
+        <p class="intro">
+          エディタでできることすべて：インターフェース、ベクター、アートボード、タイムライン、アクション、物理演算、エクスポートとインポート、キーボードショートカット、パブリックAPI。
+        </p>
+
+        <!-- ================= 1. はじめに ================= -->
+        <div class="seccion" id="1-primi-passi">
+          <h2>1. はじめに</h2>
+
+          <ol class="pasos">
+            <li>
+              IHTML（Windows、macOS、Linux、Android）を<b><a href="index.html#scarica">ダウンロード</a></b>してインストールするか、リポジトリをクローンして<code>npm install</code>と<code>npm run dev</code>を実行します。
+            </li>
+            <li>
+              中央のキャンバスがシーンです（1つまたは複数の<b>アートボード</b>、下記参照）。上部バーには選択/作成ツール、左サイドバーには<b>Layers</b>、右サイドバーは選択した要素のプロパティを扱う<b>Inspector</b>、下部には<b>Timeline</b>があります。
+            </li>
+          </ol>
+
+          <figure class="captura">
+            <img
+              src="../assets/img/editor.jpg"
+              width="1600"
+              height="900"
+              loading="lazy"
+              decoding="async"
+              alt="IHTMLのウィンドウ：左に要素パネル、中央にグラデーションデザインのキャンバス、周りにインスペクタとタイムライン。"
+            />
+            <figcaption>
+              IHTMLのウィンドウ：左に<b>Elements</b>、中央にキャンバス、右に<b>Inspector</b>、下部に<b>Timeline</b>。
+            </figcaption>
+          </figure>
+
+          <h3 id="lingua-e-tema">言語とテーマ</h3>
+          <p>右上、キャンバスツールの近くに2つのセレクタがあります：</p>
+          <ul>
+            <li>
+              <b>言語</b> — 8言語対応（English、Español、Português、Français、Deutsch、Italiano、日本語、中文）：メインナビゲーションとインスペクタ全体（Design/Data/Actions/物理演算）を翻訳します。
+            </li>
+            <li><b>テーマ</b> — ライトとダークの6つのテーマ（デフォルトはダークグレー）。</li>
+          </ul>
+          <p>
+            どちらもセッション間で記憶され（ブラウザに保存されます）、<b>エディタ</b>の設定です&mdash;<code>.ihtml</code>プロジェクトには保存されず、エクスポートされたHTMLにも反映されません。
+          </p>
+
+          <h3>要素の作成</h3>
+          <p>
+            上部バーのツール（または左の<b>Elements</b>パネル）を使ってテキスト、図形、ボタン、入力欄、カード、ナビバーなど既成のコンポーネントを追加します。新しい要素はバウンディングボックスが表示された選択状態で現れます。
+          </p>
+
+          <h3 id="barra-strumenti">上部バーのツール</h3>
+          <table>
+            <tr>
+              <th>ツール</th>
+              <th>機能</th>
+            </tr>
+            <tr>
+              <td><b>Select (V)</b></td>
+              <td>選択・ドラッグ。背景をドラッグすると複数選択の矩形が描かれます。</td>
+            </tr>
+            <tr>
+              <td><b>Shape (S)</b></td>
+              <td>ドラッグで<b>ベクター長方形</b>を描画。<b>Alt</b>で<b>楕円</b>になります。</td>
+            </tr>
+            <tr>
+              <td><b>Text (T)</b></td>
+              <td>クリックした場所にテキスト要素を作成します。</td>
+            </tr>
+            <tr>
+              <td><b>Zoom (Z)</b></td>
+              <td>クリックでズームイン、<b>Alt</b>+クリックでズームアウト。</td>
+            </tr>
+            <tr>
+              <td><b>Hand (H)</b></td>
+              <td>スペースバーを押さずにパンできます。</td>
+            </tr>
+            <tr>
+              <td><b>Pen (P)</b></td>
+              <td>パスを手描きします（下記参照）。</td>
+            </tr>
+          </table>
+          <p>
+            ShapeとTextは作成後、自動的にSelectに戻ります。これにより次のクリックで誤って別の要素を作成することを防ぎます。
+          </p>
+
+          <h3 id="vettori">ベクター（描画された図形）</h3>
+          <p>
+            Shapeツールの図形と、Elementsパネルの<b>Shapes</b>カテゴリのカード（<b>Rectangle、Ellipse、Triangle、Polygon、Star、Spiral</b>）は<b>本物のベクター要素</b>です：角丸のdivとしてではなく、本物の<code>&lt;path&gt;</code>を持つ<code>&lt;svg&gt;</code>としてエクスポートされます。Triangle/Polygonは正多角形（3辺と6辺）、Starは5つ星、Spiralは開いた螺旋として作成されます。辺・頂点の数は作成時に固定されます。異なる形が必要な場合はノードを手動で調整してください。
+          </p>
+          <ul>
+            <li>
+              <b>Fill</b>、<b>Stroke</b>、<b>Stroke width</b>はインスペクタの<b>Data</b>タブ内の<b>Element Properties</b>で編集します（塗りなしまたは線なしにするには<code>none</code>を入力可能）&mdash;<b>Design</b>のFill/Backgroundセクションでは<b>ありません</b>。ベクターの場合、そのセクションは表示すらされません：それは図形を囲む矩形の背景を色付けするもので、<code>&lt;path&gt;</code>自体ではないからです。
+            </li>
+            <li>
+              FillとStrokeにはフィールド横にカラーサンプルが付きます。テキストフィールドが引き続き操作を担います（塗りをなくすには<code>none</code>と入力できます）。
+            </li>
+            <li>
+              数値フィールド（Stroke width、スライダーのmin/max、Canvasのバッファなど）は<b>ドラッグ</b>して値を変更できます（フィールド横の⇄アイコン）：<code>Shift</code>で微調整、<code>Alt</code>で大きく変化します。
+            </li>
+            <li>
+              要素をリサイズすると<b>図形も拡大縮小</b>されます：ジオメトリは独自の空間に存在し、<code>viewBox</code>がそれをバウンディングボックスまで引き伸ばします。
+            </li>
+            <li>楕円はCSSの円ではなく、4つの本物のベジェセグメントとして保存されます。</li>
+            <li>
+              <b>Clip children to shape</b>（Data &gt; Element Properties）：このベクターの<b>内部にネストされた</b>要素は、多角形の領域外では見えなくなります&mdash;クリッピングマスクです（純粋なCSSの<code>clip-path</code>）。ベクターに子要素がある場合のみ効果があります。
+            </li>
+            <li>
+              <b>Animate points</b>（プロパティ末尾の◆ボタン）：ベクターはキーフレームで<b>図形全体をアニメーション</b>できます。ノードを編集した後、タイムラインの異なる位置でボタンを押すと、その形状がキーフレームとして記録されます。エディタは各ノードを個別に補間します（滑らかなモーフィング）。<b>同じノード数</b>を持つ2つの図形間でのみ正しく補間されます。
+            </li>
+          </ul>
+
+          <h3 id="pen">Penツール（パスの描画）</h3>
+          <ul>
+            <li>キャンバス上の各<b>クリック</b>は角（コーナー）の頂点を追加します。</li>
+            <li>
+              <b>クリック＆ドラッグ</b>すると、その頂点に対称のベジェハンドルが付きます&mdash;「柔らかい」ノードの典型的なジェスチャーです。
+            </li>
+            <li><b>Enter</b>でパスを<b>開いたまま</b>（線として）閉じます。</li>
+            <li>最初の頂点の<b>近くをクリック</b>すると<b>多角形</b>として閉じます。</li>
+            <li><b>Esc</b>で描画全体を破棄します&mdash;要素は作成されません。</li>
+          </ul>
+          <p>完了すると、パスは直接<b>ノード編集モード</b>に入ります。</p>
+
+          <h3 id="nodi">既存ベクターのノード編集</h3>
+          <p>
+            任意のベクター要素を<b>ダブルクリック</b>すると編集モードに入ります：ノードごとに白いドラッグ可能な点、ベジェハンドルごとに青い点が表示されます。
+          </p>
+          <ul>
+            <li><b>ノード</b>（白）をドラッグすると移動します&mdash;曲線全体が一緒に動きます。</li>
+            <li><b>ハンドル</b>（青）をドラッグするとその曲線のみ変化します。</li>
+            <li>
+              <b>Delete</b>で選択中のノードを削除します（有効なパスに必要な最小数を下回ることはありません：開いている場合は2、閉じている場合は3）。
+            </li>
+            <li><b>Esc</b>で編集モードを終了し、通常のハンドルに戻ります。</li>
+          </ul>
+
+          <h3 id="muovere">移動・リサイズ・回転</h3>
+          <ul>
+            <li>
+              ドラッグで移動、または矢印キー（Shift+矢印で10px）。複数選択している場合は<b>グループ全体</b>が一緒に動きます。
+            </li>
+            <li>
+              バウンディングボックスのハンドルでリサイズ：<b>Shift</b>で比率維持、<b>Alt</b>で中心から、<b>Ctrl</b>でグリッドにスナップ。
+            </li>
+            <li>丸いハンドルで要素を回転させます。</li>
+            <li>
+              回転/拡大縮小された親にネストされた要素は、画面軸ではなく自身の視覚的な軸に沿ってマウスや矢印キーに従います。
+            </li>
+            <li>
+              <b>スマートスナップ</b>：近くの要素の端・中心、または手動ガイドに自動的にスナップし、スナップ中はピンク/シアンのラインが表示されます。<code>Ctrl</code>でグリッドスナップを強制します（相互排他）。
+            </li>
+            <li>
+              <b>ルーラーとガイド</b>：キャンバス上部または左のグレーのバーからドラッグすると手動ガイド（シアンのライン）が作成されます。ダブルクリックで削除、ドラッグで再配置できます。
+            </li>
+          </ul>
+
+          <h3 id="artboards">アートボード（複数の作業エリア）</h3>
+          <p>
+            同じキャンバス内に複数のアートボードを持つことができ、それぞれ独自のサイズと背景を持ちます。「Add Artboard」ボタン（またはアートボード背景のコンテキストメニュー）で、アクティブなものの隣に新しいものが作成されます。
+          </p>
+          <ul>
+            <li>アートボードの背景をクリックするとアクティブになります（新しい要素はそこに追加されます）。</li>
+            <li>ラベルをドラッグすると移動、角のハンドルをドラッグするとリサイズできます。</li>
+            <li>
+              何も選択していない状態で矢印キーを押すとアクティブなアートボードが移動します。<code>Delete</code>を押すと（何も選択していない状態で）それを削除します（最後の1つは削除できません）。
+            </li>
+            <li><b>Export HTML</b>は常にアクティブなアートボードのみをエクスポートし、プロジェクト全体ではありません。</li>
+          </ul>
+
+          <h3 id="contestuale">コンテキストメニュー（右クリック）</h3>
+          <p>
+            共有された1つのメニューで、クリックした場所によってオプションが変わります：要素上（複製、削除、コピー/ペースト、前面/背面へ移動...）、空の背景（ペースト、すべて選択、アートボード追加）、特定のアートボードの背景（リネーム、複製、削除）、またはElementsパネルのカード（キャンバスに追加）。
+          </p>
+          <ul>
+            <li>
+              <b>2つ以上選択</b>時：選択全体を囲む矩形に対する<b>整列</b>グリッド（左/中央/右、上/中央/下）。
+            </li>
+            <li>
+              <b>3つ以上</b>時：水平/垂直の<b>間隔の均等配置</b>も可能（最初と最後は固定され、残りが均等な間隔で配置されます）。
+            </li>
+            <li>
+              <b>2つ以上の兄弟ベクター</b>選択時：SVGネイティブの<code>fill-rule</code>と<code>clip-path</code>を使った<b>ブール演算</b>グリッド（Union、Subtract、Intersect、Exclude）。結果は正確にレンダリングされ、他のベクターと同様にアニメーション/エクスポートできますが、ノード単位で編集可能な単一のシンプルな曲線としては残りません。
+            </li>
+          </ul>
+
+          <h3 id="inspector">インスペクタ（右パネル）</h3>
+          <p>
+            <b>Design</b>、<b>Data</b>、<b>Actions</b>、<b>物理演算</b>の4つの排他的なタブ：一度に1つだけ表示されます。
+          </p>
+          <ul>
+            <li>
+              <b>Design</b> — <b>ビジュアル</b>に関するすべてが1つの連続したスクロールにまとまっています：Position/Size/Origin/Spacing、Flex/Gridレイアウト（DisplayをFlexまたはGridにすると表示）、Appearance（Fill、Opacity、Blend Mode、Border、Radius、Shadow）、Typography（ウェブフォント検索、テキストカラー、テキストシャドウを含む）、Effects（scale、skew、3D、CSSフィルター）。各セクションはアコーディオンで、<b>すでに独自の値がある場合のみ</b>開いた状態で始まります。さらに、Fill/Opacity/Blend Mode/Border/Radius/Shadowは要素タイプに応じて適応します：ベクターはFill/Border/Radiusを表示しません（Data &gt; Element Propertiesにあります）、テキストはBorder/Blend Modeを表示しません、画像/動画はFillを表示しません。セクションに実際の値がすでにある場合は表示されます&mdash;使用中の機能へのアクセスを失うことはありません。
+            </li>
+            <li>
+              <b>Data</b> — HTMLプロパティ：<b>Element Info</b>（ID/Type/Name）、<b>State</b>セレクタ（Normal/Hover/Active）、<b>CSS Classes</b>、<b>Element Properties</b>、<b>Custom Attributes</b>、<b>Accessibility</b>。
+            </li>
+            <li><b>Actions</b> — ノーコードインタラクション（セクション4参照）。</li>
+            <li><b>物理演算</b> — 本物のシミュレーション（セクション4参照）。</li>
+          </ul>
+          <div class="nota">
+            <b>詳細：</b>Stateセレクタは<b>Data</b>にありますが、そこで保存されるスタイル（色、タイポグラフィ、境界線、エフェクトなど）は<b>Design</b>で編集します&mdash;Dataでステートを選び、Designに切り替えてください。
+          </div>
+
+          <p>
+            <b>Display</b>（Block/Flex/Grid）は3つのアイコンボタンで選択します。一般的でないバリエーション（Inline Block/Flex/Grid、None）は隣の「···」セレクタにあります。Flex/Gridレイアウト（Direction、Wrap、Justify、Align、Align Self）とStroke Style（Solid/Dashed/Dotted/Double）もアイコンボタンで選択します。<br />
+            <b>Columns/Rows</b>のGridは、ドラッグ可能なトラックのリストとして編集します（「+ Track」で追加、×で削除、最小1つ）。<code>auto</code>や<code>minmax(...)</code>のような値は通常のテキストとして編集します。<br />
+            Flex/Gridコンテナの子要素は親のレイアウトに実際に従い、幅・高さを維持します（暗黙に縮小することはありません）。
+          </p>
+
+          <h4>要素タイプ固有のプロパティ</h4>
+          <p>
+            <b>Data</b>でCSS Classesの下に、選択したタイプの実際のHTMLプロパティを持つ<b>Element Properties</b>が表示されます。例：
+          </p>
+          <div class="tabla-wrap">
+            <table>
+              <tr>
+                <th>要素</th>
+                <th>プロパティ</th>
+              </tr>
+              <tr>
+                <td>Range Slider</td>
+                <td>Min, Max, Step, Value</td>
+              </tr>
+              <tr>
+                <td>Meter</td>
+                <td>Min, Max, Value, Low, High, Optimum</td>
+              </tr>
+              <tr>
+                <td>Progress</td>
+                <td>Value, Max</td>
+              </tr>
+              <tr>
+                <td>Inputs</td>
+                <td>Type, Name, Required, Disabled, Read only</td>
+              </tr>
+              <tr>
+                <td>Textarea</td>
+                <td>Name, Rows, Max length, Required, Disabled</td>
+              </tr>
+              <tr>
+                <td>Image / Picture</td>
+                <td>Source, Alt text, Fit, Loading</td>
+              </tr>
+              <tr>
+                <td>Video / Audio</td>
+                <td>Source, Controls, Autoplay, Loop, Muted, Poster</td>
+              </tr>
+              <tr>
+                <td>Link</td>
+                <td>URL, Target, Rel</td>
+              </tr>
+              <tr>
+                <td>iFrame と embed</td>
+                <td>Source, Title, Loading</td>
+              </tr>
+              <tr>
+                <td>Details / Dialog</td>
+                <td>Open</td>
+              </tr>
+              <tr>
+                <td>Vector</td>
+                <td>Fill, Stroke, Stroke width, Clip children</td>
+              </tr>
+              <tr>
+                <td>Marquee</td>
+                <td>Direction, Behavior, Speed, Delay</td>
+              </tr>
+              <tr>
+                <td>Canvas</td>
+                <td>Buffer width, Buffer height</td>
+              </tr>
+            </table>
+          </div>
+          <p>
+            このセクションは独自のプロパティを持たないタイプ（Div、Text）には表示されません。リストにないものは引き続き<b>Custom Attributes</b>（<code>data-*</code>、<code>aria-*</code>、<code>role</code>、<code>title</code>...）で編集できます。デフォルト値と同じ値は保存されず、エクスポートされたHTMLにも表示されません。
+          </p>
+
+          <h4>ローカルファイルのインポート（Image/Picture/Video/Audio）</h4>
+          <p>
+            <b>Source</b>フィールド（Videoでは<b>Poster</b>も）には<b>Choose File</b>ボタンがあります：ファイルは本物の<code>data:</code>URIとして埋め込まれます&mdash;外部サーバーに依存せず、あなたのコンピュータとウェブ間で持ち運びできます（アプリにはバックエンドがありません）。ブラウザやファイルエクスプローラーからコピーした画像を<b>Ctrl+Vで貼り付け</b>ることもできます：すでにImage/Picture/Videoが選択されている場合はそれを置き換え、そうでなければ新しいImageを作成します。エディタ内でコピーした要素を貼り付ける場合も同じように動作します（エディタはまずシステムのクリップボードに画像がないか確認します）。
+          </p>
+
+          <h4>装飾コンポーネントの編集可能テキスト</h4>
+          <p>
+            <b>Badge、Avatar、Tooltip、Alert Box、Tab Bar</b>、<b>Breadcrumb</b>は<b>Content</b>フィールド（Design）でテキストを編集します。Tab BarとBreadcrumbはカンマ区切りのリストを使用します&mdash;<code>Overview,Pricing,FAQ</code>で3つのタブになります。Card、Pricing、Navbar、Paginationは固定のサンプルコンテンツのままです（独自のテキストが複数あり、専用の編集手段がまだありません）。<b>Tooltip</b>はその見た目をデザインするための静的なモックアップです。本物のツールチップにするにはActionsと組み合わせてください（hover → Show / mouseLeave → Hide、Tooltipは最初は非表示にしておく）。
+          </p>
+
+          <h4>セマンティックコンテナ（Header、Footer、Aside、Nav、Main...）</h4>
+          <p>
+            <b>Semantic</b>カテゴリ（Header、Nav、Main、Aside、Footer、Section、Article、Figure、Figcaption）は本物のHTMLタグとしてエクスポートされます（<code>&lt;header&gt;</code>、<code>&lt;aside&gt;</code>...）&mdash;SEO/アクセシビリティに重要です。5つのランドマーク（Header/Nav/Main/Aside/Footer）はアートボードの実際の端を占める状態で作成されます。これは出発点にすぎません：他の要素と同様に編集でき、独自の色や境界線は持ちません。
+          </p>
+
+          <h4>アクセシビリティ</h4>
+          <p>
+            Custom Attributesの下の<b>Accessibility</b>セクションは任意の要素に適用できます：<b>ARIA Label</b>、<b>ARIA Role</b>（一般的なロールと「(automatic)」）、<b>Hide from screen readers</b>（<code>aria-hidden</code>）、<b>Keyboard focusable</b>（<code>tabindex="0"</code>）。この4つはすべて&mdash;キャンバス上でもエクスポートされたファイルでも&mdash;<b>1行のJavaScriptも書かずに</b>本物のHTML属性として出力されます。より具体的なもの（<code>aria-describedby</code>、<code>aria-live</code>...）にはCustom Attributesがあります。
+          </p>
+
+          <h4>Fill：単色、グラデーション、または画像</h4>
+          <p>
+            <b>Fill</b>フィールドはサマリーボタン（サンプル＋ラベル）で、<b>Solid / Linear / Radial / Conic / Image</b>タブのポップオーバーを開きます：
+          </p>
+          <ul>
+            <li><b>Solid</b> — 色とそのセレクタ。</li>
+            <li>
+              <b>Linear / Radial / Conic</b> — ストップのリスト（0-100%の位置を持つ2色以上、「+ Add Stop」）、そしてAngle（Linear/Conic）またはCenter X/Y（Radial）。
+            </li>
+            <li><b>Image</b> — URLまたはローカルファイルのインポート（<code>data:</code>URI）。</li>
+          </ul>
+          <p>
+            カラーピッカー（Fill、Border、Shadow、Text Color、Text Shadow、ストップで共通）にはSaturation/Lightnessの四角形、HueとAlphaのスライダー（チェッカーボード背景付き）、そしてクリックで<b>HEX → RGBA → HSLA</b>を循環するテキストフィールドがあります&mdash;3つの形式のいずれかを貼り付けても機能します。Fill/Border/Text Color/Vector Fill-Strokeで<b>Solid</b>が有効な場合、ピッカーは<b>ポップオーバーのすぐ下に自動的に</b>表示されます&mdash;小さなサンプルを別途開く必要なく、1クリックで全体を確認できます。
+          </p>
+          <p>
+            <b>キャンバス上に直接表示されるグラデーションライン</b>（Linear または Radial Fillを持つ要素）：Affinity Designerのように、ラインを描画に直接ドラッグします。ポップオーバーの<b>Automatic</b>チェックボックス（デフォルトで有効）がオンの場合、LinearまたはRadialを選ぶと<b>自動的に</b>表示されます&mdash;他に何も押す必要はありません。Solidに戻すと非表示になります。<b>G</b>キーは引き続き手動での表示/非表示切り替えとして機能します。Linear = ドラッグ可能な2つの端点（CSS構文の実際の制約をSVGグラデーションで回避し、ラインは矩形の中心に縛られなくなります）、Radial = 中心ハンドルと端ハンドル1つ（円で、楕円ではありません）。どちらのモードでもストップごとに1つの点があります（ドラッグで移動、ラインをダブルクリックでストップを追加）。<b>Esc</b>で終了します。Angle/Center X/Yに数値を入力すると、従来の中心固定モードに戻ります。<b>Conic</b>は数値の角度フィールドを維持します。
+          </p>
+
+          <h4>ステート：Normal / Hover / Active</h4>
+          <p>
+            <b>Data</b>タブのCSS Classesの上に、3つのボタンのセレクタがあります。<b>Hover</b>または<b>Active</b>を選択している間、Design内のTypography/Colors/Borders/Effects/Layoutで編集した内容はすべてそのステートに保存されます。キャンバスはリアルタイムでそれを表示します（選択された要素はそのステートを表示するよう「強制」されます）。JavaScriptなしで本物のCSSルールとしてエクスポートされます&mdash;<code>#id:hover{...}</code> / <code>#id:active{...}</code>。
+          </p>
+          <div class="nota">
+            <b>制限：</b>Position/Size/Originがステートの一部になることはありません。また、独自のコンテンツを持つ一部のタイプ（Button、Linkなど、独自の内部<code>&lt;button&gt;</code>/<code>&lt;a&gt;</code>を持つもの）では、その内部コンテンツの色/背景はステートでもクラスでも変更できません。DivやTextにはこの問題はありません。
+          </div>
+        </div>
+
+        <!-- ================= 2. レイヤー ================= -->
+        <div class="seccion" id="2-livelli">
+          <h2>2. レイヤー</h2>
+          <p>
+            左パネル（<b>Layers</b>タブ）は要素の階層を表示します。グループ化、分離、昇格/降格、z-indexによる並び替え（前面/背面への移動）ができます。
+          </p>
+          <ul>
+            <li>通常のクリックは1つの要素のみを選択します。</li>
+            <li><code>Ctrl</code>/<code>Cmd</code>+クリックで特定の要素を追加または削除します。</li>
+            <li><code>Shift</code>+クリックで表示されている範囲を選択します（ネスト構造を尊重）。</li>
+          </ul>
+          <p>
+            <code>Ctrl+C</code> / <code>Ctrl+X</code> / <code>Ctrl+V</code>でコピー、カット、ペーストできます（フォーカスがキャンバスまたはLayersにある場合）。子要素を持つ親をコピーすると、ペースト時にその関係が維持されます。複数回ペーストすると各コピーが少しずつずれて配置されます（重ならないように）。
+          </p>
+          <p>
+            <b>ドラッグでネスト</b>：ある要素を別の要素の上にドロップすると、その子になります。ただし、ドロップ先が本物の「void element」（<code>&lt;img&gt;</code>、<code>&lt;input&gt;</code>、<code>&lt;br&gt;</code>、<code>&lt;hr&gt;</code>...&mdash;コンテンツを持てない要素）の場合を除きます。そこにドロップすると兄弟として並び替えられます。他のタイプ（<code>&lt;div&gt;</code>、<code>&lt;button&gt;</code>、<code>&lt;section&gt;</code>、<code>&lt;a&gt;</code>...）は親になれます。
+          </p>
+
+          <h3 id="bloccare-guide">レイヤーのロックとガイドレイヤー（After Effectsスタイル）</h3>
+          <ul>
+            <li>
+              <b>ロック</b>（Layersの各行の鍵アイコン）：その要素をキャンバスから選択、移動、リサイズ、回転できなくします&mdash;Layersパネル自体からは引き続き選択できます。
+            </li>
+            <li>
+              <b>Mark as Guide Layer</b>（コンテキストメニュー）：エディタでは表示・編集可能ですが、エクスポートされたHTML（とその子要素すべて）からは完全に除外されます&mdash;ルーラー、メモ、デザイン参照に便利です。
+            </li>
+          </ul>
+        </div>
+
+        <!-- ================= 3. アニメーション ================= -->
+        <div class="seccion" id="3-animazione">
+          <h2>3. アニメーション（タイムライン）</h2>
+          <p>
+            レイヤーが多い場合、左側のリスト（名前）と右側のトラック（キーフレーム）は固定高さの帯の中で一緒に垂直スクロールします。
+          </p>
+
+          <h3 id="animazioni-nominate">複数の独立した名前付きアニメーション</h3>
+          <p>IHTMLでは<b>独立した別々のタイムライン</b>を持つことができます：</p>
+          <ul>
+            <li>
+              ヘッダーのセレクタにアクティブなアニメーションが表示されます。隣には<b>「+」（Add Animation）</b>（新規作成して名前を尋ねる）、鉛筆アイコン（Rename）、ゴミ箱アイコン（Delete）があります。最後の1つは削除できません（ボタンは無効化されます）。削除するとすべての要素でそのキーフレームが失われ、確認が求められます。
+            </li>
+            <li>
+              <b>Loop</b>と<b>Auto</b>は<b>選択中のアニメーション</b>に属します：Loopは終端に達すると最初から再開します（無効の場合、最後のフレームで停止）。Autoはエクスポートされたページの読み込み時に自動再生されます。新しいアニメーションは自動再生されません：複数持つ意味は<b>Play Timeline</b>アクションでトリガーすることにあります。
+            </li>
+            <li>
+              キーフレームは<b>アクティブなアニメーションにのみ</b>紐付きます：同じプロパティでもアニメーションごとに異なるキーフレーミングが可能です。
+            </li>
+            <li>アニメーションを切り替えるとタイムライン、キャンバス、プレイヘッドが更新されます。</li>
+          </ul>
+
+          <h3 id="marcatori">タイムライン上のアクションマーカー</h3>
+          <p>
+            稲妻アイコンのボタン（またはルーラー下の細いバンドをダブルクリック）でプレイヘッドの位置に<b>マーカー</b>を追加します：訪問者が何も操作しなくても、再生が<b>そのミリ秒に達すると</b>アクションがトリガーされます。
+          </p>
+          <ul>
+            <li>
+              インスペクタの同じActionsパネルで編集します（タイプは同じ。Triggerの行は消えます：「いつ」はマーカーの位置だからです）。
+            </li>
+            <li>同じパネルで<b>ドラッグ</b>して移動、Deleteで削除できます。</li>
+            <li><b>パスごとに1回</b>発火します（Loopの場合、周回ごとに再度発火）。</li>
+          </ul>
+
+          <h3 id="keyframe">プロパティのキーフレームを作成する</h3>
+          <ol class="pasos">
+            <li>作業したいアニメーションを選択（または作成）します。</li>
+            <li>
+              要素を選択し、アニメーションさせたいプロパティ（位置、透明度、色、スケールなど）の横にあるダイヤモンド（◆）をクリックしてそのプロパティのキーフレーム追跡を有効にします。
+            </li>
+            <li>
+              タイムラインの別の位置に移動し（プレイヘッドをドラッグ）、値を変更します：<b>Auto-Keyframeモード</b>（赤い◆ボタン、ショートカット<code>R</code>）が有効な場合、自動的にキーフレームが作成されます。そうでない場合は「Add Keyframe at Playhead」を使用します。
+            </li>
+            <li>
+              キーフレームをダブルクリックするとそのイージングカーブが循環します（linear、ease-in/out、cubic、back、bounce、elastic...）。
+            </li>
+            <li>
+              <code>Space</code>で再生/一時停止、前後フレームのボタンでフレーム単位に進みます。総再生時間は<b>Dur</b>フィールド（アニメーションごと）で制御します。
+            </li>
+          </ol>
+
+          <figure class="captura">
+            <img
+              src="../assets/img/timeline.png"
+              width="1600"
+              height="408"
+              loading="lazy"
+              decoding="async"
+              alt="タイムラインのプロパティセクション：'Position X'と'Opacity'のサブトラックにダイヤモンド型のキーフレーム、現在の値、区間ごとのイージングチップ。"
+            />
+            <figcaption>
+              要素を選択すると、その行の下にアニメーション化されたプロパティが表示されます：それぞれ独自のキーフレーム、プレイヘッドでの値、イージングカーブ付き。
+            </figcaption>
+          </figure>
+
+          <h3 id="rec">オートキーフレーム（REC）</h3>
+          <p>
+            <code>R</code>が有効な場合、IHTMLは既に追跡中のプロパティを変更するたびにプレイヘッドの時刻にキーフレームを作成します&mdash;これには<b>ベクターのノードとハンドル</b>も含まれます（点やベジェハンドルをドラッグするとノード全体が記録されます）。RECが有効な間、右上に点滅する赤いバッジ（「● REC」）が表示されます。
+          </p>
+
+          <h3 id="selezionare-keyframe">キーフレームの選択、ドラッグ、コピー/ペースト</h3>
+          <ul>
+            <li>
+              キーフレームをクリックすると選択、<code>Shift</code>+クリックで追加/削除、空白部分でのマーキーでその範囲すべてを選択します。
+            </li>
+            <li>
+              <b>2つの連続するキーフレームの間のフラットなバー</b>も選択・ドラッグ可能です：間隔を維持したままセグメント全体を移動します。
+            </li>
+            <li>プレイヘッドや他のキーフレームの近くにドラッグすると、その時刻に正確にスナップします（緑のガイド）。</li>
+            <li>
+              <code>Ctrl+C</code>/<code>Ctrl+V</code>で選択したキーフレームをプレイヘッドの時刻にコピー/ペーストします（イージングセレクタ横のCopy/Paste/Duplicateボタンに加えて）。複数ある場合、相対的な間隔が維持されます。
+            </li>
+          </ul>
+
+          <h3 id="menu-timeline">タイムラインのコンテキストメニュー（右クリック）</h3>
+          <ul>
+            <li>
+              <b>キーフレーム上</b>：Copy、Duplicate、Delete、Interpolation（カーブのビジュアルグリッド）、Move to playhead。
+            </li>
+            <li><b>セグメント上</b>：Copy、Duplicate、Delete（両端にグループとして適用）。</li>
+            <li><b>トラックの空白部分</b>：Paste（カーソル下の時刻に）。</li>
+            <li><b>要素名の上</b>：LayersやキャンバスのDと同じ要素メニュー。</li>
+            <li><b>ルーラー上</b>：「Extend +1s」で総再生時間に1秒追加します。</li>
+          </ul>
+          <div class="nota">
+            <b>エクスポート時：</b>リストの<b>最初の</b>アニメーションはページ読み込み後すぐに自動再生されます。それ以外は「Play Timeline」アクションがトリガーするまで一時停止したままです。1つのアニメーションしかないプロジェクトは以前と同じように動作します。
+          </div>
+
+          <h3 id="file">ファイル（実際のフォルダと連携）</h3>
+          <p>
+            <b>Timeline</b>タブの隣に<b>Files</b>があります：Godot/Unreal/UnityのFileSystemパネルのように、あなたのコンピュータ上の実際のフォルダに<b>直接</b>連携したファイルマネージャーです。<b>Choose folder</b>でシステムのフォルダを選択します（セッションごとに一度）。ツリー内の<b>画像、動画、音声</b>をクリックすると新しい要素として直接キャンバスに追加されます。<b>File System Access API</b>を使用しているため、現時点ではChrome/Edge/Operaのみ対応&mdash;FirefoxやSafariではボタンが無効表示され、注記が付きます。
+          </p>
+        </div>
+
+        <!-- ================= 4. アクション ================= -->
+        <div class="seccion" id="4-azioni">
+          <h2>4. インタラクティブアクション（ノーコード）</h2>
+          <p>
+            インスペクタの<b>Actions</b>タブで、エクスポートされたHTMLでユーザーが要素とインタラクトした際に何が起こるかをJavaScriptを書かずに定義します：
+          </p>
+          <ul>
+            <li>
+              <b>Trigger</b>：クリック、ホバー、mouse enter/leave、ダブルクリック、On Drag Start / On Drag End（移動を伴わない単純なクリックはドラッグとしてカウントされません）、キー押下、スクロール、ビューポートへの進入、遅延後、ページ読み込み時。
+            </li>
+            <li>
+              <b>Actions</b>：表示/非表示/切り替え、CSSクラスの追加/削除/切り替え、CSSプロパティのアニメーション、<b>特定の名前付きアニメーションの再生/一時停止/特定時刻への移動</b>（「Animation」フィールド）、要素へのスクロール、インラインスタイルの固定、<b>ページ遷移</b>。
+            </li>
+            <li>
+              <b>Target</b>：要素自身、親コンテナ、すべての要素、または<b>名前で選択された特定の要素</b>（Targetセレクタは3つの固定オプションの下にLayersのすべての要素をリストします）。Play/Pause/Go to Time、Set Variable、Go to Pageには適用されません：これらはプロジェクト全体に対してグローバルです。
+            </li>
+          </ul>
+          <div class="nota">
+            <b>Key Down</b>は<i>Key</i>フィールドを使用します：そのキーでのみ発火し、フォーカスがテキストフィールドにある間は発火しません。<b>After Delay</b>はページ読み込みからカウントします。<b>In Viewport</b>は要素が画面に入るたびに発火します。
+          </div>
+
+          <h3 id="pagine">ページ（シーン）</h3>
+          <p>
+            左サイドバーの<b>Pages</b>タブは<b>アートボード</b>をナビゲート可能なページとしてリスト表示します&mdash;新しいデータではなく、専用のビューにすぎません。右クリック：アートボード背景と同じActivate/Rename/Duplicate/Deleteメニューです。
+          </p>
+          <ul>
+            <li>
+              <b>「+ New page」</b>でメニューが開きます：<b>Blank page</b>、またはレスポンシブプリセット（Tablet縦/横、Mobile縦/横）。
+            </li>
+            <li>
+              別のページを選択している状態で作成されたTablet/Mobileプリセットは、そのページの<b>レスポンシブバリアントとしてグループ化</b>されます（PagesとLayersでインデントされます）。空白のページはネストされません。バリアントを複製すると親ページが維持されます。バリアントを持つページを削除すると、それらはルートに昇格します。
+            </li>
+            <li>
+              デフォルトでは<b>選択中</b>のページのみが表示されます（Layersにもそのレイヤーのみ）。<b>「Selected only」/「All visible」</b>ボタンで両方のビューが切り替わります。「All visible」では、他のページはキャンバス上に空の矩形として表示されます（位置/サイズ、モバイル、リサイズ可能、クリックでアクティブ化可能）が実際のコンテンツは表示されません。
+            </li>
+            <li>
+              <b>Go to Page</b>アクションは現在のページを隠し、別のページをトランジション付きで表示します：Fade、Slide（4方向）、または瞬時（None）、ミリ秒単位の時間指定。エクスポートされたHTMLでは、<b>プロジェクトがどこかでGo to Pageを使用している場合のみ</b>すべてのページが一緒にパッケージ化されます（初期ページ以外は非表示）&mdash;Go to Pageを使用しない複数アートボードのプロジェクトは常通りにエクスポートされます。
+            </li>
+          </ul>
+
+          <h3 id="variabili">プロジェクト変数（カウンターと計算）</h3>
+          <p>
+            アクションのリストの上に<b>Project Variables</b>があります&mdash;プロジェクト全体の名前付き数値です。カウンター、スコア、フォームのステップなどに便利です。
+          </p>
+          <ol class="pasos">
+            <li>
+              「+ Add Variable」で<b>変数を作成</b>します（名前＋初期値。名前は文字、数字、アンダースコアに簡略化され、構文を壊すことはできません）。
+            </li>
+            <li>
+              <b>Set Variable (math)</b>で<b>編集</b>します：どの変数か、どの操作か（<code>= Set to</code>、<code>+ Add</code>、<code>− Subtract</code>、<code>× Multiply by</code>、<code>÷ Divide by</code>、<code>% Remainder of</code>、<code>⌃ Clamp min</code>、<code>⌄ Clamp max</code>）、どの数値か。ゼロで割ると値は変更されません。
+            </li>
+            <li>
+              任意の要素の<i>Content</i>フィールドに<code>{{名前}}</code>と書くと<b>表示</b>されます：キャンバス上とエクスポートされたページ上で現在の値が見え、自動的に更新されます。どの変数とも一致しない名前はそのまま表示されるため、エラーに気付きやすくなっています。
+            </li>
+          </ol>
+          <p>
+            完全なカウンターの例：変数<code>score = 0</code>、<i>click → Set Variable → score → + Add → 1</i>のボタン、そして<code>Points: {{score}}</code>のテキスト。変数を変更するアクションがない場合、その値は1行のJavaScriptもなくエクスポートされたHTMLに埋め込まれます。変数を表示する要素は、ネストされた子要素を持たない場合のみリアルタイムで再描画されます。
+          </p>
+
+          <h3 id="fisica">物理演算（本物のシミュレーション — 重力、衝突、バウンス）</h3>
+          <p>
+            インスペクタの<b>物理演算</b>タブは、<a href="https://brm.io/matter-js/" target="_blank" rel="noopener">Matter.js</a>エンジンを使って任意の要素に本物の物理挙動を与えます：
+          </p>
+          <ol class="pasos">
+            <li><b>物理演算を有効化</b>：その要素のシミュレーションをオンにします。</li>
+            <li>
+              <b>ボディタイプ</b>：<i>Dynamic</i>（落下、跳ね返り、他のボディやキャンバスの端と衝突）または<i>Static</i>（固定&mdash;床、壁、プラットフォームとして便利）。
+            </li>
+            <li><b>Shape</b>：Rectangle または Circle（当たり判定の形状であり、見た目ではありません）。</li>
+            <li><b>Bounce</b>、<b>Friction</b>、<b>Density</b>：弾力性、滑りやすさ、重さ。</li>
+          </ol>
+          <ul>
+            <li>ボディは自身のページ/アートボード内に留まります：4つの端が見えない壁として機能します。</li>
+            <li>
+              <b>Dynamic</b>ボディはエクスポートされたページやPreviewで<b>掴んでドラッグ</b>できます。離すと本物の物理演算で動き続けます。<b>Static</b>は「掴んでも」動きません。
+            </li>
+            <li>
+              <b>重要：</b>物理演算は<b>編集中はリアルタイムでシミュレートされません</b>（ドラッグと競合しないよう、要素はそのX/Y位置で表示されます）。<b>Preview</b>またはエクスポートされたHTMLを開いたときに開始します。物理演算を使わないプロジェクトは追加のライブラリをダウンロードしません。
+            </li>
+          </ul>
+        </div>
+
+        <!-- ================= 5. コード ================= -->
+        <div class="seccion" id="5-codice">
+          <h2>5. カスタムコード</h2>
+          <p>上部バーに2つのコードボタンがあり、それぞれスコープが異なります：</p>
+          <ul>
+            <li>
+              <b>💻 Code Editor</b> — 選択した要素のCSS/JS：要素にインラインで追加されるCSS、またはエクスポートされたHTMLでその要素をクリックしたときに実行されるスクリプト。
+            </li>
+            <li>
+              <b>`&lt;/&gt;` Live HTML/CSS</b> — <b>プロジェクト全体</b>のHTMLとCSSのリアルタイムビュー（編集可能）：記述して「Apply Changes」をタップするとプロジェクトに反映されます。
+              <ul>
+                <li>
+                  既存の<code>id</code>を持つタグはその要素を更新します（コンテンツ、属性、クラス、親）。
+                </li>
+                <li>
+                  新しいタグは実際の要素として作成されるために<code>data-type="..."</code>が必要です。それがない場合、警告と共に無視されます。
+                </li>
+                <li>タグを削除するとその要素が削除されます。</li>
+                <li>
+                  CSSから削除したスタイルは要素から自動的には削除されません&mdash;インスペクタの該当セクションのリセットボタンを使用してください。
+                </li>
+                <li>
+                  パネルが生成する形式と正確に一致しない手書きのグラデーション/フィルター/transformは無視されます（完全なCSSパーサーではなく、データモデルの往復ビューです）。
+                </li>
+                <li>「Refresh」は適用されていない変更をすべて破棄します。</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ================= 6. エクスポート ================= -->
+        <div class="seccion" id="6-esportare">
+          <h2>6. エクスポート</h2>
+          <p>
+            2つの方法があります：ウェブに公開するための<b>Export HTML</b>と、IHTML Mirrorで開くドキュメントを送るための<b>Export</b>（<code>.ihtml</code>）です。
+          </p>
+          <ul>
+            <li>
+              <b>🌐 Export HTML</b> — ウェブ向け（ホスティング、CMS、<code>&lt;iframe&gt;</code>...）：<i>Single HTML file</i>（プロジェクトデータを含まず、エンジンが埋め込まれた単一の自己完結型<code>.html</code>ファイル&mdash;より軽量）または<i>Separate HTML + CSS + JS</i>を選択するダイアログ。この<code>.html</code>はどんなブラウザやホスティングでも動作します。
+            </li>
+            <li>
+              <b>💾 Export</b> — <code>project.ihtml</code>をダウンロードします：IHTMLの<b>ドキュメント</b>。プロジェクト全体（要素、アニメーション、キーフレーム、アクション、レイヤー、フォント、画像、動画）が埋め込まれています。結果であり元データでもあります：受け取った人は<b>IHTML Mirror</b>（無料アプリ、デスクトップまたはAndroid）で開き、あなたはImportで再度開いてやめたところから正確に続けられます。
+              <span class="nota" style="display: block; margin-top: 8px"
+                ><code>.ihtml</code>ファイルはChromeでのダブルクリックを想定して<b>いません</b>：形式を理解するMirrorが開きます。インストールなしでブラウザで動作させたい場合は、Export HTMLを使ってください。</span
+              >
+            </li>
+            <li>
+              <b>▶ Preview</b> — 何もダウンロードせずに新しいタブで結果を開きます。エディタの現在の状態から生成されます。
+            </li>
+            <li>
+              <b>🖼 画像 / GIF / 動画のエクスポート</b> — アートボードをラスタライズします：静止画像（PNG、WebP、JPEG）、アニメーションGIF、または動画（MP4、WebM）。FPSとスケールを選択できます。
+            </li>
+            <li>
+              <b>📱 モバイルプレビュー</b> — QRコードを表示します。スマートフォンでスキャンするとリアルタイムでプロジェクトが見えます（同じネットワーク、編集中に自動再読み込み）。
+            </li>
+          </ul>
+          <div class="nota">
+            <b>プラン：</b><b>無料</b>プランでは<b>静止画像</b>（PNG/WebP/JPEG）のみエクスポート可能です。<b>フル</b>プランでは<code>.html</code>と<code>.ihtml</code>のエクスポート、GIFと動画、Preview、モバイルのQRプレビューが追加されます。<i>Settings &rsaquo; Plan</i>でライセンスキーを入力すると有効化されます。
+          </div>
+          <p>
+            どちらもエディタから独立しています：同じアニメーションエンジンから生成された最小限のランタイムのみを持ち運ぶため、結果はプレビューと全く同じようにアニメーションします。
+          </p>
+          <div class="nota">
+            <b><code>.ihtml</code>ファイルを開く：</b>IHTML Mirrorから開きます（「Open project」ボタン、またはウィンドウにドラッグ）。Androidでは、（WhatsAppなどで）ファイルを受け取ったら、「開く」で<em>IHTML Mirror</em>を選択します。エディタでは、<em>Import</em>で開いて編集できます。
+          </div>
+        </div>
+
+        <!-- ================= 7. インポート ================= -->
+        <div class="seccion" id="7-importare">
+          <h2>7. インポート</h2>
+          <p>
+            <b>📂 Import</b>は<code>.ihtml</code>（埋め込まれたプロジェクトを自動検出）と、以前のバージョンのエディタからエクスポートされた<code>.json</code>（後方互換性）の両方を受け付けます。ファイルが期待される形式でない場合（<code>elements</code>がない、または有効なJSON/<code>.ihtml</code>でない）、エディタはその理由を説明するメッセージと共に拒否し、開いているプロジェクトには一切触れません。
+          </p>
+          <p>
+            さらに、IHTMLは他の形式から<b>デザインを再構築</b>し、新しいアートボード上の編集可能な要素として持ち込むことができます：
+          </p>
+          <ul>
+            <li>
+              本物の<b>HTML</b>（File Managerで<code>.html</code>を右クリック）：iframeで測定され、各ノードが階層とスタイルを維持したままIHTML要素になります。
+            </li>
+            <li>
+              <b>SVG</b>（図形、テキスト、画像）&mdash;<b>Figma</b>のフレームを持ち込む推奨方法です（SVGとしてエクスポートしてください）。
+            </li>
+            <li>
+              <b>Sketch</b>（<code>.sketch</code>）、<b>Penpot</b>（<code>.penpot</code>）、<b>EPUB</b>書籍からのデザイン。
+            </li>
+          </ul>
+        </div>
+
+        <!-- ================= 8. 形式 ================= -->
+        <div class="seccion" id="8-formato">
+          <h2>8. プロジェクト形式（<code>.ihtml</code>に埋め込まれる、または旧<code>.json</code>）</h2>
+          <p>構造のクイックリファレンス：</p>
+          <pre><span class="cm">// project: name, version, artboards[], animations[], grid, classes</span>
+{
+  <span class="cm">"project"</span>: { <span class="cm">"name"</span>: <span class="cm">"My Project"</span>, <span class="cm">"artboards"</span>: [ ... ], <span class="cm">"animations"</span>: [ ... ], ... },
+  <span class="cm">"activeArtboardId"</span>: <span class="cm">"artboard-1"</span>,
+  <span class="cm">"activeAnimationId"</span>: <span class="cm">"anim-1"</span>,
+  <span class="cm">"elements"</span>: [
+    {
+      <span class="cm">"id"</span>: <span class="cm">"elem-172...-a1b2c"</span>, <span class="cm">"type"</span>: <span class="cm">"text"</span>,
+      <span class="cm">"parentId"</span>: null, <span class="cm">"artboardId"</span>: <span class="cm">"artboard-1"</span>,
+      <span class="cm">"styles"</span>: { <span class="cm">"left"</span>: 100, <span class="cm">"top"</span>: 50, <span class="cm">"width"</span>: 300, ... },
+      <span class="cm">"keyframes"</span>: { <span class="cm">"anim-1"</span>: { <span class="cm">"opacity"</span>: [
+        { <span class="cm">"time"</span>: 0, <span class="cm">"value"</span>: 0, <span class="cm">"easing"</span>: <span class="cm">"linear"</span> },
+        { <span class="cm">"time"</span>: 1000, <span class="cm">"value"</span>: 1, <span class="cm">"easing"</span>: <span class="cm">"easeOutCubic"</span> } ] } },
+      <span class="cm">"actions"</span>: [ { <span class="cm">"trigger"</span>: <span class="cm">"click"</span>, <span class="cm">"type"</span>: <span class="cm">"toggleClass"</span>, ... } ]
+    }
+  ]
+}</pre>
+          <p>
+            <code>styles</code>/<code>keyframes</code>内のすべての数値は単位なしです（<code>"100px"</code>ではなく<code>left: 100</code>）。エディタが<code>px</code>/<code>deg</code>などを追加します。インポート時、エディタは単位付きの値を正規化し、古いプロジェクト（単一アートボード、フラットなアニメーション）を自動的に移行します。
+          </p>
+        </div>
+
+        <!-- ================= 9. ショートカット ================= -->
+        <div class="seccion" id="9-scorciatoie">
+          <h2>9. キーボードショートカット</h2>
+          <div class="tabla-wrap">
+            <table>
+              <tr>
+                <th>ショートカット</th>
+                <th>アクション</th>
+              </tr>
+              <tr>
+                <td>
+                  <code>V</code> / <code>H</code> / <code>T</code> / <code>S</code> / <code>P</code> / <code>Z</code>
+                </td>
+                <td>ツール：Select / Hand / Text / Shape / Pen / Zoom</td>
+              </tr>
+              <tr>
+                <td><code>Space</code></td>
+                <td>再生/一時停止</td>
+              </tr>
+              <tr>
+                <td><code>←</code> <code>→</code> <code>↑</code> <code>↓</code></td>
+                <td>
+                  選択あり：要素を1pxずつ移動（回転した親内では自身の軸を尊重）。選択なし：アクティブなアートボードを移動。<code>←</code>/<code>→</code>はタイムラインのフレームを1つずつ進める/戻すこともできます
+                </td>
+              </tr>
+              <tr>
+                <td><code>Shift</code> + 矢印</td>
+                <td>要素またはアートボードを1pxではなく10px移動</td>
+              </tr>
+              <tr>
+                <td><code>Ctrl</code> + ドラッグ</td>
+                <td>グリッドにスナップ（スマートスナップの代わりに）</td>
+              </tr>
+              <tr>
+                <td><code>Home</code> / <code>End</code></td>
+                <td>タイムラインの先頭/末尾へ移動</td>
+              </tr>
+              <tr>
+                <td><code>Ctrl+D</code></td>
+                <td>選択を複製</td>
+              </tr>
+              <tr>
+                <td><code>Ctrl+C</code> / <code>Ctrl+X</code> / <code>Ctrl+V</code></td>
+                <td>
+                  選択をコピー/カット/ペースト。タイムラインでキーフレームが選択されている場合、それらのキーフレームをコピー/ペースト（優先）
+                </td>
+              </tr>
+              <tr>
+                <td><code>Delete</code> / <code>Backspace</code></td>
+                <td>選択を削除（選択なしの場合、アクティブなアートボードを削除&mdash;最後の1つは不可）</td>
+              </tr>
+              <tr>
+                <td><code>Ctrl+Z</code> / <code>Ctrl+Shift+Z</code>（または<code>Ctrl+Y</code>）</td>
+                <td>元に戻す / やり直す</td>
+              </tr>
+              <tr>
+                <td><code>Ctrl+A</code></td>
+                <td>
+                  キャンバス上のすべての要素を選択（テキストフィールド内では、そのフィールドのテキストを選択）
+                </td>
+              </tr>
+              <tr>
+                <td><code>R</code></td>
+                <td>Auto-Keyframeモードを切り替え</td>
+              </tr>
+              <tr>
+                <td><code>Ctrl</code> + マウスホイール</td>
+                <td>キャンバスのズーム</td>
+              </tr>
+              <tr>
+                <td>右クリック</td>
+                <td>コンテキストメニュー（要素、アートボード背景、Elementsパネルのカード）</td>
+              </tr>
+              <tr>
+                <td>Layers内：<code>Ctrl</code>/<code>Cmd</code>+クリック、<code>Shift</code>+クリック</td>
+                <td>複数選択（要素の追加/削除、または範囲選択）</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- ================= 10. API ================= -->
+        <div class="seccion" id="10-api">
+          <h2>10. リアルタイムパブリックAPI</h2>
+          <p>
+            プロジェクトにアニメーションまたはアクションがある場合、エクスポートされたHTML/<code>.ihtml</code>は<code>window.ihtmlDocument</code>を公開します&mdash;ノーコード自体の<b>外部</b>から制御するための、安定した文書化されたパブリックAPIです（あなたのスクリプト、それを埋め込むページ、またはブラウザ自動化）：
+          </p>
+          <pre>ihtmlDocument.playTimeline(<span class="cm">'Bounce'</span>); <span class="cm">// その名前付きアニメーションを再生</span>
+ihtmlDocument.pauseTimeline(<span class="cm">'Bounce'</span>);
+ihtmlDocument.gotoTimeInTimeline(500, <span class="cm">'Bounce'</span>); <span class="cm">// ms, 名前</span>
+ihtmlDocument.isTimelinePlaying(<span class="cm">'Bounce'</span>); <span class="cm">// true/false</span>
+ihtmlDocument.timelineNames(); <span class="cm">// ['Animation 1', 'Bounce', ...]</span>
+ihtmlDocument.getElementById(<span class="cm">'elem-172...'</span>); <span class="cm">// 本物のDOMノード</span>
+ihtmlDocument.triggerAction(<span class="cm">'elem-172...'</span>, <span class="cm">'click'</span>); <span class="cm">// その'click'アクションをトリガー</span>
+ihtmlDocument.triggerAction(<span class="cm">'elem-172...'</span>, <span class="cm">'keydown'</span>, <span class="cm">'Escape'</span>);
+
+ihtmlDocument.getVariable(<span class="cm">'score'</span>); <span class="cm">// 現在の値</span>
+ihtmlDocument.setVariable(<span class="cm">'score'</span>, 10); <span class="cm">// 変更し、{{score}}を再描画</span>
+ihtmlDocument.variableNames(); <span class="cm">// ['score', ...]</span></pre>
+          <p>
+            名前はエディタで設定したもの（タイムラインのセレクタ、Project Variablesパネル）であり、内部IDではありません。
+          </p>
+          <p>
+            <b>同一オリジンの<code>&lt;iframe&gt;</code>で埋め込む場合</b>（埋め込むページとエクスポートされたファイルが同じドメインから配信されている場合）：
+          </p>
+          <pre>const win = document.getElementById(<span class="cm">'miIframe'</span>).contentWindow;
+win.ihtmlDocument.playTimeline(<span class="cm">'Bounce'</span>);</pre>
+          <div class="nota">
+            iframeが<b>別のドメイン</b>にある場合、ブラウザはセキュリティ上の理由でこの直接アクセスをブロックします（IHTMLの制約ではありません）&mdash;その場合は<code>postMessage</code>が必要ですが、まだ実装されていません。
+          </div>
+        </div>
+
+        <!-- ================= 11. MCP ================= -->
+        <div class="seccion" id="11-mcp">
+          <h2>11. MCP — AIエージェントによる制御</h2>
+          <p>
+            IHTMLは<b><a
+              href="https://modelcontextprotocol.io"
+              target="_blank"
+              rel="noopener"
+              >Model Context Protocol</a
+            >（MCP）サーバー</b>を公開しており、AIエージェント&mdash;Claude Codeまたは他のMCPクライアント&mdash;がマウスクリックをシミュレートすることなく、既に開いているエディタ（開発中のブラウザまたはデスクトップアプリ）を<b>直接</b>制御できます。GodotやBlenderのようなエディタで既に使われているのと同じ仕組みです。
+          </p>
+          <p>有効化するには、プロジェクトルートの<code>.mcp.json</code>ファイルがサーバーを指定します：</p>
+          <pre>{
+  <span class="cm">"mcpServers"</span>: {
+    <span class="cm">"ihtml-editor"</span>: { <span class="cm">"command"</span>: <span class="cm">"node"</span>, <span class="cm">"args"</span>: [<span class="cm">"bridge/mcp-server.js"</span>] }
+  }
+}</pre>
+          <p>エディタが開いている状態（ブラウザまたはデスクトップアプリ）で、エージェントは以下のようなツールを呼び出せます：</p>
+          <ul>
+            <li><code>get_scene</code> — アクティブなアートボードとすべての要素を読み取ります。</li>
+            <li>
+              <code>add_element</code> / <code>set_text</code> / <code>set_style</code> / <code>delete_element</code>
+              — 要素を作成・編集します（<code>set_style</code>はブレークポイントを受け付け、基本値ではなくレスポンシブなオーバーライドを書き込みます）。
+            </li>
+            <li>
+              <code>set_breakpoint</code> / <code>select_element</code> — 実際のクリックと同じように、アクティブなブレークポイントや選択を変更します。
+            </li>
+            <li>
+              <code>set_canvas_size</code> / <code>fit_canvas_height</code> — アートボードをリサイズします（ブレークポイントごとの独自の高さ）、または実際のコンテンツに合わせます。
+            </li>
+            <li><code>apply_template</code> — カタログからテンプレートを読み込みます。</li>
+            <li>
+              <code>get_html</code> — ファイルを書き込むことなく、プロジェクトがエクスポートするHTML/CSS/JSを返します。
+            </li>
+          </ul>
+          <div class="nota">
+            現在のカバレッジ：要素の基本的な作成/編集、ブレークポイント、エクスポート。タイムライン/キーフレーム、Actions、物理演算、Symbols、Pages、Vectors、Dataには独自のMCPツールがまだありません。
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <footer>
+      <p><b>IHTML</b>（Interactive HTML）— デスクトップとAndroid向けHTML/CSSアニメーションエディタ。</p>
+      <div class="docs">
+        <a href="index.html">ホーム</a>
+        <a href="guide.html">ユーザーガイド</a>
+        <a href="../novedades/index.html">お知らせ</a>
+        <a href="https://github.com/malabo1990/ihtml-releases/discussions" target="_blank" rel="noopener">フォーラム</a>
+        <a href="index.html#scarica">ダウンロード</a>
+        <a href="index.html#mirror">Mirror</a>
+        <a href="index.html#prezzi">料金</a>
+        <a href="../guide.html">English</a>
+        <a href="../es/guia-usuario.html">Español</a>
+        <a href="../pt/guide.html">Português</a>
+        <a href="../fr/guide.html">Français</a>
+        <a href="../de/guide.html">Deutsch</a>
+        <a href="../it/guide.html">Italiano</a>
+        <a href="../zh/guide.html">中文</a>
+      </div>
+      <div class="social">
+        <a href="https://x.com/ihtml" title="X" target="_blank" rel="noopener" aria-label="X">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
+            />
+          </svg>
+        </a>
+        <a href="https://instagram.com/ihtml" title="Instagram" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"
+            />
+          </svg>
+        </a>
+        <a href="https://tiktok.com/@ihtml" title="TikTok" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
+            />
+          </svg>
+        </a>
+        <a href="https://reddit.com/r/ihtml" title="フォーラム — Reddit" target="_blank" rel="noopener" aria-label="Reddit">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M12 0C5.373 0 0 5.373 0 12c0 3.314 1.343 6.314 3.515 8.485l-2.286 2.286C.775 23.225 1.097 24 1.738 24H12c6.627 0 12-5.373 12-12S18.627 0 12 0Zm4.388 3.199c1.104 0 1.999.895 1.999 1.999 0 1.105-.895 2-1.999 2-.946 0-1.739-.657-1.947-1.539v.002c-1.147.162-2.032 1.15-2.032 2.341v.007c1.776.067 3.4.567 4.686 1.363.473-.363 1.064-.58 1.707-.58 1.547 0 2.802 1.254 2.802 2.802 0 1.117-.655 2.081-1.601 2.531-.088 3.256-3.637 5.876-7.997 5.876-4.361 0-7.905-2.617-7.998-5.87-.954-.447-1.614-1.415-1.614-2.538 0-1.548 1.255-2.802 2.803-2.802.645 0 1.239.218 1.712.585 1.275-.79 2.881-1.291 4.64-1.365v-.01c0-1.663 1.263-3.034 2.88-3.207.188-.911.993-1.595 1.959-1.595Zm-8.085 8.376c-.784 0-1.459.78-1.506 1.797-.047 1.016.64 1.429 1.426 1.429.786 0 1.371-.369 1.418-1.385.047-1.017-.553-1.841-1.338-1.841Zm7.406 0c-.786 0-1.385.824-1.338 1.841.047 1.017.634 1.385 1.418 1.385.785 0 1.473-.413 1.426-1.429-.046-1.017-.721-1.797-1.506-1.797Zm-3.703 4.013c-.974 0-1.907.048-2.77.135-.147.015-.241.168-.183.305.483 1.154 1.622 1.964 2.953 1.964 1.33 0 2.47-.81 2.953-1.964.057-.137-.037-.29-.184-.305-.863-.087-1.795-.135-2.769-.135Z"
+            />
+          </svg>
+        </a>
+      </div>
+      <p class="footer-credit">
+        © 2026 IHTML · Casimiro Ondo Obiang &mdash; CEO兼リード開発者
+      </p>
+    </footer>
+
+    <script>
+      const isla = document.querySelector('.island');
+      const islaBot = document.querySelector('.island-dot');
+      if (isla && islaBot) {
+        islaBot.addEventListener('click', () => {
+          const abierto = isla.classList.toggle('is-abierto');
+          islaBot.setAttribute('aria-expanded', abierto);
+        });
+        document.addEventListener('click', (e) => {
+          if (isla.contains(e.target)) return;
+          isla.classList.remove('is-abierto');
+          islaBot.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      document.querySelectorAll('.lang-switch').forEach((ls) => {
+        const btn = ls.querySelector('.lang-switch-btn');
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const open = ls.classList.toggle('is-abierto');
+          btn.setAttribute('aria-expanded', open);
+        });
+      });
+      document.addEventListener('click', (e) => {
+        document.querySelectorAll('.lang-switch.is-abierto').forEach((ls) => {
+          if (ls.contains(e.target)) return;
+          ls.classList.remove('is-abierto');
+          ls.querySelector('.lang-switch-btn').setAttribute('aria-expanded', 'false');
+        });
+      });
+    </script>
+
+    <script>
+      try {
+        localStorage.setItem('ihtml-lang', 'ja');
+      } catch (e) {
+        /* localStorage利用不可（プライベートモードなど） */
+      }
+    </script>
+  </body>
+</html>
