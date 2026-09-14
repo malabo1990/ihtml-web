@@ -13,8 +13,11 @@
       content="guía ihtml, tutorial animación web, keyframes, timeline, acciones sin código, exportar html, ihtml api, ihtml mcp, .ihtml"
     />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://ihtml.app/guia-usuario.html" />
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="canonical" href="https://ihtml.app/es/guia-usuario.html" />
+    <link rel="alternate" hreflang="en" href="https://ihtml.app/guide.html" />
+    <link rel="alternate" hreflang="es" href="https://ihtml.app/es/guia-usuario.html" />
+    <link rel="alternate" hreflang="x-default" href="https://ihtml.app/guide.html" />
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="IHTML · Interactive HTML" />
     <meta property="og:locale" content="es_ES" />
@@ -23,25 +26,25 @@
       property="og:description"
       content="Guía completa de IHTML: primeros pasos, vectores, artboards, timeline, acciones sin código, física, exportación, atajos de teclado, API pública y MCP para agentes de IA."
     />
-    <meta property="og:url" content="https://ihtml.app/guia-usuario.html" />
+    <meta property="og:url" content="https://ihtml.app/es/guia-usuario.html" />
     <meta property="og:image" content="https://ihtml.app/assets/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Guía de usuario — IHTML (Interactive HTML)" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/estilos.css" />
+    <link rel="stylesheet" href="../assets/estilos.css" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "TechArticle",
-        "@id": "https://ihtml.app/guia-usuario.html#article",
+        "@id": "https://ihtml.app/es/guia-usuario.html#article",
         "headline": "Guía de usuario — IHTML (Interactive HTML)",
         "description": "Guía de usuario completa de IHTML: primeros pasos, vectores, artboards, timeline y keyframes, acciones sin código, física, exportación/importación, atajos de teclado, API pública y MCP para agentes de IA.",
         "inLanguage": "es",
         "datePublished": "2026-09-10",
         "dateModified": "2026-09-10",
-        "url": "https://ihtml.app/guia-usuario.html",
+        "url": "https://ihtml.app/es/guia-usuario.html",
         "image": "https://ihtml.app/assets/og-image.png",
         "isPartOf": { "@id": "https://ihtml.app/#website" },
         "about": { "@id": "https://ihtml.app/#software" },
@@ -59,7 +62,7 @@
           "@type": "SpeakableSpecification",
           "cssSelector": [".intro", ".seccion h2"]
         },
-        "mainEntityOfPage": "https://ihtml.app/guia-usuario.html"
+        "mainEntityOfPage": "https://ihtml.app/es/guia-usuario.html"
       }
     </script>
   </head>
@@ -87,11 +90,12 @@
         <nav class="island-menu">
           <a href="index.html">Inicio</a>
           <a href="guia-usuario.html" class="is-activo">Guía</a>
-          <a href="novedades/index.html">Novedades</a>
+          <a href="../novedades/index.html">Novedades</a>
           <a href="https://github.com/malabo1990/ihtml-releases/discussions" target="_blank" rel="noopener">Foro</a>
           <a href="index.html#descargar">Descargar</a>
           <a href="index.html#mirror">Mirror</a>
           <a href="index.html#precio">Precio</a>
+          <a href="../guide.html">EN</a>
           <a class="is-cta" href="index.html#precio">Suscribirme</a>
         </nav>
       </div>
@@ -176,7 +180,7 @@
 
           <figure class="captura">
             <img
-              src="assets/img/editor.jpg"
+              src="../assets/img/editor.jpg"
               width="1600"
               height="900"
               loading="lazy"
@@ -687,7 +691,7 @@
 
           <figure class="captura">
             <img
-              src="assets/img/timeline.png"
+              src="../assets/img/timeline.png"
               width="1600"
               height="408"
               loading="lazy"
@@ -1195,11 +1199,12 @@ win.ihtmlDocument.playTimeline(<span class="cm">'Bounce'</span>);</pre>
       <div class="docs">
         <a href="index.html">Inicio</a>
         <a href="guia-usuario.html">Guía de usuario</a>
-        <a href="novedades/index.html">Novedades</a>
+        <a href="../novedades/index.html">Novedades</a>
         <a href="https://github.com/malabo1990/ihtml-releases/discussions" target="_blank" rel="noopener">Foro</a>
         <a href="index.html#descargar">Descargar</a>
         <a href="index.html#mirror">Mirror</a>
         <a href="index.html#precio">Precio</a>
+        <a href="../guide.html">English</a>
       </div>
       <div class="social">
         <a href="https://x.com/ihtml" title="X" target="_blank" rel="noopener" aria-label="X">
@@ -1249,6 +1254,14 @@ win.ihtmlDocument.playTimeline(<span class="cm">'Bounce'</span>);</pre>
           isla.classList.remove('is-abierto');
           islaBot.setAttribute('aria-expanded', 'false');
         });
+      }
+    </script>
+
+    <script>
+      try {
+        localStorage.setItem('ihtml-lang', 'es');
+      } catch (e) {
+        /* localStorage no disponible (modo privado, etc.) */
       }
     </script>
   </body>
