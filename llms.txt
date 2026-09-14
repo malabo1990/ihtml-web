@@ -19,7 +19,14 @@ IHTML (Interactive HTML) is a web animation editor: a canvas with artboards and 
 
 - [Home](https://ihtml.app/): features, platforms, pricing, and FAQ.
 - [User guide](https://ihtml.app/guide.html): full manual — getting started, vectors, artboards, timeline, actions, physics, export/import, keyboard shortcuts, and the public API.
-- [Home (Spanish)](https://ihtml.app/es/) / [User guide (Spanish)](https://ihtml.app/es/guia-usuario.html): the Spanish version of the site, currently the only other translated language.
+- The site is fully localized into 8 languages, each with its own home and user guide:
+  - Spanish: [Home](https://ihtml.app/es/) / [User guide](https://ihtml.app/es/guia-usuario.html)
+  - Portuguese: [Home](https://ihtml.app/pt/) / [User guide](https://ihtml.app/pt/guide.html)
+  - French: [Home](https://ihtml.app/fr/) / [User guide](https://ihtml.app/fr/guide.html)
+  - German: [Home](https://ihtml.app/de/) / [User guide](https://ihtml.app/de/guide.html)
+  - Italian: [Home](https://ihtml.app/it/) / [User guide](https://ihtml.app/it/guide.html)
+  - Japanese: [Home](https://ihtml.app/ja/) / [User guide](https://ihtml.app/ja/guide.html)
+  - Chinese: [Home](https://ihtml.app/zh/) / [User guide](https://ihtml.app/zh/guide.html)
 
 ## Public API (runtime)
 

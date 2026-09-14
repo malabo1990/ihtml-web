@@ -17,6 +17,12 @@
     <link rel="canonical" href="https://ihtml.app/" />
     <link rel="alternate" hreflang="en" href="https://ihtml.app/" />
     <link rel="alternate" hreflang="es" href="https://ihtml.app/es/" />
+    <link rel="alternate" hreflang="pt" href="https://ihtml.app/pt/" />
+    <link rel="alternate" hreflang="fr" href="https://ihtml.app/fr/" />
+    <link rel="alternate" hreflang="de" href="https://ihtml.app/de/" />
+    <link rel="alternate" hreflang="it" href="https://ihtml.app/it/" />
+    <link rel="alternate" hreflang="ja" href="https://ihtml.app/ja/" />
+    <link rel="alternate" hreflang="zh" href="https://ihtml.app/zh/" />
     <link rel="alternate" hreflang="x-default" href="https://ihtml.app/" />
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
     <meta property="og:type" content="website" />
@@ -746,9 +752,9 @@ npm run dev</pre>
     </script>
 
     <script>
-      /* Language auto-detect: on first visit (no stored preference), if the
-         browser's language is Spanish, redirect to the Spanish version.
-         Any real visit to either version stores the choice, so this only
+      /* Language auto-detect: on first visit (no stored preference), redirect
+         to the version matching the browser's language, if we have one.
+         Any real visit to any version stores the choice, so this only
          ever fires once per visitor and never fights a manual pick. */
       (function () {
         try {
@@ -756,10 +762,13 @@ npm run dev</pre>
           var stored = localStorage.getItem(KEY);
           if (!stored) {
             var nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
-            if (nav.indexOf('es') === 0) {
-              localStorage.setItem(KEY, 'es');
-              location.replace('es/index.html');
-              return;
+            var LANGS = ['es', 'pt', 'fr', 'de', 'it', 'ja', 'zh'];
+            for (var i = 0; i < LANGS.length; i++) {
+              if (nav.indexOf(LANGS[i]) === 0) {
+                localStorage.setItem(KEY, LANGS[i]);
+                location.replace(LANGS[i] + '/index.html');
+                return;
+              }
             }
           }
           localStorage.setItem(KEY, 'en');
