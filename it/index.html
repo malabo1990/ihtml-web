@@ -1,0 +1,832 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IHTML — Editor Visuale di Animazioni HTML/CSS · Desktop e Android</title>
+    <meta
+      name="description"
+      content="IHTML (Interactive HTML) è un editor visuale di animazioni HTML/CSS: un'app desktop per Windows, macOS, Linux e Android. Timeline con keyframe, ispettore visuale, azioni senza codice, vettori ed esportazione HTML. Editor gratuito; abbonamento di US$4/mese per esportare. Invia un .ihtml e si apre con IHTML Mirror — sempre modificabile."
+    />
+    <meta
+      name="keywords"
+      content="editor di animazioni, animazione web, animazioni HTML CSS, animazione senza codice, timeline keyframe, editor visuale HTML, interactive html, IHTML, .ihtml"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#14161a" />
+    <link rel="canonical" href="https://ihtml.app/it/" />
+    <link rel="alternate" hreflang="en" href="https://ihtml.app/" />
+    <link rel="alternate" hreflang="es" href="https://ihtml.app/es/" />
+    <link rel="alternate" hreflang="pt" href="https://ihtml.app/pt/" />
+    <link rel="alternate" hreflang="fr" href="https://ihtml.app/fr/" />
+    <link rel="alternate" hreflang="de" href="https://ihtml.app/de/" />
+    <link rel="alternate" hreflang="it" href="https://ihtml.app/it/" />
+    <link rel="alternate" hreflang="ja" href="https://ihtml.app/ja/" />
+    <link rel="alternate" hreflang="zh" href="https://ihtml.app/zh/" />
+    <link rel="alternate" hreflang="x-default" href="https://ihtml.app/" />
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="IHTML · Interactive HTML" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:title" content="IHTML — Editor Visuale di Animazioni HTML/CSS · Desktop e Android" />
+    <meta
+      property="og:description"
+      content="Editor visuale di animazioni HTML/CSS per desktop e Android: timeline con keyframe, ispettore visuale, azioni senza codice ed esportazione HTML. Editor gratuito; abbonamento US$4/mese per esportare. Documento .ihtml che si apre con IHTML Mirror."
+    />
+    <meta property="og:url" content="https://ihtml.app/it/" />
+    <meta property="og:image" content="https://ihtml.app/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="IHTML — Editor Visuale di Animazioni HTML/CSS · Desktop e Android" />
+    <meta
+      name="twitter:description"
+      content="Editor visuale di animazioni HTML/CSS per desktop e Android, con Export HTML per il web e documenti .ihtml per IHTML Mirror."
+    />
+    <meta name="twitter:image" content="https://ihtml.app/assets/og-image.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/estilos.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://ihtml.app/#website",
+            "url": "https://ihtml.app/",
+            "name": "IHTML · Interactive HTML",
+            "description": "Editor visuale di animazioni HTML/CSS per desktop (Windows, macOS, Linux) e Android.",
+            "inLanguage": "it",
+            "sameAs": [
+              "https://x.com/ihtml",
+              "https://instagram.com/ihtml",
+              "https://tiktok.com/@ihtml",
+              "https://reddit.com/r/ihtml"
+            ]
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://ihtml.app/#software",
+            "name": "IHTML (Interactive HTML)",
+            "applicationCategory": "DesignApplication",
+            "operatingSystem": "Windows, macOS, Linux, Android",
+            "inLanguage": "it",
+            "author": {
+              "@type": "Person",
+              "name": "Casimiro Ondo Obiang",
+              "jobTitle": "CEO e Lead Developer"
+            },
+            "offers": [
+              {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD",
+                "description": "Piano Gratis: editor completo, importa .html e .ihtml, esporta immagine (PNG, WebP, JPEG). Nessuna esportazione HTML."
+              },
+              {
+                "@type": "Offer",
+                "price": "4",
+                "priceCurrency": "USD",
+                "description": "Piano Completo: US$4/mese o US$36/anno. Import ed export di .html e .ihtml, HTML interattivo, GIF e video."
+              }
+            ],
+            "featureList": "Timeline con keyframe, ispettore visuale, azioni senza codice, vettori con morphing, artboard e pagine multiple, esportazione HTML, API pubblica window.ihtmlDocument, server MCP per agenti IA"
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://ihtml.app/it/#faq",
+            "speakable": {
+              "@type": "SpeakableSpecification",
+              "cssSelector": [".faq details"]
+            },
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Cos'è IHTML?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "IHTML (Interactive HTML) è un editor visuale di animazioni HTML/CSS: una tela con artboard, una timeline con keyframe, un ispettore di proprietà e azioni senza codice. È un'app desktop per Windows, macOS e Linux, e un'app per Android; può anche essere eseguita dal codice sorgente nel browser."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "IHTML è gratuito?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sì: l'editor è gratuito e puoi esportare immagini (PNG, WebP, JPEG). L'abbonamento di US$4/mese (o US$36/anno) abilita l'importazione e l'esportazione di file .html e .ihtml, oltre all'esportazione GIF e video; il piano Gratis non esporta HTML."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Cos'è il formato .ihtml?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": ".ihtml è il formato di documento di IHTML: contiene l'intero progetto incorporato (elementi, animazioni, azioni, font, immagini e video). Si apre e viene eseguito con IHTML Mirror, l'app gratuita per desktop e Android, e lo stesso file si riapre nell'Editor per continuare a modificarlo. Per pubblicare sul web si usa Export HTML, che genera un file .html standard."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Ho bisogno di IHTML Mirror per vedere un .ihtml?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sì: un file .ihtml si apre con IHTML Mirror (gratuito, Windows/macOS/Linux/Android), proprio come un PDF ha bisogno di un lettore. Chi riceve il file installa Mirror una volta. Se preferisci che funzioni in qualsiasi browser senza installare nulla, esporta con Export HTML invece di .ihtml."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "I progetti IHTML vengono caricati su un server?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. I progetti vivono sul tuo computer e l'editor funziona offline; non ci sono account né backend. L'HTML esportato funziona su qualsiasi hosting o come file singolo. L'app include una telemetria diagnostica opzionale (errori e versione, mai il contenuto dei tuoi progetti) che può essere disattivata."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="island">
+      <button class="island-dot" aria-label="Menu" aria-expanded="false"></button>
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 555 625" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="logoGrad" x1="277" y1="0" x2="277" y2="625" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f16529" />
+              <stop offset="1" stop-color="#a12100" />
+            </linearGradient>
+            <linearGradient id="logoGradH" x1="0" y1="312" x2="555" y2="312" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f16529" />
+              <stop offset="1" stop-color="#a12100" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#logoGrad)" d="M0 0H554.15V416.48L277.07 624.08 0 416.48Z" />
+          <path fill="url(#logoGradH)" d="M554.15 0 277.07 624.08 0 0Z" />
+        </svg>
+        <span class="logo-text"><b>IHTML</b>&nbsp;Interactive HTML</span>
+      </a>
+      <div class="island-menu-wrap">
+        <nav class="island-menu">
+          <a href="index.html" class="is-activo">Home</a>
+          <a href="guide.html">Guida</a>
+          <a href="../novedades/index.html">Novità</a>
+          <a href="https://github.com/malabo1990/ihtml-releases/discussions" target="_blank" rel="noopener">Forum</a>
+          <a href="#scarica">Scarica</a>
+          <a href="#mirror">Mirror</a>
+          <a href="#prezzi">Prezzi</a>
+          <a class="is-cta" href="#prezzi">Abbonati</a>
+        </nav>
+      </div>
+      <div class="lang-switch">
+        <button class="lang-switch-btn" type="button" aria-haspopup="true" aria-expanded="false">
+          IT<span class="lang-switch-caret">▾</span>
+        </button>
+        <div class="lang-switch-menu">
+          <a href="../index.html">English</a>
+          <a href="../es/index.html">Español</a>
+          <a href="../pt/index.html">Português</a>
+          <a href="../fr/index.html">Français</a>
+          <a href="../de/index.html">Deutsch</a>
+          <a href="index.html" class="is-activo">Italiano</a>
+          <a href="../ja/index.html">日本語</a>
+          <a href="../zh/index.html">中文</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="hero">
+      <h1>IHTML&nbsp;<span class="grad">Interactive HTML</span></h1>
+      <p class="tagline">
+        Editor visuale di animazioni HTML/CSS: una tela con artboard, una timeline con keyframe, un ispettore
+        di proprietà e azioni senza codice. App per
+        <b>Windows, macOS, Linux e Android</b>. Pubblica sul web con <b>Export HTML</b>, oppure invia un
+        <b>.ihtml</b> &mdash; un documento interattivo che si apre con IHTML Mirror e resta modificabile.
+      </p>
+      <div class="ctas">
+        <a class="btn primario" href="#scarica">Scarica IHTML</a>
+        <a class="btn" href="guide.html">Leggi la guida</a>
+        <a class="btn" href="#mirror">Cos'è Mirror</a>
+      </div>
+
+      <div class="mock">
+        <div class="mock-bar" aria-hidden="true">
+          <span class="dot r"></span>
+          <span class="dot y"></span>
+          <span class="dot g"></span>
+          <span class="mock-url">IHTML Editor</span>
+        </div>
+        <img
+          src="../assets/img/editor.jpg"
+          width="1600"
+          height="900"
+          loading="eager"
+          decoding="async"
+          alt="L'editor IHTML: il pannello elementi a sinistra, la tela al centro con un design di copertina su sfondo sfumato, e la timeline in basso con diverse tracce di keyframe."
+        />
+      </div>
+    </div>
+
+    <section id="scarica" class="centrado reveal">
+      <p class="kicker">Scarica</p>
+      <h2>Scarica IHTML</h2>
+      <p class="sub">App desktop e Android. Installa una volta e funziona offline.</p>
+      <div class="plataformas" id="plataformas">
+        <div class="plataforma" data-plat="windows">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M0,0H11.377V11.372H0ZM12.623,0H24V11.372H12.623ZM0,12.623H11.377V24H0Zm12.623,0H24V24H12.623" />
+          </svg>
+          <b>Windows</b>
+          <small>Installer .exe</small>
+          <a class="btn" data-dl href="https://github.com/malabo1990/ihtml-releases/releases">Scarica</a>
+        </div>
+        <div class="plataforma" data-plat="macos">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"
+            />
+          </svg>
+          <b>macOS</b>
+          <small>Apple Silicon + Intel</small>
+          <a class="btn" data-dl href="https://github.com/malabo1990/ihtml-releases/releases">Scarica</a>
+        </div>
+        <div class="plataforma" data-plat="linux">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.884 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.424.424 0 00-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.132 1.884 1.071.771-.06 1.592-.536 2.257-1.306.631-.765 1.683-1.084 2.378-1.503.348-.199.629-.469.649-.853.023-.4-.2-.811-.714-1.376v-.097l-.003-.003c-.17-.199-.25-.535-.338-.926-.085-.401-.182-.786-.492-1.046h-.003c-.06-.054-.123-.067-.188-.135a.357.357 0 00-.19-.064c.431-1.278.264-2.55-.173-3.694-.533-1.41-1.465-2.638-2.175-3.483-.796-1.005-1.576-1.957-1.56-3.368.026-2.152.236-6.133-3.544-6.139z"
+            />
+          </svg>
+          <b>Linux</b>
+          <small>AppImage · .deb</small>
+          <a class="btn" data-dl href="https://github.com/malabo1990/ihtml-releases/releases">Scarica</a>
+        </div>
+        <div class="plataforma" data-plat="android">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M18.4395 5.5586c-.675 1.1664-1.352 2.3318-2.0274 3.498-.0366-.0155-.0742-.0286-.1113-.043-1.8249-.6957-3.484-.8-4.42-.787-1.8551.0185-3.3544.4643-4.2597.8203-.084-.1494-1.7526-3.021-2.0215-3.4864a1.1451 1.1451 0 0 0-.1406-.1914c-.3312-.364-.9054-.4859-1.379-.203-.475.282-.7136.9361-.3886 1.5019 1.9466 3.3696-.0966-.2158 1.9473 3.3593.0172.031-.4946.2642-1.3926 1.0177C2.8987 12.176.452 14.772 0 18.9902h24c-.119-1.1108-.3686-2.099-.7461-3.0683-.7438-1.9118-1.8435-3.2928-2.7402-4.1836a12.1048 12.1048 0 0 0-2.1309-1.6875c.6594-1.122 1.312-2.2559 1.9649-3.3848.2077-.3615.1886-.7956-.0079-1.1191a1.1001 1.1001 0 0 0-.8515-.5332c-.5225-.0536-.9392.3128-1.0488.5449zm-.0391 8.461c.3944.5926.324 1.3306-.1563 1.6503-.4799.3197-1.188.0985-1.582-.4941-.3944-.5927-.324-1.3307.1563-1.6504.4727-.315 1.1812-.1086 1.582.4941zM7.207 13.5273c.4803.3197.5506 1.0577.1563 1.6504-.394.5926-1.1038.8138-1.584.4941-.48-.3197-.5503-1.0577-.1563-1.6504.4008-.6021 1.1087-.8106 1.584-.4941z"
+            />
+          </svg>
+          <b>Android</b>
+          <small>IHTML Mirror · APK</small>
+          <a class="btn" data-dl href="https://github.com/malabo1990/ihtml-releases/releases">Scarica</a>
+        </div>
+      </div>
+      <p class="dl-nota" id="dlNota">
+        <span id="dlVer"></span>
+        Su Android si installa <b>IHTML Mirror</b> (apre ed esegue un <code>.ihtml</code>); l'editor completo è
+        solo desktop. iOS: prossimamente. Preferisci eseguirlo dal codice sorgente?
+        <a href="#inizia">Vedi "Come iniziare"</a>.
+      </p>
+    </section>
+
+    <section id="funzionalita" class="centrado reveal">
+      <p class="kicker">Funzionalità</p>
+      <h2>Tutto quello che fa l'editor.<br />Senza scrivere codice.</h2>
+      <p class="sub">Dalla timeline con keyframe alla fisica reale: animazione web professionale, in un'unica finestra.</p>
+      <div class="grid">
+        <div class="card">
+          <h3><span class="icono">◆</span> Timeline con keyframe</h3>
+          <p>
+            Diverse animazioni nominate e indipendenti, auto-keyframe (REC), easing visuale, marcatori di
+            azione e copia/incolla da tastiera.
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="icono">▣</span> Artboard multipli</h3>
+          <p>
+            Scene all'interno della stessa tela, ognuna con dimensione e sfondo propri; pagine navigabili con
+            transizioni in fase di esportazione.
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="icono">◎</span> Ispettore visuale completo</h3>
+          <p>
+            Design, Data, Actions e Fisica: layout, tipografia con ricerca di font web, sfumature con linea
+            libera direttamente sulla tela (appare da sola, un clic), selettore colore unito allo stesso
+            popover, stati hover/active, classi CSS e altro.
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="icono">⚡</span> Azioni senza codice</h3>
+          <p>
+            Clic, hover, tasto, scroll, ritardo&hellip; per mostrare/nascondere, animare, riprodurre timeline,
+            impostare variabili, andare a pagine e altro.
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="icono">≋</span> Vettori veri</h3>
+          <p>
+            Rettangoli, ellissi, poligoni e path disegnati con Pen: esportati come <code>&lt;svg&gt;</code>
+            reale, con editing dei nodi, operazioni booleane e morphing tramite keyframe.
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="icono">🌐</span> 8 lingue · 6 temi</h3>
+          <p>
+            Interfaccia traducibile (EN, ES, PT, FR, DE, IT, JA, ZH) e sei temi, chiari e scuri. Sono
+            preferenze dell'editor, mai parte del file esportato.
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="icono">🖥</span> Prestazioni reali</h3>
+          <p>
+            Il motore di animazione posiziona con <code>transform</code> (compositor/GPU) invece di
+            <code>left/top</code> — sia nell'editor che nell'HTML esportato.
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="icono">🔌</span> API pubblica</h3>
+          <p>
+            <code>window.ihtmlDocument</code>: controlla animazioni, variabili e azioni del risultato
+            esportato dal tuo script o da un <code>&lt;iframe&gt;</code>.
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="icono">🤖</span> MCP per agenti IA</h3>
+          <p>
+            Un vero server MCP: Claude Code (o un altro client MCP) controlla direttamente l'editor già aperto
+            — crea e modifica elementi, cambia breakpoint, regola la tela ed esporta, senza simulare clic.
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="icono">⬇</span> Import / Export</h3>
+          <p>
+            Importa <code>.ihtml</code> (e vecchi <code>.json</code>), HTML sciolto, SVG e design da Sketch,
+            Penpot ed EPUB. Esporta HTML unico o separato, immagine (PNG/WebP/JPEG), GIF e video.
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="icono">◈</span> Componenti pronti</h3>
+          <p>
+            Più di 50 tipi di elemento: testi, pulsanti, input, card, navbar, pricing, tab, slider, canvas,
+            video, iframe&hellip; con proprietà HTML reali per ogni tipo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="anteprime" class="centrado reveal">
+      <p class="kicker">Ecco come funziona</p>
+      <h2>L'editor, dall'interno</h2>
+      <p class="sub">Tela, timeline e ispettore in un'unica finestra. Niente pannelli fluttuanti da inseguire.</p>
+      <div class="galeria">
+        <figure class="shot">
+          <img
+            src="../assets/img/timeline.png"
+            width="1600"
+            height="408"
+            loading="lazy"
+            decoding="async"
+            alt="La timeline di IHTML: righe di elementi sopra e, sotto, la sezione delle proprietà dell'elemento selezionato con sotto-tracce 'Posizione X' e 'Opacità', ognuna con i suoi keyframe a forma di rombo, il valore attuale e la curva di easing."
+          />
+          <figcaption>
+            <b>Timeline.</b> Una riga per elemento e, sotto, le sue proprietà animate: ogni keyframe con il
+            proprio valore, il proprio easing e una barra per tratto. Auto-keyframe (REC) per registrare
+            mentre modifichi.
+          </figcaption>
+        </figure>
+        <figure class="shot">
+          <img
+            src="../assets/img/degradado.jpg"
+            width="1600"
+            height="900"
+            loading="lazy"
+            decoding="async"
+            alt="L'editor con il popover di Riempimento aperto: schede Solid / Linear / Radial / Conic / Image, elenco di stop colore e angolo; sulla tela si vede la linea di sfumatura con maniglie trascinabili."
+          />
+          <figcaption>
+            <b>Sfumature senza codice.</b> Stop colore, angolo e una linea modificabile direttamente sulla
+            tela. Il selettore colore è unito allo stesso popover, a un clic di distanza.
+          </figcaption>
+        </figure>
+        <figure class="shot">
+          <img
+            src="../assets/img/inspector.jpg"
+            width="1600"
+            height="900"
+            loading="lazy"
+            decoding="async"
+            alt="L'ispettore di IHTML con la scheda Design aperta: sezioni Display (block / flex / grid), Spaziatura, Riempimento con il suo campione colore, Bordo, Tipografia, Trasformazione e Filtri. Sopra, le schede Design / Data / Actions / Fisica."
+          />
+          <figcaption>
+            <b>Ispettore completo.</b> Design, Data, Actions e Fisica. Layout, tipografia con ricerca di font
+            web, stati hover/active, classi CSS e ancoraggio al genitore in stile Godot &mdash; con pulsante
+            keyframe e reset su ogni campo.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="formato" class="dark centrado reveal">
+      <p class="kicker">Il formato</p>
+      <h2>Due modi di condividere</h2>
+      <p class="sub">
+        Un <code>.html</code> per pubblicare sul web, oppure un <code>.ihtml</code> per inviare un documento
+        interattivo che si apre con IHTML Mirror.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <h3><span class="icono">🌐</span> Export HTML &rarr; il web</h3>
+          <p>
+            Un file <code>.html</code> standard (unico o separato in CSS+JS), con il motore di animazione
+            incorporato. Funziona in qualsiasi browser e hosting, o dentro un <code>&lt;iframe&gt;</code>.
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="icono">▶</span> <code>.ihtml</code> &rarr; IHTML Mirror</h3>
+          <p>
+            Il file che <b>invii</b>: contiene l'intero progetto (elementi, animazioni, azioni, font, immagini
+            e video). Chi lo riceve lo apre con <b>IHTML Mirror</b>, l'app gratuita &mdash; desktop o Android.
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="icono">✎</span> Lo stesso <code>.ihtml</code> si rimodifica</h3>
+          <p>
+            Quel file è insieme il risultato e la fonte: riaprilo nell'Editor e riprendi esattamente da dove
+            avevi lasciato. Nessun progetto separato da perdere.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="mirror" class="centrado reveal">
+      <p class="kicker">IHTML Mirror</p>
+      <h2>Il PDF che si muove</h2>
+      <p class="sub">
+        Mirror apre ed esegue un <code>.ihtml</code>. Pensalo come un PDF &mdash; ma con animazione,
+        interazione e controllo su chi lo apre e fino a quando.
+      </p>
+      <div class="mock">
+        <div class="mock-bar" aria-hidden="true">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="mock-url">IHTML Mirror</span>
+        </div>
+        <img
+          src="../assets/img/mirror.jpg"
+          width="1240"
+          height="784"
+          loading="lazy"
+          decoding="async"
+          alt="IHTML Mirror in esecuzione di un documento .ihtml: una copertina animata &mdash; titolo grande, un testo, una card con un grafico a barre e un anello &mdash; su sfondo sfumato, senza l'interfaccia dell'editor."
+        />
+      </div>
+      <div class="grid" style="margin-top: 44px">
+        <div class="card">
+          <h3><span class="icono">💼</span> Aziende</h3>
+          <p>
+            Proposte, cataloghi, report, onboarding &mdash; e <b>pubblicità interattiva senza internet</b>:
+            portalo su una chiavetta USB a una fiera, uno stand o un negozio e si apre allo stesso modo. Invii
+            un file, non un link.
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="icono">🏥</span> Sanità</h3>
+          <p>
+            Materiali per i pazienti, moduli di consenso informato e guide alle procedure: animati, chiari e
+            nella lingua necessaria. Il file <code>.ihtml</code> non dipende da un sito che potrebbe andare
+            offline.
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="icono">🎓</span> Istruzione</h3>
+          <p>
+            <b>Libri e appunti interattivi</b>, esercizi e presentazioni per la classe. Gli studenti li aprono
+            senza account; con testo reale e ruoli ARIA, funzionano con <b>screen reader</b> e navigazione da
+            tastiera.
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="icono">🔐</span> Controllo della distribuzione</h3>
+          <p>
+            Ogni file <code>.ihtml</code> è <b>pubblico</b>, <b>semi-privato</b> o <b>privato</b> (crittografato
+            con password, AES-256). Con data di scadenza opzionale per materiale che non dovrebbe circolare
+            per sempre.
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="icono">📦</span> Tutto incluso</h3>
+          <p>
+            Il file contiene font, immagini e video incorporati. Una volta che hai Mirror, si apre offline: né
+            CDN, né font che non caricano, né link rotti.
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="icono">🆓</span> Gratis per chi lo riceve</h3>
+          <p>
+            IHTML Mirror non costa nulla &mdash; come un lettore PDF. Chi crea si abbona per esportare; il
+            destinatario installa solo Mirror e apre.
+          </p>
+        </div>
+      </div>
+      <div class="ctas">
+        <a class="btn primario" href="#scarica">Scarica IHTML Mirror</a>
+        <a class="btn" href="guide.html#6-esportare">Come funziona l'esportazione</a>
+      </div>
+    </section>
+
+    <section id="prezzi" class="centrado reveal">
+      <p class="kicker">Prezzi</p>
+      <h2>Inizia gratis. Abbonati quando vuoi.</h2>
+      <p class="sub">L'editor è gratuito. L'abbonamento abilita l'esportazione. Annulla quando vuoi.</p>
+      <div class="precios">
+        <div class="precio-card">
+          <p class="precio-nombre">Gratis</p>
+          <p class="precio-valor">US$0</p>
+          <ul>
+            <li>Editor completo, senza limiti di design</li>
+            <li>Importa <code>.html</code> e <code>.ihtml</code></li>
+            <li>Esporta immagine: PNG, WebP, JPEG</li>
+            <li>Nessuna esportazione HTML o <code>.ihtml</code></li>
+          </ul>
+          <a class="btn" href="#scarica">Scarica gratis</a>
+        </div>
+        <div class="precio-card es-destacada">
+          <p class="precio-nombre">Completo</p>
+          <p class="precio-valor">US$4 <small>/mese</small></p>
+          <ul>
+            <li>Tutto quanto nel piano Gratis</li>
+            <li>Esporta HTML interattivo e <code>.ihtml</code></li>
+            <li>Esporta GIF e video (MP4, WebM)</li>
+            <li>Anteprima mobile tramite QR code</li>
+          </ul>
+          <a class="btn primario" href="#scarica">Abbonati</a>
+        </div>
+      </div>
+      <p class="precio-nota">
+        Anche US$36/anno (due mesi gratis). Fino a 2 dispositivi. I tuoi file restano sempre sul tuo computer.
+      </p>
+    </section>
+
+    <section id="inizia" class="centrado reveal">
+      <p class="kicker">Primi passi</p>
+      <h2>Come iniziare</h2>
+      <p class="sub">Scarica, installa e stai già progettando. Non serve account né connessione.</p>
+      <ol class="pasos" style="max-width: 560px; margin: 0 auto; text-align: left">
+        <li>
+          <b><a href="#scarica">Scarica</a></b> l'installer per il tuo sistema e apri IHTML.
+        </li>
+        <li>
+          Trascina elementi dal pannello <b>Elements</b> sulla tela e regola tutto nell'<b>Inspector</b> a
+          destra.
+        </li>
+        <li>
+          Metti il playhead sulla <b>Timeline</b>, tocca il pulsante keyframe di una proprietà, spostalo e
+          tocca di nuovo: hai già un'animazione.
+        </li>
+        <li>
+          <b>Esporta</b> (gratis: immagine; piano Completo: HTML e <code>.ihtml</code>). Per il web,
+          <b>Export HTML</b>; per inviare un documento, un <code>.ihtml</code> che si apre con
+          <a href="#mirror">IHTML Mirror</a> e può essere modificato di nuovo.
+        </li>
+      </ol>
+      <p style="margin-top: 26px">Preferisci eseguirlo dal codice sorgente? Clona il repo e:</p>
+      <pre>
+npm install
+npm run dev</pre>
+      <p>Apri l'URL stampato da Vite. Per creare il pacchetto dell'app desktop: <code>npm run tauri:build</code>.</p>
+    </section>
+
+    <section id="guia" class="centrado reveal">
+      <p class="kicker">Documentazione</p>
+      <h2>Guida utente</h2>
+      <p class="sub">
+        Tutto quello che fa l'editor: interfaccia, vettori, artboard, timeline, azioni, fisica, esportazione,
+        scorciatoie da tastiera e l'API pubblica in tempo reale.
+      </p>
+      <div class="ctas">
+        <a class="btn primario" href="guide.html">Apri la guida</a>
+      </div>
+    </section>
+
+    <section id="faq" class="centrado reveal">
+      <p class="kicker">Domande frequenti</p>
+      <h2>Risposte dirette</h2>
+      <p class="sub">L'essenziale di IHTML in quattro risposte brevi.</p>
+      <div class="faq">
+        <details>
+          <summary>Cos'è IHTML?</summary>
+          <p>
+            IHTML (Interactive HTML) è un editor visuale di animazioni HTML/CSS: una tela con artboard, una
+            timeline con keyframe, un ispettore di proprietà e azioni senza codice. È un'app desktop per
+            Windows, macOS e Linux, e un'app per Android; può anche essere eseguita dal codice sorgente nel
+            browser.
+          </p>
+        </details>
+        <details>
+          <summary>IHTML è gratuito?</summary>
+          <p>
+            Sì: l'editor è gratuito e puoi esportare immagini (PNG, WebP e JPEG). L'abbonamento di US$4/mese
+            &mdash; o US$36/anno &mdash; abilita l'importazione e l'esportazione di file .html e .ihtml, oltre
+            all'esportazione GIF e video; il piano Gratis non esporta HTML.
+          </p>
+        </details>
+        <details>
+          <summary>Cos'è il formato .ihtml?</summary>
+          <p>
+            È il formato di documento di IHTML: contiene l'intero progetto incorporato (elementi, animazioni,
+            azioni, font, immagini e video). Si apre e viene eseguito con <b>IHTML Mirror</b>, l'app gratuita
+            per desktop e Android, e lo stesso file si riapre nell'Editor per continuare a modificarlo. Per
+            pubblicare sul web si usa <b>Export HTML</b>, che genera un file <code>.html</code> standard.
+          </p>
+        </details>
+        <details>
+          <summary>Ho bisogno di IHTML Mirror per vedere un .ihtml?</summary>
+          <p>
+            Sì: un file <code>.ihtml</code> si apre con IHTML Mirror (gratuito, Windows/macOS/Linux/Android).
+            È come un lettore PDF &mdash; chi riceve il file installa Mirror una volta e basta. Se invece vuoi
+            che funzioni in qualsiasi browser senza installare nulla, esporta con <b>Export HTML</b> invece di
+            <code>.ihtml</code>.
+          </p>
+        </details>
+        <details>
+          <summary>I progetti IHTML vengono caricati su un server?</summary>
+          <p>
+            No. I progetti vivono sul tuo computer e l'editor funziona offline; non ci sono account né
+            backend. L'HTML esportato funziona su qualsiasi hosting o come file singolo. L'app include una
+            telemetria diagnostica opzionale (errori e versione, mai il contenuto dei tuoi progetti) che può
+            essere disattivata nelle Impostazioni.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <footer>
+      <p><b>IHTML</b> (Interactive HTML) — editor di animazioni HTML/CSS per desktop e Android.</p>
+      <div class="docs">
+        <a href="index.html">Home</a>
+        <a href="guide.html">Guida utente</a>
+        <a href="../novedades/index.html">Novità</a>
+        <a href="https://github.com/malabo1990/ihtml-releases/discussions" target="_blank" rel="noopener">Forum</a>
+        <a href="#scarica">Scarica</a>
+        <a href="#mirror">Mirror</a>
+        <a href="#prezzi">Prezzi</a>
+        <a href="../index.html">English</a>
+        <a href="../es/index.html">Español</a>
+        <a href="../pt/index.html">Português</a>
+        <a href="../fr/index.html">Français</a>
+        <a href="../de/index.html">Deutsch</a>
+        <a href="../ja/index.html">日本語</a>
+        <a href="../zh/index.html">中文</a>
+      </div>
+      <div class="social">
+        <a href="https://x.com/ihtml" title="X" target="_blank" rel="noopener" aria-label="X">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
+            />
+          </svg>
+        </a>
+        <a href="https://instagram.com/ihtml" title="Instagram" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"
+            />
+          </svg>
+        </a>
+        <a href="https://tiktok.com/@ihtml" title="TikTok" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
+            />
+          </svg>
+        </a>
+        <a href="https://reddit.com/r/ihtml" title="Forum — Reddit" target="_blank" rel="noopener" aria-label="Reddit">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M12 0C5.373 0 0 5.373 0 12c0 3.314 1.343 6.314 3.515 8.485l-2.286 2.286C.775 23.225 1.097 24 1.738 24H12c6.627 0 12-5.373 12-12S18.627 0 12 0Zm4.388 3.199c1.104 0 1.999.895 1.999 1.999 0 1.105-.895 2-1.999 2-.946 0-1.739-.657-1.947-1.539v.002c-1.147.162-2.032 1.15-2.032 2.341v.007c1.776.067 3.4.567 4.686 1.363.473-.363 1.064-.58 1.707-.58 1.547 0 2.802 1.254 2.802 2.802 0 1.117-.655 2.081-1.601 2.531-.088 3.256-3.637 5.876-7.997 5.876-4.361 0-7.905-2.617-7.998-5.87-.954-.447-1.614-1.415-1.614-2.538 0-1.548 1.255-2.802 2.803-2.802.645 0 1.239.218 1.712.585 1.275-.79 2.881-1.291 4.64-1.365v-.01c0-1.663 1.263-3.034 2.88-3.207.188-.911.993-1.595 1.959-1.595Zm-8.085 8.376c-.784 0-1.459.78-1.506 1.797-.047 1.016.64 1.429 1.426 1.429.786 0 1.371-.369 1.418-1.385.047-1.017-.553-1.841-1.338-1.841Zm7.406 0c-.786 0-1.385.824-1.338 1.841.047 1.017.634 1.385 1.418 1.385.785 0 1.473-.413 1.426-1.429-.046-1.017-.721-1.797-1.506-1.797Zm-3.703 4.013c-.974 0-1.907.048-2.77.135-.147.015-.241.168-.183.305.483 1.154 1.622 1.964 2.953 1.964 1.33 0 2.47-.81 2.953-1.964.057-.137-.037-.29-.184-.305-.863-.087-1.795-.135-2.769-.135Z"
+            />
+          </svg>
+        </a>
+      </div>
+      <p class="footer-credit">
+        © 2026 IHTML · Casimiro Ondo Obiang &mdash; CEO e Lead Developer
+      </p>
+    </footer>
+
+    <script>
+      const rv = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+        rv.forEach((el) => io.observe(el));
+      } else {
+        rv.forEach((el) => el.classList.add('visible'));
+      }
+
+      const isla = document.querySelector('.island');
+      const islaBot = document.querySelector('.island-dot');
+      if (isla && islaBot) {
+        islaBot.addEventListener('click', () => {
+          const abierto = isla.classList.toggle('is-abierto');
+          islaBot.setAttribute('aria-expanded', abierto);
+        });
+        document.addEventListener('click', (e) => {
+          if (isla.contains(e.target)) return;
+          isla.classList.remove('is-abierto');
+          islaBot.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      document.querySelectorAll('.lang-switch').forEach((ls) => {
+        const btn = ls.querySelector('.lang-switch-btn');
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const open = ls.classList.toggle('is-abierto');
+          btn.setAttribute('aria-expanded', open);
+        });
+      });
+      document.addEventListener('click', (e) => {
+        document.querySelectorAll('.lang-switch.is-abierto').forEach((ls) => {
+          if (ls.contains(e.target)) return;
+          ls.classList.remove('is-abierto');
+          ls.querySelector('.lang-switch-btn').setAttribute('aria-expanded', 'false');
+        });
+      });
+    </script>
+
+    <script>
+      try {
+        localStorage.setItem('ihtml-lang', 'it');
+      } catch (e) {
+        /* localStorage non disponibile (modalità privata, ecc.) */
+      }
+    </script>
+
+    <script>
+      /* Download: collega ogni card all'asset reale dell'ultima Release.
+       Se il repo/Release non esiste ancora, ogni pulsante resta sulla
+       pagina releases (fallback già scritto nell'HTML). */
+      (function () {
+        var REPO = 'malabo1990/ihtml-releases';
+        var RELEASES = 'https://github.com/' + REPO + '/releases';
+
+        function currentOs() {
+          var ua = navigator.userAgent;
+          if (/Android/i.test(ua)) return 'android';
+          if (/Mac OS X|Macintosh/i.test(ua)) return 'macos';
+          if (/Linux|X11/i.test(ua) && !/Android/i.test(ua)) return 'linux';
+          if (/Windows/i.test(ua)) return 'windows';
+          return 'windows';
+        }
+
+        // <App>_<version>_<platform>.<ext>
+        function platformFrom(name) {
+          var m = /_([a-z-]+)\.(exe|msi|dmg|appimage|deb|rpm|apk|aab)$/i.exec(name);
+          if (!m) return null;
+          var p = m[1].toLowerCase();
+          if (p.indexOf('windows') === 0) return 'windows';
+          if (p.indexOf('macos') === 0 || p.indexOf('darwin') === 0 || p.indexOf('universal') === 0) return 'macos';
+          if (p.indexOf('linux') === 0) return 'linux';
+          if (p.indexOf('android') === 0) return 'android';
+          return null;
+        }
+
+        var yourOs = currentOs();
+        var card = document.querySelector('.plataforma[data-plat="' + yourOs + '"]');
+        if (card) card.classList.add('es-tuyo');
+
+        fetch('https://api.github.com/repos/' + REPO + '/releases/latest', {
+          headers: { accept: 'application/vnd.github+json' }
+        })
+          .then(function (r) {
+            return r.ok ? r.json() : Promise.reject(r.status);
+          })
+          .then(function (rel) {
+            var version = (rel.tag_name || '').replace(/^v/, '');
+            if (version) {
+              var vEl = document.getElementById('dlVer');
+              if (vEl) vEl.textContent = 'Ultima versione: ' + version + '. ';
+            }
+            var byPlat = {};
+            (rel.assets || []).forEach(function (a) {
+              var p = platformFrom(a.name);
+              if (p && !byPlat[p]) byPlat[p] = a.browser_download_url;
+            });
+            document.querySelectorAll('.plataforma[data-plat]').forEach(function (card) {
+              var p = card.getAttribute('data-plat');
+              var a = card.querySelector('a[data-dl]');
+              if (a && byPlat[p]) a.href = byPlat[p];
+            });
+          })
+          .catch(function () {
+            /* nessuna Release ancora: i pulsanti puntano già a RELEASES */
+            document.querySelectorAll('.plataforma a[data-dl]').forEach(function (a) {
+              a.textContent = 'Vedi le release';
+              a.href = RELEASES;
+            });
+          });
+      })();
+    </script>
+  </body>
+</html>
