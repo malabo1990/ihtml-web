@@ -1,0 +1,1325 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guia do Usuário — IHTML (Interactive HTML)</title>
+    <meta
+      name="description"
+      content="Guia do usuário completo do IHTML (Interactive HTML): primeiros passos, vetores, artboards, timeline e keyframes, ações sem código, física, exportação/importação, atalhos de teclado, API pública e MCP para agentes de IA."
+    />
+    <meta
+      name="keywords"
+      content="guia ihtml, tutorial de animação web, keyframes, timeline, ações sem código, exportar html, ihtml api, ihtml mcp, .ihtml"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://ihtml.app/pt/guide.html" />
+    <link rel="alternate" hreflang="en" href="https://ihtml.app/guide.html" />
+    <link rel="alternate" hreflang="es" href="https://ihtml.app/es/guia-usuario.html" />
+    <link rel="alternate" hreflang="pt" href="https://ihtml.app/pt/guide.html" />
+    <link rel="alternate" hreflang="fr" href="https://ihtml.app/fr/guide.html" />
+    <link rel="alternate" hreflang="de" href="https://ihtml.app/de/guide.html" />
+    <link rel="alternate" hreflang="it" href="https://ihtml.app/it/guide.html" />
+    <link rel="alternate" hreflang="ja" href="https://ihtml.app/ja/guide.html" />
+    <link rel="alternate" hreflang="zh" href="https://ihtml.app/zh/guide.html" />
+    <link rel="alternate" hreflang="x-default" href="https://ihtml.app/guide.html" />
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="IHTML · Interactive HTML" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Guia do Usuário — IHTML (Interactive HTML)" />
+    <meta
+      property="og:description"
+      content="Guia completo do IHTML: primeiros passos, vetores, artboards, timeline, ações sem código, física, exportação, atalhos de teclado, API pública e MCP para agentes de IA."
+    />
+    <meta property="og:url" content="https://ihtml.app/pt/guide.html" />
+    <meta property="og:image" content="https://ihtml.app/assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Guia do Usuário — IHTML (Interactive HTML)" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/estilos.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "@id": "https://ihtml.app/pt/guide.html#article",
+        "headline": "Guia do Usuário — IHTML (Interactive HTML)",
+        "description": "Guia do usuário completo do IHTML: primeiros passos, vetores, artboards, timeline e keyframes, ações sem código, física, exportação/importação, atalhos de teclado, API pública e MCP para agentes de IA.",
+        "inLanguage": "pt",
+        "datePublished": "2026-09-14",
+        "dateModified": "2026-09-14",
+        "url": "https://ihtml.app/pt/guide.html",
+        "image": "https://ihtml.app/assets/og-image.png",
+        "isPartOf": { "@id": "https://ihtml.app/#website" },
+        "about": { "@id": "https://ihtml.app/#software" },
+        "author": {
+          "@type": "Person",
+          "name": "Casimiro Ondo Obiang",
+          "jobTitle": "CEO e Desenvolvedor Líder"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "IHTML",
+          "logo": { "@type": "ImageObject", "url": "https://ihtml.app/assets/favicon.svg" }
+        },
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [".intro", ".seccion h2"]
+        },
+        "mainEntityOfPage": "https://ihtml.app/pt/guide.html"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="island">
+      <button class="island-dot" aria-label="Menu" aria-expanded="false"></button>
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 555 625" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="logoGrad" x1="277" y1="0" x2="277" y2="625" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f16529" />
+              <stop offset="1" stop-color="#a12100" />
+            </linearGradient>
+            <linearGradient id="logoGradH" x1="0" y1="312" x2="555" y2="312" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f16529" />
+              <stop offset="1" stop-color="#a12100" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#logoGrad)" d="M0 0H554.15V416.48L277.07 624.08 0 416.48Z" />
+          <path fill="url(#logoGradH)" d="M554.15 0 277.07 624.08 0 0Z" />
+        </svg>
+        <span class="logo-text"><b>IHTML</b>&nbsp;Interactive HTML</span>
+      </a>
+      <div class="island-menu-wrap">
+        <nav class="island-menu">
+          <a href="index.html">Início</a>
+          <a href="guide.html" class="is-activo">Guia</a>
+          <a href="../novedades/index.html">Novidades</a>
+          <a href="https://github.com/malabo1990/ihtml-releases/discussions" target="_blank" rel="noopener">Fórum</a>
+          <a href="index.html#baixar">Baixar</a>
+          <a href="index.html#mirror">Mirror</a>
+          <a href="index.html#precos">Preços</a>
+          <a class="is-cta" href="index.html#precos">Assinar</a>
+        </nav>
+      </div>
+      <div class="lang-switch">
+        <button class="lang-switch-btn" type="button" aria-haspopup="true" aria-expanded="false">
+          PT<span class="lang-switch-caret">▾</span>
+        </button>
+        <div class="lang-switch-menu">
+          <a href="../guide.html">English</a>
+          <a href="../es/guia-usuario.html">Español</a>
+          <a href="guide.html" class="is-activo">Português</a>
+          <a href="../fr/guide.html">Français</a>
+          <a href="../de/guide.html">Deutsch</a>
+          <a href="../it/guide.html">Italiano</a>
+          <a href="../ja/guide.html">日本語</a>
+          <a href="../zh/guide.html">中文</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout-guia">
+      <aside class="toc">
+        <p class="titulo">Guia do usuário</p>
+        <ul>
+          <li>
+            <a href="#1-primeiros-passos">1. Primeiros passos</a>
+            <ul>
+              <li><a href="#idioma-e-tema">Idioma e tema</a></li>
+              <li><a href="#ferramentas">A barra superior</a></li>
+              <li><a href="#vetores">Vetores</a></li>
+              <li><a href="#pen">A ferramenta Pen</a></li>
+              <li><a href="#nos">Editar nós</a></li>
+              <li><a href="#mover">Mover / redimensionar / rotacionar</a></li>
+              <li><a href="#artboards">Artboards</a></li>
+              <li><a href="#contextual">Menu de contexto</a></li>
+              <li><a href="#inspector">O Inspector</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#2-camadas">2. Camadas</a>
+            <ul>
+              <li><a href="#bloquear-guide">Bloquear e Guide Layers</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#3-animacao">3. Animação (Timeline)</a>
+            <ul>
+              <li><a href="#animacoes-nomeadas">Animações nomeadas</a></li>
+              <li><a href="#marcadores">Marcadores de ação</a></li>
+              <li><a href="#keyframear">Criar keyframe de uma propriedade</a></li>
+              <li><a href="#rec">Auto-Keyframe (REC)</a></li>
+              <li><a href="#selecionar-keyframes">Selecionar e copiar keyframes</a></li>
+              <li><a href="#menu-timeline">Menu de contexto da Timeline</a></li>
+              <li><a href="#arquivos">Arquivos</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#4-acoes">4. Ações interativas</a>
+            <ul>
+              <li><a href="#paginas">Páginas (cenas)</a></li>
+              <li><a href="#variaveis">Variáveis do projeto</a></li>
+              <li><a href="#fisica">Física</a></li>
+            </ul>
+          </li>
+          <li><a href="#5-codigo">5. Código personalizado</a></li>
+          <li><a href="#6-exportar">6. Exportar</a></li>
+          <li><a href="#7-importar">7. Importar</a></li>
+          <li><a href="#8-formato">8. Formato do projeto</a></li>
+          <li><a href="#9-atalhos">9. Atalhos de teclado</a></li>
+          <li><a href="#10-api">10. API pública em tempo de execução</a></li>
+          <li><a href="#11-mcp">11. MCP — controle por agentes de IA</a></li>
+        </ul>
+      </aside>
+
+      <main class="guia">
+        <h1>Guia de Uso — IHTML (Interactive HTML)</h1>
+        <p class="intro">
+          Tudo o que o editor faz: interface, vetores, artboards, timeline, ações, física, exportação e
+          importação, atalhos de teclado e a API pública.
+        </p>
+
+        <!-- ================= 1. PRIMEIROS PASSOS ================= -->
+        <div class="seccion" id="1-primeiros-passos">
+          <h2>1. Primeiros passos</h2>
+
+          <ol class="pasos">
+            <li>
+              <b><a href="index.html#baixar">Baixe</a></b> e instale o IHTML (Windows, macOS, Linux ou Android),
+              ou clone o repositório e rode <code>npm install</code> e <code>npm run dev</code>.
+            </li>
+            <li>
+              O canvas central é a sua cena (um ou mais <b>artboards</b>, veja mais abaixo). A barra superior tem
+              as ferramentas de seleção/criação; a barra lateral esquerda mostra suas <b>Layers</b>; a direita é
+              o <b>Inspector</b> de propriedades do elemento selecionado; embaixo está a <b>Timeline</b>.
+            </li>
+          </ol>
+
+          <figure class="captura">
+            <img
+              src="../assets/img/editor.jpg"
+              width="1600"
+              height="900"
+              loading="lazy"
+              decoding="async"
+              alt="A janela do IHTML: painel de elementos à esquerda, canvas no centro com um design em degradê, e inspector e timeline ao redor."
+            />
+            <figcaption>
+              A janela do IHTML: <b>Elements</b> à esquerda, canvas no centro, <b>Inspector</b> à direita e
+              <b>Timeline</b> embaixo.
+            </figcaption>
+          </figure>
+
+          <h3 id="idioma-e-tema">Idioma e tema</h3>
+          <p>Em cima à direita, junto às ferramentas do canvas, há dois seletores:</p>
+          <ul>
+            <li>
+              <b>Idioma</b> — 8 disponíveis (English, Español, Português, Français, Deutsch, Italiano, 日本語,
+              中文): traduz toda a navegação principal e o Inspector completo (Design/Data/Actions/Physics).
+            </li>
+            <li><b>Tema</b> — seis temas entre claros e escuros (cinza escuro por padrão).</li>
+          </ul>
+          <p>
+            Os dois são lembrados entre sessões (ficam no seu navegador) e são uma preferência do <b>editor</b>
+            — nunca são salvos dentro do projeto <code>.ihtml</code> nem afetam o HTML exportado.
+          </p>
+
+          <h3>Criar um elemento</h3>
+          <p>
+            Use as ferramentas da barra superior (ou o painel <b>Elements</b> à esquerda) para adicionar texto,
+            formas, botões, inputs, cards, navbars e outros componentes já prontos. O novo elemento aparece
+            selecionado, com sua bounding box visível.
+          </p>
+
+          <h3 id="ferramentas">As ferramentas da barra superior</h3>
+          <table>
+            <tr>
+              <th>Ferramenta</th>
+              <th>O que faz</th>
+            </tr>
+            <tr>
+              <td><b>Select (V)</b></td>
+              <td>Selecionar, arrastar; arrastar sobre o fundo desenha um retângulo de seleção múltipla.</td>
+            </tr>
+            <tr>
+              <td><b>Shape (S)</b></td>
+              <td>Arraste para desenhar um <b>retângulo vetorial</b>; com <b>Alt</b> sai uma <b>elipse</b>.</td>
+            </tr>
+            <tr>
+              <td><b>Text (T)</b></td>
+              <td>Um clique cria um elemento de texto naquele ponto.</td>
+            </tr>
+            <tr>
+              <td><b>Zoom (Z)</b></td>
+              <td>Clique aproxima, <b>Alt</b>+clique afasta.</td>
+            </tr>
+            <tr>
+              <td><b>Hand (H)</b></td>
+              <td>Fazer pan sem precisar manter a barra de espaço pressionada.</td>
+            </tr>
+            <tr>
+              <td><b>Pen (P)</b></td>
+              <td>Desenhar um path à mão (veja abaixo).</td>
+            </tr>
+          </table>
+          <p>
+            Shape e Text voltam sozinhas para Select depois de criar, para que o próximo clique não crie outro
+            elemento sem querer.
+          </p>
+
+          <h3 id="vetores">Vetores (formas desenhadas)</h3>
+          <p>
+            As formas da ferramenta Shape — e os cards da categoria <b>Shapes</b> do painel Elements
+            (<b>Rectangle, Ellipse, Triangle, Polygon, Star, Spiral</b>) — são elementos
+            <b>vetoriais de verdade</b>: são exportados como um <code>&lt;svg&gt;</code> com um
+            <code>&lt;path&gt;</code> real, não como uma div com cantos arredondados. Triangle/Polygon nascem
+            como polígonos regulares (3 e 6 lados), Star como estrela de 5 pontas, Spiral como espiral aberta. O
+            número de lados/pontas fica fixo ao criar; para uma forma diferente, ajuste os nós manualmente.
+          </p>
+          <ul>
+            <li>
+              <b>Fill</b>, <b>Stroke</b> e <b>Stroke width</b> são editados em <b>Element Properties</b>, dentro
+              da aba <b>Data</b> do Inspector (aceitam <code>none</code> para deixar sem preenchimento ou sem
+              contorno) — <b>não</b> na seção Fill/Background de <b>Design</b>, que nem aparece para um vetor:
+              essa seção pinta o fundo da caixa que envolve o desenho, não o <code>&lt;path&gt;</code> em si.
+            </li>
+            <li>
+              Fill e Stroke trazem um swatch de cor ao lado do campo. O campo de texto continua mandando (você
+              pode continuar digitando <code>none</code> para tirar o preenchimento).
+            </li>
+            <li>
+              Os campos numéricos (Stroke width, min/max de um slider, buffer de um Canvas...) podem ser
+              <b>arrastados</b> para mudar o valor (ícone ⇄ ao lado do campo): <code>Shift</code> mais fino,
+              <code>Alt</code> mais grosso.
+            </li>
+            <li>
+              Redimensionar o elemento <b>escala o desenho</b>: a geometria vive no seu próprio espaço e o
+              <code>viewBox</code> a estica até a caixa.
+            </li>
+            <li>A elipse é salva como quatro segmentos bezier reais, não como um círculo CSS.</li>
+            <li>
+              <b>Clip children to shape</b> (Data &gt; Element Properties): os elementos <b>aninhados dentro</b>
+              desse vetor ficam invisíveis fora da área do polígono — uma máscara de recorte (CSS puro com
+              <code>clip-path</code>). Só tem efeito se o vetor tiver filhos.
+            </li>
+            <li>
+              <b>Animate points</b> (botão ◆ no fim das suas propriedades): um vetor pode
+              <b>animar sua forma inteira</b> com keyframes. Toque o botão em pontos diferentes da Timeline após
+              editar os nós e essa forma fica gravada como keyframe; o editor interpola cada nó separadamente
+              (morphing suave). Só interpola bem entre duas formas com a <b>mesma quantidade de nós</b>.
+            </li>
+          </ul>
+
+          <h3 id="pen">A ferramenta Pen (desenhar um path)</h3>
+          <ul>
+            <li>Cada <b>clique</b> sobre o canvas adiciona um vértice reto (canto).</li>
+            <li>
+              <b>Clicar e arrastar</b> dá a esse vértice alças bezier simétricas — o gesto clássico para um nó
+              "suave".
+            </li>
+            <li><b>Enter</b> fecha o path como <b>aberto</b> (uma linha).</li>
+            <li>Um <b>clique perto do primeiro vértice</b> fecha como <b>polígono</b>.</li>
+            <li><b>Escape</b> descarta o desenho inteiro — nenhum elemento é criado.</li>
+          </ul>
+          <p>Ao terminar, o path vai direto para o <b>modo de edição de nós</b>.</p>
+
+          <h3 id="nos">Editar os nós de um vetor existente</h3>
+          <p>
+            <b>Duplo clique</b> sobre qualquer elemento vetorial entra no modo de edição: um ponto branco
+            arrastável por nó e um ponto azul por alça bezier.
+          </p>
+          <ul>
+            <li>Arrastar um <b>nó</b> (branco) o move — a curva inteira se move com ele.</li>
+            <li>Arrastar uma <b>alça</b> (azul) muda só essa curva.</li>
+            <li>
+              <b>Delete</b> apaga o nó selecionado (nunca abaixo do que um path válido precisa: 2 nós aberto, 3
+              fechado).
+            </li>
+            <li><b>Escape</b> sai do modo de edição e volta para as alças normais.</li>
+          </ul>
+
+          <h3 id="mover">Mover, redimensionar, rotacionar</h3>
+          <ul>
+            <li>
+              Arraste para mover, ou use as setas (Shift + seta = 10px). Com vários selecionados, move-se
+              <b>o grupo inteiro</b> junto.
+            </li>
+            <li>
+              Alças da bounding box para redimensionar: <b>Shift</b> mantém a proporção, <b>Alt</b> a partir do
+              centro, <b>Ctrl</b> ajusta à grade.
+            </li>
+            <li>A alça circular rotaciona o elemento.</li>
+            <li>
+              Um elemento aninhado num pai rotacionado/escalado segue o mouse ou as setas no seu próprio eixo
+              visual, não no eixo da tela.
+            </li>
+            <li>
+              <b>Snapping inteligente</b>: encaixa sozinho na borda/centro de elementos próximos ou em guias
+              manuais, com linha rosa/ciano enquanto dura o encaixe. <code>Ctrl</code> força o ajuste à grade
+              (mutuamente exclusivo).
+            </li>
+            <li>
+              <b>Régua e guias</b>: arrastar da barra cinza de cima ou da esquerda do canvas cria uma guia manual
+              (linha ciano). Duplo clique a apaga; arrastá-la a reposiciona.
+            </li>
+          </ul>
+
+          <h3 id="artboards">Artboards (várias mesas de trabalho)</h3>
+          <p>
+            Você pode ter mais de um artboard no mesmo canvas, cada um com seu próprio tamanho e fundo. O botão
+            "Add Artboard" (ou o menu de contexto do fundo) cria um novo ao lado do ativo.
+          </p>
+          <ul>
+            <li>Um clique no fundo de um artboard o ativa (os elementos novos vão para lá).</li>
+            <li>Arrastar sua etiqueta o move; arrastar sua alça de canto o redimensiona.</li>
+            <li>
+              Com setas e nada selecionado, move-se o artboard ativo; <code>Delete</code> sem seleção o apaga
+              (nunca o último que sobrar).
+            </li>
+            <li><b>Export HTML</b> sempre exporta só o artboard ativo, não o projeto inteiro.</li>
+          </ul>
+
+          <h3 id="contextual">Menu de contexto (clique direito)</h3>
+          <p>
+            Um mesmo menu compartilhado, com opções conforme onde você clica: sobre um elemento (duplicar,
+            excluir, copiar/colar, trazer para frente/enviar para trás...), sobre o fundo vazio (colar,
+            selecionar tudo, adicionar artboard), sobre o fundo de um artboard específico (renomear, duplicar,
+            excluir esse), ou sobre um card do painel Elements (adicioná-lo ao canvas).
+          </p>
+          <ul>
+            <li>
+              Com <b>2+ selecionados</b>: grade de <b>alinhamento</b> (esquerda/centro/direita,
+              topo/meio/baixo) contra o retângulo que envolve toda a seleção.
+            </li>
+            <li>
+              Com <b>3+</b>: também <b>distribuir espaçamento</b> horizontal/vertical (o primeiro e o último
+              ficam fixos e o resto se distribui com espaços idênticos).
+            </li>
+            <li>
+              Com <b>2+ vetores irmãos</b>: grade de <b>operações booleanas</b> (Union, Subtract, Intersect,
+              Exclude) usando <code>fill-rule</code> e <code>clip-path</code> nativos do SVG. O resultado
+              renderiza exato e anima/exporta como qualquer vetor, mas não fica como uma única curva simples
+              editável nó por nó.
+            </li>
+          </ul>
+
+          <h3 id="inspector">O Inspector (painel direito)</h3>
+          <p>
+            Quatro abas exclusivas — <b>Design</b>, <b>Data</b>, <b>Actions</b> e <b>Física</b>: só uma aparece
+            por vez.
+          </p>
+          <ul>
+            <li>
+              <b>Design</b> — tudo o que é <b>visual</b> em um único scroll contínuo: Posição/Tamanho/Origem/
+              Espaçamento, Flex/Grid Layout (aparece ao colocar Display em Flex ou Grid), Aparência
+              (Preenchimento, Opacidade, Blend Mode, Borda, Raio, Sombra), Tipografia (inclui busca de fontes
+              web, cor do texto, text shadow) e Efeitos (escala, inclinação, 3D, filtros CSS). Cada seção é um
+              acordeão que começa <b>aberto só se já tiver um valor próprio</b>. Além disso, Preenchimento/
+              Opacidade/Blend Mode/Borda/Raio/Sombra se adaptam ao tipo de elemento: um vetor não mostra
+              Preenchimento/Borda/Raio (vivem em Data &gt; Element Properties), um texto não mostra Borda/Blend
+              Mode, uma imagem/vídeo não mostra Preenchimento. Se uma seção já tem um valor real, ela ainda
+              aparece — você nunca perde acesso a algo em uso.
+            </li>
+            <li>
+              <b>Data</b> — propriedades HTML: <b>Element Info</b> (ID/Type/Name), seletor de <b>Estado</b>
+              (Normal/Hover/Active), <b>CSS Classes</b>, <b>Element Properties</b>, <b>Custom Attributes</b> e
+              <b>Accessibility</b>.
+            </li>
+            <li><b>Actions</b> — interações sem código (seção 4).</li>
+            <li><b>Física</b> — simulação real (seção 4).</li>
+          </ul>
+          <div class="nota">
+            <b>Detalhe:</b> o seletor de Estado vive em <b>Data</b>, mas os estilos que ele salva (cores,
+            tipografia, bordas, efeitos...) são editados em <b>Design</b> — escolha o estado em Data e depois
+            passe para Design.
+          </div>
+
+          <p>
+            <b>Display</b> (Block/Flex/Grid) se escolhe com 3 botões de ícone; as variantes menos comuns (Inline
+            Block/Flex/Grid, None) vivem no seletor "···" ao lado. Flex/Grid Layout (Direction, Wrap, Justify,
+            Align, Align Self) e Stroke Style (Solid/Dashed/Dotted/Double) também se escolhem com botões de
+            ícone.<br />
+            <b>Columns/Rows</b> do Grid se editam como uma lista de faixas arrastáveis ("+ Track" adiciona, o ×
+            remove; mínimo 1); valores tipo <code>auto</code> ou <code>minmax(...)</code> se editam como texto
+            normal.<br />
+            Um filho de um container Flex/Grid respeita de verdade o layout do pai e mantém sua largura/altura
+            (não encolhe silenciosamente).
+          </p>
+
+          <h4>Propriedades próprias do tipo de elemento</h4>
+          <p>
+            Em <b>Data</b>, embaixo de CSS Classes, aparece <b>Element Properties</b> com as propriedades HTML
+            reais do tipo selecionado. Exemplos:
+          </p>
+          <div class="tabla-wrap">
+            <table>
+              <tr>
+                <th>Elemento</th>
+                <th>Propriedades</th>
+              </tr>
+              <tr>
+                <td>Range Slider</td>
+                <td>Min, Max, Step, Value</td>
+              </tr>
+              <tr>
+                <td>Meter</td>
+                <td>Min, Max, Value, Low, High, Optimum</td>
+              </tr>
+              <tr>
+                <td>Progress</td>
+                <td>Value, Max</td>
+              </tr>
+              <tr>
+                <td>Inputs</td>
+                <td>Type, Name, Required, Disabled, Read only</td>
+              </tr>
+              <tr>
+                <td>Textarea</td>
+                <td>Name, Rows, Max length, Required, Disabled</td>
+              </tr>
+              <tr>
+                <td>Image / Picture</td>
+                <td>Source, Alt text, Fit, Loading</td>
+              </tr>
+              <tr>
+                <td>Video / Audio</td>
+                <td>Source, Controls, Autoplay, Loop, Muted, Poster</td>
+              </tr>
+              <tr>
+                <td>Link</td>
+                <td>URL, Target, Rel</td>
+              </tr>
+              <tr>
+                <td>iFrame e embeds</td>
+                <td>Source, Title, Loading</td>
+              </tr>
+              <tr>
+                <td>Details / Dialog</td>
+                <td>Open</td>
+              </tr>
+              <tr>
+                <td>Vector</td>
+                <td>Fill, Stroke, Stroke width, Clip children</td>
+              </tr>
+              <tr>
+                <td>Marquee</td>
+                <td>Direction, Behavior, Speed, Delay</td>
+              </tr>
+              <tr>
+                <td>Canvas</td>
+                <td>Buffer width, Buffer height</td>
+              </tr>
+            </table>
+          </div>
+          <p>
+            A seção não aparece para tipos sem propriedades próprias (Div, Text). O que não está na lista
+            continua sendo editado com <b>Custom Attributes</b> (<code>data-*</code>, <code>aria-*</code>,
+            <code>role</code>, <code>title</code>...). Um valor igual ao padrão não é salvo nem aparece no HTML
+            exportado.
+          </p>
+
+          <h4>Importar um arquivo local (Image/Picture/Video/Audio)</h4>
+          <p>
+            O campo <b>Source</b> (e <b>Poster</b> em Video) traz um botão <b>Choose File</b>: o arquivo fica
+            embutido como um <code>data:</code> URI real — portátil entre seu computador e a web sem depender
+            de servidores externos (o app não tem backend). Você também pode <b>colar com Ctrl+V</b> uma imagem
+            copiada do navegador ou do explorador de arquivos: se já tiver uma Image/Picture/Video selecionada,
+            ela é substituída; se não, cria-se uma Image nova. Colar um elemento copiado dentro do editor
+            continua funcionando igual (o editor olha primeiro se há imagem na área de transferência do
+            sistema).
+          </p>
+
+          <h4>Texto editável em componentes decorativos</h4>
+          <p>
+            <b>Badge, Avatar, Tooltip, Alert Box, Tab Bar</b> e <b>Breadcrumb</b> editam seu texto com o campo
+            <b>Content</b> (Design). Tab Bar e Breadcrumb usam uma lista separada por vírgulas —
+            <code>Overview,Pricing,FAQ</code> dá três abas. Card, Pricing, Navbar e Pagination continuam com
+            conteúdo de exemplo fixo (têm mais de um texto próprio; falta uma passada dedicada). <b>Tooltip</b>
+            é um mockup estático para desenhar a aparência; para um tooltip real, monte o par com Actions (hover
+            → Show / mouseLeave → Hide, com o Tooltip começando oculto).
+          </p>
+
+          <h4>Containers semânticos (Header, Footer, Aside, Nav, Main...)</h4>
+          <p>
+            A categoria <b>Semantic</b> (Header, Nav, Main, Aside, Footer, Section, Article, Figure, Figcaption)
+            exporta com sua tag HTML real (<code>&lt;header&gt;</code>, <code>&lt;aside&gt;</code>...) —
+            importante para SEO/acessibilidade. Os cinco landmarks (Header/Nav/Main/Aside/Footer) nascem
+            ocupando uma borda real do artboard; são só um ponto de partida: editam-se como qualquer outro
+            elemento e não trazem cor nem borda.
+          </p>
+
+          <h4>Acessibilidade</h4>
+          <p>
+            Embaixo de Custom Attributes, a seção <b>Accessibility</b> se aplica a qualquer elemento:
+            <b>ARIA Label</b>, <b>ARIA Role</b> (com papéis comuns e "(automatic)"),
+            <b>Hide from screen readers</b> (<code>aria-hidden</code>) e <b>Keyboard focusable</b>
+            (<code>tabindex="0"</code>). Os quatro saem como atributos HTML reais — no canvas e no arquivo
+            exportado — <b>sem uma linha de JavaScript</b>. Para algo mais específico
+            (<code>aria-describedby</code>, <code>aria-live</code>...) você ainda tem Custom Attributes.
+          </p>
+
+          <h4>Preenchimento (Fill): cor sólida, degradê ou imagem</h4>
+          <p>
+            O campo <b>Fill</b> é um botão-resumo (swatch + rótulo) que abre um popover com abas —
+            <b>Solid / Linear / Radial / Conic / Image</b>:
+          </p>
+          <ul>
+            <li><b>Solid</b> — uma cor, com o seletor.</li>
+            <li>
+              <b>Linear / Radial / Conic</b> — lista de <b>stops</b> (2+ cores com posição 0-100%, "+ Add
+              Stop"), mais Angle (Linear/Conic) ou Center X/Y (Radial).
+            </li>
+            <li><b>Image</b> — uma URL ou importar um arquivo local (<code>data:</code> URI).</li>
+          </ul>
+          <p>
+            O seletor de cor (o mesmo em Fill, Border, Shadow, Text Color, Text Shadow e stops) traz um
+            quadrado de Saturação/Luminosidade, slider de Hue e de Alpha (com fundo xadrez), e um campo de texto
+            que <b>cicla HEX → RGBA → HSLA</b> com um clique — colar qualquer um dos três formatos também
+            funciona. Em Fill/Border/Text Color/Vector Fill-Stroke, com <b>Solid</b> ativo o seletor aparece
+            <b>sozinho, colado logo abaixo</b> do popover — um único clique para vê-lo inteiro, sem precisar
+            abrir o swatch pequeno à parte.
+          </p>
+          <p>
+            <b>Linha de degradê sobre o canvas</b> (com um elemento de Fill Linear ou Radial): você arrasta a
+            linha direto sobre o desenho, estilo Affinity Designer. Com o checkbox <b>Automático</b> do popover
+            ativado (padrão), escolher Linear ou Radial já a mostra <b>sozinha</b>, sem apertar mais nada;
+            voltar para Solid a oculta. A tecla <b>G</b> continua funcionando como entrada/saída manual, além
+            disso. Linear = duas pontas arrastáveis (a linha deixa de estar presa ao centro da caixa, limitação
+            real da sintaxe CSS contornada com um degradê SVG por trás); Radial = uma alça central e uma de
+            borda (um círculo, não uma elipse); em ambos os modos há um ponto por stop (arraste para movê-lo,
+            duplo clique na linha adiciona um stop); <b>Escape</b> sai. Digitar um número em Angle/Center X/Y
+            volta ao modo centrado de sempre. <b>Conic</b> fica com o campo de ângulo numérico.
+          </p>
+
+          <h4>Estados: Normal / Hover / Active</h4>
+          <p>
+            Na aba <b>Data</b>, acima de CSS Classes, há um seletor de três botões. Enquanto estiver em
+            <b>Hover</b> ou <b>Active</b>, tudo que você mudar em Typography/Colors/Borders/Effects/Layout (em
+            <b>Design</b>) é salvo para esse estado. O canvas mostra ao vivo (o elemento selecionado é "forçado"
+            a mostrar o estado). É exportado como regra CSS real — <code>#id:hover{...}</code> /
+            <code>#id:active{...}</code> — sem JavaScript.
+          </p>
+          <div class="nota">
+            <b>Limites:</b> Position/Size/Origin nunca fazem parte de um estado; e em alguns poucos tipos com
+            conteúdo próprio (Button, Link, Badge e similares, que trazem seu próprio
+            <code>&lt;button&gt;</code>/<code>&lt;a&gt;</code> interno) a cor/fundo desse conteúdo interno não
+            pode ser mudada por estado nem por classe compartilhada. Um Div ou um Text não têm esse problema.
+          </div>
+        </div>
+
+        <!-- ================= 2. CAMADAS ================= -->
+        <div class="seccion" id="2-camadas">
+          <h2>2. Camadas</h2>
+          <p>
+            O painel esquerdo (aba <b>Layers</b>) mostra a hierarquia de elementos. Você pode agrupar,
+            desagrupar, promover/rebaixar e reordenar por z-index (trazer para frente / enviar para trás).
+          </p>
+          <ul>
+            <li>Clique normal seleciona um único elemento.</li>
+            <li><code>Ctrl</code>/<code>Cmd</code>+clique adiciona ou remove um item específico.</li>
+            <li><code>Shift</code>+clique seleciona o intervalo visível (respeita o aninhamento).</li>
+          </ul>
+          <p>
+            <code>Ctrl+C</code> / <code>Ctrl+X</code> / <code>Ctrl+V</code> copiam, cortam e colam (com o foco
+            no canvas ou em Layers). Copiar um pai com seu filho mantém o vínculo ao colar. Colar várias vezes
+            afasta cada cópia um pouco em vez de empilhá-las.
+          </p>
+          <p>
+            <b>Arrastar para aninhar</b>: soltar um elemento sobre outro o torna seu filho, a não ser que o
+            destino seja um "void element" real (<code>&lt;img&gt;</code>, <code>&lt;input&gt;</code>,
+            <code>&lt;br&gt;</code>, <code>&lt;hr&gt;</code>... — não podem ter conteúdo); soltá-lo ali o
+            reordena como irmão. Qualquer outro tipo (<code>&lt;div&gt;</code>, <code>&lt;button&gt;</code>,
+            <code>&lt;section&gt;</code>, <code>&lt;a&gt;</code>...) pode sim ser pai.
+          </p>
+
+          <h3 id="bloquear-guide">Bloquear camadas e Guide Layers (estilo After Effects)</h3>
+          <ul>
+            <li>
+              <b>Bloquear</b> (cadeado em cada linha de Layers): impede selecionar, mover, redimensionar ou
+              rotacionar ESSE elemento a partir do canvas — você ainda pode selecioná-lo a partir do próprio
+              painel Layers.
+            </li>
+            <li>
+              <b>Marcar como Guide Layer</b> (menu de contexto): visível e editável no editor, mas totalmente
+              excluído do HTML exportado (junto com qualquer filho seu) — útil para réguas, notas ou
+              referências de design.
+            </li>
+          </ul>
+        </div>
+
+        <!-- ================= 3. ANIMACAO ================= -->
+        <div class="seccion" id="3-animacao">
+          <h2>3. Animação (Timeline)</h2>
+          <p>
+            Com muitas camadas, a lista da esquerda (nomes) e as faixas da direita (keyframes) rolam
+            verticalmente juntas, dentro da sua faixa de altura fixa.
+          </p>
+
+          <h3 id="animacoes-nomeadas">Várias animações nomeadas independentes</h3>
+          <p>O IHTML permite <b>timelines separadas e independentes</b>:</p>
+          <ul>
+            <li>
+              O seletor do cabeçalho mostra a animação ativa; ao lado estão <b>"+" (Add Animation)</b> — que
+              cria uma nova e pede um nome —, o lápis (Rename) e a lixeira (Delete). Não é possível apagar a
+              última (o botão fica desabilitado); apagar uma perde seus keyframes em todos os elementos e pede
+              confirmação.
+            </li>
+            <li>
+              <b>Loop</b> e <b>Auto</b> são <b>da animação selecionada</b>: Loop recomeça ao chegar no final
+              (desligado, para no último frame); Auto começa sozinha ao carregar a página exportada. Uma
+              animação nova não começa sozinha: a ideia de ter várias é dispará-las com ações
+              <b>Play Timeline</b>.
+            </li>
+            <li>
+              Os keyframes ficam associados SÓ à animação ativa: a mesma propriedade pode ter um keyframe
+              diferente em cada animação.
+            </li>
+            <li>Trocar de animação atualiza a Timeline, o canvas e o cabeçote.</li>
+          </ul>
+
+          <h3 id="marcadores">Marcadores de ação na Timeline</h3>
+          <p>
+            O botão do raio (ou duplo clique na faixa fina abaixo da régua) adiciona um <b>marcador</b> na
+            posição do cabeçote: dispara uma ação <b>quando a reprodução chega naquele milissegundo</b>, sem que
+            o visitante toque em nada.
+          </p>
+          <ul>
+            <li>
+              É editado no mesmo painel Actions do Inspector (mesmos tipos; a linha Trigger desaparece: o
+              "quando" é a posição do marcador).
+            </li>
+            <li>É <b>arrastado</b> para movê-lo e apagado com Delete no mesmo painel.</li>
+            <li>Dispara <b>uma vez por passada</b> (com Loop, dispara de novo em cada volta).</li>
+          </ul>
+
+          <h3 id="keyframear">Para criar keyframe de uma propriedade</h3>
+          <ol class="pasos">
+            <li>Escolha (ou crie) a animação em que você quer trabalhar.</li>
+            <li>
+              Selecione um elemento e clique no losango (◆) junto à propriedade a animar (posição, opacidade,
+              cor, escala...) para ativar o rastreamento de keyframes dessa propriedade.
+            </li>
+            <li>
+              Vá para outro ponto da timeline (arrastando o cabeçote) e mude o valor: um keyframe é criado
+              automaticamente se o <b>modo Auto-Keyframe</b> (botão vermelho ◆, atalho <code>R</code>) estiver
+              ativo; se não, use "Add Keyframe at Playhead".
+            </li>
+            <li>
+              Duplo clique num keyframe cicla sua curva de easing (linear, ease-in/out, cúbica, back, bounce,
+              elástica...).
+            </li>
+            <li>
+              <code>Espaço</code> reproduz/pausa; os botões de quadro anterior/seguinte avançam frame a frame; a
+              duração total se controla no campo <b>Dur</b> (por animação).
+            </li>
+          </ol>
+
+          <figure class="captura">
+            <img
+              src="../assets/img/timeline.png"
+              width="1600"
+              height="408"
+              loading="lazy"
+              decoding="async"
+              alt="A seção de propriedades da Timeline: sub-faixas de 'Posição X' e 'Opacidade' com seus keyframes em forma de losango, o valor atual e um chip de easing por parada."
+            />
+            <figcaption>
+              Ao selecionar um elemento, abaixo da sua linha aparecem suas propriedades animadas: cada uma com
+              seus keyframes, seu valor no cabeçote e sua curva de easing.
+            </figcaption>
+          </figure>
+
+          <h3 id="rec">Gravação automática (REC / Auto-Keyframe)</h3>
+          <p>
+            Com <code>R</code> ativo, o IHTML cria um keyframe no tempo do cabeçote toda vez que você modifica
+            uma propriedade já sendo rastreada — inclui <b>nós e alças de um vetor</b> (arrastar um ponto ou sua
+            alça bezier grava o nó inteiro). Enquanto o REC está ativo, um badge vermelho piscando ("● REC")
+            aparece em cima à direita.
+          </p>
+
+          <h3 id="selecionar-keyframes">Selecionar, arrastar e copiar/colar keyframes</h3>
+          <ul>
+            <li>
+              Clicar num keyframe o seleciona; <code>Shift</code>+clique adiciona/remove; um marquee sobre
+              espaço vazio seleciona todos que tocar.
+            </li>
+            <li>
+              A <b>barra plana entre dois keyframes consecutivos</b> também é selecionável e arrastável: move o
+              segmento inteiro mantendo o intervalo.
+            </li>
+            <li>Arrastar perto do cabeçote ou de outro keyframe encaixa exato naquele tempo (guia verde).</li>
+            <li>
+              <code>Ctrl+C</code>/<code>Ctrl+V</code> copiam/colam o(s) keyframe(s) selecionado(s) no tempo do
+              cabeçote (além dos botões Copiar/Colar/Duplicar junto ao seletor de easing); com vários, mantém-se
+              seu espaçamento relativo.
+            </li>
+          </ul>
+
+          <h3 id="menu-timeline">Menu de contexto da Timeline (clique direito)</h3>
+          <ul>
+            <li>
+              <b>Sobre um keyframe</b>: Copiar, Duplicar, Excluir, Interpolação (grade visual de curvas) e Mover
+              para o cabeçote.
+            </li>
+            <li><b>Sobre o segmento</b>: Copiar, Duplicar, Excluir (aplicam-se às duas pontas como grupo).</li>
+            <li><b>Sobre espaço vazio de uma faixa</b>: Colar, no tempo sob o cursor.</li>
+            <li><b>Sobre o nome de um elemento</b>: o mesmo menu de elemento de Layers e do canvas.</li>
+            <li><b>Sobre a régua</b>: "Estender +1s" adiciona um segundo à duração total.</li>
+          </ul>
+          <div class="nota">
+            <b>Exportado:</b> a <b>primeira</b> animação da lista reproduz sozinha assim que a página carrega;
+            qualquer outra fica pausada até que uma ação "Play Timeline" a dispare. Um projeto com uma única
+            animação se comporta igual a antes.
+          </div>
+
+          <h3 id="arquivos">Arquivos (conectado à sua pasta real)</h3>
+          <p>
+            Junto à aba <b>Timeline</b> está <b>Files</b>: um gerenciador conectado DIRETO a uma pasta real do
+            seu computador, como o painel FileSystem do Godot/Unreal/Unity. <b>Choose folder</b> pede a pasta do
+            sistema (uma vez por sessão); clicar numa <b>imagem, vídeo ou áudio</b> da árvore o adiciona direto
+            ao canvas como elemento novo. Usa a <b>File System Access API</b>: só Chrome/Edge/Opera por enquanto
+            — no Firefox ou Safari o botão aparece desabilitado com uma nota.
+          </p>
+        </div>
+
+        <!-- ================= 4. ACOES ================= -->
+        <div class="seccion" id="4-acoes">
+          <h2>4. Ações interativas (sem código)</h2>
+          <p>
+            Na aba <b>Actions</b> do inspector você define o que acontece quando o usuário interage com um
+            elemento no HTML exportado, sem escrever JavaScript:
+          </p>
+          <ul>
+            <li>
+              <b>Disparadores</b>: clique, hover, mouse enter/leave, duplo clique, On Drag Start / On Drag End
+              (um clique normal sem mover não conta como arraste), tecla pressionada, scroll, entrar no
+              viewport, depois de um delay, ao carregar a página.
+            </li>
+            <li>
+              <b>Ações</b>: mostrar/ocultar/alternar visibilidade, adicionar/remover/alternar uma classe CSS,
+              animar uma propriedade CSS, <b>reproduzir / pausar / ir a um tempo de uma animação nomeada
+              específica</b> (campo "Animation"), fazer scroll até um elemento, fixar um estilo inline, <b>ir
+              para uma Página</b>.
+            </li>
+            <li>
+              <b>Alvo</b>: o próprio elemento, seu container pai, todos os elementos, ou
+              <b>um elemento específico escolhido por nome</b> (o seletor Target lista, abaixo das três opções
+              fixas, todos os elementos de Layers). Não se aplica a Play/Pause/Go to Time, Set Variable nem Go
+              to Page: são globais ao projeto.
+            </li>
+          </ul>
+          <div class="nota">
+            <b>Key Down</b> usa o campo <i>Key</i>: só dispara com aquela tecla, e nunca enquanto o foco está
+            num campo de texto. <b>After Delay</b> conta a partir do carregamento da página; <b>In Viewport</b>
+            dispara toda vez que o elemento entra na tela.
+          </div>
+
+          <h3 id="paginas">Páginas (cenas)</h3>
+          <p>
+            A aba <b>Pages</b> da barra lateral esquerda lista os <b>Artboards</b> como páginas navegáveis — não
+            é um dado novo, é uma visão dedicada. Clique direito: o mesmo menu de Ativar/Renomear/Duplicar/
+            Excluir do fundo de um artboard.
+          </p>
+          <ul>
+            <li>
+              <b>"+ New page"</b> abre um menu: <b>Blank page</b> ou preset responsivo (Tablet vertical/
+              horizontal, Mobile vertical/horizontal).
+            </li>
+            <li>
+              Um preset Tablet/Mobile criado com outra página selecionada fica <b>agrupado como variante
+              responsiva</b> dessa página (indentado em Pages e Layers). Uma página em branco nunca fica
+              aninhada. Duplicar uma variante mantém a página pai; apagar uma página com variantes as promove
+              para a raiz.
+            </li>
+            <li>
+              Por padrão só se vê a página <b>selecionada</b> (e só suas camadas em Layers). O botão
+              <b>"Selected only" / "All visible"</b> muda as duas visões: com "All visible", as demais páginas
+              aparecem no canvas como um retângulo vazio (posição/tamanho, móvel, redimensionável, ativável com
+              um clique) sem seu conteúdo real.
+            </li>
+            <li>
+              A ação <b>Go to Page</b> oculta a página atual e mostra outra com transição: Fade, Slide (4
+              direções) ou instantânea (None), com sua duração em ms. No HTML exportado, <b>só se o projeto usa
+              Go to Page em algum lugar</b> é que TODAS as páginas são empacotadas juntas (ocultas exceto a
+              inicial) — um projeto com vários artboards que não usa Go to Page é exportado exatamente igual a
+              sempre.
+            </li>
+          </ul>
+
+          <h3 id="variaveis">Variáveis do projeto (contadores e matemática)</h3>
+          <p>
+            Acima da lista de ações: <b>Project Variables</b> — valores numéricos com nome, do projeto inteiro.
+            Servem para contadores, pontuações, passos de um formulário, etc.
+          </p>
+          <ol class="pasos">
+            <li>
+              <b>Criar a variável</b> com "+ Add Variable" (nome + valor inicial; o nome é reduzido a letras,
+              números e underscores e não pode quebrar a sintaxe).
+            </li>
+            <li>
+              <b>Modificá-la</b> com <b>Set Variable (math)</b>: qual variável, qual operação
+              (<code>= Set to</code>, <code>+ Add</code>, <code>− Subtract</code>, <code>× Multiply by</code>,
+              <code>÷ Divide by</code>, <code>% Remainder of</code>, <code>⌃ Clamp mínimo</code>,
+              <code>⌄ Clamp máximo</code>) e com qual número. Dividir por zero deixa o valor como estava.
+            </li>
+            <li>
+              <b>Mostrá-la</b> escrevendo <code>{{nome}}</code> no campo <i>Content</i> de qualquer elemento:
+              vê-se o valor atual no canvas e na página exportada, e ele se atualiza sozinho. Um nome que não
+              corresponde a nenhuma variável fica visível como está, para que o erro seja percebido.
+            </li>
+          </ol>
+          <p>
+            Um contador completo: variável <code>score = 0</code>, um botão com
+            <i>click → Set Variable → score → + Add → 1</i>, e um texto <code>Pontos: {{score}}</code>. Se
+            nenhuma ação modifica uma variável, seu valor fica gravado no HTML exportado sem uma linha de
+            JavaScript. Os elementos que mostram uma variável são repintados ao vivo só se não tiverem filhos
+            aninhados.
+          </p>
+
+          <h3 id="fisica">Física (simulação real — gravidade, colisões, quique)</h3>
+          <p>
+            A aba <b>Física</b> do Inspector dá a qualquer elemento um comportamento físico real, com o motor
+            <a href="https://brm.io/matter-js/" target="_blank" rel="noopener">Matter.js</a>:
+          </p>
+          <ol class="pasos">
+            <li><b>Ativar física</b>: liga a simulação para esse elemento.</li>
+            <li>
+              <b>Tipo de corpo</b>: <i>Dinâmico</i> (cai, quica, colide com outros corpos e com as bordas do
+              canvas) ou <i>Estático</i> (fixo — útil como chão, parede ou plataforma).
+            </li>
+            <li><b>Forma</b>: Retângulo ou Círculo (a forma de colisão, não a aparência visual).</li>
+            <li><b>Quique</b>, <b>Fricção</b> e <b>Densidade</b>: elasticidade, escorregação e peso.</li>
+          </ol>
+          <ul>
+            <li>
+              Os corpos ficam encerrados na sua página/artboard: as quatro bordas agem como paredes invisíveis.
+            </li>
+            <li>
+              Um corpo <b>Dinâmico</b> pode ser <b>agarrado e arrastado</b> na página exportada ou no Preview;
+              ao soltar, continua com a física real. Um <b>Estático</b> não se move mesmo que você "o agarre".
+            </li>
+            <li>
+              <b>Importante:</b> a física <b>não é simulada ao vivo enquanto você edita</b> (o elemento aparece
+              na sua posição X/Y, para não competir com o arraste); começa no <b>Preview</b> ou ao abrir o HTML
+              exportado. Um projeto sem Física não baixa nenhuma biblioteca a mais.
+            </li>
+          </ul>
+        </div>
+
+        <!-- ================= 5. CODIGO ================= -->
+        <div class="seccion" id="5-codigo">
+          <h2>5. Código personalizado</h2>
+          <p>Dois botões de código na barra superior, com escopos diferentes:</p>
+          <ul>
+            <li>
+              <b>💻 Code Editor</b> — CSS/JS para o elemento selecionado: CSS que se adiciona inline ao elemento,
+              ou um script que roda ao clicar nele no HTML exportado.
+            </li>
+            <li>
+              <b>`&lt;/&gt;` Live HTML/CSS</b> — visão ao vivo do HTML e CSS de <b>todo o projeto</b>, editável:
+              você escreve e toca "Apply Changes" para gravar no projeto.
+              <ul>
+                <li>
+                  Uma tag com <code>id</code> existente atualiza esse elemento (conteúdo, atributos, classes,
+                  pai).
+                </li>
+                <li>
+                  Uma tag nova precisa de <code>data-type="..."</code> para ser criada como elemento real; sem
+                  isso é ignorada com um aviso.
+                </li>
+                <li>Apagar uma tag apaga esse elemento.</li>
+                <li>
+                  Os estilos que você apagar do CSS não são apagados sozinhos do elemento — use o botão de reset
+                  dessa seção no Inspector.
+                </li>
+                <li>
+                  Um gradiente/filtro/transform escrito à mão que não bate com o formato exato que o painel gera
+                  é ignorado (não é um parser CSS completo, é uma visão de ida e volta do modelo de dados).
+                </li>
+                <li>"Refresh" descarta qualquer mudança não aplicada.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ================= 6. EXPORTAR ================= -->
+        <div class="seccion" id="6-exportar">
+          <h2>6. Exportar</h2>
+          <p>
+            Há dois caminhos: <b>Export HTML</b> para publicar na web, e <b>Export</b> (<code>.ihtml</code>)
+            para enviar um documento que abre com o IHTML Mirror.
+          </p>
+          <ul>
+            <li>
+              <b>🌐 Export HTML</b> — para a web (hospedagem, CMS, <code>&lt;iframe&gt;</code>...): um diálogo
+              com <i>Single HTML file</i> (um único arquivo <code>.html</code> padrão e autocontido, com o motor
+              embutido, SEM dados de projeto — mais leve) ou <i>Separate HTML + CSS + JS</i>. Esse
+              <code>.html</code> funciona em qualquer navegador e hospedagem.
+            </li>
+            <li>
+              <b>💾 Export</b> — baixa <code>project.ihtml</code>: o <b>documento</b> do IHTML. Leva o projeto
+              INTEIRO embutido (elementos, animações, keyframes, ações, camadas, fontes, imagens, vídeo). É ao
+              mesmo tempo o resultado e a fonte: quem recebe abre com o <b>IHTML Mirror</b> (o app gratuito,
+              desktop ou Android) e você reabre com Import para continuar editando exatamente de onde parou.
+              <span class="nota" style="display: block; margin-top: 8px"
+                >Um arquivo <code>.ihtml</code> <b>não</b> é para dar duplo clique no Chrome: o Mirror que o
+                abre, pois entende o formato. Se precisar que apareça num navegador sem instalar nada, use
+                Export HTML.</span
+              >
+            </li>
+            <li>
+              <b>▶ Preview</b> — abre o resultado numa aba nova sem baixar nada, tirado do estado atual do
+              editor.
+            </li>
+            <li>
+              <b>🖼 Exportar imagem / GIF / vídeo</b> — rasteriza o artboard: imagem fixa (PNG, WebP, JPEG), GIF
+              animado ou vídeo (MP4, WebM). Você escolhe FPS e escala.
+            </li>
+            <li>
+              <b>📱 Preview no celular</b> — mostra um QR code; escaneie com o celular e veja o projeto ao vivo
+              (mesma rede, recarrega sozinho ao editar).
+            </li>
+          </ul>
+          <div class="nota">
+            <b>Planos:</b> o plano <b>Grátis</b> exporta <b>imagem fixa</b> (PNG/WebP/JPEG). O plano
+            <b>Completo</b> adiciona exportação de <code>.html</code> e <code>.ihtml</code>, GIF e vídeo,
+            Preview e o preview por QR no celular. Ativa-se com uma chave de licença em <i>Settings &rsaquo;
+            Plan</i>.
+          </div>
+          <p>
+            Os dois são independentes do editor: levam só um runtime mínimo gerado a partir do mesmo motor de
+            animação, então o resultado anima exatamente igual ao preview.
+          </p>
+          <div class="nota">
+            <b>Abrir um arquivo <code>.ihtml</code>:</b> a partir do IHTML Mirror (botão "Abrir projeto", ou
+            arrastando-o para a janela). No Android, ao receber o arquivo (por exemplo pelo WhatsApp), escolha
+            <em>IHTML Mirror</em> em "Abrir com". No Editor, <em>Import</em> o abre para editar.
+          </div>
+        </div>
+
+        <!-- ================= 7. IMPORTAR ================= -->
+        <div class="seccion" id="7-importar">
+          <h2>7. Importar</h2>
+          <p>
+            <b>📂 Import</b> aceita tanto <code>.ihtml</code> (detecta o projeto embutido automaticamente)
+            quanto um <code>.json</code> exportado por versões anteriores do editor (compatibilidade retroativa).
+            Se o arquivo não tiver a forma esperada (falta <code>elements</code>, ou não é um JSON/
+            <code>.ihtml</code> válido), o editor o rejeita com uma mensagem explicando o que está errado, sem
+            tocar no projeto que você tinha aberto.
+          </p>
+          <p>
+            Além disso, o IHTML pode <b>reconstruir um design</b> a partir de outros formatos e trazê-lo como
+            elementos editáveis num artboard novo:
+          </p>
+          <ul>
+            <li>
+              <b>HTML</b> real (clique direito num <code>.html</code> no Gerenciador de Arquivos): é medido com
+              um iframe e cada nó vira seu elemento IHTML, mantendo hierarquia e estilos.
+            </li>
+            <li>
+              <b>SVG</b> (formas, texto e imagens) — o caminho recomendado para trazer um frame do
+              <b>Figma</b> (exporte-o como SVG).
+            </li>
+            <li>
+              Designs do <b>Sketch</b> (<code>.sketch</code>), <b>Penpot</b> (<code>.penpot</code>) e livros
+              <b>EPUB</b>.
+            </li>
+          </ul>
+        </div>
+
+        <!-- ================= 8. FORMATO ================= -->
+        <div class="seccion" id="8-formato">
+          <h2>8. Formato do projeto (embutido no <code>.ihtml</code>, ou o <code>.json</code> antigo)</h2>
+          <p>Referência rápida da estrutura:</p>
+          <pre><span class="cm">// project: name, version, artboards[], animations[], grid, classes</span>
+{
+  <span class="cm">"project"</span>: { <span class="cm">"name"</span>: <span class="cm">"Meu Projeto"</span>, <span class="cm">"artboards"</span>: [ ... ], <span class="cm">"animations"</span>: [ ... ], ... },
+  <span class="cm">"activeArtboardId"</span>: <span class="cm">"artboard-1"</span>,
+  <span class="cm">"activeAnimationId"</span>: <span class="cm">"anim-1"</span>,
+  <span class="cm">"elements"</span>: [
+    {
+      <span class="cm">"id"</span>: <span class="cm">"elem-172...-a1b2c"</span>, <span class="cm">"type"</span>: <span class="cm">"text"</span>,
+      <span class="cm">"parentId"</span>: null, <span class="cm">"artboardId"</span>: <span class="cm">"artboard-1"</span>,
+      <span class="cm">"styles"</span>: { <span class="cm">"left"</span>: 100, <span class="cm">"top"</span>: 50, <span class="cm">"width"</span>: 300, ... },
+      <span class="cm">"keyframes"</span>: { <span class="cm">"anim-1"</span>: { <span class="cm">"opacity"</span>: [
+        { <span class="cm">"time"</span>: 0, <span class="cm">"value"</span>: 0, <span class="cm">"easing"</span>: <span class="cm">"linear"</span> },
+        { <span class="cm">"time"</span>: 1000, <span class="cm">"value"</span>: 1, <span class="cm">"easing"</span>: <span class="cm">"easeOutCubic"</span> } ] } },
+      <span class="cm">"actions"</span>: [ { <span class="cm">"trigger"</span>: <span class="cm">"click"</span>, <span class="cm">"type"</span>: <span class="cm">"toggleClass"</span>, ... } ]
+    }
+  ]
+}</pre>
+          <p>
+            Todos os valores numéricos de <code>styles</code>/<code>keyframes</code> vão sem unidade
+            (<code>left: 100</code>, não <code>"100px"</code>); o editor adiciona <code>px</code>/
+            <code>deg</code>/etc. Ao importar, o editor normaliza valores com unidade e migra projetos antigos
+            (artboard único, animações planas) automaticamente.
+          </p>
+        </div>
+
+        <!-- ================= 9. ATALHOS ================= -->
+        <div class="seccion" id="9-atalhos">
+          <h2>9. Atalhos de teclado</h2>
+          <div class="tabla-wrap">
+            <table>
+              <tr>
+                <th>Atalho</th>
+                <th>Ação</th>
+              </tr>
+              <tr>
+                <td>
+                  <code>V</code> / <code>H</code> / <code>T</code> / <code>S</code> / <code>P</code> / <code>Z</code>
+                </td>
+                <td>Ferramenta: Select / Hand / Text / Shape / Pen / Zoom</td>
+              </tr>
+              <tr>
+                <td><code>Espaço</code></td>
+                <td>Reproduzir / pausar</td>
+              </tr>
+              <tr>
+                <td><code>←</code> <code>→</code> <code>↑</code> <code>↓</code></td>
+                <td>
+                  Com seleção: mover o(s) elemento(s) 1px (respeitando o eixo próprio se estiverem num pai
+                  rotacionado). Sem seleção: movem o artboard ativo; <code>←</code>/<code>→</code> também
+                  avançam/retrocedem um frame da timeline
+                </td>
+              </tr>
+              <tr>
+                <td><code>Shift</code> + seta</td>
+                <td>Mover elemento(s) ou artboard 10px em vez de 1px</td>
+              </tr>
+              <tr>
+                <td><code>Ctrl</code> + arrastar</td>
+                <td>Ajustar à grade (em vez do snapping inteligente)</td>
+              </tr>
+              <tr>
+                <td><code>Home</code> / <code>End</code></td>
+                <td>Ir ao início / fim da timeline</td>
+              </tr>
+              <tr>
+                <td><code>Ctrl+D</code></td>
+                <td>Duplicar seleção</td>
+              </tr>
+              <tr>
+                <td><code>Ctrl+C</code> / <code>Ctrl+X</code> / <code>Ctrl+V</code></td>
+                <td>
+                  Copiar / cortar / colar seleção. Com keyframes selecionados na Timeline, copia/cola ESSES
+                  keyframes (tem prioridade)
+                </td>
+              </tr>
+              <tr>
+                <td><code>Delete</code> / <code>Backspace</code></td>
+                <td>Excluir seleção (sem seleção, apaga o artboard ativo — nunca o último)</td>
+              </tr>
+              <tr>
+                <td><code>Ctrl+Z</code> / <code>Ctrl+Shift+Z</code> (ou <code>Ctrl+Y</code>)</td>
+                <td>Desfazer / refazer</td>
+              </tr>
+              <tr>
+                <td><code>Ctrl+A</code></td>
+                <td>
+                  Seleciona todos os elementos do canvas (dentro de um campo de texto, seleciona o texto do
+                  campo)
+                </td>
+              </tr>
+              <tr>
+                <td><code>R</code></td>
+                <td>Alternar modo Auto-Keyframe</td>
+              </tr>
+              <tr>
+                <td><code>Ctrl</code> + roda do mouse</td>
+                <td>Zoom do canvas</td>
+              </tr>
+              <tr>
+                <td>Clique direito</td>
+                <td>Menu de contexto (elemento, fundo de artboard, ou card do painel Elements)</td>
+              </tr>
+              <tr>
+                <td>Em Layers: <code>Ctrl</code>/<code>Cmd</code>+clique, <code>Shift</code>+clique</td>
+                <td>Seleção múltipla (adicionar/remover um item, ou intervalo)</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- ================= 10. API ================= -->
+        <div class="seccion" id="10-api">
+          <h2>10. API pública em tempo de execução</h2>
+          <p>
+            Quando o projeto tem alguma animação ou ação, o HTML/<code>.ihtml</code> exportado expõe
+            <code>window.ihtmlDocument</code> — uma API pública, estável e documentada para controlá-lo de FORA
+            do próprio no-code (um script seu, uma página que o embute, ou automação de navegador):
+          </p>
+          <pre>ihtmlDocument.playTimeline(<span class="cm">'Bounce'</span>); <span class="cm">// reproduz essa animação nomeada</span>
+ihtmlDocument.pauseTimeline(<span class="cm">'Bounce'</span>);
+ihtmlDocument.gotoTimeInTimeline(500, <span class="cm">'Bounce'</span>); <span class="cm">// ms, nome</span>
+ihtmlDocument.isTimelinePlaying(<span class="cm">'Bounce'</span>); <span class="cm">// true/false</span>
+ihtmlDocument.timelineNames(); <span class="cm">// ['Animation 1', 'Bounce', ...]</span>
+ihtmlDocument.getElementById(<span class="cm">'elem-172...'</span>); <span class="cm">// o nó DOM real</span>
+ihtmlDocument.triggerAction(<span class="cm">'elem-172...'</span>, <span class="cm">'click'</span>); <span class="cm">// dispara suas ações "click"</span>
+ihtmlDocument.triggerAction(<span class="cm">'elem-172...'</span>, <span class="cm">'keydown'</span>, <span class="cm">'Escape'</span>);
+
+ihtmlDocument.getVariable(<span class="cm">'score'</span>); <span class="cm">// valor atual</span>
+ihtmlDocument.setVariable(<span class="cm">'score'</span>, 10); <span class="cm">// muda e repinta os {{score}}</span>
+ihtmlDocument.variableNames(); <span class="cm">// ['score', ...]</span></pre>
+          <p>
+            Os nomes são os que você colocou no editor (seletor da Timeline, painel Project Variables), não os
+            ids internos.
+          </p>
+          <p>
+            <b>Embutido por <code>&lt;iframe&gt;</code> da mesma origem</b> (a página que o embute e o arquivo
+            exportado são servidos do mesmo domínio):
+          </p>
+          <pre>const win = document.getElementById(<span class="cm">'meuIframe'</span>).contentWindow;
+win.ihtmlDocument.playTimeline(<span class="cm">'Bounce'</span>);</pre>
+          <div class="nota">
+            Se o iframe for de <b>outro domínio</b>, o navegador bloqueia esse acesso direto por segurança (não
+            é uma limitação do IHTML) — nesse caso é preciso <code>postMessage</code>, ainda não implementado.
+          </div>
+        </div>
+
+        <!-- ================= 11. MCP ================= -->
+        <div class="seccion" id="11-mcp">
+          <h2>11. MCP — controle por agentes de IA</h2>
+          <p>
+            O IHTML expõe um <b>servidor MCP</b> (<a
+              href="https://modelcontextprotocol.io"
+              target="_blank"
+              rel="noopener"
+              >Model Context Protocol</a
+            >) que dá a um agente de IA — Claude Code ou outro cliente MCP — controle <b>direto</b> sobre o
+            editor já aberto (o navegador em desenvolvimento, ou o app de desktop), sem simular cliques de mouse
+            contra uma janela: o mesmo padrão que editores como Godot ou Blender já usam.
+          </p>
+          <p>Para ativá-lo, um arquivo <code>.mcp.json</code> na raiz do projeto aponta para o servidor:</p>
+          <pre>{
+  <span class="cm">"mcpServers"</span>: {
+    <span class="cm">"ihtml-editor"</span>: { <span class="cm">"command"</span>: <span class="cm">"node"</span>, <span class="cm">"args"</span>: [<span class="cm">"bridge/mcp-server.js"</span>] }
+  }
+}</pre>
+          <p>Com o editor aberto (navegador ou app de desktop), o agente já pode chamar ferramentas como:</p>
+          <ul>
+            <li><code>get_scene</code> — lê o artboard ativo e todos os elementos.</li>
+            <li>
+              <code>add_element</code> / <code>set_text</code> / <code>set_style</code> / <code>delete_element</code>
+              — cria e edita elementos (<code>set_style</code> aceita um breakpoint para escrever um override
+              responsivo em vez do valor base).
+            </li>
+            <li>
+              <code>set_breakpoint</code> / <code>select_element</code> — muda o breakpoint ativo ou a seleção,
+              igual a um clique real.
+            </li>
+            <li>
+              <code>set_canvas_size</code> / <code>fit_canvas_height</code> — redimensiona o artboard (altura
+              própria por breakpoint) ou o ajusta ao conteúdo real.
+            </li>
+            <li><code>apply_template</code> — carrega um template do catálogo.</li>
+            <li>
+              <code>get_html</code> — devolve o HTML/CSS/JS que o projeto exportaria, sem escrever nenhum
+              arquivo.
+            </li>
+          </ul>
+          <div class="nota">
+            Cobertura atual: criação/edição básica de elementos, breakpoints e export. Timeline/keyframes,
+            Actions, Física, Symbols, Pages, Vectors e Data ainda não têm ferramentas MCP próprias.
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <footer>
+      <p><b>IHTML</b> (Interactive HTML) — editor de animações HTML/CSS para desktop e Android.</p>
+      <div class="docs">
+        <a href="index.html">Início</a>
+        <a href="guide.html">Guia do usuário</a>
+        <a href="../novedades/index.html">Novidades</a>
+        <a href="https://github.com/malabo1990/ihtml-releases/discussions" target="_blank" rel="noopener">Fórum</a>
+        <a href="index.html#baixar">Baixar</a>
+        <a href="index.html#mirror">Mirror</a>
+        <a href="index.html#precos">Preços</a>
+        <a href="../guide.html">English</a>
+        <a href="../es/guia-usuario.html">Español</a>
+        <a href="../fr/guide.html">Français</a>
+        <a href="../de/guide.html">Deutsch</a>
+        <a href="../it/guide.html">Italiano</a>
+        <a href="../ja/guide.html">日本語</a>
+        <a href="../zh/guide.html">中文</a>
+      </div>
+      <div class="social">
+        <a href="https://x.com/ihtml" title="X" target="_blank" rel="noopener" aria-label="X">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
+            />
+          </svg>
+        </a>
+        <a href="https://instagram.com/ihtml" title="Instagram" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"
+            />
+          </svg>
+        </a>
+        <a href="https://tiktok.com/@ihtml" title="TikTok" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
+            />
+          </svg>
+        </a>
+        <a href="https://reddit.com/r/ihtml" title="Fórum — Reddit" target="_blank" rel="noopener" aria-label="Reddit">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M12 0C5.373 0 0 5.373 0 12c0 3.314 1.343 6.314 3.515 8.485l-2.286 2.286C.775 23.225 1.097 24 1.738 24H12c6.627 0 12-5.373 12-12S18.627 0 12 0Zm4.388 3.199c1.104 0 1.999.895 1.999 1.999 0 1.105-.895 2-1.999 2-.946 0-1.739-.657-1.947-1.539v.002c-1.147.162-2.032 1.15-2.032 2.341v.007c1.776.067 3.4.567 4.686 1.363.473-.363 1.064-.58 1.707-.58 1.547 0 2.802 1.254 2.802 2.802 0 1.117-.655 2.081-1.601 2.531-.088 3.256-3.637 5.876-7.997 5.876-4.361 0-7.905-2.617-7.998-5.87-.954-.447-1.614-1.415-1.614-2.538 0-1.548 1.255-2.802 2.803-2.802.645 0 1.239.218 1.712.585 1.275-.79 2.881-1.291 4.64-1.365v-.01c0-1.663 1.263-3.034 2.88-3.207.188-.911.993-1.595 1.959-1.595Zm-8.085 8.376c-.784 0-1.459.78-1.506 1.797-.047 1.016.64 1.429 1.426 1.429.786 0 1.371-.369 1.418-1.385.047-1.017-.553-1.841-1.338-1.841Zm7.406 0c-.786 0-1.385.824-1.338 1.841.047 1.017.634 1.385 1.418 1.385.785 0 1.473-.413 1.426-1.429-.046-1.017-.721-1.797-1.506-1.797Zm-3.703 4.013c-.974 0-1.907.048-2.77.135-.147.015-.241.168-.183.305.483 1.154 1.622 1.964 2.953 1.964 1.33 0 2.47-.81 2.953-1.964.057-.137-.037-.29-.184-.305-.863-.087-1.795-.135-2.769-.135Z"
+            />
+          </svg>
+        </a>
+      </div>
+      <p class="footer-credit">
+        © 2026 IHTML · Casimiro Ondo Obiang &mdash; CEO e Desenvolvedor Líder
+      </p>
+    </footer>
+
+    <script>
+      const isla = document.querySelector('.island');
+      const islaBot = document.querySelector('.island-dot');
+      if (isla && islaBot) {
+        islaBot.addEventListener('click', () => {
+          const abierto = isla.classList.toggle('is-abierto');
+          islaBot.setAttribute('aria-expanded', abierto);
+        });
+        document.addEventListener('click', (e) => {
+          if (isla.contains(e.target)) return;
+          isla.classList.remove('is-abierto');
+          islaBot.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      document.querySelectorAll('.lang-switch').forEach((ls) => {
+        const btn = ls.querySelector('.lang-switch-btn');
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const open = ls.classList.toggle('is-abierto');
+          btn.setAttribute('aria-expanded', open);
+        });
+      });
+      document.addEventListener('click', (e) => {
+        document.querySelectorAll('.lang-switch.is-abierto').forEach((ls) => {
+          if (ls.contains(e.target)) return;
+          ls.classList.remove('is-abierto');
+          ls.querySelector('.lang-switch-btn').setAttribute('aria-expanded', 'false');
+        });
+      });
+    </script>
+
+    <script>
+      try {
+        localStorage.setItem('ihtml-lang', 'pt');
+      } catch (e) {
+        /* localStorage indisponível (modo privado, etc.) */
+      }
+    </script>
+  </body>
+</html>

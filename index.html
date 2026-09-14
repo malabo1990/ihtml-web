@@ -171,9 +171,23 @@
           <a href="#download">Download</a>
           <a href="#mirror">Mirror</a>
           <a href="#pricing">Pricing</a>
-          <a href="es/index.html">ES</a>
           <a class="is-cta" href="#pricing">Subscribe</a>
         </nav>
+      </div>
+      <div class="lang-switch">
+        <button class="lang-switch-btn" type="button" aria-haspopup="true" aria-expanded="false">
+          EN<span class="lang-switch-caret">▾</span>
+        </button>
+        <div class="lang-switch-menu">
+          <a href="index.html" class="is-activo">English</a>
+          <a href="es/index.html">Español</a>
+          <a href="pt/index.html">Português</a>
+          <a href="fr/index.html">Français</a>
+          <a href="de/index.html">Deutsch</a>
+          <a href="it/index.html">Italiano</a>
+          <a href="ja/index.html">日本語</a>
+          <a href="zh/index.html">中文</a>
+        </div>
       </div>
     </header>
 
@@ -639,6 +653,12 @@ npm run dev</pre>
         <a href="#mirror">Mirror</a>
         <a href="#pricing">Pricing</a>
         <a href="es/index.html">Español</a>
+        <a href="pt/index.html">Português</a>
+        <a href="fr/index.html">Français</a>
+        <a href="de/index.html">Deutsch</a>
+        <a href="it/index.html">Italiano</a>
+        <a href="ja/index.html">日本語</a>
+        <a href="zh/index.html">中文</a>
       </div>
       <div class="social">
         <a href="https://x.com/ihtml" title="X" target="_blank" rel="noopener" aria-label="X">
@@ -707,6 +727,22 @@ npm run dev</pre>
           islaBot.setAttribute('aria-expanded', 'false');
         });
       }
+
+      document.querySelectorAll('.lang-switch').forEach((ls) => {
+        const btn = ls.querySelector('.lang-switch-btn');
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const open = ls.classList.toggle('is-abierto');
+          btn.setAttribute('aria-expanded', open);
+        });
+      });
+      document.addEventListener('click', (e) => {
+        document.querySelectorAll('.lang-switch.is-abierto').forEach((ls) => {
+          if (ls.contains(e.target)) return;
+          ls.classList.remove('is-abierto');
+          ls.querySelector('.lang-switch-btn').setAttribute('aria-expanded', 'false');
+        });
+      });
     </script>
 
     <script>

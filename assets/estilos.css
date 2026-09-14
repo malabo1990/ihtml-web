@@ -1416,3 +1416,81 @@ footer .social svg {
     animation: none;
   }
 }
+
+/* ---------- Selector de idioma (dropdown, 8 idiomas) ---------- */
+/* Siempre visible, afuera del <nav> colapsable (que tiene overflow:hidden
+   para su animacion) — si quedara adentro, el dropdown se corta. Mismo
+   truco que .island-dot: order alto en el flex de .island para que caiga
+   justo antes del boton de menu, sin importar donde este en el DOM. */
+.lang-switch {
+  position: relative;
+  flex: none;
+  order: 9;
+}
+
+.lang-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: transparent;
+  border: none;
+  color: rgba(245, 245, 247, 0.82);
+  font: inherit;
+  font-size: 13px;
+  padding: 7px 11px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.lang-switch-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.lang-switch-caret {
+  font-size: 9px;
+  opacity: 0.7;
+}
+
+.lang-switch-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 20;
+  display: none;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 150px;
+  padding: 6px;
+  border-radius: 14px;
+  background: rgba(20, 20, 23, 0.97);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+}
+
+.lang-switch.is-abierto .lang-switch-menu {
+  display: flex;
+}
+
+.lang-switch-menu a {
+  padding: 7px 11px;
+  border-radius: 9px;
+  font-size: 13px;
+  color: rgba(245, 245, 247, 0.82);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.lang-switch-menu a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.lang-switch-menu a.is-activo {
+  color: #fbbf24;
+}

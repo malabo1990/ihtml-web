@@ -95,9 +95,23 @@
           <a href="index.html#download">Download</a>
           <a href="index.html#mirror">Mirror</a>
           <a href="index.html#pricing">Pricing</a>
-          <a href="es/guia-usuario.html">ES</a>
           <a class="is-cta" href="index.html#pricing">Subscribe</a>
         </nav>
+      </div>
+      <div class="lang-switch">
+        <button class="lang-switch-btn" type="button" aria-haspopup="true" aria-expanded="false">
+          EN<span class="lang-switch-caret">▾</span>
+        </button>
+        <div class="lang-switch-menu">
+          <a href="guide.html" class="is-activo">English</a>
+          <a href="es/guia-usuario.html">Español</a>
+          <a href="pt/guide.html">Português</a>
+          <a href="fr/guide.html">Français</a>
+          <a href="de/guide.html">Deutsch</a>
+          <a href="it/guide.html">Italiano</a>
+          <a href="ja/guide.html">日本語</a>
+          <a href="zh/guide.html">中文</a>
+        </div>
       </div>
     </header>
 
@@ -1213,6 +1227,13 @@ win.ihtmlDocument.playTimeline(<span class="cm">'Bounce'</span>);</pre>
         <a href="index.html#download">Download</a>
         <a href="index.html#mirror">Mirror</a>
         <a href="index.html#pricing">Pricing</a>
+        <a href="es/guia-usuario.html">Español</a>
+        <a href="pt/guide.html">Português</a>
+        <a href="fr/guide.html">Français</a>
+        <a href="de/guide.html">Deutsch</a>
+        <a href="it/guide.html">Italiano</a>
+        <a href="ja/guide.html">日本語</a>
+        <a href="zh/guide.html">中文</a>
       </div>
       <div class="social">
         <a href="https://x.com/ihtml" title="X" target="_blank" rel="noopener" aria-label="X">
@@ -1263,6 +1284,22 @@ win.ihtmlDocument.playTimeline(<span class="cm">'Bounce'</span>);</pre>
           islaBot.setAttribute('aria-expanded', 'false');
         });
       }
+
+      document.querySelectorAll('.lang-switch').forEach((ls) => {
+        const btn = ls.querySelector('.lang-switch-btn');
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const open = ls.classList.toggle('is-abierto');
+          btn.setAttribute('aria-expanded', open);
+        });
+      });
+      document.addEventListener('click', (e) => {
+        document.querySelectorAll('.lang-switch.is-abierto').forEach((ls) => {
+          if (ls.contains(e.target)) return;
+          ls.classList.remove('is-abierto');
+          ls.querySelector('.lang-switch-btn').setAttribute('aria-expanded', 'false');
+        });
+      });
     </script>
 
     <script>
