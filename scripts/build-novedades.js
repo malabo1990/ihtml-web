@@ -213,7 +213,7 @@ const FOOTER = `<footer>
         <a href="../es/index.html#descargar">Descargar</a>
         <a href="../es/index.html#precio">Precio</a>
       </div>
-      <p class="footer-credit">© 2026 IHTML · Casimiro Ondo Obiang — CEO y líder desarrollador</p>
+      <p class="footer-credit">© 2026 IHTML</p>
     </footer>`;
 
 function postPageHtml(post) {
@@ -233,7 +233,7 @@ function postPageHtml(post) {
     url,
     isPartOf: { '@id': `${SITE_URL}/#website` },
     about: { '@id': `${SITE_URL}/#software` },
-    author: { '@type': 'Person', name: 'Casimiro Ondo Obiang', jobTitle: 'CEO y líder desarrollador' },
+    author: { '@type': 'Organization', name: 'IHTML' },
     publisher: { '@type': 'Organization', name: 'IHTML', logo: { '@type': 'ImageObject', url: `${SITE_URL}/assets/favicon.svg` } },
     speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.guia .intro', '.guia h1'] },
     mainEntityOfPage: url

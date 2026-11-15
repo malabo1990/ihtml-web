@@ -1142,7 +1142,7 @@ footer .docs a:hover {
   vertical-align: middle;
 }
 
-/* ---------- Redes sociales ---------- */
+/* ---------- Foro (antes redes sociales) ---------- */
 
 .social-g {
   display: flex;
@@ -1171,11 +1171,14 @@ footer .social {
 }
 
 footer .social a {
-  display: grid;
-  place-items: center;
-  width: 34px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   height: 34px;
+  padding: 0 14px;
   border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
   border: 1px solid var(--line);
   color: var(--ink-2);
   transition:
