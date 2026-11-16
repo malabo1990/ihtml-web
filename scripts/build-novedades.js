@@ -213,8 +213,8 @@ const FOOTER = `<footer>
         <a href="../es/index.html#descargar">Descargar</a>
         <a href="../es/index.html#precio">Precio</a>
       </div>
-      <p class="legal-links"><a href="../es/licencia.html">Licencia</a> · <a href="../es/privacidad.html">Privacidad</a> · <a href="mailto:malabo1990@gmail.com">malabo1990@gmail.com</a></p>
       <p class="footer-credit">© 2026 IHTML</p>
+      <p class="legal-links"><a href="../es/licencia.html">Licencia</a> · <a href="../es/privacidad.html">Privacidad</a> · <a href="mailto:malabo1990@gmail.com">malabo1990@gmail.com</a></p>
     </footer>`;
 
 function postPageHtml(post) {
