@@ -288,6 +288,7 @@ function postPageHtml(post) {
       </main>
     </div>
     ${FOOTER}
+    <script defer src="https://ihtml-analytics.ihtml-license-server.workers.dev/t.js"></script>
   </body>
 </html>
 `;
@@ -346,6 +347,7 @@ ${posts.length ? cards : vacio}
       </div>
     </section>
     ${FOOTER}
+    <script defer src="https://ihtml-analytics.ihtml-license-server.workers.dev/t.js"></script>
   </body>
 </html>
 `;
