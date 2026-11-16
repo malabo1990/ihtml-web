@@ -16,16 +16,16 @@ IHTML (Interactive HTML) is a web animation editor: a canvas with artboards and 
 
 ## Pages
 
-- [Home](https://ihtml.app/): features, platforms, pricing, and FAQ.
-- [User guide](https://ihtml.app/guide.html): full manual — getting started, vectors, artboards, timeline, actions, physics, export/import, keyboard shortcuts, and the public API.
+- [Home](https://malabo1990.github.io/ihtml-web/): features, platforms, pricing, and FAQ.
+- [User guide](https://malabo1990.github.io/ihtml-web/guide.html): full manual — getting started, vectors, artboards, timeline, actions, physics, export/import, keyboard shortcuts, and the public API.
 - The site is fully localized into 8 languages, each with its own home and user guide:
-  - Spanish: [Home](https://ihtml.app/es/) / [User guide](https://ihtml.app/es/guia-usuario.html)
-  - Portuguese: [Home](https://ihtml.app/pt/) / [User guide](https://ihtml.app/pt/guide.html)
-  - French: [Home](https://ihtml.app/fr/) / [User guide](https://ihtml.app/fr/guide.html)
-  - German: [Home](https://ihtml.app/de/) / [User guide](https://ihtml.app/de/guide.html)
-  - Italian: [Home](https://ihtml.app/it/) / [User guide](https://ihtml.app/it/guide.html)
-  - Japanese: [Home](https://ihtml.app/ja/) / [User guide](https://ihtml.app/ja/guide.html)
-  - Chinese: [Home](https://ihtml.app/zh/) / [User guide](https://ihtml.app/zh/guide.html)
+  - Spanish: [Home](https://malabo1990.github.io/ihtml-web/es/) / [User guide](https://malabo1990.github.io/ihtml-web/es/guia-usuario.html)
+  - Portuguese: [Home](https://malabo1990.github.io/ihtml-web/pt/) / [User guide](https://malabo1990.github.io/ihtml-web/pt/guide.html)
+  - French: [Home](https://malabo1990.github.io/ihtml-web/fr/) / [User guide](https://malabo1990.github.io/ihtml-web/fr/guide.html)
+  - German: [Home](https://malabo1990.github.io/ihtml-web/de/) / [User guide](https://malabo1990.github.io/ihtml-web/de/guide.html)
+  - Italian: [Home](https://malabo1990.github.io/ihtml-web/it/) / [User guide](https://malabo1990.github.io/ihtml-web/it/guide.html)
+  - Japanese: [Home](https://malabo1990.github.io/ihtml-web/ja/) / [User guide](https://malabo1990.github.io/ihtml-web/ja/guide.html)
+  - Chinese: [Home](https://malabo1990.github.io/ihtml-web/zh/) / [User guide](https://malabo1990.github.io/ihtml-web/zh/guide.html)
 
 ## Public API (runtime)
 

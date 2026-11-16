@@ -26,7 +26,7 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const CONTENT_DIR = path.join(ROOT, 'content', 'novedades');
 const OUT_DIR = path.join(ROOT, 'novedades');
-const SITE_URL = 'https://ihtml.app';
+const SITE_URL = 'https://malabo1990.github.io/ihtml-web';
 
 // ---------------------------------------------------------------
 // 1. Frontmatter + Markdown MINIMO (sin dependencias externas a

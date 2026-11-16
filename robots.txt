@@ -23,4 +23,4 @@ Allow: /
 User-agent: OpenAI-ImageBot
 Allow: /
 
-Sitemap: https://ihtml.app/sitemap.xml
+Sitemap: https://malabo1990.github.io/ihtml-web/sitemap.xml

@@ -14,7 +14,7 @@ tags: version, novedad
 ---
 
 Cuerpo de la entrada en Markdown simple: párrafos, **negrita**, *cursiva*,
-[links](https://ihtml.app/), listas:
+[links](https://malabo1990.github.io/ihtml-web/), listas:
 
 - Primer punto
 - Segundo punto
