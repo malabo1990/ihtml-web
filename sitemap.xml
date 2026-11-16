@@ -102,4 +102,20 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://malabo1990.github.io/ihtml-web/license.html</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://malabo1990.github.io/ihtml-web/privacy.html</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://malabo1990.github.io/ihtml-web/es/licencia.html</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://malabo1990.github.io/ihtml-web/es/privacidad.html</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
 </urlset>
