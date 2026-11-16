@@ -916,6 +916,21 @@ main.guia {
   font-size: 13px;
 }
 
+.plataforma .dl-mirror {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--ink-3);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.plataforma .dl-mirror[hidden] {
+  display: none;
+}
+.plataforma .dl-mirror:hover {
+  color: var(--accent);
+}
+
 .plataforma.es-tuyo {
   border-color: var(--accent);
   box-shadow: 0 12px 34px rgba(249, 115, 22, 0.16);

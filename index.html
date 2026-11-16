@@ -231,6 +231,7 @@
           <b>Windows</b>
           <small>.exe installer</small>
           <a class="btn" data-dl href="https://github.com/malabo1990/ihtml-releases/releases">Download</a>
+          <a class="dl-mirror" data-dl-mirror href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
         </div>
         <div class="plataforma" data-plat="macos">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -241,6 +242,7 @@
           <b>macOS</b>
           <small>Apple Silicon + Intel</small>
           <a class="btn" data-dl href="https://github.com/malabo1990/ihtml-releases/releases">Download</a>
+          <a class="dl-mirror" data-dl-mirror href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
         </div>
         <div class="plataforma" data-plat="linux">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -251,6 +253,7 @@
           <b>Linux</b>
           <small>AppImage · .deb</small>
           <a class="btn" data-dl href="https://github.com/malabo1990/ihtml-releases/releases">Download</a>
+          <a class="dl-mirror" data-dl-mirror href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
         </div>
         <div class="plataforma" data-plat="android">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -800,6 +803,26 @@ npm run dev</pre>
               if (!(i.plat in rank) || r < rank[i.plat]) {
                 rank[i.plat] = r;
                 byPlat[i.plat] = a.browser_download_url;
+              }
+            });
+            // IHTML Mirror (abrir .ihtml) en escritorio: enlace aparte bajo el boton.
+            var mirror = {};
+            var mrank = {};
+            (rel.assets || []).forEach(function (a) {
+              var i = infoFrom(a.name);
+              if (!i || !i.mirror || i.plat === 'android') return;
+              var r = PREFER[i.plat].indexOf(i.ext);
+              if (r < 0) return;
+              if (!(i.plat in mrank) || r < mrank[i.plat]) {
+                mrank[i.plat] = r;
+                mirror[i.plat] = a.browser_download_url;
+              }
+            });
+            document.querySelectorAll('.plataforma[data-plat] a[data-dl-mirror]').forEach(function (a) {
+              var p = a.closest('[data-plat]').getAttribute('data-plat');
+              if (mirror[p]) {
+                a.href = mirror[p];
+                a.hidden = false;
               }
             });
             document.querySelectorAll('.plataforma[data-plat]').forEach(function (card) {
