@@ -736,17 +736,20 @@ npm run dev</pre>
           return 'windows';
         }
 
-        // <App>_<version>_<plataforma>.<ext>
-        function plataformaDe(nombre) {
-          var m = /_([a-z-]+)\.(exe|msi|dmg|appimage|deb|rpm|apk|aab)$/i.exec(nombre);
+        // <App>_<version>_<plataforma>.<ext>  ->  { app, plat, ext }
+        function infoDe(nombre) {
+          var m = /^(IHTML(?:-Mirror)?)_[^_]+_([a-z-]+)\.(exe|msi|dmg|appimage|deb|rpm|apk)$/i.exec(nombre);
           if (!m) return null;
-          var p = m[1].toLowerCase();
-          if (p.indexOf('windows') === 0) return 'windows';
-          if (p.indexOf('macos') === 0 || p.indexOf('darwin') === 0 || p.indexOf('universal') === 0) return 'macos';
-          if (p.indexOf('linux') === 0) return 'linux';
-          if (p.indexOf('android') === 0) return 'android';
-          return null;
+          var p = m[2].toLowerCase();
+          var plat = p.indexOf('windows') === 0 ? 'windows'
+            : p.indexOf('macos') === 0 ? 'macos'
+            : p.indexOf('linux') === 0 ? 'linux'
+            : p.indexOf('android') === 0 ? 'android' : null;
+          return plat ? { mirror: /mirror/i.test(m[1]), plat: plat, ext: m[3].toLowerCase() } : null;
         }
+        // Que archivo va en cada tarjeta: el EDITOR en escritorio (no Mirror),
+        // Mirror en Android, y el formato mas comodo primero.
+        var PREFER = { windows: ['exe', 'msi'], macos: ['dmg'], linux: ['appimage', 'deb', 'rpm'], android: ['apk'] };
 
         var tuOs = osActual();
         var tarjeta = document.querySelector('.plataforma[data-plat="' + tuOs + '"]');
@@ -765,9 +768,16 @@ npm run dev</pre>
               if (vEl) vEl.textContent = 'Última versión: ' + version + '. ';
             }
             var porPlat = {};
+            var rango = {};
             (rel.assets || []).forEach(function (a) {
-              var p = plataformaDe(a.name);
-              if (p && !porPlat[p]) porPlat[p] = a.browser_download_url;
+              var i = infoDe(a.name);
+              if (!i || i.mirror !== (i.plat === 'android')) return;
+              var r = PREFER[i.plat].indexOf(i.ext);
+              if (r < 0) return;
+              if (!(i.plat in rango) || r < rango[i.plat]) {
+                rango[i.plat] = r;
+                porPlat[i.plat] = a.browser_download_url;
+              }
             });
             document.querySelectorAll('.plataforma[data-plat]').forEach(function (card) {
               var p = card.getAttribute('data-plat');
