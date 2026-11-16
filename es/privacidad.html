@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="../assets/estilos.css" />
   </head>
   <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
     <header class="island">
       <button class="island-dot" aria-label="Menú" aria-expanded="false"></button>
       <a class="brand" href="index.html">
@@ -55,18 +56,18 @@
         </nav>
       </div>
       <div class="lang-switch">
-        <button class="lang-switch-btn" type="button" aria-haspopup="true" aria-expanded="false">
-          ES<span class="lang-switch-caret">▾</span>
+        <button class="lang-switch-btn" type="button" aria-label="Idioma: Español" aria-haspopup="true" aria-expanded="false">
+          ES<span class="lang-switch-caret" aria-hidden="true">▾</span>
         </button>
         <div class="lang-switch-menu">
-          <a href="../privacy.html">English</a>
-          <a href="privacidad.html" class="is-activo">Español</a>
+          <a href="../privacy.html" lang="en">English</a>
+          <a href="privacidad.html" class="is-activo" lang="es">Español</a>
         </div>
       </div>
     </header>
 
     <div class="layout-guia layout-legal">
-      <main class="guia legal">
+      <main id="contenido" class="guia legal">
         <h1>Política de privacidad de IHTML</h1>
         <p><i>Última actualización: 16 de noviembre de 2026</i></p>
 <p>Esta política explica qué datos trata <b>IHTML</b> (el "Responsable") cuando visitas la web, compras una suscripción o usas las apps IHTML e IHTML Mirror. Contacto para cualquier cuestión de privacidad: <b><a href="mailto:malabo1990@gmail.com">malabo1990@gmail.com</a></b>.</p>
@@ -91,6 +92,7 @@
 <p>Puedes pedir el acceso, la rectificación, la supresión, la oposición, la limitación del tratamiento y la portabilidad de tus datos escribiendo a <a href="mailto:malabo1990@gmail.com">malabo1990@gmail.com</a>. Si crees que no hemos atendido bien tu solicitud, puedes reclamar ante la <b>Agencia Española de Protección de Datos</b> (<a href="https://www.aepd.es" target="_blank" rel="noopener">aepd.es</a>).</p>
 <h2 id="8-cambios">8. Cambios</h2>
 <p>Si cambiamos esta política, publicaremos la nueva versión aquí con su fecha. Los cambios importantes se avisarán en la web o en la app.</p>
+        
       </main>
     </div>
 
@@ -104,13 +106,13 @@
         <a href="index.html#descargar">Descargar</a>
         <a href="index.html#mirror">Mirror</a>
         <a href="index.html#precio">Precio</a>
-        <a href="../guide.html">English</a>
-        <a href="../pt/guide.html">Português</a>
-        <a href="../fr/guide.html">Français</a>
-        <a href="../de/guide.html">Deutsch</a>
-        <a href="../it/guide.html">Italiano</a>
-        <a href="../ja/guide.html">日本語</a>
-        <a href="../zh/guide.html">中文</a>
+        <a href="../guide.html" lang="en">English</a>
+        <a href="../pt/guide.html" lang="pt">Português</a>
+        <a href="../fr/guide.html" lang="fr">Français</a>
+        <a href="../de/guide.html" lang="de">Deutsch</a>
+        <a href="../it/guide.html" lang="it">Italiano</a>
+        <a href="../ja/guide.html" lang="ja">日本語</a>
+        <a href="../zh/guide.html" lang="zh">中文</a>
       </div>
       <div class="social">
         <a href="https://github.com/malabo1990/ihtml-releases/discussions" title="Foro" target="_blank" rel="noopener" aria-label="Foro">

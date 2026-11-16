@@ -68,6 +68,7 @@
     </script>
   </head>
   <body>
+    <a class="skip-link" href="#contenido">本文へスキップ</a>
     <header class="island">
       <button class="island-dot" aria-label="メニュー" aria-expanded="false"></button>
       <a class="brand" href="index.html">
@@ -100,18 +101,18 @@
         </nav>
       </div>
       <div class="lang-switch">
-        <button class="lang-switch-btn" type="button" aria-haspopup="true" aria-expanded="false">
-          JA<span class="lang-switch-caret">▾</span>
+        <button class="lang-switch-btn" type="button" aria-label="言語: 日本語" aria-haspopup="true" aria-expanded="false">
+          JA<span class="lang-switch-caret" aria-hidden="true">▾</span>
         </button>
         <div class="lang-switch-menu">
-          <a href="../guide.html">English</a>
-          <a href="../es/guia-usuario.html">Español</a>
-          <a href="../pt/guide.html">Português</a>
-          <a href="../fr/guide.html">Français</a>
-          <a href="../de/guide.html">Deutsch</a>
-          <a href="../it/guide.html">Italiano</a>
-          <a href="guide.html" class="is-activo">日本語</a>
-          <a href="../zh/guide.html">中文</a>
+          <a href="../guide.html" lang="en">English</a>
+          <a href="../es/guia-usuario.html" lang="es">Español</a>
+          <a href="../pt/guide.html" lang="pt">Português</a>
+          <a href="../fr/guide.html" lang="fr">Français</a>
+          <a href="../de/guide.html" lang="de">Deutsch</a>
+          <a href="../it/guide.html" lang="it">Italiano</a>
+          <a href="guide.html" class="is-activo" lang="ja">日本語</a>
+          <a href="../zh/guide.html" lang="zh">中文</a>
         </div>
       </div>
     </header>
@@ -170,7 +171,7 @@
         </ul>
       </aside>
 
-      <main class="guia">
+      <main id="contenido" class="guia">
         <h1>ユーザーガイド — IHTML (Interactive HTML)</h1>
         <p class="intro">
           エディタでできることすべて：インターフェース、ベクター、アートボード、タイムライン、アクション、物理演算、エクスポートとインポート、キーボードショートカット、パブリックAPI。
@@ -802,7 +803,7 @@
         <div class="seccion" id="8-formato">
           <h2>8. プロジェクト形式（<code>.ihtml</code>に埋め込まれる、または旧<code>.json</code>）</h2>
           <p>構造のクイックリファレンス：</p>
-          <pre><span class="cm">// project: name, version, artboards[], animations[], grid, classes</span>
+          <pre tabindex="0"><span class="cm">// project: name, version, artboards[], animations[], grid, classes</span>
 {
   <span class="cm">"project"</span>: { <span class="cm">"name"</span>: <span class="cm">"My Project"</span>, <span class="cm">"artboards"</span>: [ ... ], <span class="cm">"animations"</span>: [ ... ], ... },
   <span class="cm">"activeArtboardId"</span>: <span class="cm">"artboard-1"</span>,
@@ -911,7 +912,7 @@
           <p>
             プロジェクトにアニメーションまたはアクションがある場合、エクスポートされたHTML/<code>.ihtml</code>は<code>window.ihtmlDocument</code>を公開します&mdash;ノーコード自体の<b>外部</b>から制御するための、安定した文書化されたパブリックAPIです（あなたのスクリプト、それを埋め込むページ、またはブラウザ自動化）：
           </p>
-          <pre>ihtmlDocument.playTimeline(<span class="cm">'Bounce'</span>); <span class="cm">// その名前付きアニメーションを再生</span>
+          <pre tabindex="0">ihtmlDocument.playTimeline(<span class="cm">'Bounce'</span>); <span class="cm">// その名前付きアニメーションを再生</span>
 ihtmlDocument.pauseTimeline(<span class="cm">'Bounce'</span>);
 ihtmlDocument.gotoTimeInTimeline(500, <span class="cm">'Bounce'</span>); <span class="cm">// ms, 名前</span>
 ihtmlDocument.isTimelinePlaying(<span class="cm">'Bounce'</span>); <span class="cm">// true/false</span>
@@ -929,7 +930,7 @@ ihtmlDocument.variableNames(); <span class="cm">// ['score', ...]</span></pre>
           <p>
             <b>同一オリジンの<code>&lt;iframe&gt;</code>で埋め込む場合</b>（埋め込むページとエクスポートされたファイルが同じドメインから配信されている場合）：
           </p>
-          <pre>const win = document.getElementById(<span class="cm">'miIframe'</span>).contentWindow;
+          <pre tabindex="0">const win = document.getElementById(<span class="cm">'miIframe'</span>).contentWindow;
 win.ihtmlDocument.playTimeline(<span class="cm">'Bounce'</span>);</pre>
           <div class="nota">
             iframeが<b>別のドメイン</b>にある場合、ブラウザはセキュリティ上の理由でこの直接アクセスをブロックします（IHTMLの制約ではありません）&mdash;その場合は<code>postMessage</code>が必要ですが、まだ実装されていません。
@@ -948,7 +949,7 @@ win.ihtmlDocument.playTimeline(<span class="cm">'Bounce'</span>);</pre>
             >（MCP）サーバー</b>を公開しており、AIエージェント&mdash;Claude Codeまたは他のMCPクライアント&mdash;がマウスクリックをシミュレートすることなく、既に開いているエディタ（開発中のブラウザまたはデスクトップアプリ）を<b>直接</b>制御できます。GodotやBlenderのようなエディタで既に使われているのと同じ仕組みです。
           </p>
           <p>有効化するには、プロジェクトルートの<code>.mcp.json</code>ファイルがサーバーを指定します：</p>
-          <pre>{
+          <pre tabindex="0">{
   <span class="cm">"mcpServers"</span>: {
     <span class="cm">"ihtml-editor"</span>: { <span class="cm">"command"</span>: <span class="cm">"node"</span>, <span class="cm">"args"</span>: [<span class="cm">"bridge/mcp-server.js"</span>] }
   }
@@ -988,13 +989,13 @@ win.ihtmlDocument.playTimeline(<span class="cm">'Bounce'</span>);</pre>
         <a href="index.html#scarica">ダウンロード</a>
         <a href="index.html#mirror">Mirror</a>
         <a href="index.html#prezzi">料金</a>
-        <a href="../guide.html">English</a>
-        <a href="../es/guia-usuario.html">Español</a>
-        <a href="../pt/guide.html">Português</a>
-        <a href="../fr/guide.html">Français</a>
-        <a href="../de/guide.html">Deutsch</a>
-        <a href="../it/guide.html">Italiano</a>
-        <a href="../zh/guide.html">中文</a>
+        <a href="../guide.html" lang="en">English</a>
+        <a href="../es/guia-usuario.html" lang="es">Español</a>
+        <a href="../pt/guide.html" lang="pt">Português</a>
+        <a href="../fr/guide.html" lang="fr">Français</a>
+        <a href="../de/guide.html" lang="de">Deutsch</a>
+        <a href="../it/guide.html" lang="it">Italiano</a>
+        <a href="../zh/guide.html" lang="zh">中文</a>
       </div>
       <div class="social">
         <a href="https://github.com/malabo1990/ihtml-releases/discussions" title="フォーラム" target="_blank" rel="noopener" aria-label="フォーラム">

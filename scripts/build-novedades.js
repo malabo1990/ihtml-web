@@ -277,9 +277,10 @@ function postPageHtml(post) {
     <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
   </head>
   <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
     ${headerNav('novedades')}
     <div class="layout-guia">
-      <main class="guia" style="max-width: 760px; margin: 0 auto;">
+      <main id="contenido" class="guia" style="max-width: 760px; margin: 0 auto;">
         <p class="post-meta"><a href="index.html">← Novedades</a> · ${fechaLarga(post.date)}</p>
         <h1>${escapeHtml(post.title)}</h1>
         <p class="intro">${escapeHtml(post.summary)}</p>
@@ -338,15 +339,16 @@ function indexPageHtml(posts) {
     })}</script>
   </head>
   <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
     ${headerNav('novedades')}
-    <section class="centrado reveal visible" style="padding-top: 140px;">
+    <main id="contenido" class="centrado reveal visible" style="padding-top: 140px;">
       <p class="kicker">Novedades</p>
-      <h2>Qué cambió en IHTML</h2>
+      <h1 class="h-seccion">Qué cambió en IHTML</h1>
       <p class="sub">Versiones, features nuevas y contenido del proyecto. <a href="feed.xml">RSS</a></p>
       <div class="grid" style="text-align:left; max-width: 900px; margin: 40px auto 0;">
 ${posts.length ? cards : vacio}
       </div>
-    </section>
+    </main>
     ${FOOTER}
     <script defer src="https://ihtml-analytics.ihtml-license-server.workers.dev/t.js"></script>
   </body>

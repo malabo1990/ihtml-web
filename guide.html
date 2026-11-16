@@ -68,6 +68,7 @@
     </script>
   </head>
   <body>
+    <a class="skip-link" href="#contenido">Skip to content</a>
     <header class="island">
       <button class="island-dot" aria-label="Menu" aria-expanded="false"></button>
       <a class="brand" href="index.html">
@@ -100,18 +101,18 @@
         </nav>
       </div>
       <div class="lang-switch">
-        <button class="lang-switch-btn" type="button" aria-haspopup="true" aria-expanded="false">
-          EN<span class="lang-switch-caret">▾</span>
+        <button class="lang-switch-btn" type="button" aria-label="Language: English" aria-haspopup="true" aria-expanded="false">
+          EN<span class="lang-switch-caret" aria-hidden="true">▾</span>
         </button>
         <div class="lang-switch-menu">
-          <a href="guide.html" class="is-activo">English</a>
-          <a href="es/guia-usuario.html">Español</a>
-          <a href="pt/guide.html">Português</a>
-          <a href="fr/guide.html">Français</a>
-          <a href="de/guide.html">Deutsch</a>
-          <a href="it/guide.html">Italiano</a>
-          <a href="ja/guide.html">日本語</a>
-          <a href="zh/guide.html">中文</a>
+          <a href="guide.html" class="is-activo" lang="en">English</a>
+          <a href="es/guia-usuario.html" lang="es">Español</a>
+          <a href="pt/guide.html" lang="pt">Português</a>
+          <a href="fr/guide.html" lang="fr">Français</a>
+          <a href="de/guide.html" lang="de">Deutsch</a>
+          <a href="it/guide.html" lang="it">Italiano</a>
+          <a href="ja/guide.html" lang="ja">日本語</a>
+          <a href="zh/guide.html" lang="zh">中文</a>
         </div>
       </div>
     </header>
@@ -170,7 +171,7 @@
         </ul>
       </aside>
 
-      <main class="guia">
+      <main id="contenido" class="guia">
         <h1>User Guide — IHTML (Interactive HTML)</h1>
         <p class="intro">
           Everything the editor does: interface, vectors, artboards, timeline, actions, physics, export and
@@ -1024,7 +1025,7 @@
         <div class="seccion" id="8-format">
           <h2>8. Project format (embedded in <code>.ihtml</code>, or the old <code>.json</code>)</h2>
           <p>Quick reference for the structure:</p>
-          <pre><span class="cm">// project: name, version, artboards[], animations[], grid, classes</span>
+          <pre tabindex="0"><span class="cm">// project: name, version, artboards[], animations[], grid, classes</span>
 {
   <span class="cm">"project"</span>: { <span class="cm">"name"</span>: <span class="cm">"My Project"</span>, <span class="cm">"artboards"</span>: [ ... ], <span class="cm">"animations"</span>: [ ... ], ... },
   <span class="cm">"activeArtboardId"</span>: <span class="cm">"artboard-1"</span>,
@@ -1141,7 +1142,7 @@
             <code>window.ihtmlDocument</code> — a public, stable, documented API to control it from OUTSIDE the
             no-code itself (your own script, a page that embeds it, or browser automation):
           </p>
-          <pre>ihtmlDocument.playTimeline(<span class="cm">'Bounce'</span>); <span class="cm">// plays that named animation</span>
+          <pre tabindex="0">ihtmlDocument.playTimeline(<span class="cm">'Bounce'</span>); <span class="cm">// plays that named animation</span>
 ihtmlDocument.pauseTimeline(<span class="cm">'Bounce'</span>);
 ihtmlDocument.gotoTimeInTimeline(500, <span class="cm">'Bounce'</span>); <span class="cm">// ms, name</span>
 ihtmlDocument.isTimelinePlaying(<span class="cm">'Bounce'</span>); <span class="cm">// true/false</span>
@@ -1161,7 +1162,7 @@ ihtmlDocument.variableNames(); <span class="cm">// ['score', ...]</span></pre>
             <b>Embedded via a same-origin <code>&lt;iframe&gt;</code></b> (the embedding page and the exported
             file are served from the same domain):
           </p>
-          <pre>const win = document.getElementById(<span class="cm">'myIframe'</span>).contentWindow;
+          <pre tabindex="0">const win = document.getElementById(<span class="cm">'myIframe'</span>).contentWindow;
 win.ihtmlDocument.playTimeline(<span class="cm">'Bounce'</span>);</pre>
           <div class="nota">
             If the iframe is on <b>another domain</b>, the browser blocks this direct access for security (this
@@ -1183,7 +1184,7 @@ win.ihtmlDocument.playTimeline(<span class="cm">'Bounce'</span>);</pre>
             against a window: the same pattern already used by editors like Godot or Blender.
           </p>
           <p>To enable it, an <code>.mcp.json</code> file at the project root points to the server:</p>
-          <pre>{
+          <pre tabindex="0">{
   <span class="cm">"mcpServers"</span>: {
     <span class="cm">"ihtml-editor"</span>: { <span class="cm">"command"</span>: <span class="cm">"node"</span>, <span class="cm">"args"</span>: [<span class="cm">"bridge/mcp-server.js"</span>] }
   }
@@ -1228,13 +1229,13 @@ win.ihtmlDocument.playTimeline(<span class="cm">'Bounce'</span>);</pre>
         <a href="index.html#download">Download</a>
         <a href="index.html#mirror">Mirror</a>
         <a href="index.html#pricing">Pricing</a>
-        <a href="es/guia-usuario.html">Español</a>
-        <a href="pt/guide.html">Português</a>
-        <a href="fr/guide.html">Français</a>
-        <a href="de/guide.html">Deutsch</a>
-        <a href="it/guide.html">Italiano</a>
-        <a href="ja/guide.html">日本語</a>
-        <a href="zh/guide.html">中文</a>
+        <a href="es/guia-usuario.html" lang="es">Español</a>
+        <a href="pt/guide.html" lang="pt">Português</a>
+        <a href="fr/guide.html" lang="fr">Français</a>
+        <a href="de/guide.html" lang="de">Deutsch</a>
+        <a href="it/guide.html" lang="it">Italiano</a>
+        <a href="ja/guide.html" lang="ja">日本語</a>
+        <a href="zh/guide.html" lang="zh">中文</a>
       </div>
       <div class="social">
         <a href="https://github.com/malabo1990/ihtml-releases/discussions" title="Forum" target="_blank" rel="noopener" aria-label="Forum">

@@ -139,6 +139,7 @@
     </script>
   </head>
   <body>
+    <a class="skip-link" href="#contenido">跳到主要内容</a>
     <header class="island">
       <button class="island-dot" aria-label="菜单" aria-expanded="false"></button>
       <a class="brand" href="index.html">
@@ -171,22 +172,23 @@
         </nav>
       </div>
       <div class="lang-switch">
-        <button class="lang-switch-btn" type="button" aria-haspopup="true" aria-expanded="false">
-          ZH<span class="lang-switch-caret">▾</span>
+        <button class="lang-switch-btn" type="button" aria-label="语言：中文" aria-haspopup="true" aria-expanded="false">
+          ZH<span class="lang-switch-caret" aria-hidden="true">▾</span>
         </button>
         <div class="lang-switch-menu">
-          <a href="../index.html">English</a>
-          <a href="../es/index.html">Español</a>
-          <a href="../pt/index.html">Português</a>
-          <a href="../fr/index.html">Français</a>
-          <a href="../de/index.html">Deutsch</a>
-          <a href="../it/index.html">Italiano</a>
-          <a href="../ja/index.html">日本語</a>
-          <a href="index.html" class="is-activo">中文</a>
+          <a href="../index.html" lang="en">English</a>
+          <a href="../es/index.html" lang="es">Español</a>
+          <a href="../pt/index.html" lang="pt">Português</a>
+          <a href="../fr/index.html" lang="fr">Français</a>
+          <a href="../de/index.html" lang="de">Deutsch</a>
+          <a href="../it/index.html" lang="it">Italiano</a>
+          <a href="../ja/index.html" lang="ja">日本語</a>
+          <a href="index.html" class="is-activo" lang="zh">中文</a>
         </div>
       </div>
     </header>
 
+    <main id="contenido">
     <div class="hero">
       <h1>IHTML&nbsp;<span class="grad">Interactive HTML</span></h1>
       <p class="tagline">
@@ -227,8 +229,8 @@
           </svg>
           <b>Windows</b>
           <small>安装程序 .exe</small>
-          <a class="btn" data-dl href="https://github.com/malabo1990/ihtml-releases/releases">下载</a>
-          <a class="dl-mirror" data-dl-mirror href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
+          <a class="btn" data-dl aria-label="下载 — Windows" href="https://github.com/malabo1990/ihtml-releases/releases">下载</a>
+          <a class="dl-mirror" data-dl-mirror aria-label="IHTML Mirror — Windows" href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
         </div>
         <div class="plataforma" data-plat="macos">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -238,8 +240,8 @@
           </svg>
           <b>macOS</b>
           <small>Apple Silicon + Intel</small>
-          <a class="btn" data-dl href="https://github.com/malabo1990/ihtml-releases/releases">下载</a>
-          <a class="dl-mirror" data-dl-mirror href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
+          <a class="btn" data-dl aria-label="下载 — macOS" href="https://github.com/malabo1990/ihtml-releases/releases">下载</a>
+          <a class="dl-mirror" data-dl-mirror aria-label="IHTML Mirror — macOS" href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
         </div>
         <div class="plataforma" data-plat="linux">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -249,8 +251,8 @@
           </svg>
           <b>Linux</b>
           <small>AppImage · .deb</small>
-          <a class="btn" data-dl href="https://github.com/malabo1990/ihtml-releases/releases">下载</a>
-          <a class="dl-mirror" data-dl-mirror href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
+          <a class="btn" data-dl aria-label="下载 — Linux" href="https://github.com/malabo1990/ihtml-releases/releases">下载</a>
+          <a class="dl-mirror" data-dl-mirror aria-label="IHTML Mirror — Linux" href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
         </div>
         <div class="plataforma" data-plat="android">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -260,7 +262,7 @@
           </svg>
           <b>Android</b>
           <small>IHTML Mirror · APK</small>
-          <a class="btn" data-dl href="https://github.com/malabo1990/ihtml-releases/releases">下载</a>
+          <a class="btn" data-dl aria-label="下载 — Android" href="https://github.com/malabo1990/ihtml-releases/releases">下载</a>
         </div>
       </div>
       <p class="dl-nota" id="dlNota">
@@ -276,67 +278,67 @@
       <p class="sub">从关键帧时间轴到真实物理引擎：专业级网页动画，尽在一个窗口内。</p>
       <div class="grid">
         <div class="card">
-          <h3><span class="icono">◆</span> 关键帧时间轴</h3>
+          <h3><span class="icono" aria-hidden="true">◆</span> 关键帧时间轴</h3>
           <p>
             多个独立的命名动画、自动关键帧（REC）、可视化缓动、动作标记，以及键盘复制粘贴。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">▣</span> 多个画板</h3>
+          <h3><span class="icono" aria-hidden="true">▣</span> 多个画板</h3>
           <p>
             同一画布中的多个场景，各自拥有独立的尺寸和背景；导出时带过渡效果的可导航页面。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">◎</span> 完整的可视化检查器</h3>
+          <h3><span class="icono" aria-hidden="true">◎</span> 完整的可视化检查器</h3>
           <p>
             Design、Data、Actions和物理引擎：布局、支持网络字体搜索的排版、可直接在画布上绘制的渐变线（自动出现，一键操作）、与同一弹出层集成的取色器、hover/active状态、CSS类等。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">⚡</span> 无代码动作</h3>
+          <h3><span class="icono" aria-hidden="true">⚡</span> 无代码动作</h3>
           <p>
             点击、悬停、按键、滚动、延迟&hellip;用于显示/隐藏、动画、播放时间轴、设置变量、跳转页面等操作。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">≋</span> 真正的矢量图形</h3>
+          <h3><span class="icono" aria-hidden="true">≋</span> 真正的矢量图形</h3>
           <p>
             矩形、椭圆、多边形和用Pen工具绘制的路径：导出为真正的<code>&lt;svg&gt;</code>，支持节点编辑、布尔运算和关键帧形变。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">🌐</span> 8种语言 · 6种主题</h3>
+          <h3><span class="icono" aria-hidden="true">🌐</span> 8种语言 · 6种主题</h3>
           <p>
             可翻译的界面（EN、ES、PT、FR、DE、IT、JA、ZH）和六种明暗主题。这些是编辑器的偏好设置，不会包含在导出的文件中。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">🖥</span> 真实性能</h3>
+          <h3><span class="icono" aria-hidden="true">🖥</span> 真实性能</h3>
           <p>
             动画引擎使用<code>transform</code>（合成器/GPU）而不是<code>left/top</code>来定位&mdash;无论是在编辑器中还是在导出的HTML中。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">🔌</span> 公共API</h3>
+          <h3><span class="icono" aria-hidden="true">🔌</span> 公共API</h3>
           <p>
             <code>window.ihtmlDocument</code>：从你的脚本或<code>&lt;iframe&gt;</code>控制导出结果的动画、变量和动作。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">🤖</span> 面向AI代理的MCP</h3>
+          <h3><span class="icono" aria-hidden="true">🤖</span> 面向AI代理的MCP</h3>
           <p>
             真正的MCP服务器：Claude Code（或其他MCP客户端）直接控制已打开的编辑器&mdash;创建和编辑元素、切换断点、调整画布并导出，无需模拟点击。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">⬇</span> 导入 / 导出</h3>
+          <h3><span class="icono" aria-hidden="true">⬇</span> 导入 / 导出</h3>
           <p>
             导入<code>.ihtml</code>（以及旧版<code>.json</code>）、独立HTML、SVG，以及来自Sketch、Penpot和EPUB的设计。导出单文件或分离式HTML、图片（PNG/WebP/JPEG）、GIF和视频。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">◈</span> 现成组件</h3>
+          <h3><span class="icono" aria-hidden="true">◈</span> 现成组件</h3>
           <p>
             超过50种元素类型：文本、按钮、输入框、卡片、导航栏、价格表、标签页、滑块、画布、视频、iframe&hellip;每种都具有真实的HTML属性。
           </p>
@@ -399,19 +401,19 @@
       </p>
       <div class="grid">
         <div class="card">
-          <h3><span class="icono">🌐</span> Export HTML &rarr; 面向网页</h3>
+          <h3><span class="icono" aria-hidden="true">🌐</span> Export HTML &rarr; 面向网页</h3>
           <p>
             标准的<code>.html</code>文件（单文件或CSS+JS分离），内嵌动画引擎。可在任何浏览器和托管环境中运行，也可嵌入<code>&lt;iframe&gt;</code>。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">▶</span> <code>.ihtml</code> &rarr; 面向IHTML Mirror</h3>
+          <h3><span class="icono" aria-hidden="true">▶</span> <code>.ihtml</code> &rarr; 面向IHTML Mirror</h3>
           <p>
             你<b>发送</b>的文件：包含整个项目（元素、动画、动作、字体、图片和视频）。收件人用免费应用<b>IHTML Mirror</b>（桌面版或Android）打开。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">✎</span> 同一个<code>.ihtml</code>可以重新编辑</h3>
+          <h3><span class="icono" aria-hidden="true">✎</span> 同一个<code>.ihtml</code>可以重新编辑</h3>
           <p>
             这个文件既是结果也是源文件：在编辑器中重新打开它，就能从上次停下的地方继续。不会丢失单独的项目文件。
           </p>
@@ -441,37 +443,37 @@
       </div>
       <div class="grid" style="margin-top: 44px">
         <div class="card">
-          <h3><span class="icono">💼</span> 企业</h3>
+          <h3><span class="icono" aria-hidden="true">💼</span> 企业</h3>
           <p>
             提案、目录、报告、入职培训&mdash;以及<b>无需互联网的交互式广告</b>：把它放到U盘上带去展会、展位或商店，也能同样打开。你发送的是一个文件，而不是链接。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">🏥</span> 医疗保健</h3>
+          <h3><span class="icono" aria-hidden="true">🏥</span> 医疗保健</h3>
           <p>
             患者资料、知情同意书和操作指南：动画化、清晰易懂，并使用所需的语言。<code>.ihtml</code>文件不依赖可能会下线的网站。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">🎓</span> 教育</h3>
+          <h3><span class="icono" aria-hidden="true">🎓</span> 教育</h3>
           <p>
             <b>互动书籍和笔记</b>、课堂练习和演示文稿。学生无需账户即可打开；使用真实文本和ARIA角色，可兼容<b>屏幕阅读器</b>和键盘导航。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">🔐</span> 分发控制</h3>
+          <h3><span class="icono" aria-hidden="true">🔐</span> 分发控制</h3>
           <p>
             每个<code>.ihtml</code>文件都可以是<b>公开</b>、<b>半私密</b>或<b>私密</b>的（使用AES-256密码加密）。可选设置过期日期，适用于不应永久流传的资料。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">📦</span> 全部内置</h3>
+          <h3><span class="icono" aria-hidden="true">📦</span> 全部内置</h3>
           <p>
             文件内嵌了字体、图片和视频。只要有Mirror，即可离线打开：没有CDN依赖、没有加载不出的字体、没有失效的链接。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">🆓</span> 接收方免费</h3>
+          <h3><span class="icono" aria-hidden="true">🆓</span> 接收方免费</h3>
           <p>
             IHTML Mirror完全免费&mdash;就像PDF阅读器一样。创作者订阅以获得导出功能；接收方只需安装Mirror并打开文件。
           </p>
@@ -535,7 +537,7 @@
         </li>
       </ol>
       <p style="margin-top: 26px">想从源代码运行吗？克隆仓库并运行：</p>
-      <pre>
+      <pre tabindex="0">
 npm install
 npm run dev</pre>
       <p>打开Vite打印出的URL。要打包桌面应用：<code>npm run tauri:build</code>。</p>
@@ -590,6 +592,8 @@ npm run dev</pre>
       </div>
     </section>
 
+    </main>
+
     <footer>
       <p><b>IHTML</b>（Interactive HTML）— 适用于桌面和Android的HTML/CSS动画编辑器。</p>
       <div class="docs">
@@ -600,13 +604,13 @@ npm run dev</pre>
         <a href="#scarica">下载</a>
         <a href="#mirror">Mirror</a>
         <a href="#prezzi">价格</a>
-        <a href="../index.html">English</a>
-        <a href="../es/index.html">Español</a>
-        <a href="../pt/index.html">Português</a>
-        <a href="../fr/index.html">Français</a>
-        <a href="../de/index.html">Deutsch</a>
-        <a href="../it/index.html">Italiano</a>
-        <a href="../ja/index.html">日本語</a>
+        <a href="../index.html" lang="en">English</a>
+        <a href="../es/index.html" lang="es">Español</a>
+        <a href="../pt/index.html" lang="pt">Português</a>
+        <a href="../fr/index.html" lang="fr">Français</a>
+        <a href="../de/index.html" lang="de">Deutsch</a>
+        <a href="../it/index.html" lang="it">Italiano</a>
+        <a href="../ja/index.html" lang="ja">日本語</a>
       </div>
       <div class="social">
         <a href="https://github.com/malabo1990/ihtml-releases/discussions" title="论坛" target="_blank" rel="noopener" aria-label="论坛">

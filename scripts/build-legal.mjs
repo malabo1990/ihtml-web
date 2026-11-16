@@ -9,6 +9,16 @@ const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const BASE = 'https://malabo1990.github.io/ihtml-web/';
 const read = (p) => readFileSync(ROOT + p, 'utf-8');
 
+// Datos del titular (LSSI): van AL FINAL de las paginas legales, en letra
+// pequena y gris. Vienen de content/legal/titular.json (si no existe, no se
+// muestran): { "es": "Titular: ...", "en": "Owner: ..." }
+let TITULAR = null;
+try {
+  TITULAR = JSON.parse(read('content/legal/titular.json'));
+} catch {
+  TITULAR = null;
+}
+
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 function inline(s) {
   return esc(s)
@@ -98,8 +108,8 @@ for (const p of PAGES) {
   // Selector de idioma: solo es / en para estas paginas.
   const langMenu =
     p.lang === 'es'
-      ? `<a href="${otherHref}">English</a>\n          <a href="${p.out.split('/').pop()}" class="is-activo">Español</a>`
-      : `<a href="${p.out}" class="is-activo">English</a>\n          <a href="${otherHref}">Español</a>`;
+      ? `<a href="${otherHref}" lang="en">English</a>\n          <a href="${p.out.split('/').pop()}" class="is-activo" lang="es">Español</a>`
+      : `<a href="${p.out}" class="is-activo" lang="en">English</a>\n          <a href="${otherHref}" lang="es">Español</a>`;
   const hdr = header.replace(/<div class="lang-switch-menu">[\s\S]*?<\/div>/, `<div class="lang-switch-menu">\n          ${langMenu}\n        </div>`);
   const enUrl = BASE + (p.lang === 'en' ? p.out : p.other);
   const esUrl = BASE + (p.lang === 'es' ? p.out : p.other);
@@ -136,12 +146,14 @@ for (const p of PAGES) {
     <link rel="stylesheet" href="${up}assets/estilos.css" />
   </head>
   <body>
+    <a class="skip-link" href="#contenido">${p.lang === 'es' ? 'Saltar al contenido' : 'Skip to content'}</a>
     ${hdr}
 
     <div class="layout-guia layout-legal">
-      <main class="guia legal">
+      <main id="contenido" class="guia legal">
         <h1>${inline(title)}</h1>
         ${html}
+        ${TITULAR && TITULAR[p.lang] ? `<p class="legal-owner">${inline(TITULAR[p.lang])}</p>` : ''}
       </main>
     </div>
 

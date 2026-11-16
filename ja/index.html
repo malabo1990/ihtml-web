@@ -139,6 +139,7 @@
     </script>
   </head>
   <body>
+    <a class="skip-link" href="#contenido">本文へスキップ</a>
     <header class="island">
       <button class="island-dot" aria-label="メニュー" aria-expanded="false"></button>
       <a class="brand" href="index.html">
@@ -171,22 +172,23 @@
         </nav>
       </div>
       <div class="lang-switch">
-        <button class="lang-switch-btn" type="button" aria-haspopup="true" aria-expanded="false">
-          JA<span class="lang-switch-caret">▾</span>
+        <button class="lang-switch-btn" type="button" aria-label="言語: 日本語" aria-haspopup="true" aria-expanded="false">
+          JA<span class="lang-switch-caret" aria-hidden="true">▾</span>
         </button>
         <div class="lang-switch-menu">
-          <a href="../index.html">English</a>
-          <a href="../es/index.html">Español</a>
-          <a href="../pt/index.html">Português</a>
-          <a href="../fr/index.html">Français</a>
-          <a href="../de/index.html">Deutsch</a>
-          <a href="../it/index.html">Italiano</a>
-          <a href="index.html" class="is-activo">日本語</a>
-          <a href="../zh/index.html">中文</a>
+          <a href="../index.html" lang="en">English</a>
+          <a href="../es/index.html" lang="es">Español</a>
+          <a href="../pt/index.html" lang="pt">Português</a>
+          <a href="../fr/index.html" lang="fr">Français</a>
+          <a href="../de/index.html" lang="de">Deutsch</a>
+          <a href="../it/index.html" lang="it">Italiano</a>
+          <a href="index.html" class="is-activo" lang="ja">日本語</a>
+          <a href="../zh/index.html" lang="zh">中文</a>
         </div>
       </div>
     </header>
 
+    <main id="contenido">
     <div class="hero">
       <h1>IHTML&nbsp;<span class="grad">Interactive HTML</span></h1>
       <p class="tagline">
@@ -228,8 +230,8 @@
           </svg>
           <b>Windows</b>
           <small>インストーラー .exe</small>
-          <a class="btn" data-dl href="https://github.com/malabo1990/ihtml-releases/releases">ダウンロード</a>
-          <a class="dl-mirror" data-dl-mirror href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
+          <a class="btn" data-dl aria-label="ダウンロード — Windows" href="https://github.com/malabo1990/ihtml-releases/releases">ダウンロード</a>
+          <a class="dl-mirror" data-dl-mirror aria-label="IHTML Mirror — Windows" href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
         </div>
         <div class="plataforma" data-plat="macos">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -239,8 +241,8 @@
           </svg>
           <b>macOS</b>
           <small>Apple Silicon + Intel</small>
-          <a class="btn" data-dl href="https://github.com/malabo1990/ihtml-releases/releases">ダウンロード</a>
-          <a class="dl-mirror" data-dl-mirror href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
+          <a class="btn" data-dl aria-label="ダウンロード — macOS" href="https://github.com/malabo1990/ihtml-releases/releases">ダウンロード</a>
+          <a class="dl-mirror" data-dl-mirror aria-label="IHTML Mirror — macOS" href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
         </div>
         <div class="plataforma" data-plat="linux">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -250,8 +252,8 @@
           </svg>
           <b>Linux</b>
           <small>AppImage · .deb</small>
-          <a class="btn" data-dl href="https://github.com/malabo1990/ihtml-releases/releases">ダウンロード</a>
-          <a class="dl-mirror" data-dl-mirror href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
+          <a class="btn" data-dl aria-label="ダウンロード — Linux" href="https://github.com/malabo1990/ihtml-releases/releases">ダウンロード</a>
+          <a class="dl-mirror" data-dl-mirror aria-label="IHTML Mirror — Linux" href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
         </div>
         <div class="plataforma" data-plat="android">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -261,7 +263,7 @@
           </svg>
           <b>Android</b>
           <small>IHTML Mirror · APK</small>
-          <a class="btn" data-dl href="https://github.com/malabo1990/ihtml-releases/releases">ダウンロード</a>
+          <a class="btn" data-dl aria-label="ダウンロード — Android" href="https://github.com/malabo1990/ihtml-releases/releases">ダウンロード</a>
         </div>
       </div>
       <p class="dl-nota" id="dlNota">
@@ -277,67 +279,67 @@
       <p class="sub">キーフレームタイムラインから本物の物理演算まで：プロフェッショナルなウェブアニメーションを、ひとつのウィンドウで。</p>
       <div class="grid">
         <div class="card">
-          <h3><span class="icono">◆</span> キーフレームタイムライン</h3>
+          <h3><span class="icono" aria-hidden="true">◆</span> キーフレームタイムライン</h3>
           <p>
             複数の独立した名前付きアニメーション、オートキーフレーム（REC）、ビジュアルイージング、アクションマーカー、キーボードでのコピー＆ペースト。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">▣</span> 複数アートボード</h3>
+          <h3><span class="icono" aria-hidden="true">▣</span> 複数アートボード</h3>
           <p>
             同じキャンバス内に複数のシーン、それぞれ独自のサイズと背景を持つ。エクスポート時のトランジション付きナビゲーション可能なページ。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">◎</span> 完全なビジュアルインスペクタ</h3>
+          <h3><span class="icono" aria-hidden="true">◎</span> 完全なビジュアルインスペクタ</h3>
           <p>
             Design、Data、Actions、Fisica：レイアウト、ウェブフォント検索付きタイポグラフィ、キャンバス上に直接引けるグラデーションライン（自動で表示、ワンクリック）、同じポップオーバーに統合されたカラーピッカー、hover/activeステート、CSSクラスなど。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">⚡</span> ノーコードアクション</h3>
+          <h3><span class="icono" aria-hidden="true">⚡</span> ノーコードアクション</h3>
           <p>
             クリック、ホバー、キー、スクロール、ディレイ&hellip;で表示/非表示、アニメーション、タイムライン再生、変数設定、ページ遷移などを実行。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">≋</span> 本物のベクター</h3>
+          <h3><span class="icono" aria-hidden="true">≋</span> 本物のベクター</h3>
           <p>
             長方形、楕円、多角形、Penツールで描いたパス：本物の<code>&lt;svg&gt;</code>としてエクスポート、ノード編集、ブール演算、キーフレームによるモーフィングに対応。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">🌐</span> 8言語 · 6テーマ</h3>
+          <h3><span class="icono" aria-hidden="true">🌐</span> 8言語 · 6テーマ</h3>
           <p>
             翻訳可能なインターフェース（EN、ES、PT、FR、DE、IT、JA、ZH）と6つのライト/ダークテーマ。エディタの設定であり、エクスポートされたファイルには含まれません。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">🖥</span> 実際のパフォーマンス</h3>
+          <h3><span class="icono" aria-hidden="true">🖥</span> 実際のパフォーマンス</h3>
           <p>
             アニメーションエンジンは<code>left/top</code>ではなく<code>transform</code>（コンポジター/GPU）で位置を決定します&mdash;エディタでもエクスポートされたHTMLでも同様です。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">🔌</span> パブリックAPI</h3>
+          <h3><span class="icono" aria-hidden="true">🔌</span> パブリックAPI</h3>
           <p>
             <code>window.ihtmlDocument</code>：あなたのスクリプトや<code>&lt;iframe&gt;</code>からエクスポート結果のアニメーション、変数、アクションを制御。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">🤖</span> AIエージェント向けMCP</h3>
+          <h3><span class="icono" aria-hidden="true">🤖</span> AIエージェント向けMCP</h3>
           <p>
             本物のMCPサーバー：Claude Code（または他のMCPクライアント）が既に開いているエディタを直接操作します&mdash;要素の作成・編集、ブレークポイントの変更、キャンバス調整、エクスポートまで、クリックをシミュレートせずに。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">⬇</span> インポート / エクスポート</h3>
+          <h3><span class="icono" aria-hidden="true">⬇</span> インポート / エクスポート</h3>
           <p>
             <code>.ihtml</code>（と旧<code>.json</code>）、単独のHTML、SVG、Sketch・Penpot・EPUBからのデザインをインポート。単一または分割HTML、画像（PNG/WebP/JPEG）、GIF、動画をエクスポート。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">◈</span> すぐ使えるコンポーネント</h3>
+          <h3><span class="icono" aria-hidden="true">◈</span> すぐ使えるコンポーネント</h3>
           <p>
             50種類以上の要素タイプ：テキスト、ボタン、入力欄、カード、ナビバー、プライシング、タブ、スライダー、キャンバス、動画、iframe&hellip;それぞれ本物のHTMLプロパティ付き。
           </p>
@@ -400,19 +402,19 @@
       </p>
       <div class="grid">
         <div class="card">
-          <h3><span class="icono">🌐</span> Export HTML &rarr; ウェブへ</h3>
+          <h3><span class="icono" aria-hidden="true">🌐</span> Export HTML &rarr; ウェブへ</h3>
           <p>
             標準的な<code>.html</code>ファイル（単一またはCSS+JS分割）で、アニメーションエンジンが埋め込まれています。どんなブラウザやホスティングでも、<code>&lt;iframe&gt;</code>内でも動作します。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">▶</span> <code>.ihtml</code> &rarr; IHTML Mirrorへ</h3>
+          <h3><span class="icono" aria-hidden="true">▶</span> <code>.ihtml</code> &rarr; IHTML Mirrorへ</h3>
           <p>
             <b>送信する</b>ファイル：プロジェクト全体（要素、アニメーション、アクション、フォント、画像、動画）を含みます。受け取った人は無料アプリ<b>IHTML Mirror</b>（デスクトップまたはAndroid）で開きます。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">✎</span> 同じ<code>.ihtml</code>を再編集</h3>
+          <h3><span class="icono" aria-hidden="true">✎</span> 同じ<code>.ihtml</code>を再編集</h3>
           <p>
             そのファイルは結果でもあり元データでもあります：エディタで再度開けば、やめたところからそのまま続けられます。別のプロジェクトを失う心配はありません。
           </p>
@@ -442,37 +444,37 @@
       </div>
       <div class="grid" style="margin-top: 44px">
         <div class="card">
-          <h3><span class="icono">💼</span> ビジネス</h3>
+          <h3><span class="icono" aria-hidden="true">💼</span> ビジネス</h3>
           <p>
             提案書、カタログ、レポート、オンボーディング&mdash;そして<b>インターネット不要のインタラクティブ広告</b>：USBメモリに入れて展示会や店舗に持ち込んでも同じように開きます。リンクではなく、ファイルを送ります。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">🏥</span> 医療</h3>
+          <h3><span class="icono" aria-hidden="true">🏥</span> 医療</h3>
           <p>
             患者向け資料、インフォームドコンセント書類、手順ガイド：アニメーション付きで、明確で、必要な言語で。<code>.ihtml</code>ファイルはオフラインになる可能性のあるサイトに依存しません。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">🎓</span> 教育</h3>
+          <h3><span class="icono" aria-hidden="true">🎓</span> 教育</h3>
           <p>
             <b>インタラクティブな教材とノート</b>、授業用の練習問題やプレゼンテーション。生徒はアカウントなしで開けます。本物のテキストとARIAロールにより、<b>スクリーンリーダー</b>とキーボードナビゲーションに対応。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">🔐</span> 配布コントロール</h3>
+          <h3><span class="icono" aria-hidden="true">🔐</span> 配布コントロール</h3>
           <p>
             すべての<code>.ihtml</code>ファイルは<b>パブリック</b>、<b>セミプライベート</b>、または<b>プライベート</b>（AES-256でパスワード暗号化）に設定できます。永遠に出回るべきではない資料には、オプションの有効期限を設定可能。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">📦</span> すべて内蔵</h3>
+          <h3><span class="icono" aria-hidden="true">📦</span> すべて内蔵</h3>
           <p>
             ファイルにはフォント、画像、動画が埋め込まれています。Mirrorさえあれば、オフラインで開けます：CDNなし、読み込まれないフォントなし、壊れたリンクなし。
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">🆓</span> 受け取る人は無料</h3>
+          <h3><span class="icono" aria-hidden="true">🆓</span> 受け取る人は無料</h3>
           <p>
             IHTML Mirrorは無料です&mdash;PDFリーダーのように。作成者はエクスポートのために購読し、受け取る人はMirrorをインストールして開くだけです。
           </p>
@@ -536,7 +538,7 @@
         </li>
       </ol>
       <p style="margin-top: 26px">ソースコードから実行したいですか？リポジトリをクローンして：</p>
-      <pre>
+      <pre tabindex="0">
 npm install
 npm run dev</pre>
       <p>Viteが表示するURLを開いてください。デスクトップアプリのパッケージを作るには：<code>npm run tauri:build</code>。</p>
@@ -591,6 +593,8 @@ npm run dev</pre>
       </div>
     </section>
 
+    </main>
+
     <footer>
       <p><b>IHTML</b>（Interactive HTML）— デスクトップとAndroid向けHTML/CSSアニメーションエディタ。</p>
       <div class="docs">
@@ -601,13 +605,13 @@ npm run dev</pre>
         <a href="#scarica">ダウンロード</a>
         <a href="#mirror">Mirror</a>
         <a href="#prezzi">料金</a>
-        <a href="../index.html">English</a>
-        <a href="../es/index.html">Español</a>
-        <a href="../pt/index.html">Português</a>
-        <a href="../fr/index.html">Français</a>
-        <a href="../de/index.html">Deutsch</a>
-        <a href="../it/index.html">Italiano</a>
-        <a href="../zh/index.html">中文</a>
+        <a href="../index.html" lang="en">English</a>
+        <a href="../es/index.html" lang="es">Español</a>
+        <a href="../pt/index.html" lang="pt">Português</a>
+        <a href="../fr/index.html" lang="fr">Français</a>
+        <a href="../de/index.html" lang="de">Deutsch</a>
+        <a href="../it/index.html" lang="it">Italiano</a>
+        <a href="../zh/index.html" lang="zh">中文</a>
       </div>
       <div class="social">
         <a href="https://github.com/malabo1990/ihtml-releases/discussions" title="フォーラム" target="_blank" rel="noopener" aria-label="フォーラム">

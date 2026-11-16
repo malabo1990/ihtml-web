@@ -6,11 +6,13 @@
   --bg: #f5f5f7;
   --bg-alt: #ffffff;
   --ink: #1d1d1f;
-  --ink-2: #6e6e73;
-  --ink-3: #86868b;
+  --ink-2: #5f5f64;
+  --ink-3: #68686d;
   --line: rgba(0, 0, 0, 0.08);
   --line-strong: rgba(0, 0, 0, 0.14);
   --accent: #f97316;
+  /* Naranja para TEXTO sobre fondo claro (WCAG AA 4.5:1); --accent queda para fondos/bordes/logo. */
+  --accent-text: #b93d0a;
   --accent-2: #fbbf24;
   --grad: linear-gradient(120deg, #f97316, #fbbf24);
   --dark: #000000;
@@ -219,6 +221,7 @@ a {
     grid-template-columns: 1fr;
     opacity: 1;
     pointer-events: auto;
+    visibility: visible;
   }
   .island:hover .island-menu a {
     opacity: 1;
@@ -243,7 +246,9 @@ a {
 }
 
 .grad {
-  background: var(--grad);
+  /* Degradado del titulo: >= 3:1 sobre el fondo claro en todo el recorrido
+     (WCAG 1.4.3, texto grande). El de --grad (naranja->amarillo) bajaba a 1.5:1. */
+  background: linear-gradient(120deg, #ea580c, #c2410c);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -438,11 +443,12 @@ section#guia {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-text);
   margin: 0;
 }
 
-section h2 {
+section h2,
+.h-seccion {
   font-size: clamp(30px, 4.5vw, 46px);
   font-weight: 700;
   letter-spacing: -0.025em;
@@ -520,7 +526,7 @@ section h2 {
 
 .card code,
 .card a {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 /* ---------- Sección oscura (estilo productos Apple) ---------- */
@@ -540,6 +546,11 @@ section h2 {
 
 .dark .sub {
   color: #a1a1a6;
+}
+
+.dark .card code,
+.dark .card a {
+  color: var(--accent);
 }
 
 .dark .card {
@@ -608,7 +619,7 @@ section.centrado .tabla-wrap {
   border-radius: 50%;
   background: #fff;
   border: 1px solid var(--line-strong);
-  color: var(--accent);
+  color: var(--accent-text);
   font-weight: 650;
   font-size: 14px;
   display: flex;
@@ -928,7 +939,7 @@ main.guia {
   display: none;
 }
 .plataforma .dl-mirror:hover {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .plataforma.es-tuyo {
@@ -1049,7 +1060,7 @@ main.guia {
   content: '\2713';
   position: absolute;
   left: 0;
-  color: var(--accent);
+  color: var(--accent-text);
   font-weight: 700;
 }
 
@@ -1081,7 +1092,6 @@ footer .legal-links {
   margin-top: 6px;
   font-size: 11px;
   color: var(--ink-3);
-  opacity: 0.7;
 }
 footer .legal-links a {
   color: inherit;
@@ -1095,7 +1105,6 @@ footer .footer-credit {
   margin-top: 22px;
   font-size: 12px;
   color: var(--ink-3);
-  opacity: 0.85;
 }
 
 footer .docs {
@@ -1324,7 +1333,7 @@ footer .social svg {
   content: '+';
   font-size: 20px;
   line-height: 1;
-  color: var(--accent);
+  color: var(--accent-text);
   transition: transform 0.2s ease;
 }
 
@@ -1553,4 +1562,87 @@ footer .social svg {
   .layout-legal {
     padding-top: 124px;
   }
+}
+
+.guia.legal .legal-owner {
+  margin-top: 56px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: var(--ink-3);
+}
+.guia.legal .legal-owner a {
+  color: inherit;
+}
+
+/* ---------- Accesibilidad ---------- */
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  z-index: 1000;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 16px;
+}
+:focus-visible {
+  outline: 3px solid var(--accent-text);
+  outline-offset: 2px;
+}
+.dark :focus-visible,
+.island :focus-visible,
+footer .social :focus-visible {
+  outline-color: #fbbf24;
+}
+
+/* Reflujo a 320 px (WCAG 1.4.10): nada obliga a scroll horizontal. */
+.grid > *,
+.card {
+  min-width: 0;
+}
+.card,
+.guia p,
+.guia li,
+.guia td,
+.faq p {
+  overflow-wrap: anywhere;
+}
+.guia pre,
+.guia .tabla-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+}
+@media (max-width: 380px) {
+  .hero h1 {
+    font-size: 38px;
+  }
+  .hero h1 .grad {
+    display: inline-block;
+  }
+}
+/* Menu de la isla cerrado: fuera del orden de Tab (antes se podia enfocar
+   enlaces invisibles con opacity 0). Abierto (boton Menu), con el raton
+   encima o con el foco dentro: visible. */
+.island-menu-wrap {
+  visibility: hidden;
+}
+.island.is-abierto .island-menu-wrap,
+.island:focus-within .island-menu-wrap {
+  visibility: visible;
+}
+.island:focus-within .island-menu-wrap {
+  grid-template-columns: 1fr;
+  opacity: 1;
+  pointer-events: auto;
+}
+.island:focus-within .island-menu a {
+  opacity: 1;
+  transform: none;
 }

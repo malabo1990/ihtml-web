@@ -139,6 +139,7 @@
     </script>
   </head>
   <body>
+    <a class="skip-link" href="#contenido">Aller au contenu</a>
     <header class="island">
       <button class="island-dot" aria-label="Menu" aria-expanded="false"></button>
       <a class="brand" href="index.html">
@@ -171,22 +172,23 @@
         </nav>
       </div>
       <div class="lang-switch">
-        <button class="lang-switch-btn" type="button" aria-haspopup="true" aria-expanded="false">
-          FR<span class="lang-switch-caret">▾</span>
+        <button class="lang-switch-btn" type="button" aria-label="Langue : Français" aria-haspopup="true" aria-expanded="false">
+          FR<span class="lang-switch-caret" aria-hidden="true">▾</span>
         </button>
         <div class="lang-switch-menu">
-          <a href="../index.html">English</a>
-          <a href="../es/index.html">Español</a>
-          <a href="../pt/index.html">Português</a>
-          <a href="index.html" class="is-activo">Français</a>
-          <a href="../de/index.html">Deutsch</a>
-          <a href="../it/index.html">Italiano</a>
-          <a href="../ja/index.html">日本語</a>
-          <a href="../zh/index.html">中文</a>
+          <a href="../index.html" lang="en">English</a>
+          <a href="../es/index.html" lang="es">Español</a>
+          <a href="../pt/index.html" lang="pt">Português</a>
+          <a href="index.html" class="is-activo" lang="fr">Français</a>
+          <a href="../de/index.html" lang="de">Deutsch</a>
+          <a href="../it/index.html" lang="it">Italiano</a>
+          <a href="../ja/index.html" lang="ja">日本語</a>
+          <a href="../zh/index.html" lang="zh">中文</a>
         </div>
       </div>
     </header>
 
+    <main id="contenido">
     <div class="hero">
       <h1>IHTML&nbsp;<span class="grad">Interactive HTML</span></h1>
       <p class="tagline">
@@ -230,8 +232,8 @@
           </svg>
           <b>Windows</b>
           <small>Installeur .exe</small>
-          <a class="btn" data-dl href="https://github.com/malabo1990/ihtml-releases/releases">Télécharger</a>
-          <a class="dl-mirror" data-dl-mirror href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
+          <a class="btn" data-dl aria-label="Télécharger — Windows" href="https://github.com/malabo1990/ihtml-releases/releases">Télécharger</a>
+          <a class="dl-mirror" data-dl-mirror aria-label="IHTML Mirror — Windows" href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
         </div>
         <div class="plataforma" data-plat="macos">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -241,8 +243,8 @@
           </svg>
           <b>macOS</b>
           <small>Apple Silicon + Intel</small>
-          <a class="btn" data-dl href="https://github.com/malabo1990/ihtml-releases/releases">Télécharger</a>
-          <a class="dl-mirror" data-dl-mirror href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
+          <a class="btn" data-dl aria-label="Télécharger — macOS" href="https://github.com/malabo1990/ihtml-releases/releases">Télécharger</a>
+          <a class="dl-mirror" data-dl-mirror aria-label="IHTML Mirror — macOS" href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
         </div>
         <div class="plataforma" data-plat="linux">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -252,8 +254,8 @@
           </svg>
           <b>Linux</b>
           <small>AppImage · .deb</small>
-          <a class="btn" data-dl href="https://github.com/malabo1990/ihtml-releases/releases">Télécharger</a>
-          <a class="dl-mirror" data-dl-mirror href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
+          <a class="btn" data-dl aria-label="Télécharger — Linux" href="https://github.com/malabo1990/ihtml-releases/releases">Télécharger</a>
+          <a class="dl-mirror" data-dl-mirror aria-label="IHTML Mirror — Linux" href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
         </div>
         <div class="plataforma" data-plat="android">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -263,7 +265,7 @@
           </svg>
           <b>Android</b>
           <small>IHTML Mirror · APK</small>
-          <a class="btn" data-dl href="https://github.com/malabo1990/ihtml-releases/releases">Télécharger</a>
+          <a class="btn" data-dl aria-label="Télécharger — Android" href="https://github.com/malabo1990/ihtml-releases/releases">Télécharger</a>
         </div>
       </div>
       <p class="dl-nota" id="dlNota">
@@ -280,21 +282,21 @@
       <p class="sub">De la timeline avec keyframes à la vraie physique : animation web professionnelle, dans une seule fenêtre.</p>
       <div class="grid">
         <div class="card">
-          <h3><span class="icono">◆</span> Timeline avec keyframes</h3>
+          <h3><span class="icono" aria-hidden="true">◆</span> Timeline avec keyframes</h3>
           <p>
             Plusieurs animations nommées et indépendantes, auto-keyframe (REC), easing visuel, marqueurs
             d'action et presse-papiers au clavier.
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">▣</span> Artboards multiples</h3>
+          <h3><span class="icono" aria-hidden="true">▣</span> Artboards multiples</h3>
           <p>
             Des scènes dans un même canvas, chacune avec sa taille et son fond ; pages navigables avec
             transitions à l'export.
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">◎</span> Inspecteur visuel complet</h3>
+          <h3><span class="icono" aria-hidden="true">◎</span> Inspecteur visuel complet</h3>
           <p>
             Design, Data, Actions et Physique : mise en page, typographie avec recherche de polices web,
             dégradés avec ligne libre directement sur le canvas (apparaît toute seule, en un clic), sélecteur de
@@ -302,42 +304,42 @@
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">⚡</span> Actions sans code</h3>
+          <h3><span class="icono" aria-hidden="true">⚡</span> Actions sans code</h3>
           <p>
             Clic, survol, touche, scroll, délai&hellip; pour afficher/masquer, animer, jouer des timelines,
             définir des variables, aller à des pages et plus.
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">≋</span> De vrais vecteurs</h3>
+          <h3><span class="icono" aria-hidden="true">≋</span> De vrais vecteurs</h3>
           <p>
             Rectangles, ellipses, polygones et paths dessinés avec Pen : exportés en véritable
             <code>&lt;svg&gt;</code>, avec édition de nœuds, opérations booléennes et morphing par keyframes.
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">🌐</span> 8 langues · 6 thèmes</h3>
+          <h3><span class="icono" aria-hidden="true">🌐</span> 8 langues · 6 thèmes</h3>
           <p>
             Interface traduisible (EN, ES, PT, FR, DE, IT, JA, ZH) et six thèmes, clairs et sombres. Ce sont des
             préférences de l'éditeur, jamais du fichier exporté.
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">🖥</span> Performance réelle</h3>
+          <h3><span class="icono" aria-hidden="true">🖥</span> Performance réelle</h3>
           <p>
             Le moteur d'animation positionne avec <code>transform</code> (compositeur/GPU) au lieu de
             <code>left/top</code> — aussi bien dans l'éditeur que dans le HTML exporté.
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">🔌</span> API publique</h3>
+          <h3><span class="icono" aria-hidden="true">🔌</span> API publique</h3>
           <p>
             <code>window.ihtmlDocument</code> : contrôlez les animations, variables et actions du résultat
             exporté depuis votre propre script ou un <code>&lt;iframe&gt;</code>.
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">🤖</span> MCP pour agents IA</h3>
+          <h3><span class="icono" aria-hidden="true">🤖</span> MCP pour agents IA</h3>
           <p>
             Un vrai serveur MCP : Claude Code (ou un autre client MCP) contrôle directement l'éditeur déjà
             ouvert — crée et modifie des éléments, change de breakpoints, ajuste le canvas et exporte, sans
@@ -345,14 +347,14 @@
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">⬇</span> Import / Export</h3>
+          <h3><span class="icono" aria-hidden="true">⬇</span> Import / Export</h3>
           <p>
             Importe <code>.ihtml</code> (et d'anciens <code>.json</code>), du HTML brut, du SVG et des designs
             de Sketch, Penpot et EPUB. Exporte HTML unique ou séparé, image (PNG/WebP/JPEG), GIF et vidéo.
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">◈</span> Composants prêts à l'emploi</h3>
+          <h3><span class="icono" aria-hidden="true">◈</span> Composants prêts à l'emploi</h3>
           <p>
             Plus de 50 types d'éléments : textes, boutons, inputs, cards, navbar, pricing, tabs, sliders, canvas,
             vidéo, iframes&hellip; avec de vraies propriétés HTML par type.
@@ -421,7 +423,7 @@
       </p>
       <div class="grid">
         <div class="card">
-          <h3><span class="icono">🌐</span> Export HTML &rarr; le web</h3>
+          <h3><span class="icono" aria-hidden="true">🌐</span> Export HTML &rarr; le web</h3>
           <p>
             Un fichier <code>.html</code> standard (unique ou séparé en CSS+JS), avec le moteur d'animation
             embarqué. Fonctionne dans n'importe quel navigateur et hébergement, ou dans un
@@ -429,7 +431,7 @@
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">▶</span> <code>.ihtml</code> &rarr; IHTML Mirror</h3>
+          <h3><span class="icono" aria-hidden="true">▶</span> <code>.ihtml</code> &rarr; IHTML Mirror</h3>
           <p>
             Le fichier que vous <b>envoyez</b> : il embarque le projet entier (éléments, animations, actions,
             polices, images et vidéo). Qui le reçoit l'ouvre avec <b>IHTML Mirror</b>, l'app gratuite &mdash;
@@ -437,7 +439,7 @@
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">✎</span> Le même <code>.ihtml</code> se réédite</h3>
+          <h3><span class="icono" aria-hidden="true">✎</span> Le même <code>.ihtml</code> se réédite</h3>
           <p>
             Ce fichier est à la fois le résultat et la source : rouvrez-le dans l'Éditeur et reprenez
             exactement où vous en étiez. Pas de projet séparé à perdre.
@@ -469,7 +471,7 @@
       </div>
       <div class="grid" style="margin-top: 44px">
         <div class="card">
-          <h3><span class="icono">💼</span> Entreprises</h3>
+          <h3><span class="icono" aria-hidden="true">💼</span> Entreprises</h3>
           <p>
             Propositions, catalogues, rapports, onboarding &mdash; et <b>publicité interactive sans internet</b> :
             emportez-le sur une clé USB à un salon, un stand ou un magasin et ça s'ouvre pareil. Vous envoyez un
@@ -477,7 +479,7 @@
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">🏥</span> Santé</h3>
+          <h3><span class="icono" aria-hidden="true">🏥</span> Santé</h3>
           <p>
             Documents pour les patients, formulaires de consentement éclairé et guides de procédure : animés,
             clairs et dans la langue qu'il faut. Le <code>.ihtml</code> ne dépend pas d'un site qui pourrait
@@ -485,7 +487,7 @@
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">🎓</span> Éducation</h3>
+          <h3><span class="icono" aria-hidden="true">🎓</span> Éducation</h3>
           <p>
             <b>Livres et notes de cours interactifs</b>, exercices et présentations de classe. L'élève les ouvre
             sans compte ; avec un vrai texte et des rôles ARIA, ils fonctionnent avec les
@@ -493,7 +495,7 @@
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">🔐</span> Contrôle de distribution</h3>
+          <h3><span class="icono" aria-hidden="true">🔐</span> Contrôle de distribution</h3>
           <p>
             Chaque <code>.ihtml</code> est <b>public</b>, <b>semi-privé</b> ou <b>privé</b> (chiffré par mot de
             passe, AES-256). Avec une date d'expiration optionnelle pour du contenu qui ne devrait pas circuler
@@ -501,14 +503,14 @@
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">📦</span> Tout est intégré</h3>
+          <h3><span class="icono" aria-hidden="true">📦</span> Tout est intégré</h3>
           <p>
             Le fichier embarque polices, images et vidéo. Une fois Mirror installé, ça s'ouvre hors ligne : ni
             CDN, ni polices qui ne chargent pas, ni liens cassés.
           </p>
         </div>
         <div class="card">
-          <h3><span class="icono">🆓</span> Gratuit pour qui le reçoit</h3>
+          <h3><span class="icono" aria-hidden="true">🆓</span> Gratuit pour qui le reçoit</h3>
           <p>
             IHTML Mirror ne coûte rien &mdash; comme un lecteur PDF. Le créateur s'abonne pour exporter ; le
             destinataire installe juste Mirror et ouvre.
@@ -578,7 +580,7 @@
         </li>
       </ol>
       <p style="margin-top: 26px">Vous préférez l'exécuter depuis le code source ? Clonez le dépôt et :</p>
-      <pre>
+      <pre tabindex="0">
 npm install
 npm run dev</pre>
       <p>Ouvrez l'URL que Vite affiche. Pour empaqueter l'app de bureau : <code>npm run tauri:build</code>.</p>
@@ -648,6 +650,8 @@ npm run dev</pre>
       </div>
     </section>
 
+    </main>
+
     <footer>
       <p><b>IHTML</b> (Interactive HTML) — éditeur d'animations HTML/CSS pour bureau et Android.</p>
       <div class="docs">
@@ -658,13 +662,13 @@ npm run dev</pre>
         <a href="#telecharger">Télécharger</a>
         <a href="#mirror">Mirror</a>
         <a href="#tarifs">Tarifs</a>
-        <a href="../index.html">English</a>
-        <a href="../es/index.html">Español</a>
-        <a href="../pt/index.html">Português</a>
-        <a href="../de/index.html">Deutsch</a>
-        <a href="../it/index.html">Italiano</a>
-        <a href="../ja/index.html">日本語</a>
-        <a href="../zh/index.html">中文</a>
+        <a href="../index.html" lang="en">English</a>
+        <a href="../es/index.html" lang="es">Español</a>
+        <a href="../pt/index.html" lang="pt">Português</a>
+        <a href="../de/index.html" lang="de">Deutsch</a>
+        <a href="../it/index.html" lang="it">Italiano</a>
+        <a href="../ja/index.html" lang="ja">日本語</a>
+        <a href="../zh/index.html" lang="zh">中文</a>
       </div>
       <div class="social">
         <a href="https://github.com/malabo1990/ihtml-releases/discussions" title="Forum" target="_blank" rel="noopener" aria-label="Forum">
