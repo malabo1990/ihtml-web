@@ -164,10 +164,6 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/es/showreel.html</loc>
-    <lastmod>2026-11-17</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
   <url>
     <loc>https://malabo1990.github.io/ihtml-web/pt/showreel.html</loc>
     <lastmod>2026-11-17</lastmod>
@@ -195,6 +191,11 @@
   </url>
   <url>
     <loc>https://malabo1990.github.io/ihtml-web/zh/showreel.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://malabo1990.github.io/ihtml-web/es/galeria.html</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
   </url>

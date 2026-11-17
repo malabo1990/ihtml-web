@@ -226,7 +226,7 @@ test.describe('isla de navegación', () => {
 
 // ------------------------------------------------- Enlaces internos
 const SR_LINKS = {};
-for (const [l, p] of Object.entries(LANGS)) SR_LINKS[p.index] = l === 'en' ? 'showreel.html' : l + '/showreel.html';
+for (const [l, p] of Object.entries(LANGS)) SR_LINKS[p.index] = l === 'en' ? 'showreel.html' : l + (l === 'es' ? '/galeria.html' : '/showreel.html');
 test('ningún enlace interno roto en portadas y descargas', async ({ page }) => {
   await red(page, 'down');
   const vistos = new Set();
@@ -249,20 +249,24 @@ test('ningún enlace interno roto en portadas y descargas', async ({ page }) => 
 
 // ------------------------------------------------- Página Showreel + menú
 const SR = { en: 'showreel.html' };
-for (const l of ['es', 'pt', 'fr', 'de', 'it', 'ja', 'zh']) SR[l] = l + '/showreel.html';
+for (const l of ['es', 'pt', 'fr', 'de', 'it', 'ja', 'zh']) SR[l] = l + (l === 'es' ? '/galeria.html' : '/showreel.html');
+// "Showreel" solo en inglés; cada idioma usa su palabra.
+const NOMBRE = { en: 'Showreel', es: 'Galería', pt: 'Galeria', fr: 'Galerie', de: 'Galerie', it: 'Galleria', ja: '作品集', zh: '作品集' };
 
 test.describe('showreel: menú y página', () => {
   for (const [lang, p] of Object.entries(LANGS)) {
-    test(`${lang}: el menú tiene "Showreel" y lleva a su página`, async ({ page }) => {
+    test(`${lang}: el menú tiene "${NOMBRE[lang]}" (en su idioma) y lleva a su página`, async ({ page }) => {
       await red(page, 'down');
       await page.goto(p.index);
-      const link = page.locator('.island-menu a', { hasText: 'Showreel' });
+      if (lang !== 'en') await expect(page.locator('.island-menu a, footer a', { hasText: 'Showreel' })).toHaveCount(0);
+      const link = page.locator('.island-menu a', { hasText: NOMBRE[lang] });
       await expect(link).toHaveCount(1);
       await page.locator('.island-dot').click();
       await link.click();
       await expect(page).toHaveURL(new RegExp(SR[lang].replace('/', '\\/') + '$'));
-      await expect(page.locator('h1')).toHaveText('Showreel');
-      await expect(page.locator('.island-menu a.is-activo')).toHaveText('Showreel');
+      await expect(page.locator('h1')).toHaveText(NOMBRE[lang]);
+      await expect(page.locator('.island-menu a.is-activo')).toHaveText(NOMBRE[lang]);
+      await expect(page).toHaveTitle(new RegExp('^' + NOMBRE[lang]));
     });
 
     test(`${lang}: 6 obras vivas, escaladas enteras en su marco`, async ({ page }) => {
@@ -291,7 +295,7 @@ test.describe('showreel: menú y página', () => {
       }
       // selector de idioma -> showreel de cada idioma
       for (const h of await page.$$eval('.lang-switch-menu a', (as) => as.map((a) => a.href))) {
-        expect(h).toMatch(/showreel\.html$/);
+        expect(h).toMatch(/(showreel|galeria)\.html$/);
       }
       expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(1280);
       expect(errs).toEqual([]);
@@ -300,7 +304,7 @@ test.describe('showreel: menú y página', () => {
 
   test('las obras se ejecutan (renderizan elementos) dentro del iframe', async ({ page }) => {
     await red(page, 'down');
-    await page.goto('es/showreel.html');
+    await page.goto('es/galeria.html');
     const f = page.frameLocator('.sr-obra >> nth=0 >> iframe');
     await expect(f.locator('.ihtml-element').first()).toBeVisible({ timeout: 8000 });
     expect(await f.locator('.ihtml-element').count()).toBeGreaterThan(10);
@@ -310,7 +314,7 @@ test.describe('showreel: menú y página', () => {
     const ctx = await browser.newContext({ viewport: { width: 390, height: 800 } });
     const page = await ctx.newPage();
     await red(page, 'down');
-    await page.goto('es/showreel.html');
+    await page.goto('es/galeria.html');
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
     const b = await page.locator('.sr-obra').first().boundingBox();
     expect(b.width).toBeGreaterThan(340);

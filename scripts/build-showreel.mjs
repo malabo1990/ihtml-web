@@ -4,7 +4,8 @@
 // Uso: node scripts/build-showreel.mjs
 //
 // Lee content/showreel/obras.json y escribe:
-//   showreel.html, es/showreel.html, pt|fr|de|it|ja|zh/showreel.html
+//   showreel.html, es/galeria.html, pt|fr|de|it|ja|zh/showreel.html
+// El nombre visible cambia por idioma (NOMBRE): Showreel solo en inglés.
 // Cada obra es un HTML EXPORTADO con IHTML (Export HTML) guardado en
 // showreel/obras/<archivo>.html: se muestra VIVO en un <iframe> (es HTML
 // real, no video). Cabecera y pie se copian del index.html de cada idioma.
@@ -29,18 +30,21 @@ const FORO = 'https://github.com/malabo1990/ihtml-releases/discussions';
 const SR_PATH = { en: 'showreel.html' };
 const INDEX_PATH = { en: 'index.html' };
 for (const l of ['es', 'pt', 'fr', 'de', 'it', 'ja', 'zh']) {
-  SR_PATH[l] = l + '/showreel.html';
+  SR_PATH[l] = l + (l === 'es' ? '/galeria.html' : '/showreel.html');
   INDEX_PATH[l] = l + '/index.html';
 }
 
+// Nombre de la página en el menú/pie/título de cada idioma.
+export const NOMBRE = { en: 'Showreel', es: 'Galería', pt: 'Galeria', fr: 'Galerie', de: 'Galerie', it: 'Galleria', ja: '作品集', zh: '作品集' };
+
 const T = {
   en: { locale: 'en', title: 'Showreel — made with IHTML', kicker: 'Made with IHTML', sub: 'Animations and interactive pieces made with IHTML. Everything here runs live in your browser: real HTML exported from the editor, not video.', abrir: 'Open full screen', por: 'by', vacioTit: 'The first works are on their way', vacio: 'We are preparing the first animations made with IHTML. Made something yourself? Share it in the forum and it could be featured here.', foro: 'Share in the forum', meta: 'Showreel of animations and interactive pieces made with IHTML, the visual HTML/CSS animation editor. They run live: real exported HTML.' },
-  es: { locale: 'es', title: 'Showreel — hecho con IHTML', kicker: 'Hecho con IHTML', sub: 'Animaciones y piezas interactivas hechas con IHTML. Todo lo que ves corre en vivo en tu navegador: HTML real exportado desde el editor, no video.', abrir: 'Abrir a pantalla completa', por: 'por', vacioTit: 'Los primeros trabajos están en camino', vacio: 'Estamos preparando las primeras animaciones hechas con IHTML. ¿Hiciste algo vos? Compartilo en el foro y puede aparecer acá.', foro: 'Compartir en el foro', meta: 'Showreel de animaciones y piezas interactivas hechas con IHTML, el editor visual de animaciones HTML/CSS. Corren en vivo: HTML real exportado.' },
-  pt: { locale: 'pt', title: 'Showreel — feito com IHTML', kicker: 'Feito com IHTML', sub: 'Animações e peças interativas feitas com IHTML. Tudo aqui roda ao vivo no seu navegador: HTML real exportado do editor, não vídeo.', abrir: 'Abrir em tela cheia', por: 'por', vacioTit: 'Os primeiros trabalhos estão a caminho', vacio: 'Estamos preparando as primeiras animações feitas com IHTML. Fez algo? Compartilhe no fórum e pode aparecer aqui.', foro: 'Compartilhar no fórum', meta: 'Showreel de animações e peças interativas feitas com IHTML. Rodam ao vivo: HTML real exportado.' },
-  fr: { locale: 'fr', title: 'Showreel — fait avec IHTML', kicker: 'Fait avec IHTML', sub: 'Animations et pièces interactives réalisées avec IHTML. Tout tourne en direct dans votre navigateur : du vrai HTML exporté depuis l’éditeur, pas de la vidéo.', abrir: 'Ouvrir en plein écran', por: 'par', vacioTit: 'Les premières créations arrivent', vacio: 'Nous préparons les premières animations réalisées avec IHTML. Vous avez créé quelque chose ? Partagez-le sur le forum, il pourrait apparaître ici.', foro: 'Partager sur le forum', meta: 'Showreel d’animations et de pièces interactives réalisées avec IHTML. Elles tournent en direct : du vrai HTML exporté.' },
-  de: { locale: 'de', title: 'Showreel — gemacht mit IHTML', kicker: 'Gemacht mit IHTML', sub: 'Animationen und interaktive Arbeiten, gemacht mit IHTML. Alles läuft live in deinem Browser: echtes, aus dem Editor exportiertes HTML, kein Video.', abrir: 'Im Vollbild öffnen', por: 'von', vacioTit: 'Die ersten Arbeiten sind unterwegs', vacio: 'Wir bereiten die ersten mit IHTML gemachten Animationen vor. Selbst etwas gemacht? Teile es im Forum – vielleicht erscheint es hier.', foro: 'Im Forum teilen', meta: 'Showreel mit Animationen und interaktiven Arbeiten, gemacht mit IHTML. Sie laufen live: echtes exportiertes HTML.' },
-  it: { locale: 'it', title: 'Showreel — fatto con IHTML', kicker: 'Fatto con IHTML', sub: 'Animazioni e pezzi interattivi realizzati con IHTML. Tutto gira dal vivo nel tuo browser: vero HTML esportato dall’editor, non video.', abrir: 'Apri a schermo intero', por: 'di', vacioTit: 'I primi lavori stanno arrivando', vacio: 'Stiamo preparando le prime animazioni fatte con IHTML. Hai creato qualcosa? Condividilo nel forum e potrebbe comparire qui.', foro: 'Condividi nel forum', meta: 'Showreel di animazioni e pezzi interattivi realizzati con IHTML. Girano dal vivo: vero HTML esportato.' },
-  ja: { locale: 'ja', title: 'ショーリール — IHTML で制作', kicker: 'IHTML で制作', sub: 'IHTML で作ったアニメーションとインタラクティブ作品。ここにあるものはすべてブラウザーでライブ動作します。動画ではなく、エディターから書き出した本物の HTML です。', abrir: '全画面で開く', por: '制作:', vacioTit: '最初の作品を準備中です', vacio: 'IHTML で作った最初のアニメーションを準備しています。作品を作ったらフォーラムで共有してください。ここで紹介されるかもしれません。', foro: 'フォーラムで共有', meta: 'IHTML で制作したアニメーションとインタラクティブ作品のショーリール。書き出した本物の HTML がライブで動きます。' },
+  es: { locale: 'es', title: 'Galería — hecho con IHTML', kicker: 'Hecho con IHTML', sub: 'Animaciones y piezas interactivas hechas con IHTML. Todo lo que ves corre en vivo en tu navegador: HTML real exportado desde el editor, no video.', abrir: 'Abrir a pantalla completa', por: 'por', vacioTit: 'Los primeros trabajos están en camino', vacio: 'Estamos preparando las primeras animaciones hechas con IHTML. ¿Hiciste algo vos? Compartilo en el foro y puede aparecer acá.', foro: 'Compartir en el foro', meta: 'Galería de animaciones y piezas interactivas hechas con IHTML, el editor visual de animaciones HTML/CSS. Corren en vivo: HTML real exportado.' },
+  pt: { locale: 'pt', title: 'Galeria — feito com IHTML', kicker: 'Feito com IHTML', sub: 'Animações e peças interativas feitas com IHTML. Tudo aqui roda ao vivo no seu navegador: HTML real exportado do editor, não vídeo.', abrir: 'Abrir em tela cheia', por: 'por', vacioTit: 'Os primeiros trabalhos estão a caminho', vacio: 'Estamos preparando as primeiras animações feitas com IHTML. Fez algo? Compartilhe no fórum e pode aparecer aqui.', foro: 'Compartilhar no fórum', meta: 'Galeria de animações e peças interativas feitas com IHTML. Rodam ao vivo: HTML real exportado.' },
+  fr: { locale: 'fr', title: 'Galerie — fait avec IHTML', kicker: 'Fait avec IHTML', sub: 'Animations et pièces interactives réalisées avec IHTML. Tout tourne en direct dans votre navigateur : du vrai HTML exporté depuis l’éditeur, pas de la vidéo.', abrir: 'Ouvrir en plein écran', por: 'par', vacioTit: 'Les premières créations arrivent', vacio: 'Nous préparons les premières animations réalisées avec IHTML. Vous avez créé quelque chose ? Partagez-le sur le forum, il pourrait apparaître ici.', foro: 'Partager sur le forum', meta: 'Galerie d’animations et de pièces interactives réalisées avec IHTML. Elles tournent en direct : du vrai HTML exporté.' },
+  de: { locale: 'de', title: 'Galerie — gemacht mit IHTML', kicker: 'Gemacht mit IHTML', sub: 'Animationen und interaktive Arbeiten, gemacht mit IHTML. Alles läuft live in deinem Browser: echtes, aus dem Editor exportiertes HTML, kein Video.', abrir: 'Im Vollbild öffnen', por: 'von', vacioTit: 'Die ersten Arbeiten sind unterwegs', vacio: 'Wir bereiten die ersten mit IHTML gemachten Animationen vor. Selbst etwas gemacht? Teile es im Forum – vielleicht erscheint es hier.', foro: 'Im Forum teilen', meta: 'Galerie mit Animationen und interaktiven Arbeiten, gemacht mit IHTML. Sie laufen live: echtes exportiertes HTML.' },
+  it: { locale: 'it', title: 'Galleria — fatto con IHTML', kicker: 'Fatto con IHTML', sub: 'Animazioni e pezzi interattivi realizzati con IHTML. Tutto gira dal vivo nel tuo browser: vero HTML esportato dall’editor, non video.', abrir: 'Apri a schermo intero', por: 'di', vacioTit: 'I primi lavori stanno arrivando', vacio: 'Stiamo preparando le prime animazioni fatte con IHTML. Hai creato qualcosa? Condividilo nel forum e potrebbe comparire qui.', foro: 'Condividi nel forum', meta: 'Galleria di animazioni e pezzi interattivi realizzati con IHTML. Girano dal vivo: vero HTML esportato.' },
+  ja: { locale: 'ja', title: '作品集 — IHTML で制作', kicker: 'IHTML で制作', sub: 'IHTML で作ったアニメーションとインタラクティブ作品。ここにあるものはすべてブラウザーでライブ動作します。動画ではなく、エディターから書き出した本物の HTML です。', abrir: '全画面で開く', por: '制作:', vacioTit: '最初の作品を準備中です', vacio: 'IHTML で作った最初のアニメーションを準備しています。作品を作ったらフォーラムで共有してください。ここで紹介されるかもしれません。', foro: 'フォーラムで共有', meta: 'IHTML で制作したアニメーションとインタラクティブ作品の作品集。書き出した本物の HTML がライブで動きます。' },
   zh: { locale: 'zh', title: '作品集 — 用 IHTML 制作', kicker: '用 IHTML 制作', sub: '用 IHTML 制作的动画和交互作品。这里的一切都在浏览器中实时运行:从编辑器导出的真实 HTML,而不是视频。', abrir: '全屏打开', por: '作者', vacioTit: '首批作品即将上线', vacio: '我们正在准备首批用 IHTML 制作的动画。你也做了作品?在论坛分享,它可能会出现在这里。', foro: '在论坛分享', meta: '用 IHTML 制作的动画和交互作品集。实时运行:导出的真实 HTML。' }
 };
 
@@ -95,7 +99,8 @@ function main() {
     const idx = fs.readFileSync(path.join(ROOT, idxFile), 'utf8');
     const skip = pick(idx, /<a class="skip-link"[^>]*>[^<]*<\/a>/, 'skip-link', idxFile);
     let header = adaptar(pick(idx, /<header class="island">[\s\S]*?<\/header>/, '<header>', idxFile), lang);
-    header = header.replace('<a href="showreel.html">', '<a href="showreel.html" class="is-activo">');
+    const self = path.posix.basename(file);
+    header = header.replace(`<a href="${self}">`, `<a href="${self}" class="is-activo">`);
     const footer = adaptar(pick(idx, /<footer>[\s\S]*?<\/footer>/, '<footer>', idxFile), lang);
     const uiScript = pick(idx, /<script>\s*const rv = [\s\S]*?<\/script>/, 'script de la isla', idxFile);
     const analytics = (idx.match(/<script defer src="https:\/\/ihtml-analytics[^"]*"><\/script>/) || [''])[0];
@@ -144,7 +149,7 @@ ${alternates}
     <main id="contenido" class="sr-page">
       <div class="dl-hero">
         <p class="kicker">${esc(t.kicker)}</p>
-        <h1>Showreel</h1>
+        <h1>${esc(NOMBRE[lang])}</h1>
         <p class="sub">${esc(t.sub)}</p>
       </div>
 

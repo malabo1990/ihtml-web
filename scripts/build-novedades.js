@@ -195,7 +195,7 @@ function headerNav(activo) {
           ${link('../es/guia-usuario.html', 'Guía', 'guia')}
           ${link('index.html', 'Novedades', 'novedades')}
           <a href="https://github.com/malabo1990/ihtml-releases/discussions" target="_blank" rel="noopener">Foro</a>
-          ${link('../es/showreel.html', 'Showreel', 'showreel')}
+          ${link('../es/galeria.html', 'Galería', 'galeria')}
           ${link('../es/descargas.html', 'Descargar', 'descargar')}
           ${link('../es/index.html#precio', 'Precio', 'precio')}
           <a class="is-cta" href="../es/index.html#precio">Suscribirme</a>
@@ -211,7 +211,7 @@ const FOOTER = `<footer>
         <a href="../es/guia-usuario.html">Guía de usuario</a>
         <a href="index.html">Novedades</a>
         <a href="https://github.com/malabo1990/ihtml-releases/discussions" target="_blank" rel="noopener">Foro</a>
-        <a href="../es/showreel.html">Showreel</a>
+        <a href="../es/galeria.html">Galería</a>
         <a href="../es/descargas.html">Descargar</a>
         <a href="../es/index.html#precio">Precio</a>
       </div>
