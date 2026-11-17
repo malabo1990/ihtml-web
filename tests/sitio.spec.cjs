@@ -225,12 +225,14 @@ test.describe('isla de navegación', () => {
 });
 
 // ------------------------------------------------- Enlaces internos
+const SR_LINKS = {};
+for (const [l, p] of Object.entries(LANGS)) SR_LINKS[p.index] = l === 'en' ? 'showreel.html' : l + '/showreel.html';
 test('ningún enlace interno roto en portadas y descargas', async ({ page }) => {
   await red(page, 'down');
   const vistos = new Set();
   const rotos = [];
   for (const p of Object.values(LANGS)) {
-    for (const url of [p.index, p.dl]) {
+    for (const url of [p.index, p.dl, SR_LINKS[p.index]]) {
       await page.goto(url);
       const hrefs = await page.$$eval('a[href]', (as) => as.map((a) => a.href));
       for (const h of hrefs) {
@@ -243,4 +245,75 @@ test('ningún enlace interno roto en portadas y descargas', async ({ page }) => 
     }
   }
   expect(rotos).toEqual([]);
+});
+
+// ------------------------------------------------- Página Showreel + menú
+const SR = { en: 'showreel.html' };
+for (const l of ['es', 'pt', 'fr', 'de', 'it', 'ja', 'zh']) SR[l] = l + '/showreel.html';
+
+test.describe('showreel: menú y página', () => {
+  for (const [lang, p] of Object.entries(LANGS)) {
+    test(`${lang}: el menú tiene "Showreel" y lleva a su página`, async ({ page }) => {
+      await red(page, 'down');
+      await page.goto(p.index);
+      const link = page.locator('.island-menu a', { hasText: 'Showreel' });
+      await expect(link).toHaveCount(1);
+      await page.locator('.island-dot').click();
+      await link.click();
+      await expect(page).toHaveURL(new RegExp(SR[lang].replace('/', '\\/') + '$'));
+      await expect(page.locator('h1')).toHaveText('Showreel');
+      await expect(page.locator('.island-menu a.is-activo')).toHaveText('Showreel');
+    });
+
+    test(`${lang}: 6 obras vivas, escaladas enteras en su marco`, async ({ page }) => {
+      const errs = sinErrores(page);
+      await red(page, 'down');
+      await page.goto(SR[lang]);
+      await expect(page.locator('html')).toHaveAttribute('lang', lang);
+      const obras = page.locator('.sr-obra');
+      await expect(obras).toHaveCount(6);
+      for (let i = 0; i < 6; i++) {
+        const o = obras.nth(i);
+        await o.scrollIntoViewIfNeeded();
+        await expect(o.locator('h2')).not.toBeEmpty();
+        const marco = o.locator('.sr-marco');
+        await expect(marco).toHaveClass(/sr-escalado/);
+        // el iframe escalado ocupa justo el marco (ni recortado ni chico)
+        const [mb, fb] = [await marco.boundingBox(), await o.locator('iframe').boundingBox()];
+        expect(Math.abs(fb.width - mb.width)).toBeLessThan(2);
+        expect(Math.abs(fb.height - mb.height)).toBeLessThan(3);
+        // la obra existe y tiene contenido IHTML real
+        const src = await o.locator('iframe').evaluate((f) => f.src);
+        const r = await page.request.get(src);
+        expect(r.status(), src).toBe(200);
+        expect(await r.text()).toContain('ihtml-element');
+        await expect(o.locator('a.sr-abrir')).toHaveAttribute('href', /showreel\/obras\/.+\.html$/);
+      }
+      // selector de idioma -> showreel de cada idioma
+      for (const h of await page.$$eval('.lang-switch-menu a', (as) => as.map((a) => a.href))) {
+        expect(h).toMatch(/showreel\.html$/);
+      }
+      expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(1280);
+      expect(errs).toEqual([]);
+    });
+  }
+
+  test('las obras se ejecutan (renderizan elementos) dentro del iframe', async ({ page }) => {
+    await red(page, 'down');
+    await page.goto('es/showreel.html');
+    const f = page.frameLocator('.sr-obra >> nth=0 >> iframe');
+    await expect(f.locator('.ihtml-element').first()).toBeVisible({ timeout: 8000 });
+    expect(await f.locator('.ihtml-element').count()).toBeGreaterThan(10);
+  });
+
+  test('móvil 390px: sin scroll horizontal y obras a ancho completo', async ({ browser }) => {
+    const ctx = await browser.newContext({ viewport: { width: 390, height: 800 } });
+    const page = await ctx.newPage();
+    await red(page, 'down');
+    await page.goto('es/showreel.html');
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+    const b = await page.locator('.sr-obra').first().boundingBox();
+    expect(b.width).toBeGreaterThan(340);
+    await ctx.close();
+  });
 });

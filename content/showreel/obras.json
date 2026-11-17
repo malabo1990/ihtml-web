@@ -1,0 +1,98 @@
+[
+  {
+    "archivo": "showreel/obras/grua-gt270.html",
+    "ancho": 1280,
+    "alto": 720,
+    "titulo": { "es": "Grúa GT-270", "en": "GT-270 Crane", "pt": "Guindaste GT-270", "fr": "Grue GT-270", "de": "Kran GT-270", "it": "Gru GT-270", "ja": "クレーン GT-270", "zh": "GT-270 塔吊" },
+    "descripcion": {
+      "es": "Simulador de una grúa torre sobre una ciudad nocturna: controles, carga y animación por línea de tiempo.",
+      "en": "A tower-crane simulator over a city at night: controls, cargo and timeline animation.",
+      "pt": "Simulador de guindaste de torre sobre uma cidade noturna: controles, carga e animação por linha do tempo.",
+      "fr": "Simulateur de grue à tour sur une ville de nuit : commandes, charge et animation par timeline.",
+      "de": "Turmkran-Simulator über einer nächtlichen Stadt: Steuerung, Last und Timeline-Animation.",
+      "it": "Simulatore di gru a torre su una città notturna: comandi, carico e animazione su timeline.",
+      "ja": "夜の街を舞台にしたタワークレーンのシミュレーター。操作、荷物、タイムラインアニメーション。",
+      "zh": "夜间城市中的塔吊模拟器:控制、吊运和时间轴动画。"
+    }
+  },
+  {
+    "archivo": "showreel/obras/cristales-de-aether.html",
+    "ancho": 1216,
+    "alto": 760,
+    "titulo": { "es": "Cristales de Aether", "en": "Crystals of Aether", "pt": "Cristais de Aether", "fr": "Cristaux d’Aether", "de": "Kristalle von Aether", "it": "Cristalli di Aether", "ja": "エーテルのクリスタル", "zh": "以太水晶" },
+    "descripcion": {
+      "es": "Mini juego de aventura con marcador, tiempo y pantallas: interacción hecha con Acciones, sin código.",
+      "en": "A mini adventure game with score, timer and screens — interaction built with Actions, no code.",
+      "pt": "Minijogo de aventura com placar, tempo e telas — interação feita com Ações, sem código.",
+      "fr": "Mini-jeu d’aventure avec score, chrono et écrans — interaction créée avec les Actions, sans code.",
+      "de": "Ein kleines Abenteuerspiel mit Punktestand, Timer und Screens – Interaktion mit Aktionen, ohne Code.",
+      "it": "Mini gioco d’avventura con punteggio, timer e schermate: interazione creata con le Azioni, senza codice.",
+      "ja": "スコア・タイマー・画面遷移のあるミニアドベンチャーゲーム。インタラクションはコードなしのアクションで作成。",
+      "zh": "带计分、计时和多屏的冒险小游戏——交互通过“动作”完成,无需代码。"
+    }
+  },
+  {
+    "archivo": "showreel/obras/atlas-horas-perdidas.html",
+    "ancho": 1280,
+    "alto": 800,
+    "titulo": { "es": "El Atlas de las Horas Perdidas", "en": "The Atlas of Lost Hours", "pt": "O Atlas das Horas Perdidas", "fr": "L’Atlas des heures perdues", "de": "Der Atlas der verlorenen Stunden", "it": "L’Atlante delle ore perdute", "ja": "失われた時間のアトラス", "zh": "失落时光图集" },
+    "descripcion": {
+      "es": "Libro interactivo con índice de capítulos, portada animada y navegación.",
+      "en": "An interactive book with a chapter index, animated cover and navigation.",
+      "pt": "Livro interativo com índice de capítulos, capa animada e navegação.",
+      "fr": "Livre interactif avec sommaire des chapitres, couverture animée et navigation.",
+      "de": "Ein interaktives Buch mit Kapitelverzeichnis, animiertem Cover und Navigation.",
+      "it": "Libro interattivo con indice dei capitoli, copertina animata e navigazione.",
+      "ja": "章立ての目次、アニメーションする表紙、ナビゲーションを備えたインタラクティブブック。",
+      "zh": "带章节目录、动画封面和导航的互动书。"
+    }
+  },
+  {
+    "archivo": "showreel/obras/biblioteca.html",
+    "ancho": 900,
+    "alto": 1180,
+    "titulo": { "es": "Cuatro libros, una biblioteca", "en": "Four books, one library", "pt": "Quatro livros, uma biblioteca", "fr": "Quatre livres, une bibliothèque", "de": "Vier Bücher, eine Bibliothek", "it": "Quattro libri, una biblioteca", "ja": "4冊の本、ひとつの図書館", "zh": "四本书,一座图书馆" },
+    "descripcion": {
+      "es": "Estantería interactiva: cada libro se abre con su propia animación.",
+      "en": "An interactive bookshelf: each book opens with its own animation.",
+      "pt": "Estante interativa: cada livro abre com sua própria animação.",
+      "fr": "Une étagère interactive : chaque livre s’ouvre avec sa propre animation.",
+      "de": "Ein interaktives Bücherregal: Jedes Buch öffnet sich mit eigener Animation.",
+      "it": "Uno scaffale interattivo: ogni libro si apre con la sua animazione.",
+      "ja": "インタラクティブな本棚。本ごとに異なるアニメーションで開きます。",
+      "zh": "互动书架:每本书都有自己的打开动画。"
+    }
+  },
+  {
+    "archivo": "showreel/obras/revista-gol.html",
+    "ancho": 900,
+    "alto": 1273,
+    "titulo": { "es": "GOL — revista", "en": "GOL — magazine", "pt": "GOL — revista", "fr": "GOL — magazine", "de": "GOL — Magazin", "it": "GOL — rivista", "ja": "GOL — マガジン", "zh": "GOL — 杂志" },
+    "descripcion": {
+      "es": "Revista digital de 7 páginas con transiciones entre páginas.",
+      "en": "A 7-page digital magazine with page transitions.",
+      "pt": "Revista digital de 7 páginas com transições entre páginas.",
+      "fr": "Magazine numérique de 7 pages avec transitions entre les pages.",
+      "de": "Ein 7-seitiges digitales Magazin mit Seitenübergängen.",
+      "it": "Rivista digitale di 7 pagine con transizioni tra le pagine.",
+      "ja": "ページ遷移アニメーション付きの7ページのデジタルマガジン。",
+      "zh": "7 页数字杂志,带翻页过渡效果。"
+    }
+  },
+  {
+    "archivo": "showreel/obras/hotel-miramar.html",
+    "ancho": 1920,
+    "alto": 1080,
+    "titulo": { "es": "Hotel Miramar", "en": "Hotel Miramar", "pt": "Hotel Miramar", "fr": "Hôtel Miramar", "de": "Hotel Miramar", "it": "Hotel Miramar", "ja": "ホテル・ミラマール", "zh": "米拉马尔酒店" },
+    "descripcion": {
+      "es": "Intro animada de marca para un hotel, en Full HD.",
+      "en": "An animated brand intro for a hotel, in Full HD.",
+      "pt": "Intro animada de marca para um hotel, em Full HD.",
+      "fr": "Intro de marque animée pour un hôtel, en Full HD.",
+      "de": "Animiertes Marken-Intro für ein Hotel, in Full HD.",
+      "it": "Intro animata del marchio per un hotel, in Full HD.",
+      "ja": "ホテルのためのアニメーション・ブランドイントロ(フルHD)。",
+      "zh": "酒店品牌动画片头,全高清。"
+    }
+  }
+]
