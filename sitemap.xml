@@ -118,4 +118,44 @@
     <loc>https://malabo1990.github.io/ihtml-web/es/privacidad.html</loc>
     <lastmod>2026-11-16</lastmod>
   </url>
+  <url>
+    <loc>https://malabo1990.github.io/ihtml-web/downloads.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://malabo1990.github.io/ihtml-web/es/descargas.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://malabo1990.github.io/ihtml-web/pt/downloads.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://malabo1990.github.io/ihtml-web/fr/downloads.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://malabo1990.github.io/ihtml-web/de/downloads.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://malabo1990.github.io/ihtml-web/it/downloads.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://malabo1990.github.io/ihtml-web/ja/downloads.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://malabo1990.github.io/ihtml-web/zh/downloads.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>

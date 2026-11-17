@@ -165,7 +165,7 @@
           <a href="guia-usuario.html">Guía</a>
           <a href="../novedades/index.html">Novedades</a>
           <a href="https://github.com/malabo1990/ihtml-releases/discussions" target="_blank" rel="noopener">Foro</a>
-          <a href="#descargar">Descargar</a>
+          <a href="descargas.html">Descargar</a>
           <a href="#mirror">Mirror</a>
           <a href="#precio">Precio</a>
           <a class="is-cta" href="#precio">Suscribirme</a>
@@ -232,8 +232,8 @@
           </svg>
           <b>Windows</b>
           <small>Instalador .exe</small>
-          <a class="btn" data-dl aria-label="Descargar — Windows" href="https://github.com/malabo1990/ihtml-releases/releases">Descargar</a>
-          <a class="dl-mirror" data-dl-mirror aria-label="IHTML Mirror — Windows" href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
+          <a class="btn" data-dl aria-label="Descargar — Windows" href="descargas.html">Descargar</a>
+          <a class="dl-mirror" data-dl-mirror aria-label="IHTML Mirror — Windows" href="descargas.html" hidden>+ IHTML Mirror</a>
         </div>
         <div class="plataforma" data-plat="macos">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -243,8 +243,8 @@
           </svg>
           <b>macOS</b>
           <small>Apple Silicon + Intel</small>
-          <a class="btn" data-dl aria-label="Descargar — macOS" href="https://github.com/malabo1990/ihtml-releases/releases">Descargar</a>
-          <a class="dl-mirror" data-dl-mirror aria-label="IHTML Mirror — macOS" href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
+          <a class="btn" data-dl aria-label="Descargar — macOS" href="descargas.html">Descargar</a>
+          <a class="dl-mirror" data-dl-mirror aria-label="IHTML Mirror — macOS" href="descargas.html" hidden>+ IHTML Mirror</a>
         </div>
         <div class="plataforma" data-plat="linux">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -254,8 +254,8 @@
           </svg>
           <b>Linux</b>
           <small>AppImage · .deb</small>
-          <a class="btn" data-dl aria-label="Descargar — Linux" href="https://github.com/malabo1990/ihtml-releases/releases">Descargar</a>
-          <a class="dl-mirror" data-dl-mirror aria-label="IHTML Mirror — Linux" href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
+          <a class="btn" data-dl aria-label="Descargar — Linux" href="descargas.html">Descargar</a>
+          <a class="dl-mirror" data-dl-mirror aria-label="IHTML Mirror — Linux" href="descargas.html" hidden>+ IHTML Mirror</a>
         </div>
         <div class="plataforma" data-plat="android">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -265,14 +265,44 @@
           </svg>
           <b>Android</b>
           <small>IHTML Mirror · APK</small>
-          <a class="btn" data-dl aria-label="Descargar — Android" href="https://github.com/malabo1990/ihtml-releases/releases">Descargar</a>
+          <a class="btn" data-dl aria-label="Descargar — Android" href="descargas.html">Descargar</a>
         </div>
       </div>
       <p class="dl-nota" id="dlNota">
         <span id="dlVer"></span>
+        <a class="dl-todas" href="descargas.html">Todas las versiones y formatos →</a><br />
         En Android se instala <b>IHTML Mirror</b> (abre y ejecuta un <code>.ihtml</code>); el editor completo es de
         escritorio. iOS: próximamente. ¿Preferís correrlo desde el código? <a href="#empezar">Ver «Cómo empezar»</a>.
       </p>
+    </section>
+
+    <section id="showreel" class="centrado reveal">
+      <p class="kicker">Showreel</p>
+      <h2>IHTML en movimiento</h2>
+      <p class="sub">Un recorrido rápido por el editor: lienzo, línea de tiempo, degradados, inspector y Mirror.</p>
+      <div class="mock showreel">
+        <div class="mock-bar" aria-hidden="true">
+          <span class="dot r"></span>
+          <span class="dot y"></span>
+          <span class="dot g"></span>
+          <span class="mock-url">IHTML · Showreel</span>
+        </div>
+        <video
+          class="showreel-video"
+          width="1280"
+          height="720"
+          muted
+          loop
+          playsinline
+          controls
+          preload="metadata"
+          poster="../assets/video/showreel-poster.jpg"
+          aria-label="IHTML en movimiento"
+        >
+          <source src="../assets/video/showreel.webm" type="video/webm" />
+          <source src="../assets/video/showreel.mp4" type="video/mp4" />
+        </video>
+      </div>
     </section>
 
     <section id="caracteristicas" class="centrado reveal">
@@ -646,7 +676,7 @@ npm run dev</pre>
         <a href="guia-usuario.html">Guía de usuario</a>
         <a href="../novedades/index.html">Novedades</a>
         <a href="https://github.com/malabo1990/ihtml-releases/discussions" target="_blank" rel="noopener">Foro</a>
-        <a href="#descargar">Descargar</a>
+        <a href="descargas.html">Descargar</a>
         <a href="#mirror">Mirror</a>
         <a href="#precio">Precio</a>
         <a href="../index.html" lang="en">English</a>
@@ -729,11 +759,11 @@ npm run dev</pre>
 
     <script>
       /* Descargas: enlaza cada tarjeta al asset real de la última Release.
-       Si el repo/Release aún no existe, cada botón se queda en la página
-       de releases (fallback ya escrito en el HTML). */
+       Si la API falla, cada botón se queda en la página de descargas del
+       sitio (fallback ya escrito en el HTML) - nunca en la web de GitHub. */
       (function () {
         var REPO = 'malabo1990/ihtml-releases';
-        var RELEASES = 'https://github.com/' + REPO + '/releases';
+        var RELEASES = 'descargas.html';
 
         function osActual() {
           var ua = navigator.userAgent;
@@ -814,12 +844,30 @@ npm run dev</pre>
             });
           })
           .catch(function () {
-            /* sin Release todavía: los botones ya apuntan a RELEASES */
+            /* sin red / sin Release: los botones apuntan a la página de descargas del sitio */
             document.querySelectorAll('.plataforma a[data-dl]').forEach(function (a) {
-              a.textContent = 'Ver releases';
               a.href = RELEASES;
             });
           });
+      })();
+    </script>
+    <script>
+      /* Showreel: se reproduce solo cuando se ve (y nunca con "reducir movimiento"). */
+      (function () {
+        var v = document.querySelector('.showreel-video');
+        if (!v || !('IntersectionObserver' in window)) return;
+        if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var tocado = false;
+        v.addEventListener('pause', function (e) { if (e.isTrusted && !v.ended && v.dataset.auto !== '1') tocado = true; });
+        new IntersectionObserver(function (es) {
+          es.forEach(function (e) {
+            if (tocado) return;
+            v.dataset.auto = '1';
+            if (e.isIntersecting) v.play().catch(function () {});
+            else v.pause();
+            setTimeout(function () { v.dataset.auto = ''; }, 0);
+          });
+        }, { threshold: 0.35 }).observe(v);
       })();
     </script>
     <script defer src="https://ihtml-analytics.ihtml-license-server.workers.dev/t.js"></script>

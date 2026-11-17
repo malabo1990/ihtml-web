@@ -129,6 +129,12 @@ a {
 .island .logo-text {
   font-size: 14px;
   color: #f5f5f7;
+  /* "IHTML Interactive HTML" siempre en UNA linea (antes "HTML" caia abajo). */
+  white-space: nowrap;
+}
+
+.island .brand {
+  flex: none;
 }
 
 .island-menu-wrap {
@@ -1645,4 +1651,222 @@ footer .social :focus-visible {
 .island:focus-within .island-menu a {
   opacity: 1;
   transform: none;
+}
+
+/* ---------- Showreel (portada) ---------- */
+.mock.showreel {
+  margin-top: 36px;
+  background: #14161a;
+}
+.mock.showreel video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: #14161a;
+}
+
+/* ---------- Página de descargas ---------- */
+.dl-todas {
+  font-weight: 500;
+  color: var(--accent-text);
+  text-decoration: none;
+}
+.dl-todas:hover {
+  text-decoration: underline;
+}
+.dl-page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 140px 24px 40px;
+}
+.dl-hero {
+  text-align: center;
+  margin-bottom: 28px;
+}
+.dl-hero h1 {
+  font-size: clamp(36px, 5.5vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 6px 0 12px;
+}
+.dl-version {
+  text-align: center;
+  color: var(--ink-2);
+  margin: 0 0 32px;
+}
+.dl-app {
+  margin: 0 0 44px;
+}
+.dl-app-cab h2 {
+  font-size: 26px;
+  margin: 0 0 4px;
+}
+.dl-app-cab p {
+  margin: 0;
+  color: var(--ink-2);
+}
+.dl-tabla td {
+  vertical-align: middle;
+}
+.dl-tabla td b {
+  color: var(--ink);
+}
+.dl-ext {
+  font-family: var(--mono);
+  font-size: 13.5px;
+  color: var(--ink);
+}
+.dl-uso {
+  color: var(--ink-3);
+  font-size: 13.5px;
+}
+.dl-col-tam {
+  white-space: nowrap;
+  text-align: right;
+}
+.dl-col-btn {
+  text-align: right;
+  width: 1%;
+  white-space: nowrap;
+}
+.dl-col-btn .btn {
+  padding: 8px 18px;
+  font-size: 14px;
+}
+.dl-tabla tr.es-tuyo td {
+  background: rgba(249, 115, 22, 0.07);
+}
+.dl-tabla tr.es-tuyo .btn {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.dl-tuyo {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--accent-text);
+  background: rgba(249, 115, 22, 0.12);
+}
+.dl-anteriores h2,
+.dl-ayuda h2 {
+  font-size: 22px;
+  margin: 0 0 14px;
+}
+.dl-vieja {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0 18px;
+  margin-bottom: 10px;
+}
+.dl-vieja summary {
+  cursor: pointer;
+  padding: 14px 0;
+  font-weight: 500;
+}
+.dl-vieja summary small {
+  color: var(--ink-3);
+  font-weight: 400;
+  margin-left: 8px;
+}
+.dl-vieja h3 {
+  font-size: 15px;
+  margin: 8px 0 0;
+}
+.dl-vieja .tabla-wrap {
+  margin: 8px 0 14px;
+}
+.dl-ayuda {
+  margin-top: 48px;
+}
+.dl-ayuda li {
+  margin-bottom: 10px;
+  color: var(--ink-2);
+}
+.dl-vacio {
+  text-align: center;
+  color: var(--ink-2);
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .dl-page {
+    padding: 120px 16px 32px;
+  }
+  .dl-tabla th,
+  .dl-tabla td {
+    padding: 10px 10px;
+  }
+  .dl-uso {
+    display: block;
+  }
+  .dl-col-tam {
+    display: none;
+  }
+}
+
+/* ---------- Isla en pantallas medianas ----------
+   Con 8 enlaces + "Suscribirme" el menú no entra en una sola línea por
+   debajo de ~1100px y se cortaba ("Pre…"). Abierto, pasa a una segunda
+   fila que hace wrap en vez de recortar. */
+@media (max-width: 1100px) {
+  .island.is-abierto,
+  .island:focus-within {
+    flex-wrap: wrap;
+    border-radius: 26px;
+    justify-content: space-between;
+  }
+  .island.is-abierto .island-menu-wrap,
+  .island:focus-within .island-menu-wrap {
+    order: 20;
+    flex-basis: 100%;
+  }
+  .island.is-abierto .island-menu,
+  .island:focus-within .island-menu {
+    flex-wrap: wrap;
+    white-space: normal;
+    justify-content: center;
+    row-gap: 4px;
+  }
+}
+@media (max-width: 1100px) and (hover: hover) {
+  .island:hover {
+    flex-wrap: wrap;
+    border-radius: 26px;
+    justify-content: space-between;
+  }
+  .island:hover .island-menu-wrap {
+    order: 20;
+    flex-basis: 100%;
+  }
+  .island:hover .island-menu {
+    flex-wrap: wrap;
+    white-space: normal;
+    justify-content: center;
+    row-gap: 4px;
+  }
+}
+/* Moviles muy angostos: el logo en una linea + boton de menu sin recortar. */
+@media (max-width: 360px) {
+  .island {
+    gap: 6px;
+    padding: 10px 10px 10px 14px;
+  }
+  .island .logo-text {
+    font-size: 12.5px;
+  }
+  .island-dot {
+    margin-left: 0;
+  }
 }

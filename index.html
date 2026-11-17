@@ -165,7 +165,7 @@
           <a href="guide.html">Guide</a>
           <a href="novedades/index.html">Updates</a>
           <a href="https://github.com/malabo1990/ihtml-releases/discussions" target="_blank" rel="noopener">Forum</a>
-          <a href="#download">Download</a>
+          <a href="downloads.html">Download</a>
           <a href="#mirror">Mirror</a>
           <a href="#pricing">Pricing</a>
           <a class="is-cta" href="#pricing">Subscribe</a>
@@ -232,8 +232,8 @@
           </svg>
           <b>Windows</b>
           <small>.exe installer</small>
-          <a class="btn" data-dl aria-label="Download — Windows" href="https://github.com/malabo1990/ihtml-releases/releases">Download</a>
-          <a class="dl-mirror" data-dl-mirror aria-label="IHTML Mirror — Windows" href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
+          <a class="btn" data-dl aria-label="Download — Windows" href="downloads.html">Download</a>
+          <a class="dl-mirror" data-dl-mirror aria-label="IHTML Mirror — Windows" href="downloads.html" hidden>+ IHTML Mirror</a>
         </div>
         <div class="plataforma" data-plat="macos">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -243,8 +243,8 @@
           </svg>
           <b>macOS</b>
           <small>Apple Silicon + Intel</small>
-          <a class="btn" data-dl aria-label="Download — macOS" href="https://github.com/malabo1990/ihtml-releases/releases">Download</a>
-          <a class="dl-mirror" data-dl-mirror aria-label="IHTML Mirror — macOS" href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
+          <a class="btn" data-dl aria-label="Download — macOS" href="downloads.html">Download</a>
+          <a class="dl-mirror" data-dl-mirror aria-label="IHTML Mirror — macOS" href="downloads.html" hidden>+ IHTML Mirror</a>
         </div>
         <div class="plataforma" data-plat="linux">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -254,8 +254,8 @@
           </svg>
           <b>Linux</b>
           <small>AppImage · .deb</small>
-          <a class="btn" data-dl aria-label="Download — Linux" href="https://github.com/malabo1990/ihtml-releases/releases">Download</a>
-          <a class="dl-mirror" data-dl-mirror aria-label="IHTML Mirror — Linux" href="https://github.com/malabo1990/ihtml-releases/releases" hidden>+ IHTML Mirror</a>
+          <a class="btn" data-dl aria-label="Download — Linux" href="downloads.html">Download</a>
+          <a class="dl-mirror" data-dl-mirror aria-label="IHTML Mirror — Linux" href="downloads.html" hidden>+ IHTML Mirror</a>
         </div>
         <div class="plataforma" data-plat="android">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -265,14 +265,44 @@
           </svg>
           <b>Android</b>
           <small>IHTML Mirror · APK</small>
-          <a class="btn" data-dl aria-label="Download — Android" href="https://github.com/malabo1990/ihtml-releases/releases">Download</a>
+          <a class="btn" data-dl aria-label="Download — Android" href="downloads.html">Download</a>
         </div>
       </div>
       <p class="dl-nota" id="dlNota">
         <span id="dlVer"></span>
+        <a class="dl-todas" href="downloads.html">All versions and formats →</a><br />
         On Android, <b>IHTML Mirror</b> gets installed (opens and runs an <code>.ihtml</code> file); the full editor
         is desktop-only. iOS: coming soon. Prefer running it from source? <a href="#start">See "How to start"</a>.
       </p>
+    </section>
+
+    <section id="showreel" class="centrado reveal">
+      <p class="kicker">Showreel</p>
+      <h2>IHTML in motion</h2>
+      <p class="sub">A quick tour of the editor: canvas, timeline, gradients, inspector and Mirror.</p>
+      <div class="mock showreel">
+        <div class="mock-bar" aria-hidden="true">
+          <span class="dot r"></span>
+          <span class="dot y"></span>
+          <span class="dot g"></span>
+          <span class="mock-url">IHTML · Showreel</span>
+        </div>
+        <video
+          class="showreel-video"
+          width="1280"
+          height="720"
+          muted
+          loop
+          playsinline
+          controls
+          preload="metadata"
+          poster="assets/video/showreel-poster.jpg"
+          aria-label="IHTML in motion"
+        >
+          <source src="assets/video/showreel.webm" type="video/webm" />
+          <source src="assets/video/showreel.mp4" type="video/mp4" />
+        </video>
+      </div>
     </section>
 
     <section id="caracteristicas" class="centrado reveal">
@@ -652,7 +682,7 @@ npm run dev</pre>
         <a href="guide.html">User guide</a>
         <a href="novedades/index.html">Updates</a>
         <a href="https://github.com/malabo1990/ihtml-releases/discussions" target="_blank" rel="noopener">Forum</a>
-        <a href="#download">Download</a>
+        <a href="downloads.html">Download</a>
         <a href="#mirror">Mirror</a>
         <a href="#pricing">Pricing</a>
         <a href="es/index.html" lang="es">Español</a>
@@ -756,7 +786,7 @@ npm run dev</pre>
        releases page (fallback already written in the HTML). */
       (function () {
         var REPO = 'malabo1990/ihtml-releases';
-        var RELEASES = 'https://github.com/' + REPO + '/releases';
+        var RELEASES = 'downloads.html';
 
         function currentOs() {
           var ua = navigator.userAgent;
@@ -839,10 +869,28 @@ npm run dev</pre>
           .catch(function () {
             /* no Release yet: buttons already point to RELEASES */
             document.querySelectorAll('.plataforma a[data-dl]').forEach(function (a) {
-              a.textContent = 'See releases';
               a.href = RELEASES;
             });
           });
+      })();
+    </script>
+    <script>
+      /* Showreel: se reproduce solo cuando se ve (y nunca con "reducir movimiento"). */
+      (function () {
+        var v = document.querySelector('.showreel-video');
+        if (!v || !('IntersectionObserver' in window)) return;
+        if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var tocado = false;
+        v.addEventListener('pause', function (e) { if (e.isTrusted && !v.ended && v.dataset.auto !== '1') tocado = true; });
+        new IntersectionObserver(function (es) {
+          es.forEach(function (e) {
+            if (tocado) return;
+            v.dataset.auto = '1';
+            if (e.isIntersecting) v.play().catch(function () {});
+            else v.pause();
+            setTimeout(function () { v.dataset.auto = ''; }, 0);
+          });
+        }, { threshold: 0.35 }).observe(v);
       })();
     </script>
     <script defer src="https://ihtml-analytics.ihtml-license-server.workers.dev/t.js"></script>
