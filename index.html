@@ -203,21 +203,28 @@
         <a class="btn" href="#mirror">What is Mirror</a>
       </div>
 
-      <div class="mock">
+      <div class="mock showreel">
         <div class="mock-bar" aria-hidden="true">
           <span class="dot r"></span>
           <span class="dot y"></span>
           <span class="dot g"></span>
-          <span class="mock-url">IHTML Editor</span>
+          <span class="mock-url">IHTML · Showreel</span>
         </div>
-        <img
-          src="assets/img/editor.jpg"
-          width="1600"
-          height="900"
-          loading="eager"
-          decoding="async"
-          alt="The IHTML editor: the elements panel on the left, the canvas in the center with a cover design on a gradient background, and the timeline below with several keyframe tracks."
-        />
+        <video
+          class="showreel-video"
+          width="1280"
+          height="720"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          poster="assets/img/editor.jpg"
+          aria-label="The IHTML editor: the elements panel on the left, the canvas in the center with a cover design on a gradient background, and the timeline below with several keyframe tracks."
+        >
+          <source src="assets/video/showreel.webm" type="video/webm" />
+          <source src="assets/video/showreel.mp4" type="video/mp4" />
+        </video>
       </div>
     </div>
 
@@ -274,35 +281,6 @@
         On Android, <b>IHTML Mirror</b> gets installed (opens and runs an <code>.ihtml</code> file); the full editor
         is desktop-only. iOS: coming soon. Prefer running it from source? <a href="#start">See "How to start"</a>.
       </p>
-    </section>
-
-    <section id="showreel" class="centrado reveal">
-      <p class="kicker">Showreel</p>
-      <h2>IHTML in motion</h2>
-      <p class="sub">A quick tour of the editor: canvas, timeline, gradients, inspector and Mirror.</p>
-      <div class="mock showreel">
-        <div class="mock-bar" aria-hidden="true">
-          <span class="dot r"></span>
-          <span class="dot y"></span>
-          <span class="dot g"></span>
-          <span class="mock-url">IHTML · Showreel</span>
-        </div>
-        <video
-          class="showreel-video"
-          width="1280"
-          height="720"
-          muted
-          loop
-          playsinline
-          controls
-          preload="metadata"
-          poster="assets/video/showreel-poster.jpg"
-          aria-label="IHTML in motion"
-        >
-          <source src="assets/video/showreel.webm" type="video/webm" />
-          <source src="assets/video/showreel.mp4" type="video/mp4" />
-        </video>
-      </div>
     </section>
 
     <section id="caracteristicas" class="centrado reveal">
@@ -875,22 +853,26 @@ npm run dev</pre>
       })();
     </script>
     <script>
-      /* Showreel: se reproduce solo cuando se ve (y nunca con "reducir movimiento"). */
+      /* Showreel (imagen principal): autoplay; se pausa fuera de pantalla y
+         nunca corre con "reducir movimiento". */
       (function () {
         var v = document.querySelector('.showreel-video');
-        if (!v || !('IntersectionObserver' in window)) return;
-        if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        var tocado = false;
-        v.addEventListener('pause', function (e) { if (e.isTrusted && !v.ended && v.dataset.auto !== '1') tocado = true; });
+        if (!v) return;
+        if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          v.removeAttribute('autoplay');
+          v.pause();
+          v.controls = true;
+          return;
+        }
+        if (!('IntersectionObserver' in window)) return;
         new IntersectionObserver(function (es) {
           es.forEach(function (e) {
-            if (tocado) return;
-            v.dataset.auto = '1';
-            if (e.isIntersecting) v.play().catch(function () {});
+            // threshold 0: basta con que asome un poco (en pantallas de 720px
+            // de alto el video arranca casi fuera de la vista y con 0.2 se pausaba)
+            if (e.isIntersecting || e.intersectionRatio > 0) v.play().catch(function () {});
             else v.pause();
-            setTimeout(function () { v.dataset.auto = ''; }, 0);
           });
-        }, { threshold: 0.35 }).observe(v);
+        }, { threshold: 0 }).observe(v);
       })();
     </script>
     <script defer src="https://ihtml-analytics.ihtml-license-server.workers.dev/t.js"></script>

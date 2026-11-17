@@ -53,38 +53,40 @@ function sinErrores(page) {
 // ---------------------------------------------------------------- Showreel
 test.describe('showreel', () => {
   for (const [lang, p] of Object.entries(LANGS)) {
-    test(`${lang}: sección showreel con video que carga y se reproduce al verse`, async ({ page }) => {
+    test(`${lang}: el showreel es la imagen principal y se reproduce al abrir la página`, async ({ page }) => {
       const errs = sinErrores(page);
       await red(page);
       await page.goto(p.index);
-      const sec = page.locator('section#showreel');
-      await expect(sec).toHaveCount(1);
-      await expect(sec.locator('h2')).not.toBeEmpty();
-      const v = sec.locator('video.showreel-video');
-      await expect(v).toHaveAttribute('poster', /showreel-poster\.jpg$/);
-      // los archivos referenciados existen
+      // está ARRIBA, en el hero (lo primero que se ve), no en una sección de abajo
+      const v = page.locator('.hero .mock.showreel video.showreel-video');
+      await expect(v).toHaveCount(1);
+      await expect(page.locator('.hero .mock img')).toHaveCount(0);
+      await expect(page.locator('section#showreel')).toHaveCount(0);
+      await expect(v).toBeInViewport();
       for (const src of await v.locator('source').evaluateAll((s) => s.map((x) => x.src))) {
         expect((await page.request.get(src)).status(), src).toBe(200);
       }
-      const poster = await v.evaluate((x) => x.poster);
-      expect((await page.request.get(poster)).status()).toBe(200);
-      // fuera de pantalla: pausado; al verse: reproduce
-      expect(await v.evaluate((x) => x.paused)).toBe(true);
-      await sec.scrollIntoViewIfNeeded();
-      await expect.poll(() => v.evaluate((x) => !x.paused && x.readyState >= 2), { timeout: 8000 }).toBe(true);
+      expect((await page.request.get(await v.evaluate((x) => x.poster))).status()).toBe(200);
+      expect(await v.getAttribute('aria-label')).toBeTruthy();
+      // se reproduce sin tocar nada
+      await expect.poll(() => v.evaluate((x) => !x.paused && x.readyState >= 2 && x.currentTime > 0), { timeout: 8000 }).toBe(true);
       expect(await v.evaluate((x) => x.videoWidth)).toBe(1280);
+      // fuera de pantalla se pausa
+      await page.locator('footer').scrollIntoViewIfNeeded();
+      await expect.poll(() => v.evaluate((x) => x.paused), { timeout: 4000 }).toBe(true);
       expect(errs).toEqual([]);
     });
   }
 
-  test('con "reducir movimiento" no se reproduce solo', async ({ browser }) => {
+  test('con "reducir movimiento" no se reproduce solo y muestra controles', async ({ browser }) => {
     const ctx = await browser.newContext({ reducedMotion: 'reduce' });
     const page = await ctx.newPage();
     await red(page);
     await page.goto('es/index.html');
-    await page.locator('#showreel').scrollIntoViewIfNeeded();
     await page.waitForTimeout(1200);
-    expect(await page.locator('.showreel-video').evaluate((x) => x.paused)).toBe(true);
+    const v = page.locator('.showreel-video');
+    expect(await v.evaluate((x) => x.paused)).toBe(true);
+    expect(await v.evaluate((x) => x.controls)).toBe(true);
     await ctx.close();
   });
 });

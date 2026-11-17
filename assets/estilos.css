@@ -1658,9 +1658,8 @@ footer .social :focus-visible {
   transform: none;
 }
 
-/* ---------- Showreel (portada) ---------- */
+/* ---------- Showreel (video de la imagen principal del hero) ---------- */
 .mock.showreel {
-  margin-top: 36px;
   background: #14161a;
 }
 .mock.showreel video {
