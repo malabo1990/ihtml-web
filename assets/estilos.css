@@ -60,8 +60,13 @@ a {
 .island {
   position: fixed;
   top: 12px;
-  left: 50%;
-  transform: translateX(-50%);
+  /* Centrada con left/right + margin auto (NO left:50% + translateX): con
+     left:50% el navegador le da solo media pantalla de ancho disponible y
+     el menu abierto se cortaba ("Pre...", sin "Suscribirme") aun en 1280px. */
+  left: 12px;
+  right: 12px;
+  margin-inline: auto;
+  width: fit-content;
   z-index: 100;
   display: flex;
   align-items: center;
@@ -1818,9 +1823,9 @@ footer .social :focus-visible {
 
 /* ---------- Isla en pantallas medianas ----------
    Con 8 enlaces + "Suscribirme" el menú no entra en una sola línea por
-   debajo de ~1100px y se cortaba ("Pre…"). Abierto, pasa a una segunda
+   debajo de ~1000px y se cortaba ("Pre…"). Abierto, pasa a una segunda
    fila que hace wrap en vez de recortar. */
-@media (max-width: 1100px) {
+@media (max-width: 1000px) {
   .island.is-abierto,
   .island:focus-within {
     flex-wrap: wrap;
@@ -1840,7 +1845,7 @@ footer .social :focus-visible {
     row-gap: 4px;
   }
 }
-@media (max-width: 1100px) and (hover: hover) {
+@media (max-width: 1000px) and (hover: hover) {
   .island:hover {
     flex-wrap: wrap;
     border-radius: 26px;
