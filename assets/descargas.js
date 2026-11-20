@@ -97,7 +97,8 @@
       '</th><th scope="col" class="dl-col-tam">' + esc(T.colTam) + '</th><th scope="col"><span class="sr-only">' + esc(T.descargar) + '</span></th></tr></thead><tbody>';
     lista.forEach(function (a) {
       h +=
-        '<tr data-plat="' + a.plat + '"><td><b>' + PLAT_NOMBRE[a.plat] + '</b></td><td><span class="dl-ext">' + EXT_NOMBRE[a.ext] +
+        '<tr data-plat="' + a.plat + '"><td><b>' + PLAT_NOMBRE[a.plat] + '</b>' +
+        (a.ver ? ' <small class="dl-ver">' + esc(a.ver.replace(/^v/, '')) + '</small>' : '') + '</td><td><span class="dl-ext">' + EXT_NOMBRE[a.ext] +
         '</span> <span class="dl-uso">' + esc(T.fmt[a.ext] || '') + '</span></td><td class="dl-col-tam">' + tam(a.size, T) +
         '</td><td class="dl-col-btn"><a class="btn" href="' + esc(a.url) + '" download aria-label="' + esc(T.descargar + ' — ' + T[app + 'Nombre'] + ' ' + PLAT_NOMBRE[a.plat] + ' ' + EXT_NOMBRE[a.ext]) +
         '">' + esc(T.descargar) + '</a></td></tr>';
@@ -114,11 +115,33 @@
       return !r.pre;
     });
     var ult = estables[0] || rels[0];
+    // Una plataforma que todavia no esta en la ultima version (p. ej. macOS
+    // se compila aparte): se ofrece la mas reciente que la tenga, con su
+    // numero de version al lado, en vez de dejar ese sistema sin descarga.
+    var extra = [];
+    ['editor', 'mirror'].forEach(function (app) {
+      PLATS.forEach(function (plat) {
+        var tiene = function (r) {
+          return r.assets.some(function (a) {
+            return a.app === app && a.plat === plat;
+          });
+        };
+        if (tiene(ult)) return;
+        var prev = (estables.length ? estables : rels).filter(function (r) {
+          return r !== ult && tiene(r);
+        })[0];
+        if (!prev) return;
+        prev.assets.forEach(function (a) {
+          if (a.app === app && a.plat === plat) extra.push(Object.assign({}, a, { ver: prev.tag }));
+        });
+      });
+    });
+    if (extra.length) ult = Object.assign({}, ult, { assets: ult.assets.concat(extra), orig: ult });
     var h =
       '<p class="dl-version"><b>' + esc(T.ultima) + ' ' + esc(ult.tag.replace(/^v/, '')) + '</b> · ' + esc(T.publicada) + ' ' + esc(fecha(ult.fecha, T)) + '</p>';
     h += tablaApp(ult, 'editor', T) + tablaApp(ult, 'mirror', T);
     var viejas = rels.filter(function (r) {
-      return r !== ult;
+      return r !== ult && r !== ult.orig;
     });
     if (viejas.length) {
       h += '<div class="dl-anteriores"><h2>' + esc(T.anteriores) + '</h2>';
