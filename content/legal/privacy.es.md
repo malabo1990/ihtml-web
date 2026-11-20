@@ -1,6 +1,6 @@
 # Política de privacidad de IHTML
 
-_Última actualización: 16 de noviembre de 2026_
+_Última actualización: 20 de noviembre de 2026_
 
 Esta política explica qué datos trata **IHTML** (el "Responsable") cuando visitas
 la web, compras una suscripción o usas las apps IHTML e IHTML Mirror.
@@ -30,6 +30,8 @@ publicidad de terceros. Si tu navegador tiene activado **"No rastrear"** (Do Not
 Track), no se registra nada. Base legal: interés legítimo en conocer el uso de
 la web de forma agregada. Conservación: **400 días**; después se borran
 automáticamente.
+
+**Lo que la web guarda en tu navegador.** Solo el idioma que elijas (`localStorage`, para abrir la web en tu idioma la próxima vez) y el identificador de pestaña de arriba (`sessionStorage`). No son cookies, nunca nos llegan y puedes borrarlos desde los ajustes de tu navegador. Un pequeño aviso en la web lo explica; cerrarlo también se recuerda en `localStorage`.
 
 **Alojamiento.** La web está alojada en **GitHub Pages** y la analítica en
 **Cloudflare**. Como cualquier servidor web, pueden procesar tu IP de forma

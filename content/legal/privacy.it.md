@@ -1,6 +1,6 @@
 # Informativa sulla privacy di IHTML
 
-_Ultimo aggiornamento: 16 novembre 2026_
+_Ultimo aggiornamento: 20 novembre 2026_
 
 Questa informativa spiega quali dati tratta **IHTML** (il "Titolare del
 trattamento") quando visiti il sito, acquisti un abbonamento o usi le app IHTML e
@@ -30,6 +30,8 @@ Non usiamo cookie, impronte del browser né servizi di statistica o pubblicità 
 terzi. Se il tuo browser ha **Do Not Track** attivo, non viene registrato nulla.
 Base giuridica: legittimo interesse a conoscere l'uso aggregato del sito.
 Conservazione: **400 giorni**, poi cancellazione automatica.
+
+**Cosa salva il sito nel tuo browser.** Solo la lingua che scegli (`localStorage`, per aprire il sito nella tua lingua la volta successiva) e l'identificativo della scheda indicato sopra (`sessionStorage`). Non sono cookie, non ci vengono mai inviati e puoi cancellarli dalle impostazioni del browser. Un piccolo avviso sul sito lo spiega; anche la sua chiusura viene ricordata in `localStorage`.
 
 **Hosting.** Il sito è ospitato su **GitHub Pages** e le statistiche su
 **Cloudflare**. Come qualsiasi server web, possono trattare il tuo IP in modo

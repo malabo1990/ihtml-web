@@ -115,3 +115,32 @@ test('textos traducidos: titulos en su idioma', async ({ page }) => {
   await expect(page.locator('footer a[href="license.html"]')).toHaveCount(1);
   await expect(page.locator('header a[href="../novedades/de/index.html"]')).toHaveCount(1);
 });
+
+test('aviso de privacidad: en su idioma, enlaza a Privacidad y se cierra para siempre', async ({ browser }) => {
+  const ctx = await visitante(browser, { locale: 'fr-FR' });
+  const page = await ctx.newPage();
+  await page.goto('fr/index.html');
+  const aviso = page.locator('#ihtml-aviso');
+  await expect(aviso).toBeVisible();
+  await expect(aviso).toContainText("n'utilise pas de cookies");
+  await expect(aviso.locator('a')).toHaveAttribute('href', 'privacy.html');
+  await aviso.locator('button').click();
+  await expect(aviso).toHaveCount(0);
+  await page.goto('fr/guide.html');
+  await page.waitForTimeout(300);
+  await expect(page.locator('#ihtml-aviso')).toHaveCount(0);
+  // ninguna cookie
+  expect(await ctx.cookies()).toEqual([]);
+  await ctx.close();
+});
+
+test('aviso en movil: cabe sin desbordar', async ({ browser }) => {
+  const ctx = await visitante(browser, { locale: 'ja-JP', viewport: { width: 360, height: 740 } });
+  const page = await ctx.newPage();
+  await page.goto('ja/index.html');
+  const box = await page.locator('#ihtml-aviso').boundingBox();
+  expect(box.x).toBeGreaterThanOrEqual(15);
+  expect(box.x + box.width).toBeLessThanOrEqual(345);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(360);
+  await ctx.close();
+});

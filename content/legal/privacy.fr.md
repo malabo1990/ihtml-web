@@ -1,6 +1,6 @@
 # Politique de confidentialité d'IHTML
 
-_Dernière mise à jour : 16 novembre 2026_
+_Dernière mise à jour : 20 novembre 2026_
 
 Cette politique explique quelles données **IHTML** (le « Responsable ») traite
 lorsque vous visitez le site, achetez un abonnement ou utilisez les applications
@@ -32,6 +32,8 @@ statistiques ou de publicité tiers. Si votre navigateur a **Do Not Track**
 activé, rien n'est enregistré. Base légale : intérêt légitime à connaître
 l'utilisation globale du site. Conservation : **400 jours**, puis suppression
 automatique.
+
+**Ce que le site enregistre dans votre navigateur.** Seulement la langue que vous choisissez (`localStorage`, pour ouvrir le site dans votre langue la prochaine fois) et l'identifiant d'onglet ci-dessus (`sessionStorage`). Ce ne sont pas des cookies, ils ne nous sont jamais envoyés et vous pouvez les effacer dans les réglages de votre navigateur. Un petit avis sur le site l'explique ; sa fermeture est aussi retenue dans `localStorage`.
 
 **Hébergement.** Le site est hébergé sur **GitHub Pages** et les statistiques sur
 **Cloudflare**. Comme tout serveur web, ils peuvent traiter votre IP de façon
