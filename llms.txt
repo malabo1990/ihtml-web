@@ -13,7 +13,7 @@ IHTML (Interactive HTML) is a web animation editor: a canvas with artboards and 
 - Projects live on the user's machine; the editor works offline. Optional diagnostic telemetry (errors and version, never project content).
 - Public runtime API via `window.ihtmlDocument`.
 - Localized to 8 languages (EN, ES, PT, FR, DE, IT, JA, ZH) and 6 themes (light and dark).
-- Pricing: Free plan US$0 (full editor, exports image PNG/WebP/JPEG, no HTML export) and Full plan US$4/month or US$36/year (import and export .html and .ihtml, GIF and video).
+- Pricing: Free plan €0 (full editor, exports image PNG/WebP/JPEG, no HTML export) and Full plan €4/month or €36/year (import and export .html and .ihtml, GIF and video).
 
 ## Pages
 
