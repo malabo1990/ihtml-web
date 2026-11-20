@@ -263,7 +263,10 @@ function postPageHtml(post, lang, langsOfPost) {
   LANGS.forEach((l) => {
     langLinks[l] = rel(file, langsOfPost.includes(l) ? `${outDir(l)}/${post.slug}.html` : `${outDir(l)}/index.html`);
   });
-  const alternates = langsOfPost.map((l) => `<link rel="alternate" hreflang="${l}" href="${SITE_URL}/${outDir(l)}/${post.slug}.html" />`).join('\n    ');
+  const alternates = [
+    ...langsOfPost.map((l) => `<link rel="alternate" hreflang="${l}" href="${SITE_URL}/${outDir(l)}/${post.slug}.html" />`),
+    `<link rel="alternate" hreflang="x-default" href="${SITE_URL}/${outDir(langsOfPost.includes('en') ? 'en' : langsOfPost[0])}/${post.slug}.html" />`
+  ].join('\n    ');
   const { header, footer, scripts } = chrome(lang, file, langLinks);
   const videoHtml = post.youtube
     ? `<div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/${post.youtube}" title="${escapeHtml(post.title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`
@@ -322,7 +325,10 @@ function indexPageHtml(posts, lang) {
   const url = `${SITE_URL}/${file}`;
   const langLinks = {};
   LANGS.forEach((l) => (langLinks[l] = rel(file, `${outDir(l)}/index.html`)));
-  const alternates = LANGS.map((l) => `<link rel="alternate" hreflang="${l}" href="${SITE_URL}/${outDir(l)}/index.html" />`).join('\n    ');
+  const alternates = [
+    ...LANGS.map((l) => `<link rel="alternate" hreflang="${l}" href="${SITE_URL}/${outDir(l)}/index.html" />`),
+    `<link rel="alternate" hreflang="x-default" href="${SITE_URL}/${outDir('en')}/index.html" />`
+  ].join('\n    ');
   const { header, footer, scripts } = chrome(lang, file, langLinks);
   const cards = posts
     .map(
@@ -467,6 +473,8 @@ function main() {
   });
   updateSitemap(byLang);
   updateLlmsTxt(byLang.en.length ? byLang.en : byLang.es);
+  // sitemap completo (con hreflang) desde las paginas reales
+  require('child_process').execFileSync('node', [path.join(ROOT, 'scripts/build-sitemap.mjs')], { stdio: 'inherit' });
 }
 
 main();

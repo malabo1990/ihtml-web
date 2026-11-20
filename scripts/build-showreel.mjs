@@ -86,6 +86,32 @@ function obraHtml(o, lang, t, file) {
         </article>`;
 }
 
+// Datos estructurados de la pagina (SEO/GEO): WebPage + migas, enlazados al
+// SoftwareApplication y al WebSite de la portada (mismos @id).
+function pageLd(site, lang, file, name, desc, kind) {
+  const home = lang === 'en' ? site : `${site}${lang}/`;
+  const page = {
+    '@type': kind === 'gallery' ? 'CollectionPage' : 'WebPage',
+    '@id': `${site}${file}#page`,
+    url: `${site}${file}`,
+    name,
+    description: desc,
+    inLanguage: lang,
+    isPartOf: { '@id': `${site}#website` },
+    about: { '@id': `${site}#software` },
+    publisher: { '@id': `${site}#org` }
+  };
+  if (kind === 'download') page.mainEntity = { '@id': `${site}#software` };
+  const crumbs = {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'IHTML', item: home },
+      { '@type': 'ListItem', position: 2, name, item: `${site}${file}` }
+    ]
+  };
+  return JSON.stringify({ '@context': 'https://schema.org', '@graph': [page, crumbs] }).replace(/</g, '\\u003c');
+}
+
 function main() {
   const obrasPath = path.join(ROOT, 'content/showreel/obras.json');
   const obras = JSON.parse(fs.readFileSync(obrasPath, 'utf8'));
@@ -142,6 +168,7 @@ ${alternates}
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="${base}estilos.css" />
     <script src="${base}idioma.js"></script>
+    <script type="application/ld+json">${pageLd(SITE, lang, file, t.title, t.meta, 'gallery')}</script>
   </head>
   <body>
     ${skip}

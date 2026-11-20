@@ -139,6 +139,32 @@ function rel(from, to) {
   return '../'.repeat(depth) + to;
 }
 
+// Datos estructurados de la pagina (SEO/GEO): WebPage + migas, enlazados al
+// SoftwareApplication y al WebSite de la portada (mismos @id).
+function pageLd(site, lang, file, name, desc, kind) {
+  const home = lang === 'en' ? site : `${site}${lang}/`;
+  const page = {
+    '@type': kind === 'gallery' ? 'CollectionPage' : 'WebPage',
+    '@id': `${site}${file}#page`,
+    url: `${site}${file}`,
+    name,
+    description: desc,
+    inLanguage: lang,
+    isPartOf: { '@id': `${site}#website` },
+    about: { '@id': `${site}#software` },
+    publisher: { '@id': `${site}#org` }
+  };
+  if (kind === 'download') page.mainEntity = { '@id': `${site}#software` };
+  const crumbs = {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'IHTML', item: home },
+      { '@type': 'ListItem', position: 2, name, item: `${site}${file}` }
+    ]
+  };
+  return JSON.stringify({ '@context': 'https://schema.org', '@graph': [page, crumbs] }).replace(/</g, '\\u003c');
+}
+
 for (const kind of ['license', 'privacy']) {
   for (const lang of LANGS) {
     const out = outPath(kind, lang);
@@ -174,6 +200,7 @@ for (const kind of ['license', 'privacy']) {
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="${up}assets/estilos.css" />
     <script src="${up}assets/idioma.js"></script>
+    <script type="application/ld+json">${pageLd(BASE, lang, out, title, desc, 'legal')}</script>
   </head>
   <body>
     <a class="skip-link" href="#contenido">${SKIP[lang]}</a>
