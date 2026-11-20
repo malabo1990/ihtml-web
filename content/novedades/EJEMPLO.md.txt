@@ -24,7 +24,7 @@ Cuerpo de la entrada en Markdown simple: párrafos, **negrita**, *cursiva*,
 Otro párrafo. Podés meter bloques de código:
 
 ```
-npm install
+Archivo > Exportar HTML
 ```
 
 Notas sobre los campos del encabezado:

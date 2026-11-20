@@ -8,7 +8,7 @@ IHTML (Interactive HTML) is a web animation editor: a canvas with artboards and 
 
 - The **Editor** creates; **IHTML Mirror** (free app, desktop and Android) opens and runs an `.ihtml` file. An `.ihtml` carries the whole project embedded (elements, animations, actions, fonts, images, video): it's both the result and the re-editable source. It is NOT a file meant to open directly in a browser; that's what Export HTML is for, which generates a standard `.html` file.
 - IHTML Mirror positions itself as an interactive alternative to the PDF: animated, logic-driven documents that work with no internet. Use cases: business (proposals, catalogs, offline interactive advertising at trade shows/booths), health (patient materials, consent forms), education (interactive books and notes, with real text and ARIA roles for screen readers). Public / semi-private / private distribution (AES-256 encryption) with optional expiration.
-- Installs as an app (Windows, macOS, Linux; Mirror also on Android); can also be run from source with `npm run dev`.
+- Installs as an app (Windows, macOS, Linux; Mirror also on Android).
 - Projects live on the user's machine; the editor works offline. Optional diagnostic telemetry (errors and version, never project content).
 - Public runtime API via `window.ihtmlDocument`.
 - Localized to 8 languages (EN, ES, PT, FR, DE, IT, JA, ZH) and 6 themes (light and dark).
