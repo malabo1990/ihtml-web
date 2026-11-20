@@ -2,13 +2,13 @@
 <rss version="2.0">
   <channel>
     <title>Novedades — IHTML</title>
-    <link>https://malabo1990.github.io/ihtml-web/novedades/index.html</link>
-    <description>Versiones nuevas, features y contenido del proyecto IHTML.</description>
+    <link>https://ihtml.eu/novedades/index.html</link>
+    <description>Novedades de IHTML: versiones nuevas, funciones y contenido del proyecto.</description>
     <language>es</language>
     <item>
       <title>IHTML 1.1 — conexiones entre elementos, malla con huesos y pelo con física</title>
-      <link>https://malabo1990.github.io/ihtml-web/novedades/2026-11-20-ihtml-1-1.html</link>
-      <guid>https://malabo1990.github.io/ihtml-web/novedades/2026-11-20-ihtml-1-1.html</guid>
+      <link>https://ihtml.eu/novedades/2026-11-20-ihtml-1-1.html</link>
+      <guid>https://ihtml.eu/novedades/2026-11-20-ihtml-1-1.html</guid>
       <pubDate>Fri, 20 Nov 2026 12:00:00 GMT</pubDate>
       <description>Nueva versión 1.1 del editor IHTML. Los elementos se conectan entre sí sin programar, los sliders controlan la línea de tiempo, el vídeo y el sonido, las mallas se doblan con varios huesos y el pelo cae con física en un clic. Más estable y más seguro.</description>
     </item>

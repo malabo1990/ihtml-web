@@ -1,212 +1,337 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/</loc>
+    <loc>https://ihtml.eu/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/guide.html</loc>
+    <loc>https://ihtml.eu/guide.html</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/es/</loc>
+    <loc>https://ihtml.eu/es/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/es/guia-usuario.html</loc>
+    <loc>https://ihtml.eu/es/guia-usuario.html</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/pt/</loc>
+    <loc>https://ihtml.eu/pt/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/pt/guide.html</loc>
+    <loc>https://ihtml.eu/pt/guide.html</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/fr/</loc>
+    <loc>https://ihtml.eu/fr/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/fr/guide.html</loc>
+    <loc>https://ihtml.eu/fr/guide.html</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/de/</loc>
+    <loc>https://ihtml.eu/de/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/de/guide.html</loc>
+    <loc>https://ihtml.eu/de/guide.html</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/it/</loc>
+    <loc>https://ihtml.eu/it/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/it/guide.html</loc>
+    <loc>https://ihtml.eu/it/guide.html</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/ja/</loc>
+    <loc>https://ihtml.eu/ja/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/ja/guide.html</loc>
+    <loc>https://ihtml.eu/ja/guide.html</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/zh/</loc>
+    <loc>https://ihtml.eu/zh/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/zh/guide.html</loc>
+    <loc>https://ihtml.eu/zh/guide.html</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/novedades/index.html</loc>
-    <lastmod>2026-09-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://malabo1990.github.io/ihtml-web/license.html</loc>
+    <loc>https://ihtml.eu/license.html</loc>
     <lastmod>2026-11-16</lastmod>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/privacy.html</loc>
+    <loc>https://ihtml.eu/privacy.html</loc>
     <lastmod>2026-11-16</lastmod>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/es/licencia.html</loc>
+    <loc>https://ihtml.eu/es/licencia.html</loc>
     <lastmod>2026-11-16</lastmod>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/es/privacidad.html</loc>
+    <loc>https://ihtml.eu/es/privacidad.html</loc>
     <lastmod>2026-11-16</lastmod>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/downloads.html</loc>
+    <loc>https://ihtml.eu/downloads.html</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/es/descargas.html</loc>
+    <loc>https://ihtml.eu/es/descargas.html</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/pt/downloads.html</loc>
+    <loc>https://ihtml.eu/pt/downloads.html</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/fr/downloads.html</loc>
+    <loc>https://ihtml.eu/fr/downloads.html</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/de/downloads.html</loc>
+    <loc>https://ihtml.eu/de/downloads.html</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/it/downloads.html</loc>
+    <loc>https://ihtml.eu/it/downloads.html</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/ja/downloads.html</loc>
+    <loc>https://ihtml.eu/ja/downloads.html</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/zh/downloads.html</loc>
+    <loc>https://ihtml.eu/zh/downloads.html</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/showreel.html</loc>
+    <loc>https://ihtml.eu/showreel.html</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-  <url>
-    <loc>https://malabo1990.github.io/ihtml-web/pt/showreel.html</loc>
+    <loc>https://ihtml.eu/pt/showreel.html</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/fr/showreel.html</loc>
+    <loc>https://ihtml.eu/fr/showreel.html</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/de/showreel.html</loc>
+    <loc>https://ihtml.eu/de/showreel.html</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/it/showreel.html</loc>
+    <loc>https://ihtml.eu/it/showreel.html</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/ja/showreel.html</loc>
+    <loc>https://ihtml.eu/ja/showreel.html</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/zh/showreel.html</loc>
+    <loc>https://ihtml.eu/zh/showreel.html</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/es/galeria.html</loc>
+    <loc>https://ihtml.eu/es/galeria.html</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/novedades/index.html</loc>
+    <loc>https://ihtml.eu/pt/license.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/pt/privacy.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/fr/license.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/fr/privacy.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/de/license.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/de/privacy.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/it/license.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/it/privacy.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/ja/license.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/ja/privacy.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/zh/license.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/zh/privacy.html</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/novedades/index.html</loc>
     <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://malabo1990.github.io/ihtml-web/novedades/2026-11-20-ihtml-1-1.html</loc>
+    <loc>https://ihtml.eu/novedades/2026-11-20-ihtml-1-1.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/novedades/en/index.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/novedades/en/2026-11-20-ihtml-1-1.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/novedades/pt/index.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/novedades/pt/2026-11-20-ihtml-1-1.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/novedades/fr/index.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/novedades/fr/2026-11-20-ihtml-1-1.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/novedades/de/index.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/novedades/de/2026-11-20-ihtml-1-1.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/novedades/it/index.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/novedades/it/2026-11-20-ihtml-1-1.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/novedades/ja/index.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/novedades/ja/2026-11-20-ihtml-1-1.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/novedades/zh/index.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ihtml.eu/novedades/zh/2026-11-20-ihtml-1-1.html</loc>
     <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

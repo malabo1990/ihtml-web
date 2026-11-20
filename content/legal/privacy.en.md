@@ -11,7 +11,7 @@ Contact for any privacy matter:
 never sends the content of your projects; payments are processed by Stripe and
 we never see your card.
 
-## 1. Website (malabo1990.github.io/ihtml-web)
+## 1. Website (ihtml.eu)
 
 **First-party, cookieless analytics.** To know how many people visit the
 website and download IHTML we record:

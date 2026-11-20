@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>更新动态 — IHTML</title>
+    <link>https://ihtml.eu/novedades/zh/index.html</link>
+    <description>IHTML 更新动态：新版本、新功能和项目动态。</description>
+    <language>zh</language>
+    <item>
+      <title>IHTML 1.1 — 元素互联、带骨骼的网格和带物理效果的头发</title>
+      <link>https://ihtml.eu/novedades/zh/2026-11-20-ihtml-1-1.html</link>
+      <guid>https://ihtml.eu/novedades/zh/2026-11-20-ihtml-1-1.html</guid>
+      <pubDate>Fri, 20 Nov 2026 12:00:00 GMT</pubDate>
+      <description>IHTML 编辑器新版本 1.1。元素之间无需编程即可互相连接，滑块可控制时间轴、视频和声音，网格可由多根骨骼弯曲，头发一键即可受物理作用自然下垂。更稳定、更安全。</description>
+    </item>
+  </channel>
+</rss>

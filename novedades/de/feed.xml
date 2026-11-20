@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Neuigkeiten — IHTML</title>
+    <link>https://ihtml.eu/novedades/de/index.html</link>
+    <description>IHTML-Neuigkeiten: neue Versionen, Funktionen und Projektneuigkeiten.</description>
+    <language>de</language>
+    <item>
+      <title>IHTML 1.1 — Verbindungen zwischen Elementen, Mesh mit Knochen und Haare mit Physik</title>
+      <link>https://ihtml.eu/novedades/de/2026-11-20-ihtml-1-1.html</link>
+      <guid>https://ihtml.eu/novedades/de/2026-11-20-ihtml-1-1.html</guid>
+      <pubDate>Fri, 20 Nov 2026 12:00:00 GMT</pubDate>
+      <description>Neue Version 1.1 des IHTML-Editors. Elemente verbinden sich ohne Code miteinander, Schieberegler steuern Zeitleiste, Video und Ton, Meshes biegen sich mit mehreren Knochen und Haare fallen mit einem Klick physikalisch. Stabiler und sicherer.</description>
+    </item>
+  </channel>
+</rss>

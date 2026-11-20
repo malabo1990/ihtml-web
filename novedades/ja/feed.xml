@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>お知らせ — IHTML</title>
+    <link>https://ihtml.eu/novedades/ja/index.html</link>
+    <description>IHTML のお知らせ: 新しいリリース、機能、プロジェクトのニュース。</description>
+    <language>ja</language>
+    <item>
+      <title>IHTML 1.1 — 要素同士の接続、ボーン付きメッシュ、物理で揺れる髪</title>
+      <link>https://ihtml.eu/novedades/ja/2026-11-20-ihtml-1-1.html</link>
+      <guid>https://ihtml.eu/novedades/ja/2026-11-20-ihtml-1-1.html</guid>
+      <pubDate>Fri, 20 Nov 2026 12:00:00 GMT</pubDate>
+      <description>IHTML エディターの新バージョン 1.1。コードなしで要素同士を接続でき、スライダーでタイムライン・動画・音声を操作、メッシュは複数のボーンで曲がり、髪はワンクリックで物理演算により垂れ下がります。より安定し、より安全に。</description>
+    </item>
+  </channel>
+</rss>

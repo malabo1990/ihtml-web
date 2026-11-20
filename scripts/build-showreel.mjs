@@ -24,7 +24,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const SITE = 'https://malabo1990.github.io/ihtml-web/';
+const SITE = 'https://ihtml.eu/';
 const FORO = 'https://github.com/malabo1990/ihtml-releases/discussions';
 
 const SR_PATH = { en: 'showreel.html' };
@@ -141,6 +141,7 @@ ${alternates}
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="${base}estilos.css" />
+    <script src="${base}idioma.js"></script>
   </head>
   <body>
     ${skip}

@@ -137,10 +137,10 @@ test.describe('página de descargas', () => {
       await page.goto(p.dl);
       await expect(page.locator('html')).toHaveAttribute('lang', lang);
       await expect(page.locator('h1')).not.toBeEmpty();
-      await expect(page.locator('.dl-app#editor tbody tr')).toHaveCount(6);
-      await expect(page.locator('.dl-app#mirror tbody tr')).toHaveCount(7);
+      await expect(page.locator('.dl-app#editor tbody tr')).toHaveCount(5); // 1.1.0: sin .msi (exe + dmg 1.0.1 + AppImage/deb/rpm)
+      await expect(page.locator('.dl-app#mirror tbody tr')).toHaveCount(6);
       const hrefs = await page.$$eval('#dlLista a.btn', (as) => as.map((a) => a.href));
-      expect(hrefs.length).toBeGreaterThanOrEqual(13);
+      expect(hrefs.length).toBeGreaterThanOrEqual(11);
       for (const h of hrefs) expect(h).toMatch(/^https:\/\/github\.com\/malabo1990\/ihtml-releases\/releases\/download\//);
       // el menú marca "Descargar" como activo y apunta a esta página
       const activo = page.locator('.island-menu a.is-activo');

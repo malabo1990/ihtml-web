@@ -25,8 +25,7 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 const CONTENT_DIR = path.join(ROOT, 'content', 'novedades');
-const OUT_DIR = path.join(ROOT, 'novedades');
-const SITE_URL = 'https://malabo1990.github.io/ihtml-web';
+const SITE_URL = 'https://ihtml.eu';
 
 // ---------------------------------------------------------------
 // 1. Frontmatter + Markdown MINIMO (sin dependencias externas a
@@ -147,80 +146,125 @@ function markdownToHtml(md) {
       buf.push(lines[i]);
       i++;
     }
-    out.push(`<p>${inlineMd(buf.join(' '))}</p>`);
+    const CJK = /[\u3000-\u30ff\u3400-\u9fff\uff00-\uffef]/;
+    const joined = buf.reduce((acc, l) => (!acc ? l : CJK.test(acc.replace(/[*_\])`]+$/, '').slice(-1)) && CJK.test(l.replace(/^[*_[`(]+/, '')[0] || '') ? acc + l : acc + ' ' + l), '');
+    out.push(`<p>${inlineMd(joined)}</p>`);
   }
   closeList();
   return out.join('\n');
 }
 
 // ---------------------------------------------------------------
-// 2. Plantillas HTML (mismo header/footer/CSS del sitio, clases
-//    .guia para tipografía de artículo y .grid/.card para el listado
-//    — nada de CSS nuevo, reutiliza el sistema de diseño existente).
+// 2. Idiomas. Cada entrada: content/novedades/<slug>.md (español) y
+//    <slug>.<lang>.md para los demás. Salida: español en novedades/
+//    (URLs de siempre), el resto en novedades/<lang>/. Cabecera, pie y
+//    selector de idioma salen de la guía de ESE idioma (mismo diseño).
+//    En el Markdown, un link que empieza con "/" es relativo a la raíz
+//    del sitio (ej. "/de/downloads.html") y se convierte solo.
 // ---------------------------------------------------------------
 
-function fechaLarga(iso) {
-  const meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+const LANGS = ['es', 'en', 'pt', 'fr', 'de', 'it', 'ja', 'zh'];
+const LANG_NAMES = { en: 'English', es: 'Español', pt: 'Português', fr: 'Français', de: 'Deutsch', it: 'Italiano', ja: '日本語', zh: '中文' };
+const OG_LOCALE = { es: 'es_ES', en: 'en_US', pt: 'pt_BR', fr: 'fr_FR', de: 'de_DE', it: 'it_IT', ja: 'ja_JP', zh: 'zh_CN' };
+const T = {
+  es: { name: 'Novedades', h1: 'Qué cambió en IHTML', sub: 'Versiones, funciones nuevas y contenido del proyecto.', empty: 'Todavía no hay novedades publicadas. Vuelve pronto.', skip: 'Saltar al contenido', desc: 'Novedades de IHTML: versiones nuevas, funciones y contenido del proyecto.' },
+  en: { name: 'Updates', h1: "What's new in IHTML", sub: 'Releases, new features and project news.', empty: 'No updates published yet. Check back soon.', skip: 'Skip to content', desc: 'IHTML updates: new releases, features and project news.' },
+  pt: { name: 'Novidades', h1: 'O que mudou no IHTML', sub: 'Versões, novos recursos e notícias do projeto.', empty: 'Ainda não há novidades publicadas. Volte em breve.', skip: 'Pular para o conteúdo', desc: 'Novidades do IHTML: novas versões, recursos e notícias do projeto.' },
+  fr: { name: 'Nouveautés', h1: "Quoi de neuf dans IHTML", sub: 'Versions, nouvelles fonctions et actualités du projet.', empty: "Aucune nouveauté publiée pour l'instant. Revenez bientôt.", skip: 'Aller au contenu', desc: "Nouveautés d'IHTML : nouvelles versions, fonctions et actualités du projet." },
+  de: { name: 'Neuigkeiten', h1: 'Was ist neu in IHTML', sub: 'Versionen, neue Funktionen und Projektneuigkeiten.', empty: 'Noch keine Neuigkeiten veröffentlicht. Schau bald wieder vorbei.', skip: 'Zum Inhalt springen', desc: 'IHTML-Neuigkeiten: neue Versionen, Funktionen und Projektneuigkeiten.' },
+  it: { name: 'Novità', h1: 'Cosa cambia in IHTML', sub: 'Versioni, nuove funzioni e notizie sul progetto.', empty: 'Ancora nessuna novità pubblicata. Torna presto.', skip: 'Vai al contenuto', desc: 'Novità di IHTML: nuove versioni, funzioni e notizie sul progetto.' },
+  ja: { name: 'お知らせ', h1: 'IHTML の最新情報', sub: 'リリース、新機能、プロジェクトのニュース。', empty: 'まだお知らせはありません。またお越しください。', skip: 'コンテンツへスキップ', desc: 'IHTML のお知らせ: 新しいリリース、機能、プロジェクトのニュース。' },
+  zh: { name: '更新动态', h1: 'IHTML 有哪些新变化', sub: '版本发布、新功能和项目动态。', empty: '暂无发布的更新，敬请期待。', skip: '跳到内容', desc: 'IHTML 更新动态：新版本、新功能和项目动态。' }
+};
+
+const outDir = (lang) => (lang === 'es' ? 'novedades' : `novedades/${lang}`);
+const guidePath = (lang) => (lang === 'en' ? 'guide.html' : lang === 'es' ? 'es/guia-usuario.html' : `${lang}/guide.html`);
+
+// Ruta relativa de un archivo a otro (los dos desde la raíz del sitio).
+function rel(fromFile, toPath) {
+  const depth = fromFile.split('/').length - 1;
+  return '../'.repeat(depth) + toPath;
+}
+// Reescribe href/src relativos de un trozo de HTML que vivía en `fromFile`
+// para que funcionen desde `toFile`.
+function rebase(html, fromFile, toFile) {
+  return html.replace(/\b(href|src)="([^"]*)"/g, (all, attr, url) => {
+    if (!url || /^(https?:|mailto:|#|data:|\/\/)/.test(url)) return all;
+    const abs = new URL(url, 'http://x/' + fromFile);
+    const root = abs.pathname.replace(/^\//, '') + abs.search + abs.hash;
+    return `${attr}="${rel(toFile, root)}"`;
+  });
+}
+
+function fechaLarga(iso, lang) {
   const [y, m, d] = iso.split('-').map(Number);
-  return `${d} de ${meses[m - 1]} de ${y}`;
+  return new Intl.DateTimeFormat(lang === 'zh' ? 'zh-CN' : lang, { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(Date.UTC(y, m - 1, d, 12)));
 }
 
-// Rutas RELATIVAS a propósito (nada de "/assets/..."): hoy el sitio
-// vive bajo github.io/ihtml-web/ (no en la raíz), y todo lo demás del
-// sitio ya usa rutas relativas para funcionar ahí. Estas páginas viven
-// una carpeta abajo de la raíz (novedades/*.html), por eso "../".
-function headerNav(activo) {
-  const link = (href, label, id) =>
-    `<a href="${href}"${id === activo ? ' class="is-activo"' : ''}>${label}</a>`;
-  return `<header class="island">
-      <button class="island-dot" aria-label="Menú" aria-expanded="false"></button>
-      <a class="brand" href="../es/index.html">
-        <svg viewBox="0 0 555 625" aria-hidden="true" focusable="false">
-          <defs>
-            <linearGradient id="logoGrad" x1="277" y1="0" x2="277" y2="625" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#f16529" /><stop offset="1" stop-color="#a12100" />
-            </linearGradient>
-            <linearGradient id="logoGradH" x1="0" y1="312" x2="555" y2="312" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#f16529" /><stop offset="1" stop-color="#a12100" />
-            </linearGradient>
-          </defs>
-          <path fill="url(#logoGrad)" d="M0 0H554.15V416.48L277.07 624.08 0 416.48Z" />
-          <path fill="url(#logoGradH)" d="M554.15 0 277.07 624.08 0 0Z" />
-        </svg>
-        <span class="logo-text"><b>IHTML</b>&nbsp;Interactive HTML</span>
-      </a>
-      <div class="island-menu-wrap">
-        <nav class="island-menu">
-          ${link('../es/index.html', 'Inicio', 'inicio')}
-          ${link('../es/guia-usuario.html', 'Guía', 'guia')}
-          ${link('index.html', 'Novedades', 'novedades')}
-          <a href="https://github.com/malabo1990/ihtml-releases/discussions" target="_blank" rel="noopener">Foro</a>
-          ${link('../es/galeria.html', 'Galería', 'galeria')}
-          ${link('../es/descargas.html', 'Descargar', 'descargar')}
-          ${link('../es/index.html#precio', 'Precio', 'precio')}
-          <a class="is-cta" href="../es/index.html#precio">Suscribirme</a>
-        </nav>
-      </div>
-    </header>`;
+// Cabecera (con selector de idioma propio), pie y scripts de la guía del idioma.
+function chrome(lang, file, langLinks) {
+  const g = fs.readFileSync(path.join(ROOT, guidePath(lang)), 'utf8');
+  let header = /<header class="island">[\s\S]*?<\/header>/.exec(g)[0].replace(/ class="is-activo"/g, '');
+  let footer = /<footer>[\s\S]*?<\/footer>/.exec(g)[0];
+  const scripts = /<\/footer>([\s\S]*?)<\/body>/.exec(g)[1];
+  header = rebase(header, guidePath(lang), file);
+  footer = rebase(footer, guidePath(lang), file);
+  const idx = rel(file, `${outDir(lang)}/index.html`);
+  header = header.replace(`<a href="${idx}">`, `<a href="${idx}" class="is-activo">`);
+  const menu = LANGS.map((l) => `<a href="${langLinks[l]}"${l === lang ? ' class="is-activo"' : ''} lang="${l}">${LANG_NAMES[l]}</a>`).join('\n          ');
+  header = header.replace(/<div class="lang-switch-menu">[\s\S]*?<\/div>/, `<div class="lang-switch-menu">\n          ${menu}\n        </div>`);
+  return { header, footer, scripts: rebase(scripts, guidePath(lang), file) };
 }
 
-const FOOTER = `<footer>
-      <p><b>IHTML</b> (Interactive HTML) — editor de animaciones HTML/CSS para escritorio y Android.</p>
-      <div class="docs">
-        <a href="../es/index.html">Inicio</a>
-        <a href="../es/guia-usuario.html">Guía de usuario</a>
-        <a href="index.html">Novedades</a>
-        <a href="https://github.com/malabo1990/ihtml-releases/discussions" target="_blank" rel="noopener">Foro</a>
-        <a href="../es/galeria.html">Galería</a>
-        <a href="../es/descargas.html">Descargar</a>
-        <a href="../es/index.html#precio">Precio</a>
-      </div>
-      <p class="footer-credit">© 2026 IHTML</p>
-      <p class="legal-links"><a href="../es/licencia.html">Licencia</a> · <a href="../es/privacidad.html">Privacidad</a> · <a href="mailto:malabo1990@gmail.com">malabo1990@gmail.com</a></p>
-    </footer>`;
+const STYLE = `<style>
+      .video-embed { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: var(--radius); overflow: hidden; margin: 28px 0; }
+      .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .post-meta { color: var(--ink-3); font-size: 0.95rem; margin-top: -8px; margin-bottom: 24px; }
+      .post-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 24px; }
+      .post-tags span { font-size: 0.8rem; color: var(--ink-2); border: 1px solid var(--line); border-radius: 999px; padding: 3px 11px; }
+    </style>`;
 
-function postPageHtml(post) {
-  const url = `${SITE_URL}/novedades/${post.slug}.html`;
+function head({ lang, title, desc, url, file, ogType, image, alternates, extra }) {
+  const up = rel(file, '');
+  return `<!doctype html>
+<html lang="${lang}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${escapeHtml(title)}</title>
+    <meta name="description" content="${escapeHtml(desc)}" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="${url}" />
+    ${alternates}
+    <link rel="icon" type="image/svg+xml" href="${up}assets/favicon.svg" />
+    <meta property="og:type" content="${ogType}" />
+    <meta property="og:site_name" content="IHTML · Interactive HTML" />
+    <meta property="og:locale" content="${OG_LOCALE[lang]}" />
+    <meta property="og:title" content="${escapeHtml(title)}" />
+    <meta property="og:description" content="${escapeHtml(desc)}" />
+    <meta property="og:url" content="${url}" />
+    <meta property="og:image" content="${image}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="${up}assets/estilos.css" />
+    <script src="${up}assets/idioma.js"></script>
+    <link rel="alternate" type="application/rss+xml" title="${escapeHtml(T[lang].name)} IHTML" href="feed.xml" />
+    ${extra || ''}
+  </head>`;
+}
+
+function postPageHtml(post, lang, langsOfPost) {
+  const t = T[lang];
+  const file = `${outDir(lang)}/${post.slug}.html`;
+  const url = `${SITE_URL}/${file}`;
+  const langLinks = {};
+  LANGS.forEach((l) => {
+    langLinks[l] = rel(file, langsOfPost.includes(l) ? `${outDir(l)}/${post.slug}.html` : `${outDir(l)}/index.html`);
+  });
+  const alternates = langsOfPost.map((l) => `<link rel="alternate" hreflang="${l}" href="${SITE_URL}/${outDir(l)}/${post.slug}.html" />`).join('\n    ');
+  const { header, footer, scripts } = chrome(lang, file, langLinks);
   const videoHtml = post.youtube
     ? `<div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/${post.youtube}" title="${escapeHtml(post.title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`
     : '';
@@ -230,7 +274,7 @@ function postPageHtml(post) {
     '@id': `${url}#post`,
     headline: post.title,
     description: post.summary,
-    inLanguage: 'es',
+    inLanguage: lang,
     datePublished: post.date,
     dateModified: post.date,
     url,
@@ -238,133 +282,103 @@ function postPageHtml(post) {
     about: { '@id': `${SITE_URL}/#software` },
     author: { '@type': 'Organization', name: 'IHTML' },
     publisher: { '@type': 'Organization', name: 'IHTML', logo: { '@type': 'ImageObject', url: `${SITE_URL}/assets/favicon.svg` } },
-    speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.guia .intro', '.guia h1'] },
     mainEntityOfPage: url
   };
-  if (post.youtube) jsonLd.video = { '@type': 'VideoObject', embedUrl: `https://www.youtube.com/embed/${post.youtube}`, name: post.title, description: post.summary, uploadDate: post.date, thumbnailUrl: `https://i.ytimg.com/vi/${post.youtube}/hqdefault.jpg` };
-
-  return `<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>${escapeHtml(post.title)} — Novedades IHTML</title>
-    <meta name="description" content="${escapeHtml(post.summary)}" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="${url}" />
-    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
-    <meta property="og:type" content="article" />
-    <meta property="og:site_name" content="IHTML · Interactive HTML" />
-    <meta property="og:locale" content="es_ES" />
-    <meta property="og:title" content="${escapeHtml(post.title)}" />
-    <meta property="og:description" content="${escapeHtml(post.summary)}" />
-    <meta property="og:url" content="${url}" />
-    <meta property="og:image" content="${post.youtube ? `https://i.ytimg.com/vi/${post.youtube}/hqdefault.jpg` : `${SITE_URL}/assets/og-image.png`}" />
-    <meta property="article:published_time" content="${post.date}" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="${escapeHtml(post.title)}" />
-    <meta name="twitter:description" content="${escapeHtml(post.summary)}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../assets/estilos.css" />
-    <link rel="alternate" type="application/rss+xml" title="Novedades IHTML" href="feed.xml" />
-    <style>
-      .video-embed { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: var(--radius); overflow: hidden; margin: 28px 0; }
-      .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-      .post-meta { color: var(--ink-3); font-size: 0.95rem; margin-top: -8px; margin-bottom: 24px; }
-      .post-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 24px; }
-      .post-tags span { font-size: 0.8rem; color: var(--ink-2); border: 1px solid var(--line); border-radius: 999px; padding: 3px 11px; }
-    </style>
-    <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
-  </head>
+  // Links "/ruta" del Markdown = relativos a la raíz del sitio.
+  const body = markdownToHtml(post.body).replace(/href="\/([^"]*)" target="_blank" rel="noopener"/g, (_, p) => `href="${rel(file, p)}"`);
+  return `${head({
+    lang,
+    title: `${post.title} — ${t.name} IHTML`,
+    desc: post.summary,
+    url,
+    file,
+    ogType: 'article',
+    image: post.youtube ? `https://i.ytimg.com/vi/${post.youtube}/hqdefault.jpg` : `${SITE_URL}/assets/og-image.png`,
+    alternates,
+    extra: `<meta property="article:published_time" content="${post.date}" />\n    ${STYLE}\n    <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`
+  })}
   <body>
-    <a class="skip-link" href="#contenido">Saltar al contenido</a>
-    ${headerNav('novedades')}
+    <a class="skip-link" href="#contenido">${t.skip}</a>
+    ${header}
     <div class="layout-guia">
       <main id="contenido" class="guia" style="max-width: 760px; margin: 0 auto;">
-        <p class="post-meta"><a href="index.html">← Novedades</a> · ${fechaLarga(post.date)}</p>
+        <p class="post-meta"><a href="index.html">← ${t.name}</a> · ${fechaLarga(post.date, lang)}</p>
         <h1>${escapeHtml(post.title)}</h1>
         <p class="intro">${escapeHtml(post.summary)}</p>
         ${videoHtml}
-        ${markdownToHtml(post.body)}
-        ${post.tags.length ? `<div class="post-tags">${post.tags.map((t) => `<span>${escapeHtml(t)}</span>`).join('')}</div>` : ''}
+        ${body}
+        ${post.tags.length ? `<div class="post-tags">${post.tags.map((x) => `<span>${escapeHtml(x)}</span>`).join('')}</div>` : ''}
       </main>
     </div>
-    ${FOOTER}
-    <script defer src="https://ihtml-analytics.ihtml-license-server.workers.dev/t.js"></script>
-  </body>
+    ${footer}
+${scripts}</body>
 </html>
 `;
 }
 
-function indexPageHtml(posts) {
+function indexPageHtml(posts, lang) {
+  const t = T[lang];
+  const file = `${outDir(lang)}/index.html`;
+  const url = `${SITE_URL}/${file}`;
+  const langLinks = {};
+  LANGS.forEach((l) => (langLinks[l] = rel(file, `${outDir(l)}/index.html`)));
+  const alternates = LANGS.map((l) => `<link rel="alternate" hreflang="${l}" href="${SITE_URL}/${outDir(l)}/index.html" />`).join('\n    ');
+  const { header, footer, scripts } = chrome(lang, file, langLinks);
   const cards = posts
     .map(
       (p) => `        <a class="card" href="${p.slug}.html" style="display:block; text-decoration:none;">
           <h3>${escapeHtml(p.title)}</h3>
-          <p class="post-meta" style="margin: 0 0 8px;">${fechaLarga(p.date)}</p>
+          <p class="post-meta" style="margin: 0 0 8px;">${fechaLarga(p.date, lang)}</p>
           <p>${escapeHtml(p.summary)}</p>
         </a>`
     )
     .join('\n');
-  const vacio = `<p class="sub">Todavía no hay novedades publicadas. Volvé pronto.</p>`;
-  return `<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Novedades — IHTML (Interactive HTML)</title>
-    <meta name="description" content="Novedades de IHTML: versiones nuevas, features y contenido del proyecto." />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="${SITE_URL}/novedades/index.html" />
-    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="IHTML · Interactive HTML" />
-    <meta property="og:title" content="Novedades — IHTML" />
-    <meta property="og:description" content="Versiones nuevas, features y contenido del proyecto IHTML." />
-    <meta property="og:url" content="${SITE_URL}/novedades/index.html" />
-    <meta property="og:image" content="${SITE_URL}/assets/og-image.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../assets/estilos.css" />
-    <link rel="alternate" type="application/rss+xml" title="Novedades IHTML" href="feed.xml" />
-    <script type="application/ld+json">${JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'CollectionPage',
-      '@id': `${SITE_URL}/novedades/index.html#novedades`,
-      name: 'Novedades — IHTML',
-      isPartOf: { '@id': `${SITE_URL}/#website` },
-      about: { '@id': `${SITE_URL}/#software` },
-      hasPart: posts.map((p) => ({ '@type': 'BlogPosting', headline: p.title, datePublished: p.date, url: `${SITE_URL}/novedades/${p.slug}.html` }))
-    })}</script>
-  </head>
+  const ld = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${url}#novedades`,
+    name: `${t.name} — IHTML`,
+    inLanguage: lang,
+    isPartOf: { '@id': `${SITE_URL}/#website` },
+    about: { '@id': `${SITE_URL}/#software` },
+    hasPart: posts.map((p) => ({ '@type': 'BlogPosting', headline: p.title, datePublished: p.date, url: `${SITE_URL}/${outDir(lang)}/${p.slug}.html` }))
+  };
+  return `${head({
+    lang,
+    title: `${t.name} — IHTML (Interactive HTML)`,
+    desc: t.desc,
+    url,
+    file,
+    ogType: 'website',
+    image: `${SITE_URL}/assets/og-image.png`,
+    alternates,
+    extra: `${STYLE}\n    <script type="application/ld+json">${JSON.stringify(ld)}</script>`
+  })}
   <body>
-    <a class="skip-link" href="#contenido">Saltar al contenido</a>
-    ${headerNav('novedades')}
+    <a class="skip-link" href="#contenido">${t.skip}</a>
+    ${header}
     <main id="contenido" class="centrado reveal visible" style="padding-top: 140px;">
-      <p class="kicker">Novedades</p>
-      <h1 class="h-seccion">Qué cambió en IHTML</h1>
-      <p class="sub">Versiones, features nuevas y contenido del proyecto. <a href="feed.xml">RSS</a></p>
+      <p class="kicker">${t.name}</p>
+      <h1 class="h-seccion">${t.h1}</h1>
+      <p class="sub">${t.sub} <a href="feed.xml">RSS</a></p>
       <div class="grid" style="text-align:left; max-width: 900px; margin: 40px auto 0;">
-${posts.length ? cards : vacio}
+${posts.length ? cards : `<p class="sub">${t.empty}</p>`}
       </div>
     </main>
-    ${FOOTER}
-    <script defer src="https://ihtml-analytics.ihtml-license-server.workers.dev/t.js"></script>
-  </body>
+    ${footer}
+${scripts}</body>
 </html>
 `;
 }
 
-function rssXml(posts) {
+function rssXml(posts, lang) {
+  const t = T[lang];
   const items = posts
     .map(
       (p) => `    <item>
       <title>${escapeHtml(p.title)}</title>
-      <link>${SITE_URL}/novedades/${p.slug}.html</link>
-      <guid>${SITE_URL}/novedades/${p.slug}.html</guid>
+      <link>${SITE_URL}/${outDir(lang)}/${p.slug}.html</link>
+      <guid>${SITE_URL}/${outDir(lang)}/${p.slug}.html</guid>
       <pubDate>${new Date(p.date + 'T12:00:00Z').toUTCString()}</pubDate>
       <description>${escapeHtml(p.summary)}</description>
     </item>`
@@ -373,10 +387,10 @@ function rssXml(posts) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>Novedades — IHTML</title>
-    <link>${SITE_URL}/novedades/index.html</link>
-    <description>Versiones nuevas, features y contenido del proyecto IHTML.</description>
-    <language>es</language>
+    <title>${escapeHtml(t.name)} — IHTML</title>
+    <link>${SITE_URL}/${outDir(lang)}/index.html</link>
+    <description>${escapeHtml(t.desc)}</description>
+    <language>${lang}</language>
 ${items}
   </channel>
 </rss>
@@ -384,21 +398,21 @@ ${items}
 }
 
 // ---------------------------------------------------------------
-// 3. sitemap.xml y llms.txt: se actualiza SOLO la parte de Novedades,
-//    preservando a mano lo que ya había para las otras páginas.
+// 3. sitemap.xml y llms.txt: se actualiza SOLO la parte de Novedades.
 // ---------------------------------------------------------------
 
-function updateSitemap(posts) {
+function updateSitemap(byLang) {
   const file = path.join(ROOT, 'sitemap.xml');
   let xml = fs.readFileSync(file, 'utf8');
-  xml = xml.replace(/\n?\s*<url>\s*<loc>https:\/\/ihtml\.app\/novedades\/[\s\S]*?<\/url>/g, '');
+  xml = xml.replace(/\n?\s*<url>\s*<loc>[^<]*\/novedades\/[\s\S]*?<\/url>/g, '');
   const today = new Date().toISOString().slice(0, 10);
-  const entries = [
-    `  <url>\n    <loc>${SITE_URL}/novedades/index.html</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`,
-    ...posts.map(
-      (p) => `  <url>\n    <loc>${SITE_URL}/novedades/${p.slug}.html</loc>\n    <lastmod>${p.date}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>`
-    )
-  ];
+  const entries = [];
+  LANGS.forEach((lang) => {
+    entries.push(`  <url>\n    <loc>${SITE_URL}/${outDir(lang)}/index.html</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`);
+    byLang[lang].forEach((p) =>
+      entries.push(`  <url>\n    <loc>${SITE_URL}/${outDir(lang)}/${p.slug}.html</loc>\n    <lastmod>${p.date}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>`)
+    );
+  });
   xml = xml.replace('</urlset>', entries.join('\n') + '\n</urlset>');
   fs.writeFileSync(file, xml);
 }
@@ -406,13 +420,13 @@ function updateSitemap(posts) {
 function updateLlmsTxt(posts) {
   const file = path.join(ROOT, 'llms.txt');
   let txt = fs.readFileSync(file, 'utf8');
-  txt = txt.replace(/\n## Novedades\n[\s\S]*?(?=\n## |$)/, '');
+  txt = txt.replace(/\n## (Novedades|Updates)\n[\s\S]*?(?=\n## |$)/, '');
   if (posts.length) {
     const lines = posts
       .slice(0, 8)
-      .map((p) => `- [${p.title}](${SITE_URL}/novedades/${p.slug}.html) (${p.date}): ${p.summary}`)
+      .map((p) => `- [${p.title}](${SITE_URL}/${outDir('en')}/${p.slug}.html) (${p.date}): ${p.summary}`)
       .join('\n');
-    const section = `\n## Novedades\n\nÚltimas entradas (${SITE_URL}/novedades/index.html):\n\n${lines}\n`;
+    const section = `\n## Updates\n\nLatest entries (${SITE_URL}/${outDir('en')}/index.html; also in es, pt, fr, de, it, ja, zh):\n\n${lines}\n`;
     txt = txt.trimEnd() + '\n' + section;
   }
   fs.writeFileSync(file, txt.trimEnd() + '\n');
@@ -424,32 +438,35 @@ function updateLlmsTxt(posts) {
 
 function main() {
   fs.mkdirSync(CONTENT_DIR, { recursive: true });
-  fs.mkdirSync(OUT_DIR, { recursive: true });
-
   const files = fs.readdirSync(CONTENT_DIR).filter((f) => f.endsWith('.md'));
-  const posts = files
-    .map((f) => parsePost(fs.readFileSync(path.join(CONTENT_DIR, f), 'utf8'), f))
-    .sort((a, b) => (a.date < b.date ? 1 : -1));
-
-  posts.forEach((post) => {
-    fs.writeFileSync(path.join(OUT_DIR, `${post.slug}.html`), postPageHtml(post));
+  const byLang = {};
+  LANGS.forEach((l) => (byLang[l] = []));
+  files.forEach((f) => {
+    const m = f.match(/^(.*?)(?:\.(en|pt|fr|de|it|ja|zh))?\.md$/);
+    const lang = m[2] || 'es';
+    const post = parsePost(fs.readFileSync(path.join(CONTENT_DIR, f), 'utf8'), m[1] + '.md');
+    byLang[lang].push(post);
   });
+  LANGS.forEach((l) => byLang[l].sort((a, b) => (a.date < b.date ? 1 : -1)));
+  const langsOf = (slug) => LANGS.filter((l) => byLang[l].some((p) => p.slug === slug));
 
-  // Borra páginas de entradas viejas que ya no tienen .md fuente.
-  const validSlugs = new Set(posts.map((p) => `${p.slug}.html`));
-  fs.readdirSync(OUT_DIR)
-    .filter((f) => f.endsWith('.html') && f !== 'index.html')
-    .forEach((f) => {
-      if (!validSlugs.has(f)) fs.unlinkSync(path.join(OUT_DIR, f));
-    });
-
-  fs.writeFileSync(path.join(OUT_DIR, 'index.html'), indexPageHtml(posts));
-  fs.writeFileSync(path.join(OUT_DIR, 'feed.xml'), rssXml(posts));
-  updateSitemap(posts);
-  updateLlmsTxt(posts);
-
-  console.log(`OK: ${posts.length} entrada(s) generada(s).`);
-  posts.forEach((p) => console.log(`  - novedades/${p.slug}.html  (${p.date})`));
+  LANGS.forEach((lang) => {
+    const dir = path.join(ROOT, outDir(lang));
+    fs.mkdirSync(dir, { recursive: true });
+    byLang[lang].forEach((post) => fs.writeFileSync(path.join(dir, `${post.slug}.html`), postPageHtml(post, lang, langsOf(post.slug))));
+    // Borra páginas de entradas viejas que ya no tienen .md fuente.
+    const valid = new Set(byLang[lang].map((p) => `${p.slug}.html`));
+    fs.readdirSync(dir)
+      .filter((f) => f.endsWith('.html') && f !== 'index.html')
+      .forEach((f) => {
+        if (!valid.has(f)) fs.unlinkSync(path.join(dir, f));
+      });
+    fs.writeFileSync(path.join(dir, 'index.html'), indexPageHtml(byLang[lang], lang));
+    fs.writeFileSync(path.join(dir, 'feed.xml'), rssXml(byLang[lang], lang));
+    console.log(`OK ${lang}: ${byLang[lang].length} entrada(s) en ${outDir(lang)}/`);
+  });
+  updateSitemap(byLang);
+  updateLlmsTxt(byLang.en.length ? byLang.en : byLang.es);
 }
 
 main();

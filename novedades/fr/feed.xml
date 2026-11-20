@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Nouveautés — IHTML</title>
+    <link>https://ihtml.eu/novedades/fr/index.html</link>
+    <description>Nouveautés d'IHTML : nouvelles versions, fonctions et actualités du projet.</description>
+    <language>fr</language>
+    <item>
+      <title>IHTML 1.1 — connexions entre éléments, maillage avec os et cheveux avec physique</title>
+      <link>https://ihtml.eu/novedades/fr/2026-11-20-ihtml-1-1.html</link>
+      <guid>https://ihtml.eu/novedades/fr/2026-11-20-ihtml-1-1.html</guid>
+      <pubDate>Fri, 20 Nov 2026 12:00:00 GMT</pubDate>
+      <description>Nouvelle version 1.1 de l'éditeur IHTML. Les éléments se connectent entre eux sans code, les curseurs pilotent la timeline, la vidéo et le son, les maillages se plient avec plusieurs os et les cheveux tombent avec la physique en un clic. Plus stable et plus sûr.</description>
+    </item>
+  </channel>
+</rss>
