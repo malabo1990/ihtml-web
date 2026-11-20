@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IHTML 1.1 — conexiones entre elementos, malla con huesos y pelo con física — Novedades IHTML</title>
+    <meta name="description" content="Nueva versión 1.1 del editor IHTML. Los elementos se conectan entre sí sin programar, los sliders controlan la línea de tiempo, el vídeo y el sonido, las mallas se doblan con varios huesos y el pelo cae con física en un clic. Más estable y más seguro." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://malabo1990.github.io/ihtml-web/novedades/2026-11-20-ihtml-1-1.html" />
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="IHTML · Interactive HTML" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:title" content="IHTML 1.1 — conexiones entre elementos, malla con huesos y pelo con física" />
+    <meta property="og:description" content="Nueva versión 1.1 del editor IHTML. Los elementos se conectan entre sí sin programar, los sliders controlan la línea de tiempo, el vídeo y el sonido, las mallas se doblan con varios huesos y el pelo cae con física en un clic. Más estable y más seguro." />
+    <meta property="og:url" content="https://malabo1990.github.io/ihtml-web/novedades/2026-11-20-ihtml-1-1.html" />
+    <meta property="og:image" content="https://malabo1990.github.io/ihtml-web/assets/og-image.png" />
+    <meta property="article:published_time" content="2026-11-20" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="IHTML 1.1 — conexiones entre elementos, malla con huesos y pelo con física" />
+    <meta name="twitter:description" content="Nueva versión 1.1 del editor IHTML. Los elementos se conectan entre sí sin programar, los sliders controlan la línea de tiempo, el vídeo y el sonido, las mallas se doblan con varios huesos y el pelo cae con física en un clic. Más estable y más seguro." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/estilos.css" />
+    <link rel="alternate" type="application/rss+xml" title="Novedades IHTML" href="feed.xml" />
+    <style>
+      .video-embed { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: var(--radius); overflow: hidden; margin: 28px 0; }
+      .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .post-meta { color: var(--ink-3); font-size: 0.95rem; margin-top: -8px; margin-bottom: 24px; }
+      .post-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 24px; }
+      .post-tags span { font-size: 0.8rem; color: var(--ink-2); border: 1px solid var(--line); border-radius: 999px; padding: 3px 11px; }
+    </style>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","@id":"https://malabo1990.github.io/ihtml-web/novedades/2026-11-20-ihtml-1-1.html#post","headline":"IHTML 1.1 — conexiones entre elementos, malla con huesos y pelo con física","description":"Nueva versión 1.1 del editor IHTML. Los elementos se conectan entre sí sin programar, los sliders controlan la línea de tiempo, el vídeo y el sonido, las mallas se doblan con varios huesos y el pelo cae con física en un clic. Más estable y más seguro.","inLanguage":"es","datePublished":"2026-11-20","dateModified":"2026-11-20","url":"https://malabo1990.github.io/ihtml-web/novedades/2026-11-20-ihtml-1-1.html","isPartOf":{"@id":"https://malabo1990.github.io/ihtml-web/#website"},"about":{"@id":"https://malabo1990.github.io/ihtml-web/#software"},"author":{"@type":"Organization","name":"IHTML"},"publisher":{"@type":"Organization","name":"IHTML","logo":{"@type":"ImageObject","url":"https://malabo1990.github.io/ihtml-web/assets/favicon.svg"}},"speakable":{"@type":"SpeakableSpecification","cssSelector":[".guia .intro",".guia h1"]},"mainEntityOfPage":"https://malabo1990.github.io/ihtml-web/novedades/2026-11-20-ihtml-1-1.html"}</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="island">
+      <button class="island-dot" aria-label="Menú" aria-expanded="false"></button>
+      <a class="brand" href="../es/index.html">
+        <svg viewBox="0 0 555 625" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="logoGrad" x1="277" y1="0" x2="277" y2="625" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f16529" /><stop offset="1" stop-color="#a12100" />
+            </linearGradient>
+            <linearGradient id="logoGradH" x1="0" y1="312" x2="555" y2="312" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f16529" /><stop offset="1" stop-color="#a12100" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#logoGrad)" d="M0 0H554.15V416.48L277.07 624.08 0 416.48Z" />
+          <path fill="url(#logoGradH)" d="M554.15 0 277.07 624.08 0 0Z" />
+        </svg>
+        <span class="logo-text"><b>IHTML</b>&nbsp;Interactive HTML</span>
+      </a>
+      <div class="island-menu-wrap">
+        <nav class="island-menu">
+          <a href="../es/index.html">Inicio</a>
+          <a href="../es/guia-usuario.html">Guía</a>
+          <a href="index.html" class="is-activo">Novedades</a>
+          <a href="https://github.com/malabo1990/ihtml-releases/discussions" target="_blank" rel="noopener">Foro</a>
+          <a href="../es/galeria.html">Galería</a>
+          <a href="../es/descargas.html">Descargar</a>
+          <a href="../es/index.html#precio">Precio</a>
+          <a class="is-cta" href="../es/index.html#precio">Suscribirme</a>
+        </nav>
+      </div>
+    </header>
+    <div class="layout-guia">
+      <main id="contenido" class="guia" style="max-width: 760px; margin: 0 auto;">
+        <p class="post-meta"><a href="index.html">← Novedades</a> · 20 de noviembre de 2026</p>
+        <h1>IHTML 1.1 — conexiones entre elementos, malla con huesos y pelo con física</h1>
+        <p class="intro">Nueva versión 1.1 del editor IHTML. Los elementos se conectan entre sí sin programar, los sliders controlan la línea de tiempo, el vídeo y el sonido, las mallas se doblan con varios huesos y el pelo cae con física en un clic. Más estable y más seguro.</p>
+        
+        <p>Hoy, <strong>20 de noviembre de 2026</strong>, lanzamos <strong>IHTML 1.1</strong>. Es la actualización más grande desde la primera versión: hace el editor más <strong>interactivo</strong>, más <strong>expresivo</strong> para animar personajes y más <strong>estable</strong> en el trabajo diario.</p>
+<p>Si ya tienes IHTML instalado en el ordenador, la app te avisará con un <strong>punto rojo en Configuración</strong> y un botón <strong>«Actualizar ahora»</strong>. Si no, descárgala gratis desde <a href="../es/descargas.html" target="_blank" rel="noopener">Descargar</a>.</p>
+<h2>Conexiones: los elementos hablan entre sí</h2>
+<p>La novedad principal. En la pestaña <strong>Acciones</strong> de cualquier elemento hay una sección nueva, <strong>Conexiones</strong>, para unir un elemento con otro <strong>sin escribir código</strong>:</p>
+<ul>
+<li>Un <strong>slider</strong> mueve la línea de tiempo, el volumen de un vídeo o el giro de una caja.</li>
+<li>Un <strong>campo de número o de texto</strong> muestra y cambia el valor de otro elemento.</li>
+<li>Una <strong>casilla</strong> muestra u oculta algo, o reproduce y pausa una animación.</li>
+<li>Un <strong>selector</strong> cambia colores, textos o imágenes.</li>
+</ul>
+<p>Funciona <strong>en los dos sentidos</strong>: si el destino cambia por su cuenta (una animación que avanza, un vídeo que se reproduce, una variable), el control se actualiza solo. Y <strong>cualquier elemento</strong> puede ser entrada y salida: la posición de una caja que arrastras puede girar otra, escribir un texto o guardar una variable.</p>
+<p>Conectar un slider al <strong>Tiempo</strong> de una animación la deja en pausa en el punto exacto del slider: solo se mueve cuando mueves el slider.</p>
+<h2>Slider, línea de tiempo, vídeo y sonido</h2>
+<ul>
+<li>Acciones que trabajan en <strong>porcentaje</strong>: poner un slider al 50 % lleva la animación o el vídeo a la mitad.</li>
+<li>Disparador nuevo <strong>«Mientras avanza una animación»</strong> y valor <strong>«Tiempo de una animación»</strong>.</li>
+<li>Acciones nuevas de <strong>volumen</strong>, <strong>velocidad</strong> y <strong>silencio</strong> para vídeo, audio y YouTube.</li>
+<li><strong>«Ligar al scroll»</strong> sobre un slider liga la animación al slider.</li>
+<li>El tiempo de un vídeo o de YouTube también se puede usar como valor.</li>
+</ul>
+<h2>Malla, huesos y pelo con física</h2>
+<p>Para animar personajes como en Spine, Rive o el Puppet de Photoshop:</p>
+<ul>
+<li><strong>Malla automática</strong> que sigue la silueta del dibujo, con puntos que se añaden o quitan donde hace falta doblar.</li>
+<li><strong>Chinchetas</strong> (estilo Puppet Warp): clavas unos puntos, arrastras otro y el resto se dobla de forma natural.</li>
+<li><strong>Pintar pesos</strong> con un pincel para decidir cuánto mueve cada hueso cada zona.</li>
+<li>Una malla se une ahora a <strong>varios huesos a la vez</strong>: eliges cuáles en una lista, por cadenas, y cada mechón sigue a su cadena sin tirar del vecino.</li>
+<li><strong>Cadena de pelo automática</strong>: un clic sobre una imagen de pelo crea los huesos siguiendo la curva del mechón, enciende la física (Pelo, Cola, Cuerda, Muelle o Bandera) y une la malla. Repítelo para cada mechón.</li>
+<li><strong>Gravedad del pelo</strong> mejorada: el pelo cae y se balancea de verdad, con efecto látigo.</li>
+</ul>
+<h2>Diseño adaptable</h2>
+<ul>
+<li><strong>Alto fluido en Desktop</strong>: además del ancho, la página exportada puede llenar <strong>todo el alto de la ventana</strong>. Con los anclajes arriba/abajo, los elementos siguen ese alto. Con ancho y alto fluidos, tu proyecto ocupa toda la pantalla como una app.</li>
+</ul>
+<h2>Más estable</h2>
+<ul>
+<li>Agrupar, desagrupar o mover a otra capa un elemento <strong>animado</strong> ya no lo hace saltar de sitio.</li>
+<li>Cambiar la fuente de un vídeo de YouTube <strong>conserva sus opciones</strong> (sin controles, bucle…).</li>
+<li>Muchas acciones corregidas tras revisar 64 tipos de elementos: «Mostrar», «Cambiar texto», colores y foco ahora funcionan igual en el editor y en el HTML exportado.</li>
+<li>YouTube en la app de escritorio: reconexión automática y órdenes en cola.</li>
+<li>Columna de capas de la línea de tiempo con ancho propio.</li>
+</ul>
+<h2>Más seguro</h2>
+<ul>
+<li><strong>Actualizaciones automáticas firmadas</strong>: la app solo instala versiones firmadas por IHTML.</li>
+<li><strong>Protección de la licencia Pro reforzada</strong>: cada licencia queda ligada a tus dispositivos.</li>
+</ul>
+<p>Gracias a todos los que habéis probado IHTML y enviado ideas: muchas de estas novedades nacieron de vuestras peticiones.</p>
+        <div class="post-tags"><span>version</span><span>novedad</span><span>1.1</span></div>
+      </main>
+    </div>
+    <footer>
+      <p><b>IHTML</b> (Interactive HTML) — editor de animaciones HTML/CSS para escritorio y Android.</p>
+      <div class="docs">
+        <a href="../es/index.html">Inicio</a>
+        <a href="../es/guia-usuario.html">Guía de usuario</a>
+        <a href="index.html">Novedades</a>
+        <a href="https://github.com/malabo1990/ihtml-releases/discussions" target="_blank" rel="noopener">Foro</a>
+        <a href="../es/galeria.html">Galería</a>
+        <a href="../es/descargas.html">Descargar</a>
+        <a href="../es/index.html#precio">Precio</a>
+      </div>
+      <p class="footer-credit">© 2026 IHTML</p>
+      <p class="legal-links"><a href="../es/licencia.html">Licencia</a> · <a href="../es/privacidad.html">Privacidad</a> · <a href="mailto:malabo1990@gmail.com">malabo1990@gmail.com</a></p>
+    </footer>
+    <script defer src="https://ihtml-analytics.ihtml-license-server.workers.dev/t.js"></script>
+  </body>
+</html>

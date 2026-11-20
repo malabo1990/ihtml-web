@@ -199,4 +199,16 @@
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://malabo1990.github.io/ihtml-web/novedades/index.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://malabo1990.github.io/ihtml-web/novedades/2026-11-20-ihtml-1-1.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
