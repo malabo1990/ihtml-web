@@ -33,7 +33,7 @@ activé, rien n'est enregistré. Base légale : intérêt légitime à connaîtr
 l'utilisation globale du site. Conservation : **400 jours**, puis suppression
 automatique.
 
-**Ce que le site enregistre dans votre navigateur.** Seulement la langue que vous choisissez (`localStorage`, pour ouvrir le site dans votre langue la prochaine fois) et l'identifiant d'onglet ci-dessus (`sessionStorage`). Ce ne sont pas des cookies, ils ne nous sont jamais envoyés et vous pouvez les effacer dans les réglages de votre navigateur. Un petit avis sur le site l'explique ; sa fermeture est aussi retenue dans `localStorage`.
+**Ce que le site enregistre dans votre navigateur.** Seulement la langue et le thème (clair ou sombre) que vous choisissez (`localStorage`, pour retrouver le site ainsi la prochaine fois) et l'identifiant d'onglet ci-dessus (`sessionStorage`). Ce ne sont pas des cookies, ils ne nous sont jamais envoyés et vous pouvez les effacer dans les réglages de votre navigateur. Un petit avis sur le site l'explique ; sa fermeture est aussi retenue dans `localStorage`.
 
 **Hébergement.** Le site est hébergé sur **GitHub Pages** et les statistiques sur
 **Cloudflare**. Comme tout serveur web, ils peuvent traiter votre IP de façon

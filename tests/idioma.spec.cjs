@@ -144,3 +144,40 @@ test('aviso en movil: cabe sin desbordar', async ({ browser }) => {
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(360);
   await ctx.close();
 });
+
+test('modo oscuro: sigue al sistema, isla blanca con texto negro', async ({ browser }) => {
+  const ctx = await visitante(browser, { locale: 'en-US', colorScheme: 'dark' });
+  const page = await ctx.newPage();
+  await page.goto('guide.html');
+  const bg = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+  expect(bg).toBe('rgb(11, 11, 13)');
+  const isla = await page.evaluate(() => {
+    const i = document.querySelector('header.island');
+    return [getComputedStyle(i).backgroundColor, getComputedStyle(i.querySelector('.logo-text')).color];
+  });
+  expect(isla[0]).toMatch(/^rgba?\(255, 255, 255/);
+  expect(isla[1]).toBe('rgb(29, 29, 31)');
+  await ctx.close();
+});
+
+test('boton claro/oscuro de la isla: cambia, se recuerda y en todas las paginas', async ({ browser }) => {
+  const ctx = await visitante(browser, { locale: 'de-DE', colorScheme: 'light' });
+  const page = await ctx.newPage();
+  await page.goto('de/index.html');
+  const btn = page.locator('header.island .theme-btn');
+  await expect(btn).toHaveAttribute('aria-label', 'Dunkelmodus');
+  await btn.click();
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  await expect(btn).toHaveAttribute('aria-label', 'Hellmodus');
+  for (const p of ['de/license.html', 'novedades/de/index.html', 'de/downloads.html', 'de/showreel.html', 'de/guide.html']) {
+    await page.goto(p);
+    await expect(page.locator('html'), p).toHaveAttribute('data-theme', 'dark');
+    expect(await page.evaluate(() => getComputedStyle(document.body).backgroundColor), p).toBe('rgb(11, 11, 13)');
+    await expect(page.locator('header.island .theme-btn'), p).toHaveCount(1);
+  }
+  await page.locator('header.island .theme-btn').click();
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+  expect(await page.evaluate(() => getComputedStyle(document.body).backgroundColor)).toBe('rgb(245, 245, 247)');
+  expect(await ctx.cookies()).toEqual([]);
+  await ctx.close();
+});

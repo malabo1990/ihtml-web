@@ -30,7 +30,7 @@ advertising services. If your browser has **Do Not Track** enabled, nothing is
 recorded. Legal basis: legitimate interest in understanding aggregate website
 usage. Retention: **400 days**, then deleted automatically.
 
-**What the website saves in your browser.** Only your language choice (`localStorage`, so the site opens in your language next time) and the tab identifier above (`sessionStorage`). They are not cookies, they are never sent to us, and you can delete them from your browser settings. A small notice on the website explains this; closing it is also remembered in `localStorage`.
+**What the website saves in your browser.** Only your language and theme (light or dark) choices (`localStorage`, so the site opens the way you left it next time) and the tab identifier above (`sessionStorage`). They are not cookies, they are never sent to us, and you can delete them from your browser settings. A small notice on the website explains this; closing it is also remembered in `localStorage`.
 
 **Hosting.** The website is hosted on **GitHub Pages** and the analytics on
 **Cloudflare**. Like any web server, they may process your IP technically and

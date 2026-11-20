@@ -20,6 +20,27 @@
   --font: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
   --mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Consolas, Menlo, monospace;
   --radius: 18px;
+  /* superficies y textos (modo claro) */
+  --surface: #ffffff;
+  --surface-2: #fafafa;
+  --surface-3: #f5f5f7;
+  --ink-body: #3a3a3c;
+  --fill: rgba(0, 0, 0, 0.05);
+  --on-ink: #ffffff;
+  --note-bg: #fff7ed;
+  --note-line: #ffedd5;
+  --note-ink: #7c2d12;
+  /* isla dinamica: negra en claro */
+  --island-bg: rgba(20, 20, 23, 0.95);
+  --island-menu-bg: rgba(20, 20, 23, 0.97);
+  --island-line: rgba(255, 255, 255, 0.09);
+  --island-ink: #f5f5f7;
+  --island-ink-2: rgba(245, 245, 247, 0.82);
+  --island-hover-ink: #ffffff;
+  --island-hover-bg: rgba(255, 255, 255, 0.1);
+  --island-active: #fbbf24;
+  --island-link: #ffb38a;
+  color-scheme: light;
 }
 
 * {
@@ -74,12 +95,12 @@ a {
   max-width: calc(100vw - 24px);
   padding: 10px 16px;
   border-radius: 999px;
-  background: rgba(20, 20, 23, 0.95);
+  background: var(--island-bg);
   -webkit-backdrop-filter: blur(26px) saturate(180%);
   backdrop-filter: blur(26px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  border: 1px solid var(--island-line);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.42);
-  color: #f5f5f7;
+  color: var(--island-ink);
 }
 
 /* Botón que abre/cierra el menú en touch (sin :hover) — antes era un
@@ -108,13 +129,13 @@ a {
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: rgba(245, 245, 247, 0.82);
+  background: var(--island-ink-2);
   box-shadow:
-    7px 0 0 rgba(245, 245, 247, 0.82),
-    14px 0 0 rgba(245, 245, 247, 0.82),
-    0 7px 0 rgba(245, 245, 247, 0.82),
-    7px 7px 0 rgba(245, 245, 247, 0.82),
-    14px 7px 0 rgba(245, 245, 247, 0.82);
+    7px 0 0 var(--island-ink-2),
+    14px 0 0 var(--island-ink-2),
+    0 7px 0 var(--island-ink-2),
+    7px 7px 0 var(--island-ink-2),
+    14px 7px 0 var(--island-ink-2);
 }
 
 .island .brand {
@@ -122,7 +143,7 @@ a {
   align-items: center;
   gap: 8px;
   text-decoration: none;
-  color: #f5f5f7;
+  color: var(--island-ink);
 }
 
 .island .brand svg {
@@ -133,7 +154,7 @@ a {
 
 .island .logo-text {
   font-size: 14px;
-  color: #f5f5f7;
+  color: var(--island-ink);
   /* "IHTML Interactive HTML" siempre en UNA linea (antes "HTML" caia abajo). */
   white-space: nowrap;
 }
@@ -168,7 +189,7 @@ a {
 
 .island-menu a {
   font-size: 13px;
-  color: rgba(245, 245, 247, 0.82);
+  color: var(--island-ink-2);
   text-decoration: none;
   padding: 7px 11px;
   border-radius: 999px;
@@ -209,12 +230,12 @@ a {
 }
 
 .island-menu a:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1);
+  color: var(--island-hover-ink);
+  background: var(--island-hover-bg);
 }
 
 .island-menu a.is-activo {
-  color: #fbbf24;
+  color: var(--island-active);
 }
 
 .island-menu a.is-cta {
@@ -301,7 +322,7 @@ a {
 
 .btn.primario {
   background: var(--ink);
-  color: #fff;
+  color: var(--on-ink);
 }
 
 .btn.primario:hover {
@@ -310,13 +331,13 @@ a {
 }
 
 .btn:not(.primario) {
-  background: #fff;
+  background: var(--surface);
   color: var(--ink);
   border: 1px solid var(--line-strong);
 }
 
 .btn:not(.primario):hover {
-  background: #fafafa;
+  background: var(--surface-2);
   transform: scale(1.03);
 }
 
@@ -327,7 +348,7 @@ a {
   margin: 60px auto 0;
   border-radius: 20px;
   border: 1px solid var(--line-strong);
-  background: #fff;
+  background: var(--surface);
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.16);
   overflow: hidden;
   text-align: left;
@@ -345,7 +366,7 @@ a {
   gap: 8px;
   padding: 11px 16px;
   border-bottom: 1px solid var(--line);
-  background: #fafafa;
+  background: var(--surface-2);
 }
 
 .dot {
@@ -367,7 +388,7 @@ a {
   margin-left: 10px;
   font-size: 12.5px;
   color: var(--ink-3);
-  background: #f0f0f2;
+  background: var(--surface-3);
   border: 1px solid var(--line);
   border-radius: 7px;
   padding: 3px 12px;
@@ -392,7 +413,7 @@ a {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
-  background: #fff;
+  background: var(--surface);
   text-align: left;
 }
 
@@ -446,7 +467,7 @@ section {
 }
 section#empezar,
 section#guia {
-  background: #fff;
+  background: var(--surface);
 }
 
 .kicker {
@@ -491,7 +512,7 @@ section h2,
 }
 
 .card {
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 30px 28px;
@@ -628,7 +649,7 @@ section.centrado .tabla-wrap {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line-strong);
   color: var(--accent-text);
   font-weight: 650;
@@ -647,7 +668,7 @@ section.centrado .tabla-wrap {
 pre {
   margin: 22px 0;
   padding: 18px 22px;
-  background: #f5f5f7;
+  background: var(--surface-3);
   border: 1px solid var(--line);
   border-radius: 14px;
   font-family: var(--mono);
@@ -660,7 +681,7 @@ pre {
 code {
   font-family: var(--mono);
   font-size: 0.875em;
-  background: rgba(0, 0, 0, 0.055);
+  background: var(--fill);
   border-radius: 6px;
   padding: 2px 6px;
 }
@@ -670,7 +691,7 @@ code {
 }
 
 .tabla-wrap {
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 16px;
   overflow: hidden;
@@ -691,7 +712,7 @@ code {
   letter-spacing: 0.07em;
   color: var(--ink-3);
   padding: 12px 18px;
-  background: #fafafa;
+  background: var(--surface-2);
   border-bottom: 1px solid var(--line);
 }
 
@@ -707,7 +728,7 @@ code {
   color: var(--ink);
 }
 .tabla-wrap tr:hover td {
-  background: #fafafa;
+  background: var(--surface-2);
 }
 
 /* ---------- Guía de usuario (layout con TOC) ---------- */
@@ -765,7 +786,7 @@ code {
 
 .toc a:hover {
   color: var(--ink);
-  background: rgba(0, 0, 0, 0.045);
+  background: var(--fill);
 }
 
 .toc li li a {
@@ -826,7 +847,7 @@ main.guia {
 .guia p {
   font-size: 15.5px;
   line-height: 1.7;
-  color: #3a3a3c;
+  color: var(--ink-body);
   margin: 10px 0;
 }
 
@@ -836,7 +857,7 @@ main.guia {
 
 .guia ul,
 .guia ol {
-  color: #3a3a3c;
+  color: var(--ink-body);
   font-size: 15.5px;
   line-height: 1.7;
 }
@@ -859,7 +880,7 @@ main.guia {
 
 .guia pre {
   margin: 18px 0;
-  background: #f5f5f7;
+  background: var(--surface-3);
   border: 1px solid var(--line);
   border-radius: 14px;
   padding: 16px 20px;
@@ -867,23 +888,23 @@ main.guia {
 }
 
 .guia .nota {
-  background: #fff7ed;
-  border: 1px solid #ffedd5;
+  background: var(--note-bg);
+  border: 1px solid var(--note-line);
   border-radius: 14px;
   padding: 15px 20px;
   margin: 22px 0;
   font-size: 14.5px;
   line-height: 1.6;
-  color: #7c2d12;
+  color: var(--note-ink);
 }
 
 .guia .nota code {
   background: rgba(249, 115, 22, 0.12);
-  color: #7c2d12;
+  color: var(--note-ink);
 }
 
 .guia .pasos li {
-  color: #3a3a3c;
+  color: var(--ink-body);
   font-size: 15.5px;
 }
 
@@ -906,7 +927,7 @@ main.guia {
 }
 
 .plataforma {
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 22px;
   padding: 26px 18px 22px;
@@ -960,7 +981,7 @@ main.guia {
 
 .plataforma.es-tuyo .btn {
   background: var(--ink);
-  color: #fff;
+  color: var(--on-ink);
   border-color: transparent;
 }
 
@@ -978,7 +999,7 @@ main.guia {
   border: 1px solid var(--line);
   border-radius: 14px;
   overflow: hidden;
-  background: #fff;
+  background: var(--surface);
 }
 
 .guia figure.captura img {
@@ -1006,7 +1027,7 @@ main.guia {
 }
 
 .precio-card {
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 26px;
   padding: 30px 28px;
@@ -1154,7 +1175,7 @@ footer .docs a:hover {
   border: 1px solid var(--line);
   border-radius: 16px;
   padding: 16px 18px;
-  background: #fff;
+  background: var(--surface);
   display: grid;
   gap: 5px;
   transition:
@@ -1357,18 +1378,7 @@ footer .social svg {
   color: var(--ink-2);
 }
 
-@media (prefers-color-scheme: dark) {
-  .faq details {
-    background: var(--dark-card);
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-  .faq details[open] {
-    border-color: rgba(255, 255, 255, 0.2);
-  }
-  .faq details p {
-    color: #a1a1a6;
-  }
-}
+
 
 /* ============================================================
    Más vida: hover de tarjetas con más carácter, aparición en
@@ -1486,7 +1496,7 @@ footer .social svg {
   gap: 3px;
   background: transparent;
   border: none;
-  color: rgba(245, 245, 247, 0.82);
+  color: var(--island-ink-2);
   font: inherit;
   font-size: 13px;
   padding: 7px 11px;
@@ -1498,8 +1508,8 @@ footer .social svg {
 }
 
 .lang-switch-btn:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1);
+  color: var(--island-hover-ink);
+  background: var(--island-hover-bg);
 }
 
 .lang-switch-caret {
@@ -1518,10 +1528,10 @@ footer .social svg {
   min-width: 150px;
   padding: 6px;
   border-radius: 14px;
-  background: rgba(20, 20, 23, 0.97);
+  background: var(--island-menu-bg);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  border: 1px solid var(--island-line);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
 }
 
@@ -1533,18 +1543,18 @@ footer .social svg {
   padding: 7px 11px;
   border-radius: 9px;
   font-size: 13px;
-  color: rgba(245, 245, 247, 0.82);
+  color: var(--island-ink-2);
   text-decoration: none;
   white-space: nowrap;
 }
 
 .lang-switch-menu a:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1);
+  color: var(--island-hover-ink);
+  background: var(--island-hover-bg);
 }
 
 .lang-switch-menu a.is-activo {
-  color: #fbbf24;
+  color: var(--island-active);
 }
 
 /* Paginas legales (licencia / privacidad): mismo estilo que la guia, mas compacto. */
@@ -1564,7 +1574,7 @@ footer .social svg {
   font-size: 14px;
 }
 .guia.legal code {
-  background: #f5f5f7;
+  background: var(--surface-3);
   border-radius: 6px;
   padding: 1px 6px;
   font-size: 0.92em;
@@ -1596,7 +1606,7 @@ footer .social svg {
   padding: 10px 16px;
   border-radius: 10px;
   background: var(--ink);
-  color: #fff;
+  color: var(--on-ink);
   font-weight: 600;
   text-decoration: none;
 }
@@ -1608,9 +1618,11 @@ footer .social svg {
   outline-offset: 2px;
 }
 .dark :focus-visible,
-.island :focus-visible,
 footer .social :focus-visible {
   outline-color: #fbbf24;
+}
+.island :focus-visible {
+  outline-color: var(--island-active);
 }
 
 /* Reflujo a 320 px (WCAG 1.4.10): nada obliga a scroll horizontal. */
@@ -1769,7 +1781,7 @@ footer .social :focus-visible {
   margin: 0 0 14px;
 }
 .dl-vieja {
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 14px;
   padding: 0 18px;
@@ -1831,7 +1843,7 @@ footer .social :focus-visible {
    Con 8 enlaces + "Suscribirme" el menú no entra en una sola línea por
    debajo de ~1000px y se cortaba ("Pre…"). Abierto, pasa a una segunda
    fila que hace wrap en vez de recortar. */
-@media (max-width: 1000px) {
+@media (max-width: 1080px) {
   .island.is-abierto,
   .island:focus-within {
     flex-wrap: wrap;
@@ -1851,7 +1863,7 @@ footer .social :focus-visible {
     row-gap: 4px;
   }
 }
-@media (max-width: 1000px) and (hover: hover) {
+@media (max-width: 1080px) and (hover: hover) {
   .island:hover {
     flex-wrap: wrap;
     border-radius: 26px;
@@ -1895,7 +1907,7 @@ footer .social :focus-visible {
   margin-top: 12px;
 }
 .sr-obra {
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
@@ -1917,7 +1929,7 @@ footer .social :focus-visible {
   width: 100%;
   height: 100%;
   border: 0;
-  background: #fff;
+  background: #ffffff;
 }
 .sr-info {
   padding: 18px 22px 22px;
@@ -1946,7 +1958,7 @@ footer .social :focus-visible {
   margin: 24px auto 0;
   padding: 40px 28px;
   text-align: center;
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
 }
@@ -1962,4 +1974,117 @@ footer .social :focus-visible {
   .sr-page {
     padding: 120px 16px 32px;
   }
+}
+
+/* ============================================================
+   Modo oscuro: sigue al sistema salvo que el visitante elija con el boton
+   de la isla (data-theme en <html>, lo pone assets/idioma.js).
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #0b0b0d;
+    --bg-alt: #161618;
+    --ink: #f5f5f7;
+    --ink-2: #a1a1a6;
+    --ink-3: #8e8e93;
+    --line: rgba(255, 255, 255, 0.1);
+    --line-strong: rgba(255, 255, 255, 0.18);
+    --accent-text: #fb923c;
+    --dark: #000000;
+    --dark-card: #161618;
+    --surface: #161618;
+    --surface-2: #1c1c1f;
+    --surface-3: #222226;
+    --ink-body: #d2d2d7;
+    --fill: rgba(255, 255, 255, 0.07);
+    --on-ink: #0b0b0d;
+    --note-bg: rgba(249, 115, 22, 0.12);
+    --note-line: rgba(249, 115, 22, 0.3);
+    --note-ink: #fdba74;
+    /* isla dinamica: BLANCA con texto negro en oscuro */
+    --island-bg: rgba(255, 255, 255, 0.96);
+    --island-menu-bg: rgba(255, 255, 255, 0.98);
+    --island-line: rgba(0, 0, 0, 0.08);
+    --island-ink: #1d1d1f;
+    --island-ink-2: rgba(29, 29, 31, 0.78);
+    --island-hover-ink: #000000;
+    --island-hover-bg: rgba(0, 0, 0, 0.06);
+    --island-active: #b93d0a;
+    --island-link: #b93d0a;
+    color-scheme: dark;
+  }
+  :root:not([data-theme='light']) .grad {
+    background: linear-gradient(120deg, #fb923c, #fbbf24);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  :root:not([data-theme='light']) img:not([src$='.svg']) {
+    filter: brightness(0.92);
+  }
+}
+:root[data-theme='dark'] {
+  --bg: #0b0b0d;
+  --bg-alt: #161618;
+  --ink: #f5f5f7;
+  --ink-2: #a1a1a6;
+  --ink-3: #8e8e93;
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.18);
+  --accent-text: #fb923c;
+  --dark: #000000;
+  --dark-card: #161618;
+  --surface: #161618;
+  --surface-2: #1c1c1f;
+  --surface-3: #222226;
+  --ink-body: #d2d2d7;
+  --fill: rgba(255, 255, 255, 0.07);
+  --on-ink: #0b0b0d;
+  --note-bg: rgba(249, 115, 22, 0.12);
+  --note-line: rgba(249, 115, 22, 0.3);
+  --note-ink: #fdba74;
+  /* isla dinamica: BLANCA con texto negro en oscuro */
+  --island-bg: rgba(255, 255, 255, 0.96);
+  --island-menu-bg: rgba(255, 255, 255, 0.98);
+  --island-line: rgba(0, 0, 0, 0.08);
+  --island-ink: #1d1d1f;
+  --island-ink-2: rgba(29, 29, 31, 0.78);
+  --island-hover-ink: #000000;
+  --island-hover-bg: rgba(0, 0, 0, 0.06);
+  --island-active: #b93d0a;
+  --island-link: #b93d0a;
+  color-scheme: dark;
+}
+:root[data-theme='dark'] .grad {
+  background: linear-gradient(120deg, #fb923c, #fbbf24);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+:root[data-theme='dark'] img:not([src$='.svg']) {
+  filter: brightness(0.92);
+}
+
+/* Boton claro/oscuro de la isla */
+.theme-btn {
+  order: 8;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--island-ink-2);
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+.theme-btn:hover {
+  color: var(--island-hover-ink);
+  background: var(--island-hover-bg);
+}
+.theme-btn svg {
+  width: 17px;
+  height: 17px;
 }

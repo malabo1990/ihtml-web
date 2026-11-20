@@ -31,7 +31,7 @@ ou publicidade de terceiros. Se o seu navegador tiver o **Do Not Track** ativado
 nada é registrado. Base legal: interesse legítimo em conhecer o uso agregado do
 site. Conservação: **400 dias**, depois são apagados automaticamente.
 
-**O que o site guarda no seu navegador.** Só o idioma que você escolher (`localStorage`, para abrir o site no seu idioma da próxima vez) e o identificador de aba acima (`sessionStorage`). Não são cookies, nunca chegam até nós e você pode apagá-los nas configurações do navegador. Um pequeno aviso no site explica isso; fechá-lo também fica guardado no `localStorage`.
+**O que o site guarda no seu navegador.** Só o idioma e o tema (claro ou escuro) que você escolher (`localStorage`, para abrir o site igual da próxima vez) e o identificador de aba acima (`sessionStorage`). Não são cookies, nunca chegam até nós e você pode apagá-los nas configurações do navegador. Um pequeno aviso no site explica isso; fechá-lo também fica guardado no `localStorage`.
 
 **Hospedagem.** O site está hospedado no **GitHub Pages** e as estatísticas na
 **Cloudflare**. Como qualquer servidor web, eles podem tratar o seu IP de forma

@@ -7,7 +7,7 @@
      2. si no, la zona horaria del equipo (su ubicacion aproximada, sin pedir
         permisos ni mandar la IP a nadie);
      3. si no, ingles.
-   Tambien muestra un aviso informativo de privacidad (8 idiomas) hasta que se cierra.
+   Tambien aplica el tema claro/oscuro (boton en la isla) y muestra un aviso informativo de privacidad (8 idiomas) hasta que se cierra.
    Elegir un idioma en el menu lo guarda y se respeta siempre. Nunca redirige
    a buscadores ni en bucle. */
 (function () {
@@ -60,6 +60,53 @@
     }
   }
 
+  // ---- Tema claro/oscuro: sin eleccion sigue al sistema (CSS); el boton de la
+  // isla lo fija en <html data-theme> y lo recuerda en localStorage.
+  var THEME = 'ihtml-theme';
+  var root = document.documentElement;
+  var savedTheme = get('localStorage', THEME);
+  if (savedTheme === 'dark' || savedTheme === 'light') root.setAttribute('data-theme', savedTheme);
+  function isDark() {
+    var t = root.getAttribute('data-theme');
+    if (t) return t === 'dark';
+    return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  }
+  var THEME_LABEL = {
+    es: ['Modo oscuro', 'Modo claro'], en: ['Dark mode', 'Light mode'], pt: ['Modo escuro', 'Modo claro'],
+    fr: ['Mode sombre', 'Mode clair'], de: ['Dunkelmodus', 'Hellmodus'], it: ['Modalità scura', 'Modalità chiara'],
+    ja: ['ダークモード', 'ライトモード'], zh: ['深色模式', '浅色模式']
+  };
+  var MOON = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
+  var SUN = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>';
+  function themeButton() {
+    var island = document.querySelector('header.island');
+    if (!island || island.querySelector('.theme-btn')) return;
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'theme-btn';
+    function paint() {
+      var lab = THEME_LABEL[norm(root.lang) || 'en'];
+      var dark = isDark();
+      b.innerHTML = dark ? SUN : MOON;
+      b.setAttribute('aria-label', dark ? lab[1] : lab[0]);
+      b.title = dark ? lab[1] : lab[0];
+    }
+    b.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      set('localStorage', THEME, next);
+      paint();
+    });
+    if (window.matchMedia) {
+      var mq = window.matchMedia('(prefers-color-scheme: dark)');
+      if (mq.addEventListener) mq.addEventListener('change', paint);
+    }
+    paint();
+    island.appendChild(b);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', themeButton);
+  else themeButton();
+
   // Elegir idioma a mano en el menu = preferencia guardada.
   document.addEventListener('click', function (e) {
     var a = e.target && e.target.closest ? e.target.closest('.lang-switch-menu a[lang]') : null;
@@ -71,14 +118,14 @@
   // Aviso informativo de privacidad (no hay cookies: solo idioma en localStorage
   // y el id de pestana de la analitica en sessionStorage). Se cierra una vez.
   var AVISO = {
-    es: ['Esta web no usa cookies. Solo guarda en tu navegador el idioma elegido y un identificador anónimo de la pestaña que se borra al cerrarla.', 'Privacidad', 'Entendido'],
-    en: ['This website uses no cookies. It only saves your chosen language in your browser and an anonymous tab identifier that is deleted when you close the tab.', 'Privacy', 'Got it'],
-    pt: ['Este site não usa cookies. Só guarda no seu navegador o idioma escolhido e um identificador anônimo da aba, apagado ao fechá-la.', 'Privacidade', 'Entendi'],
-    fr: ["Ce site n'utilise pas de cookies. Il enregistre seulement dans votre navigateur la langue choisie et un identifiant d'onglet anonyme, effacé à sa fermeture.", 'Confidentialité', 'Compris'],
-    de: ['Diese Website verwendet keine Cookies. Sie speichert in deinem Browser nur die gewählte Sprache und eine anonyme Tab-Kennung, die beim Schließen des Tabs gelöscht wird.', 'Datenschutz', 'Verstanden'],
-    it: ['Questo sito non usa cookie. Salva nel tuo browser solo la lingua scelta e un identificativo anonimo della scheda, cancellato alla sua chiusura.', 'Privacy', 'Ho capito'],
-    ja: ['このサイトは Cookie を使用しません。ブラウザーには選択した言語と、タブを閉じると消える匿名のタブ識別子だけを保存します。', 'プライバシー', 'OK'],
-    zh: ['本网站不使用 Cookie。只会在您的浏览器中保存所选语言，以及关闭标签页时即删除的匿名标签页标识符。', '隐私', '知道了']
+    es: ['Esta web no usa cookies. Solo guarda en tu navegador el idioma y el tema (claro u oscuro) elegidos y un identificador anónimo de la pestaña que se borra al cerrarla.', 'Privacidad', 'Entendido'],
+    en: ['This website uses no cookies. It only saves your chosen language and theme (light or dark) in your browser and an anonymous tab identifier that is deleted when you close the tab.', 'Privacy', 'Got it'],
+    pt: ['Este site não usa cookies. Só guarda no seu navegador o idioma e o tema (claro ou escuro) escolhidos e um identificador anônimo da aba, apagado ao fechá-la.', 'Privacidade', 'Entendi'],
+    fr: ["Ce site n'utilise pas de cookies. Il enregistre seulement dans votre navigateur la langue et le thème (clair ou sombre) choisis et un identifiant d'onglet anonyme, effacé à sa fermeture.", 'Confidentialité', 'Compris'],
+    de: ['Diese Website verwendet keine Cookies. Sie speichert in deinem Browser nur die gewählte Sprache und das Design (hell oder dunkel) sowie eine anonyme Tab-Kennung, die beim Schließen des Tabs gelöscht wird.', 'Datenschutz', 'Verstanden'],
+    it: ['Questo sito non usa cookie. Salva nel tuo browser solo la lingua e il tema (chiaro o scuro) scelti e un identificativo anonimo della scheda, cancellato alla sua chiusura.', 'Privacy', 'Ho capito'],
+    ja: ['このサイトは Cookie を使用しません。ブラウザーには選択した言語とテーマ（ライト/ダーク）、タブを閉じると消える匿名のタブ識別子だけを保存します。', 'プライバシー', 'OK'],
+    zh: ['本网站不使用 Cookie。只会在您的浏览器中保存所选语言和主题（浅色或深色），以及关闭标签页时即删除的匿名标签页标识符。', '隐私', '知道了']
   };
   function aviso() {
     if (robot || get('localStorage', 'ihtml-aviso-ok') || document.getElementById('ihtml-aviso')) return;
@@ -86,8 +133,8 @@
     var priv = document.querySelector('.legal-links a[href*="priva"]');
     var css = document.createElement('style');
     css.textContent =
-      '#ihtml-aviso{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:9999;box-sizing:border-box;width:calc(100% - 32px);max-width:620px;display:flex;align-items:center;gap:14px;padding:12px 14px 12px 18px;border-radius:16px;background:#1d1d1f;color:#f5f5f7;font:14px/1.45 Roboto,system-ui,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.25)}' +
-      '#ihtml-aviso p{margin:0;flex:1}#ihtml-aviso a{color:#ffb38a;text-decoration:underline}' +
+      '#ihtml-aviso{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:9999;box-sizing:border-box;width:calc(100% - 32px);max-width:620px;display:flex;align-items:center;gap:14px;padding:12px 14px 12px 18px;border-radius:16px;background:var(--island-bg,#1d1d1f);color:var(--island-ink,#f5f5f7);border:1px solid var(--island-line,transparent);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);font:14px/1.45 Roboto,system-ui,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.25)}' +
+      '#ihtml-aviso p{margin:0;flex:1}#ihtml-aviso a{color:var(--island-link,#ffb38a);text-decoration:underline}' +
       '#ihtml-aviso button{flex:none;border:0;border-radius:999px;padding:8px 16px;background:#f16529;color:#fff;font:600 14px Roboto,system-ui,sans-serif;cursor:pointer}' +
       '#ihtml-aviso button:focus-visible{outline:2px solid #fff;outline-offset:2px}' +
       '@media (max-width:520px){#ihtml-aviso{flex-direction:column;align-items:stretch;text-align:left}#ihtml-aviso button{width:100%}}';

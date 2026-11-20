@@ -32,7 +32,7 @@ nichts erfasst. Rechtsgrundlage: berechtigtes Interesse an der Kenntnis der
 zusammengefassten Nutzung der Website. Speicherdauer: **400 Tage**, danach
 automatische Löschung.
 
-**Was die Website in Ihrem Browser speichert.** Nur die gewählte Sprache (`localStorage`, damit die Website beim nächsten Mal in Ihrer Sprache öffnet) und die oben genannte Tab-Kennung (`sessionStorage`). Das sind keine Cookies, sie werden nie an uns gesendet, und Sie können sie in den Browsereinstellungen löschen. Ein kleiner Hinweis auf der Website erklärt das; dass Sie ihn geschlossen haben, wird ebenfalls in `localStorage` gespeichert.
+**Was die Website in Ihrem Browser speichert.** Nur die gewählte Sprache und das Design (hell oder dunkel) (`localStorage`, damit die Website beim nächsten Mal genauso öffnet) und die oben genannte Tab-Kennung (`sessionStorage`). Das sind keine Cookies, sie werden nie an uns gesendet, und Sie können sie in den Browsereinstellungen löschen. Ein kleiner Hinweis auf der Website erklärt das; dass Sie ihn geschlossen haben, wird ebenfalls in `localStorage` gespeichert.
 
 **Hosting.** Die Website wird bei **GitHub Pages** gehostet, die Statistik bei
 **Cloudflare**. Wie jeder Webserver können sie Ihre IP technisch und
