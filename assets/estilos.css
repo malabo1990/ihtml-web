@@ -953,6 +953,12 @@ main.guia {
   margin-top: 2px;
 }
 
+.plataforma small.plat-os {
+  margin-top: 4px;
+  font-size: 11.5px;
+  color: var(--ink-2);
+}
+
 .plataforma .btn {
   margin-top: 14px;
   padding: 8px 18px;

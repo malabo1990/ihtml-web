@@ -48,6 +48,13 @@ const T = {
     colSistema: 'System', colFormato: 'Format', colTam: 'Size', descargar: 'Download', tuSistema: 'your system',
     vacio: 'No versions have been published yet.',
     fmt: { exe: 'Installer (recommended)', msi: 'MSI package (IT / managed installs)', dmg: 'Apple Silicon + Intel', appimage: 'Portable, any distro', deb: 'Debian / Ubuntu / Mint', rpm: 'Fedora / openSUSE / RHEL', apk: 'Android 7+' },
+    reqTit: "Supported systems",
+    req: [
+      "<b>Windows:</b> Windows 10 and Windows 11, 64-bit (x64). It uses Microsoft Edge WebView2, already included in Windows 11 and up-to-date Windows 10; if it is missing, the installer downloads it. Windows 7 and 8 are not supported.",
+      "<b>macOS:</b> macOS 10.13 High Sierra or later, on Apple Silicon (M1, M2, M3, M4…) and Intel Macs.",
+      "<b>Linux:</b> 64-bit (x86_64) with WebKitGTK 4.1: Ubuntu 22.04 or later, Debian 12+, Linux Mint 21+, Fedora 38+, openSUSE, Arch and Manjaro.",
+      "<b>Android (IHTML Mirror):</b> Android 7.0 Nougat or later, on phones and tablets (ARM 64 and 32-bit, and x86)."
+    ],
     ayudaTit: 'Which one should I pick?',
     ayuda: [
       '<b>Windows:</b> the <code>.exe</code> installer is the simplest. The <code>.msi</code> is for companies that deploy software centrally.',
@@ -66,6 +73,13 @@ const T = {
     colSistema: 'Sistema', colFormato: 'Formato', colTam: 'Tamaño', descargar: 'Descargar', tuSistema: 'tu sistema',
     vacio: 'Todavía no hay versiones publicadas.', decimal: ',',
     fmt: { exe: 'Instalador (recomendado)', msi: 'Paquete MSI (empresas / IT)', dmg: 'Apple Silicon + Intel', appimage: 'Portable, cualquier distro', deb: 'Debian / Ubuntu / Mint', rpm: 'Fedora / openSUSE / RHEL', apk: 'Android 7+' },
+    reqTit: "Sistemas compatibles",
+    req: [
+      "<b>Windows:</b> Windows 10 y Windows 11 de 64 bits (x64). Usa Microsoft Edge WebView2, que ya viene en Windows 11 y en Windows 10 actualizado; si falta, el instalador lo descarga. Windows 7 y 8 no son compatibles.",
+      "<b>macOS:</b> macOS 10.13 High Sierra o posterior, en Mac con Apple Silicon (M1, M2, M3, M4…) e Intel.",
+      "<b>Linux:</b> 64 bits (x86_64) con WebKitGTK 4.1: Ubuntu 22.04 o posterior, Debian 12+, Linux Mint 21+, Fedora 38+, openSUSE, Arch y Manjaro.",
+      "<b>Android (IHTML Mirror):</b> Android 7.0 Nougat o posterior, en móviles y tabletas (ARM de 64 y 32 bits, y x86)."
+    ],
     ayudaTit: '¿Cuál elijo?',
     ayuda: [
       '<b>Windows:</b> el instalador <code>.exe</code> es lo más simple. El <code>.msi</code> es para empresas que instalan software de forma centralizada.',
@@ -84,6 +98,13 @@ const T = {
     colSistema: 'Sistema', colFormato: 'Formato', colTam: 'Tamanho', descargar: 'Baixar', tuSistema: 'seu sistema',
     vacio: 'Ainda não há versões publicadas.', decimal: ',',
     fmt: { exe: 'Instalador (recomendado)', msi: 'Pacote MSI (empresas / TI)', dmg: 'Apple Silicon + Intel', appimage: 'Portátil, qualquer distro', deb: 'Debian / Ubuntu / Mint', rpm: 'Fedora / openSUSE / RHEL', apk: 'Android 7+' },
+    reqTit: "Sistemas compatíveis",
+    req: [
+      "<b>Windows:</b> Windows 10 e Windows 11 de 64 bits (x64). Usa o Microsoft Edge WebView2, que já vem no Windows 11 e no Windows 10 atualizado; se faltar, o instalador o baixa. Windows 7 e 8 não são compatíveis.",
+      "<b>macOS:</b> macOS 10.13 High Sierra ou posterior, em Macs com Apple Silicon (M1, M2, M3, M4…) e Intel.",
+      "<b>Linux:</b> 64 bits (x86_64) com WebKitGTK 4.1: Ubuntu 22.04 ou posterior, Debian 12+, Linux Mint 21+, Fedora 38+, openSUSE, Arch e Manjaro.",
+      "<b>Android (IHTML Mirror):</b> Android 7.0 Nougat ou posterior, em celulares e tablets (ARM de 64 e 32 bits, e x86)."
+    ],
     ayudaTit: 'Qual eu escolho?',
     ayuda: [
       '<b>Windows:</b> o instalador <code>.exe</code> é o mais simples. O <code>.msi</code> é para empresas que instalam software de forma centralizada.',
@@ -102,6 +123,13 @@ const T = {
     colSistema: 'Système', colFormato: 'Format', colTam: 'Taille', descargar: 'Télécharger', tuSistema: 'votre système',
     vacio: 'Aucune version publiée pour le moment.', decimal: ',',
     fmt: { exe: 'Installateur (recommandé)', msi: 'Paquet MSI (entreprises / IT)', dmg: 'Apple Silicon + Intel', appimage: 'Portable, toute distribution', deb: 'Debian / Ubuntu / Mint', rpm: 'Fedora / openSUSE / RHEL', apk: 'Android 7+' },
+    reqTit: "Systèmes compatibles",
+    req: [
+      "<b>Windows :</b> Windows 10 et Windows 11 en 64 bits (x64). Utilise Microsoft Edge WebView2, déjà inclus dans Windows 11 et dans Windows 10 à jour ; s’il manque, l’installateur le télécharge. Windows 7 et 8 ne sont pas pris en charge.",
+      "<b>macOS :</b> macOS 10.13 High Sierra ou ultérieur, sur Mac Apple Silicon (M1, M2, M3, M4…) et Intel.",
+      "<b>Linux :</b> 64 bits (x86_64) avec WebKitGTK 4.1 : Ubuntu 22.04 ou ultérieur, Debian 12+, Linux Mint 21+, Fedora 38+, openSUSE, Arch et Manjaro.",
+      "<b>Android (IHTML Mirror) :</b> Android 7.0 Nougat ou ultérieur, sur téléphones et tablettes (ARM 64 et 32 bits, et x86)."
+    ],
     ayudaTit: 'Lequel choisir ?',
     ayuda: [
       '<b>Windows :</b> l’installateur <code>.exe</code> est le plus simple. Le <code>.msi</code> sert aux entreprises qui déploient les logiciels de façon centralisée.',
@@ -120,6 +148,13 @@ const T = {
     colSistema: 'System', colFormato: 'Format', colTam: 'Größe', descargar: 'Download', tuSistema: 'dein System',
     vacio: 'Noch keine Versionen veröffentlicht.', decimal: ',',
     fmt: { exe: 'Installer (empfohlen)', msi: 'MSI-Paket (Firmen / IT)', dmg: 'Apple Silicon + Intel', appimage: 'Portabel, jede Distribution', deb: 'Debian / Ubuntu / Mint', rpm: 'Fedora / openSUSE / RHEL', apk: 'Android 7+' },
+    reqTit: "Unterstützte Systeme",
+    req: [
+      "<b>Windows:</b> Windows 10 und Windows 11, 64 Bit (x64). Nutzt Microsoft Edge WebView2, das in Windows 11 und aktuellem Windows 10 bereits enthalten ist; fehlt es, lädt der Installer es herunter. Windows 7 und 8 werden nicht unterstützt.",
+      "<b>macOS:</b> macOS 10.13 High Sierra oder neuer, auf Macs mit Apple Silicon (M1, M2, M3, M4 …) und Intel.",
+      "<b>Linux:</b> 64 Bit (x86_64) mit WebKitGTK 4.1: Ubuntu 22.04 oder neuer, Debian 12+, Linux Mint 21+, Fedora 38+, openSUSE, Arch und Manjaro.",
+      "<b>Android (IHTML Mirror):</b> Android 7.0 Nougat oder neuer, auf Smartphones und Tablets (ARM 64 und 32 Bit sowie x86)."
+    ],
     ayudaTit: 'Welche Datei brauche ich?',
     ayuda: [
       '<b>Windows:</b> Der <code>.exe</code>-Installer ist am einfachsten. Das <code>.msi</code> ist für Firmen, die Software zentral verteilen.',
@@ -138,6 +173,13 @@ const T = {
     colSistema: 'Sistema', colFormato: 'Formato', colTam: 'Dimensione', descargar: 'Scarica', tuSistema: 'il tuo sistema',
     vacio: 'Non ci sono ancora versioni pubblicate.', decimal: ',',
     fmt: { exe: 'Installer (consigliato)', msi: 'Pacchetto MSI (aziende / IT)', dmg: 'Apple Silicon + Intel', appimage: 'Portatile, qualsiasi distro', deb: 'Debian / Ubuntu / Mint', rpm: 'Fedora / openSUSE / RHEL', apk: 'Android 7+' },
+    reqTit: "Sistemi compatibili",
+    req: [
+      "<b>Windows:</b> Windows 10 e Windows 11 a 64 bit (x64). Usa Microsoft Edge WebView2, già incluso in Windows 11 e in Windows 10 aggiornato; se manca, l’installer lo scarica. Windows 7 e 8 non sono supportati.",
+      "<b>macOS:</b> macOS 10.13 High Sierra o successivo, su Mac con Apple Silicon (M1, M2, M3, M4…) e Intel.",
+      "<b>Linux:</b> 64 bit (x86_64) con WebKitGTK 4.1: Ubuntu 22.04 o successivo, Debian 12+, Linux Mint 21+, Fedora 38+, openSUSE, Arch e Manjaro.",
+      "<b>Android (IHTML Mirror):</b> Android 7.0 Nougat o successivo, su smartphone e tablet (ARM a 64 e 32 bit, e x86)."
+    ],
     ayudaTit: 'Quale scelgo?',
     ayuda: [
       '<b>Windows:</b> l’installer <code>.exe</code> è il più semplice. Il <code>.msi</code> è per le aziende che distribuiscono software in modo centralizzato.',
@@ -156,6 +198,13 @@ const T = {
     colSistema: 'システム', colFormato: '形式', colTam: 'サイズ', descargar: 'ダウンロード', tuSistema: 'お使いのシステム',
     vacio: '公開されたバージョンはまだありません。',
     fmt: { exe: 'インストーラー(推奨)', msi: 'MSI パッケージ(企業・IT 向け)', dmg: 'Apple Silicon + Intel', appimage: 'ポータブル版(全ディストリ)', deb: 'Debian / Ubuntu / Mint', rpm: 'Fedora / openSUSE / RHEL', apk: 'Android 7 以降' },
+    reqTit: "対応システム",
+    req: [
+      "<b>Windows:</b> Windows 10 と Windows 11（64 ビット、x64）。Microsoft Edge WebView2 を使用します。Windows 11 と最新の Windows 10 には標準で含まれており、ない場合はインストーラーがダウンロードします。Windows 7 と 8 には対応していません。",
+      "<b>macOS:</b> macOS 10.13 High Sierra 以降。Apple シリコン（M1、M2、M3、M4…）と Intel の Mac に対応。",
+      "<b>Linux:</b> 64 ビット（x86_64）、WebKitGTK 4.1 が必要: Ubuntu 22.04 以降、Debian 12 以降、Linux Mint 21 以降、Fedora 38 以降、openSUSE、Arch、Manjaro。",
+      "<b>Android（IHTML Mirror）:</b> Android 7.0 Nougat 以降のスマートフォンとタブレット（ARM 64/32 ビット、x86）。"
+    ],
     ayudaTit: 'どれを選べばいい?',
     ayuda: [
       '<b>Windows:</b> <code>.exe</code> インストーラーがいちばん簡単です。<code>.msi</code> はソフトを一括配布する企業向けです。',
@@ -174,6 +223,13 @@ const T = {
     colSistema: '系统', colFormato: '格式', colTam: '大小', descargar: '下载', tuSistema: '你的系统',
     vacio: '暂无已发布的版本。',
     fmt: { exe: '安装程序(推荐)', msi: 'MSI 安装包(企业 / IT)', dmg: 'Apple Silicon + Intel', appimage: '便携版,适用所有发行版', deb: 'Debian / Ubuntu / Mint', rpm: 'Fedora / openSUSE / RHEL', apk: 'Android 7+' },
+    reqTit: "支持的系统",
+    req: [
+      "<b>Windows：</b>Windows 10 和 Windows 11（64 位，x64）。使用 Microsoft Edge WebView2，Windows 11 和已更新的 Windows 10 已自带；如果缺少，安装程序会自动下载。不支持 Windows 7 和 8。",
+      "<b>macOS：</b>macOS 10.13 High Sierra 或更高版本，支持 Apple 芯片（M1、M2、M3、M4…）和 Intel 的 Mac。",
+      "<b>Linux：</b>64 位（x86_64），需要 WebKitGTK 4.1：Ubuntu 22.04 或更高版本、Debian 12+、Linux Mint 21+、Fedora 38+、openSUSE、Arch 和 Manjaro。",
+      "<b>Android（IHTML Mirror）：</b>Android 7.0 Nougat 或更高版本的手机和平板（ARM 64 位和 32 位，以及 x86）。"
+    ],
     ayudaTit: '该选哪个?',
     ayuda: [
       '<b>Windows:</b><code>.exe</code> 安装程序最简单。<code>.msi</code> 适合集中部署软件的企业。',
@@ -306,6 +362,13 @@ ${alternates}
 
       <div id="dlLista" class="dl-lista" data-tag="${esc(tag)}">
 ${lista}
+      </div>
+
+      <div class="dl-ayuda dl-req" id="requisitos">
+        <h2>${esc(t.reqTit)}</h2>
+        <ul>
+${t.req.map((p) => `          <li>${p}</li>`).join('\n')}
+        </ul>
       </div>
 
       <div class="dl-ayuda">
