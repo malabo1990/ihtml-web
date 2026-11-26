@@ -1,5 +1,30 @@
 [
   {
+    "archivo": "showreel/obras/ihtml-store.html",
+    "ancho": 1280,
+    "alto": 760,
+    "titulo": {
+      "es": "IHTML STORE — Armario interactivo",
+      "en": "IHTML STORE — Interactive Wardrobe",
+      "pt": "IHTML STORE — Guarda-roupa interativo",
+      "fr": "IHTML STORE — Dressing interactif",
+      "de": "IHTML STORE — Interaktiver Kleiderschrank",
+      "it": "IHTML STORE — Guardaroba interattivo",
+      "ja": "IHTML STORE — インタラクティブ・ワードローブ",
+      "zh": "IHTML STORE — 互动衣橱商店"
+    },
+    "descripcion": {
+      "es": "Tienda de moda con armario fotorrealista a luz de día, filtros por categoría y color, ficha modal editorial, bolsa en vivo, tres idiomas (ES/EN/FR) y diseño responsive.",
+      "en": "A daylight fashion flagship with an interactive wardrobe rack, live category and color filters, editorial product modal, shopping bag, ES/EN/FR switcher and responsive layout.",
+      "pt": "Loja de moda com guarda-roupa fotorrealista à luz do dia, filtros por categoria e cor, modal editorial do produto, sacola ao vivo, três idiomas (ES/EN/FR) e layout responsivo.",
+      "fr": "Boutique de mode avec dressing photoréaliste à la lumière du jour, filtres par catégorie et couleur, fiche produit modale, panier en direct, trois langues (ES/EN/FR) et design responsive.",
+      "de": "Modegeschäft mit fotorealistischem Kleiderschrank bei Tageslicht, Kategorie- und Farbfiltern, Produkt-Modal, Warenkorb, drei Sprachen (ES/EN/FR) und Responsive-Layout.",
+      "it": "Boutique di moda con guardaroba fotorealistico a luce naturale, filtri per categoria e colore, modale editoriale del prodotto, borsa live, tre lingue (ES/EN/FR) e layout responsive.",
+      "ja": "自然光のブティックを舞台にしたインタラクティブ衣装ラック。カテゴリ・色フィルター、商品モーダル、ショッピングバッグ、3言語切替(ES/EN/FR)、レスポンシブ対応。",
+      "zh": "自然光精品店互动衣橱:支持品类与颜色实时筛选、时尚弹窗详情、颜色与尺码选择、实时购物袋、三语切换(ES/EN/FR)与响应式布局。"
+    }
+  },
+  {
     "archivo": "showreel/obras/grua-gt270.html",
     "ancho": 1280,
     "alto": 720,

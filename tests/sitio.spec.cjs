@@ -252,6 +252,7 @@ const SR = { en: 'showreel.html' };
 for (const l of ['es', 'pt', 'fr', 'de', 'it', 'ja', 'zh']) SR[l] = l + (l === 'es' ? '/galeria.html' : '/showreel.html');
 // "Showreel" solo en inglés; cada idioma usa su palabra.
 const NOMBRE = { en: 'Showreel', es: 'Galería', pt: 'Galeria', fr: 'Galerie', de: 'Galerie', it: 'Galleria', ja: '作品集', zh: '作品集' };
+const OBRAS_COUNT = require('../content/showreel/obras.json').length;
 
 test.describe('showreel: menú y página', () => {
   for (const [lang, p] of Object.entries(LANGS)) {
@@ -269,14 +270,14 @@ test.describe('showreel: menú y página', () => {
       await expect(page).toHaveTitle(new RegExp('^' + NOMBRE[lang]));
     });
 
-    test(`${lang}: 6 obras vivas, escaladas enteras en su marco`, async ({ page }) => {
+    test(`${lang}: ${OBRAS_COUNT} obras vivas, escaladas enteras en su marco`, async ({ page }) => {
       const errs = sinErrores(page);
       await red(page, 'down');
       await page.goto(SR[lang]);
       await expect(page.locator('html')).toHaveAttribute('lang', lang);
       const obras = page.locator('.sr-obra');
-      await expect(obras).toHaveCount(6);
-      for (let i = 0; i < 6; i++) {
+      await expect(obras).toHaveCount(OBRAS_COUNT);
+      for (let i = 0; i < OBRAS_COUNT; i++) {
         const o = obras.nth(i);
         await o.scrollIntoViewIfNeeded();
         await expect(o.locator('h2')).not.toBeEmpty();
